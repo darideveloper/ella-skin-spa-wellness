@@ -1,4 +1,8 @@
 ---
+// Fonts
+import '@fontsource-variable/playfair-display'
+import '@fontsource-variable/dm-sans'
+
 // import tailwind css
 import "../styles/global.css";
 ---
@@ -12,7 +16,9 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class:list={["bg-gradient-to-br from-white to-pink-light"]}>
-		<slot />
+	<body class:list={["bg-gradient-to-br from-white to-pink-light", 'font-sans']}>
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>

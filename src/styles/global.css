@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-  /* --font-title: 'Oswald Variable', 'sans-serif';
-    --font-sans: 'Urbanist Variable', 'sans-serif'; */
+  --font-title: 'Playfair Display Variable', serif;
+  --font-sans: 'DM Sans Variable', sans-serif;
   --color-white: #f2ede9;
   --color-brown: #96591a;
   --color-brown-light: #bf9c80;
