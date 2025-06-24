@@ -1,0 +1,20 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+---
+
+<Layout>
+	<Welcome />
+	<h1 class:list={["text-3xl", "text-orange-500"]}>
+		{t("hero.title")}
+	</h1>
+</Layout>

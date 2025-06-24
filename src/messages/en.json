@@ -1,0 +1,28 @@
+{
+    "general": {
+    },
+    "header": {
+
+    },
+    "nav": {
+        "links": {
+            "home": "Home",
+            "about": "About Us",
+            "testimonials": "Testimonials",
+            "services": "Services",
+            "transportation": "Transportation"
+        }
+    },
+    "footer": {
+    },
+    "meta": {
+        "home": {
+            "page": "Home Page Title",
+            "description": "Home Page Description",
+            "keywords": "Home Page Keywords"
+        }
+    },
+    "hero": {
+        "title": "Hero Title"
+    }
+}
