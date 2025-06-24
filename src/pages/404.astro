@@ -5,9 +5,26 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <div class='container'>
+  <div
+    class:list={[
+      'container',
+      'h-[100vh]',
+      'flex',
+      'flex-col',
+      'justify-center',
+      'items-center',
+      '!my-0',
+    ]}
+  >
+    <a href='/' class:list={["hover:-translate-y-1", "duration-300"]}>
+      <img
+        src='/imgs/logo.webp'
+        alt='Logo Ella Skin & Spa Wellness'
+        class:list={['w-40', 'mb-12']}
+      />
+    </a>
     <h1>Page Not Found</h1>
-    <p>
+    <p class:list={['text-center']}>
       The page you are looking for does not exist. You can go back to the
       <a
         href='/'
