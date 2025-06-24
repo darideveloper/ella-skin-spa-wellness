@@ -2,9 +2,6 @@
 // Components
 import Layout from '../layouts/Layout.astro'
 // import Title from '../components/ui/Title.astro'
-
-// Libs
-import { clsx } from 'clsx'
 ---
 
 <Layout>
@@ -14,9 +11,10 @@ import { clsx } from 'clsx'
       The page you are looking for does not exist. You can go back to the
       <a
         href='/'
-        class={clsx('text-blue')}
-        >home page</a
-      >.
+        class:list={['text-brown']}
+      >
+        home page
+      </a>.
     </p>
   </div>
 </Layout>

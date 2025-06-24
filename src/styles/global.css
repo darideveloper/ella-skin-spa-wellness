@@ -1,1 +1,85 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  /* --font-title: 'Oswald Variable', 'sans-serif';
+    --font-sans: 'Urbanist Variable', 'sans-serif'; */
+  --color-white: #f2ede9;
+  --color-brown: #96591a;
+  --color-brown-light: #bf9c80;
+  --color-pink: #dbbcb9;
+  --color-pink-light: #ebd0bf;
+  --color-black: #381e04;
+}
+
+.container {
+  margin: 8rem auto;
+  max-width: 13500px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Custom scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown-light);
+}
+
+/* Markdown global styles */
+.md-content ul {
+  margin-bottom: 1.5rem;
+}
+
+.md-content li {
+  list-style-type: square;
+  margin-left: 1.5rem;
+}
+
+/* Swiper styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-white) !important;
+  background-color: var(--color-brown) !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  transition-duration: 0.2s !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--color-brown-light) !important;
+  color: var(--color-white) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 15px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-brown) !important;
+}
