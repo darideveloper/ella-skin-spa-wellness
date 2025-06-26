@@ -1,0 +1,19 @@
+---
+const { src, alt, href, className = "" } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer">
+  <img
+    src={src}
+    alt={alt}
+    class:list={[
+      "w-full",
+      "rounded-xl",
+      "shadow-lg",
+      "transition-transform",
+      "duration-300",
+      "hover:scale-105",
+      className,
+    ]}
+  />
+</a>

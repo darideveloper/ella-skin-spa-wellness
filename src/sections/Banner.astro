@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ImageLink from "../components/ImageLink.astro";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import Swiper from "swiper";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+
+const images = [
+  { src: "/imgs/gallery/img1.jpg", alt: "Banner 1", href: "#" },
+  { src: "/imgs/gallery/img2.jpg", alt: "Banner 2", href: "#" },
+  { src: "/imgs/gallery/img3.jpg", alt: "Banner 3", href: "#" },
+];
+---
+
+
+  <section
+    class:list={[
+      "container",
+      "mx-auto",
+      "px-4",
+      "py-10",
+      "!max-w-4xl",
+      "banner-slider",
+    ]}
+    id="banner-slider-uno"
+  >
+    <div class:list={["swiper"]}>
+      <div class:list={["swiper-wrapper"]}>
+        {
+          images.map((img) => (
+            <div
+              class:list={[
+                "swiper-slide",
+                "flex",
+                "items-center",
+                "justify-center",
+                "py-6",
+              ]}
+            >
+              <ImageLink {...img} className="mx-auto max-h-96 object-cover" />
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination mt-6"></div>
+    </div>
+  </section>
+
+  <script type="module">
+    import { initSwiper } from "/src/components/swiper.js";
+    initSwiper();
+  </script>
