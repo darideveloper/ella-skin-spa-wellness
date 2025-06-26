@@ -23,7 +23,6 @@ const { images, class:className = "" } = Astro.props;
     "container",
     "mx-auto",
     "px-4",
-    "py-10",
     "banner-slider",
     className,
   ]}
@@ -55,7 +54,7 @@ const { images, class:className = "" } = Astro.props;
   import Swiper from 'swiper';
   import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 
-  const bannerSwiper = new Swiper('.banner-slider .swiper', {
+    new Swiper('.banner-slider .swiper', {
     modules: [Autoplay, EffectFade, Navigation, Pagination],
     loop: true,
     effect: 'fade',

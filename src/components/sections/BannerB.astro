@@ -22,7 +22,6 @@ const { images, class:className = ""  } = Astro.props;
     "container",
     "mx-auto",
     "px-4",
-    "py-10",
     "banner3-slider",
     className,
   ]}
@@ -37,7 +36,6 @@ const { images, class:className = ""  } = Astro.props;
             >
               <ImageLink
                 {...img}
-                class="mx-auto h-64 object-cover w-full rounded-lg"
               />
             </div>
           </div>
@@ -54,7 +52,7 @@ const { images, class:className = ""  } = Astro.props;
   import Swiper from "swiper";
   import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-  const banner3Swiper = new Swiper(".banner3-slider .swiper", {
+    new Swiper(".banner3-slider .swiper", {
     modules: [Autoplay, Navigation, Pagination],
     loop: true,
     slidesPerView: 3,
