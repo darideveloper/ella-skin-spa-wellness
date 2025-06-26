@@ -7,9 +7,10 @@ export interface Props {
   icon: string;
   gradient: string;
   colSpan?: string;
+  isDark?: boolean;
 }
 
-const { title, description, icon, gradient, colSpan = '' } = Astro.props;
+const { title, description, icon, gradient, colSpan = '', isDark = false } = Astro.props;
 
 // Icon mapping
 const icons = {
@@ -24,11 +25,10 @@ const selectedIcon = icons[icon as keyof typeof icons] || icons.heart;
 
 <div
   class:list={[
-    'bg-white',
+    isDark ? 'bg-gradient-to-br from-brown to-brown-light text-white' : 'bg-white border border-pink/20',
     'rounded-2xl',
     'p-8',
     'shadow-lg',
-    'border border-pink/20',
     'hover:shadow-xl',
     'transition-all duration-300',
     'transform hover:-translate-y-2',
@@ -39,7 +39,7 @@ const selectedIcon = icons[icon as keyof typeof icons] || icons.heart;
     class:list={[
       'w-16',
       'h-16',
-      gradient,
+      isDark ? 'bg-white/20' : gradient,
       'rounded-full',
       'flex items-center justify-center',
       'mb-6',
@@ -58,14 +58,18 @@ const selectedIcon = icons[icon as keyof typeof icons] || icons.heart;
     class:list={[
       'text-2xl',
       'font-title',
-      'text-brown',
+      isDark ? 'text-white' : 'text-brown',
       'mb-4',
       'text-center',
     ]}
   >
     {title}
   </h3>
-  <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+  <p class:list={[
+    'font-sans', 
+    'leading-relaxed',
+    isDark ? 'text-white opacity-90' : 'text-black'
+  ]}>
     {description}
   </p>
 </div> 

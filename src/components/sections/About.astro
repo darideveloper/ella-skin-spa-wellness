@@ -90,49 +90,14 @@ const experienceCard = {
       ))}
 
       <!-- Experience Card -->
-      <div
-        class:list={[
-          'bg-gradient-to-br from-brown to-brown-light',
-          'rounded-2xl',
-          'p-8',
-          'shadow-lg',
-          'text-white',
-          'md:col-span-2 lg:col-span-2',
-        ]}
-      >
-        <div class:list={['flex items-center', 'mb-6']}>
-          <div
-            class:list={[
-              'w-16',
-              'h-16',
-              'bg-white/20',
-              'rounded-full',
-              'flex items-center justify-center',
-              'mr-6',
-            ]}
-          >
-            <svg
-              class:list={['w-8', 'h-8', 'text-white']}
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z'
-              ></path>
-            </svg>
-          </div>
-          <h3 class:list={['text-3xl', 'font-title']}>{experienceCard.title}</h3>
-        </div>
-        <p
-          class:list={['text-lg', 'font-sans', 'leading-relaxed', 'opacity-90']}
-        >
-          {experienceCard.description}
-        </p>
-      </div>
+      <AboutCard
+        title={experienceCard.title}
+        description={experienceCard.description}
+        icon={experienceCard.icon}
+        gradient="bg-gradient-to-br from-brown to-brown-light"
+        colSpan="md:col-span-2 lg:col-span-2"
+        isDark={true}
+      />
     </div>
   </div>
 </section>
