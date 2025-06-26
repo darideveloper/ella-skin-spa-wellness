@@ -2,51 +2,67 @@
 // About.astro - Card-based Layout Design
 import AboutCard from '../ui/AboutCard.astro';
 
-export interface Props {
-  title?: string;
-  subtitle?: string;
-}
-
-const { 
-  title = "ELLA SKIN & SPA WELLNESS",
-  subtitle = "Descubre el bienestar integral"
-} = Astro.props;
+// Data
+const title = "ELLA SKIN & SPA WELLNESS";
 
 // Card data
-const cards = [
+type CardData = {
+  title: string;
+  description: string;
+  icon: string;
+  iconBg: string;
+  isDark: boolean;
+  align: string;
+  class: string;
+}
+
+const cardsData: CardData[] = [
   {
     title: "Nuestra Misión",
     description: "En ELLA SKIN & SPA WELLNESS, misión es guiarte hacia el bienestar integral y la belleza.",
     icon: "check",
-    gradient: "bg-gradient-to-br from-brown to-brown-light"
+    iconBg: "bg-gradient-to-br from-brown to-brown-light",
+    isDark: false,
+    align: 'center',
+    class: '',
   },
   {
     title: "Tecnología Avanzada",
     description: "He creado un espacio donde la tecnología de vanguardia y la calidez humana se fusionan para ofrecerte una experiencia de spa única y personalizada.",
     icon: "lightbulb",
-    gradient: "bg-gradient-to-br from-pink to-pink-light"
+    iconBg: "bg-gradient-to-br from-pink to-pink-light",
+    isDark: false,
+    align: 'center',
+    class: '',
   },
   {
     title: "Equipo Especializado",
     description: "Cuento con un equipo de especialistas apasionados que se dedican a salud y belleza, utilizando productos de alta calidad y técnicas avanzadas.",
     icon: "users",
-    gradient: "bg-gradient-to-br from-brown-light to-brown"
+    iconBg: "bg-gradient-to-br from-brown-light to-brown",
+    isDark: false,
+    align: 'center',
+    class: '',
   },
   {
     title: "Tu Bienestar",
     description: "Descubre un lugar para desconectar y reconectar contigo mismo. En ELLA SKIN & SPA WELLNESS, bienestar es mi prioridad.",
     icon: "heart",
-    gradient: "bg-gradient-to-br from-pink-light to-pink",
-    colSpan: "md:col-span-2 lg:col-span-1"
+    iconBg: "bg-gradient-to-br from-pink-light to-pink",
+    isDark: false,
+    align: 'center',
+    class: "md:col-span-2 lg:col-span-1",
+  },
+  {
+    title: "Experiencia Única",
+    description: "Cada visita a ELLA SKIN & SPA WELLNESS es una experiencia personalizada diseñada para tu bienestar integral. Nuestro compromiso es brindarte el cuidado que mereces en un ambiente de tranquilidad y excelencia.",
+    icon: "star",
+    iconBg: "bg-white/80",
+    isDark: true,
+    align: 'left',
+    class: "md:col-span-2 lg:col-span-2",
   }
 ];
-
-// Experience card data
-const experienceCard = {
-  title: "Experiencia Única",
-  description: "Cada visita a ELLA SKIN & SPA WELLNESS es una experiencia personalizada diseñada para tu bienestar integral. Nuestro compromiso es brindarte el cuidado que mereces en un ambiente de tranquilidad y excelencia.",
-  icon: "star"
-};
 ---
 
 <section
@@ -79,25 +95,17 @@ const experienceCard = {
       ]}
     >
       <!-- Dynamic Cards -->
-      {cards.map((card) => (
+      {cardsData.map((cardData: CardData) => (
         <AboutCard
-          title={card.title}
-          description={card.description}
-          icon={card.icon}
-          gradient={card.gradient}
-          colSpan={card.colSpan}
+          title={cardData.title}
+          description={cardData.description}
+          icon={cardData.icon}
+          iconBg={cardData.iconBg}
+          isDark={cardData.isDark}
+          align={cardData.align as 'center' | 'left'}
+          class={cardData.class}
         />
       ))}
-
-      <!-- Experience Card -->
-      <AboutCard
-        title={experienceCard.title}
-        description={experienceCard.description}
-        icon={experienceCard.icon}
-        gradient="bg-gradient-to-br from-brown to-brown-light"
-        colSpan="md:col-span-2 lg:col-span-2"
-        isDark={true}
-      />
     </div>
   </div>
 </section>
