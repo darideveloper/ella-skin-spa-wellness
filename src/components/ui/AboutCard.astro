@@ -1,39 +1,53 @@
 ---
-// AboutCard.astro - Reusable card component for About section
-import { HiHeart, HiLightBulb, HiUsers, HiStar } from 'react-icons/hi';
+// Icons
+import { HiHeart, HiLightBulb, HiUsers, HiStar } from 'react-icons/hi'
 
+// Props
 export interface Props {
-  title: string;
-  description: string;
-  icon: string;
-  gradient: string;
-  colSpan?: string;
-  isDark?: boolean;
+  title: string
+  description: string
+  icon: string
+  gradient: string
+  colSpan?: string
+  isDark?: boolean
+  class?: string
 }
 
-const { title, description, icon, gradient, colSpan = '', isDark = false } = Astro.props;
+const {
+  title,
+  description,
+  icon,
+  gradient,
+  colSpan = '',
+  isDark = false,
+  class: className = '',
+} = Astro.props
 
-// Icon mapping using React Icons
+// Component icon options
 const icons = {
   heart: HiHeart,
   lightbulb: HiLightBulb,
   users: HiUsers,
-  star: HiStar
-};
+  star: HiStar,
+}
 
-const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart;
+const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart
 ---
 
 <div
   class:list={[
-    isDark ? 'bg-gradient-to-br from-brown to-brown-light text-white' : 'bg-white border border-pink/20',
+    isDark
+      ? 'bg-gradient-to-br from-brown to-brown-light text-white'
+      : 'bg-white border border-pink/20',
     'rounded-2xl',
     'p-8',
-    'shadow-lg',
-    'hover:shadow-xl',
-    'transition-all duration-300',
-    'transform hover:-translate-y-2',
+    'shadow-lg hover:shadow-xl',
+    'transition-all',
+    'duration-300',
+    'hover:-translate-y-2',
+    'group',
     colSpan,
+    className,
   ]}
 >
   <div
@@ -47,7 +61,16 @@ const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart;
       'mx-auto',
     ]}
   >
-    <SelectedIcon className="w-8 h-8 text-white" />
+    <span
+      class:list={[
+        'text-3xl group-hover:text-5xl',
+        'text-white',
+        'duration-700',
+        'group-hover:rotate-[360deg]',
+      ]}
+    >
+      <SelectedIcon />
+    </span>
   </div>
   <h3
     class:list={[
@@ -60,11 +83,12 @@ const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart;
   >
     {title}
   </h3>
-  <p class:list={[
-    'font-sans', 
-    'leading-relaxed',
-    isDark ? 'text-white opacity-90' : 'text-black'
-  ]}>
+  <p
+    class:list={[
+      'leading-relaxed',
+      isDark ? 'text-white opacity-90' : 'text-black',
+    ]}
+  >
     {description}
   </p>
-</div> 
+</div>
