@@ -24,7 +24,6 @@ const { images, class:className = "" } = Astro.props;
     "mx-auto",
     "px-4",
     "py-10",
-    "!max-w-4xl",
     "banner-slider",
     className,
   ]}
@@ -32,14 +31,13 @@ const { images, class:className = "" } = Astro.props;
   <div class:list={["swiper", "relative"]}>
     <div class:list={["swiper-wrapper"]}>
       {
-        images.map((img, index) => (
+        images.map((img) => (
           <div
             class:list={[
               "swiper-slide",
               "flex",
               "items-center",
               "justify-center",
-              "py-6",
             ]}
           >
             <ImageLink {...img} class="mx-auto max-h-96 object-cover w-full" />
