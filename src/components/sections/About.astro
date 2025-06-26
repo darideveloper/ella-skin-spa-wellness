@@ -1,0 +1,342 @@
+---
+// AboutB.astro - Card-based Layout Design
+---
+
+<section
+  class:list={['py-20', 'bg-gradient-to-b', 'from-white', 'to-pink-light']}
+>
+  <div class:list={['container', 'mx-auto', 'px-6']}>
+    <!-- Header Section -->
+    <div class:list={['text-center', 'mb-16']}>
+      <h1
+        class:list={[
+          'text-5xl',
+          'md:text-6xl',
+          'font-title',
+          'text-brown',
+          'mb-6',
+        ]}
+      >
+        ELLA SKIN & SPA WELLNESS
+      </h1>
+      <div class:list={['w-24', 'h-1', 'bg-brown', 'mx-auto']}></div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div
+      class:list={[
+        'grid',
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+        'gap-8',
+        'max-w-7xl',
+        'mx-auto',
+      ]}
+    >
+      <!-- Mission Card -->
+      <div
+        class:list={[
+          'bg-white',
+          'rounded-2xl',
+          'p-8',
+          'shadow-lg',
+          'border',
+          'border-pink/20',
+          'hover:shadow-xl',
+          'transition-all',
+          'duration-300',
+          'transform',
+          'hover:-translate-y-2',
+        ]}
+      >
+        <div
+          class:list={[
+            'w-16',
+            'h-16',
+            'bg-gradient-to-br',
+            'from-brown',
+            'to-brown-light',
+            'rounded-full',
+            'flex',
+            'items-center',
+            'justify-center',
+            'mb-6',
+            'mx-auto',
+          ]}
+        >
+          <svg
+            class:list={['w-8', 'h-8', 'text-white']}
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class:list={[
+            'text-2xl',
+            'font-title',
+            'text-brown',
+            'mb-4',
+            'text-center',
+          ]}
+        >
+          Nuestra Misión
+        </h3>
+        <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+          En ELLA SKIN & SPA WELLNESS, misión es guiarte hacia el bienestar
+          integral y la belleza.
+        </p>
+      </div>
+
+      <!-- Technology Card -->
+      <div
+        class:list={[
+          'bg-white',
+          'rounded-2xl',
+          'p-8',
+          'shadow-lg',
+          'border',
+          'border-pink/20',
+          'hover:shadow-xl',
+          'transition-all',
+          'duration-300',
+          'transform',
+          'hover:-translate-y-2',
+        ]}
+      >
+        <div
+          class:list={[
+            'w-16',
+            'h-16',
+            'bg-gradient-to-br',
+            'from-pink',
+            'to-pink-light',
+            'rounded-full',
+            'flex',
+            'items-center',
+            'justify-center',
+            'mb-6',
+            'mx-auto',
+          ]}
+        >
+          <svg
+            class:list={['w-8', 'h-8', 'text-white']}
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class:list={[
+            'text-2xl',
+            'font-title',
+            'text-brown',
+            'mb-4',
+            'text-center',
+          ]}
+        >
+          Tecnología Avanzada
+        </h3>
+        <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+          He creado un espacio donde la tecnología de vanguardia y la calidez
+          humana se fusionan para ofrecerte una experiencia de spa única y
+          personalizada.
+        </p>
+      </div>
+
+      <!-- Team Card -->
+      <div
+        class:list={[
+          'bg-white',
+          'rounded-2xl',
+          'p-8',
+          'shadow-lg',
+          'border',
+          'border-pink/20',
+          'hover:shadow-xl',
+          'transition-all',
+          'duration-300',
+          'transform',
+          'hover:-translate-y-2',
+        ]}
+      >
+        <div
+          class:list={[
+            'w-16',
+            'h-16',
+            'bg-gradient-to-br',
+            'from-brown-light',
+            'to-brown',
+            'rounded-full',
+            'flex',
+            'items-center',
+            'justify-center',
+            'mb-6',
+            'mx-auto',
+          ]}
+        >
+          <svg
+            class:list={['w-8', 'h-8', 'text-white']}
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z'
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class:list={[
+            'text-2xl',
+            'font-title',
+            'text-brown',
+            'mb-4',
+            'text-center',
+          ]}
+        >
+          Equipo Especializado
+        </h3>
+        <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+          Cuento con un equipo de especialistas apasionados que se dedican a
+          salud y belleza, utilizando productos de alta calidad y técnicas
+          avanzadas.
+        </p>
+      </div>
+
+      <!-- Wellness Card -->
+      <div
+        class:list={[
+          'bg-white',
+          'rounded-2xl',
+          'p-8',
+          'shadow-lg',
+          'border',
+          'border-pink/20',
+          'hover:shadow-xl',
+          'transition-all',
+          'duration-300',
+          'transform',
+          'hover:-translate-y-2',
+          'md:col-span-2',
+          'lg:col-span-1',
+        ]}
+      >
+        <div
+          class:list={[
+            'w-16',
+            'h-16',
+            'bg-gradient-to-br',
+            'from-pink-light',
+            'to-pink',
+            'rounded-full',
+            'flex',
+            'items-center',
+            'justify-center',
+            'mb-6',
+            'mx-auto',
+          ]}
+        >
+          <svg
+            class:list={['w-8', 'h-8', 'text-white']}
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class:list={[
+            'text-2xl',
+            'font-title',
+            'text-brown',
+            'mb-4',
+            'text-center',
+          ]}
+        >
+          Tu Bienestar
+        </h3>
+        <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+          Descubre un lugar para desconectar y reconectar contigo mismo. En ELLA
+          SKIN & SPA WELLNESS, bienestar es mi prioridad.
+        </p>
+      </div>
+
+      <!-- Experience Card -->
+      <div
+        class:list={[
+          'bg-gradient-to-br',
+          'from-brown',
+          'to-brown-light',
+          'rounded-2xl',
+          'p-8',
+          'shadow-lg',
+          'text-white',
+          'md:col-span-2',
+          'lg:col-span-2',
+        ]}
+      >
+        <div class:list={['flex', 'items-center', 'mb-6']}>
+          <div
+            class:list={[
+              'w-16',
+              'h-16',
+              'bg-white/20',
+              'rounded-full',
+              'flex',
+              'items-center',
+              'justify-center',
+              'mr-6',
+            ]}
+          >
+            <svg
+              class:list={['w-8', 'h-8', 'text-white']}
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z'
+              ></path>
+            </svg>
+          </div>
+          <h3 class:list={['text-3xl', 'font-title']}>Experiencia Única</h3>
+        </div>
+        <p
+          class:list={['text-lg', 'font-sans', 'leading-relaxed', 'opacity-90']}
+        >
+          Cada visita a ELLA SKIN & SPA WELLNESS es una experiencia
+          personalizada diseñada para tu bienestar integral. Nuestro compromiso
+          es brindarte el cuidado que mereces en un ambiente de tranquilidad y
+          excelencia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
