@@ -1,0 +1,71 @@
+---
+// AboutCard.astro - Reusable card component for About section
+
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  gradient: string;
+  colSpan?: string;
+}
+
+const { title, description, icon, gradient, colSpan = '' } = Astro.props;
+
+// Icon mapping
+const icons = {
+  heart: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>`,
+  lightbulb: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>`,
+  users: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>`,
+  star: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>`
+};
+
+const selectedIcon = icons[icon as keyof typeof icons] || icons.heart;
+---
+
+<div
+  class:list={[
+    'bg-white',
+    'rounded-2xl',
+    'p-8',
+    'shadow-lg',
+    'border border-pink/20',
+    'hover:shadow-xl',
+    'transition-all duration-300',
+    'transform hover:-translate-y-2',
+    colSpan,
+  ]}
+>
+  <div
+    class:list={[
+      'w-16',
+      'h-16',
+      gradient,
+      'rounded-full',
+      'flex items-center justify-center',
+      'mb-6',
+      'mx-auto',
+    ]}
+  >
+    <svg
+      class:list={['w-8', 'h-8', 'text-white']}
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      set:html={selectedIcon}
+    />
+  </div>
+  <h3
+    class:list={[
+      'text-2xl',
+      'font-title',
+      'text-brown',
+      'mb-4',
+      'text-center',
+    ]}
+  >
+    {title}
+  </h3>
+  <p class:list={['text-black', 'font-sans', 'leading-relaxed']}>
+    {description}
+  </p>
+</div> 
