@@ -1,0 +1,78 @@
+---
+import ImageLink from "../../components/ImageLink.astro";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+export interface Props {
+  images: Array<{
+    src: string;
+    href: string;
+  }>;
+  class?: string;
+}
+
+const { images, class:className = "" } = Astro.props;
+---
+
+<section
+  class:list={[
+    "container",
+    "mx-auto",
+    "px-4",
+    "py-10",
+    "banner-slider",
+    className,
+  ]}
+>
+  <div class:list={["swiper", "relative"]}>
+    <div class:list={["swiper-wrapper"]}>
+      {
+        images.map((img) => (
+          <div
+            class:list={[
+              "swiper-slide",
+              "flex",
+              "items-center",
+              "justify-center",
+            ]}
+          >
+            <ImageLink {...img} class="mx-auto max-h-96 object-cover w-full" />
+          </div>
+        ))
+      }
+    </div>
+    <div class:list={["swiper-button-prev"]}></div>
+    <div class:list={["swiper-button-next"]}></div>
+    <div class:list={["swiper-pagination", "mt-6"]}></div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
+
+  const bannerSwiper = new Swiper('.banner-slider .swiper', {
+    modules: [Autoplay, EffectFade, Navigation, Pagination],
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.banner-slider .swiper-button-next',
+      prevEl: '.banner-slider .swiper-button-prev',
+    },
+    pagination: {
+      el: '.banner-slider .swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
