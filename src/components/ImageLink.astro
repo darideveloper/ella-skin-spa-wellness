@@ -2,10 +2,10 @@
 export interface Props {
   src: string;
   href: string;
-  className?: string;
+  class?: string;
 }
 
-const { src, href, className = "" } = Astro.props;
+const { src, href, class:className = "" } = Astro.props;
 ---
 
 <a
