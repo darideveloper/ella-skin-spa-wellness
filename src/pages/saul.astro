@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Banner from "../sections/Banner.astro";
-import Banner3 from "../sections/Banner3.astro";
+import Banner from "../components/sections/Banner.astro";
+import BannerB from "../components/sections/BannerB.astro";
 
 const bannerImages = [
   { src: "/imgs/gallery/img1.jpg", href: "#" },
@@ -20,7 +20,7 @@ const galleryImages = [
 
 <Layout>
   <main>
-    <Banner images={bannerImages} className="" />
-    <Banner3 images={galleryImages} className="" />
+    <Banner images={bannerImages} class="" />
+    <BannerB images={galleryImages} class="" />
   </main>
 </Layout>
