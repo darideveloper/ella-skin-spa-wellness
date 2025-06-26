@@ -1,0 +1,32 @@
+---
+export interface Props {
+  src: string;
+  href: string;
+  class?: string;
+}
+
+const { src, href, class:className = "" } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={["block", "overflow-hidden"]}
+>
+  <img
+    src={src}
+    loading="lazy"
+    class:list={[
+      "w-full",
+      "h-full",
+      "rounded-xl",
+      "shadow-lg",
+      "transition-transform",
+      "duration-300",
+      "hover:scale-105",
+      "object-cover",
+      className,
+    ]}
+  />
+</a>
