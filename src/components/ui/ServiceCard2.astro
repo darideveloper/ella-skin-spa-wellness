@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  imgSrc: string;
+  imgAlt: string;
+  text: string;
+  class?: string;
+}
+
+const {
+  title,
+  imgSrc,
+  imgAlt,
+  text,
+  class: className = "",
+} = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "bg-white",
+    "w-[700px] h-[300px]",
+    "flex",
+    "flex-row",
+    "justify-center",
+    "items-center",
+    "p-12",
+    "rounded-3xl",
+    className,
+  ]}
+>
+  <div class:list={["rotate-90", "gap-5", "text-end", "flex", "flex-col"]}>
+    <div
+      class:list={[
+        "w-55 h-55",
+        "rounded-tl-[70%] rounded-bl-[5px] rounded-tr-[10px] rounded-br-[10px]",
+        "overflow-hidden",
+        "rotate-180",
+      ]}
+    >
+      <img
+        src={imgSrc}
+        alt={imgAlt}
+        class:list={["w-full", "h-full", "object-cover", "rotate-90"]}
+      />
+    </div>
+
+    <!-- ✅ Quitamos rotación aquí -->
+    <div class:list={["w-[130px]"]}>
+      <h3
+        class:list={[
+          "font-title",
+          "text-[16px]",
+          "tracking-[2px]",
+          "text-end",
+          "rotate-180"
+        ]}
+      >
+        {title}
+      </h3>
+    </div>
+  </div>
+
+  <div class:list={["text-[11px]", "ml-16"]}>
+    <p>{text}</p>
+  </div>
+</div>
