@@ -12,10 +12,10 @@ export interface Props {
     src: string;
     href: string;
   }>;
-  className?: string;
+  class?: string;
 }
 
-const { images, className = "" } = Astro.props;
+const { images, class:className = "" } = Astro.props;
 ---
 
 <section
