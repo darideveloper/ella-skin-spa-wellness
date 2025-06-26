@@ -23,7 +23,6 @@ const { images, class:className = ""  } = Astro.props;
     "mx-auto",
     "px-4",
     "py-10",
-    "!max-w-6xl",
     "banner3-slider",
     className,
   ]}
@@ -38,7 +37,7 @@ const { images, class:className = ""  } = Astro.props;
             >
               <ImageLink
                 {...img}
-                className="mx-auto h-64 object-cover w-full rounded-lg"
+                class="mx-auto h-64 object-cover w-full rounded-lg"
               />
             </div>
           </div>
