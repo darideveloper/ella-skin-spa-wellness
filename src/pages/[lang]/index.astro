@@ -2,6 +2,9 @@
 import Welcome from '../../components/Welcome.astro';
 import About from '../../components/sections/About.astro';
 import Layout from '../../layouts/Layout.astro';
+import ServiceCardA from '../../components/ui/ServiceCardA.astro';
+import ServiceCardB from '../../components/ui/ServiceCardB.astro';
+import ServiceCardC from '../../components/ui/ServiceCardC.astro';
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
@@ -39,4 +42,49 @@ const colors = [
 
 	<!-- About Sections -->
 	<About />
+
+	<!-- Services Section -->
+	<section class="container">
+		<div class="text-center mb-16">
+			<h2 class="font-title text-4xl text-brown mb-4">Nuestros Tratamientos</h2>
+			<p class="font-sans text-black text-lg max-w-2xl mx-auto">
+				Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<ServiceCardA
+				title="Tratamientos Faciales"
+				description="Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados en ELLA SKIN & SPA WELLNESS. Entendemos que cada piel es única, por eso ofrecemos soluciones faciales personalizadas para limpiar, hidratar, nutrir y revitalizar tu rostro."
+				features={[
+					"Limpiezas faciales profundas",
+					"Tratamientos anti-edad",
+					"Productos seleccionados",
+					"Técnicas avanzadas"
+				]}
+			/>
+
+			<ServiceCardB
+				title="Tratamientos Especializados"
+				description="Desde limpiezas faciales profundas hasta tratamientos anti-edad y para piel sensible, nuestros expertos utilizan productos seleccionados y técnicas avanzadas para mejorar la salud y apariencia de tu cutis."
+				highlights={[
+					"Piel sensible",
+					"Frescor y luminosidad",
+					"Mejor facial en Mérida",
+					"Resultados visibles"
+				]}
+			/>
+
+			<ServiceCardC
+				title="Belleza Natural"
+				description="Disfruta del mejor facial en Mérida. Nuestros tratamientos te dejan con una sensación de frescura y un aspecto radiante, mejorando la salud y apariencia de tu cutis con técnicas profesionales."
+				benefits={[
+					"Consulta personalizada",
+					"Productos premium",
+					"Ambiente relajante",
+					"Resultados duraderos"
+				]}
+			/>
+		</div>
+	</section>
 </Layout>
