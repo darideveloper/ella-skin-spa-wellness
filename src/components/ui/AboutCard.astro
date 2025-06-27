@@ -1,0 +1,106 @@
+---
+// Icons
+import { 
+  HeartIcon, 
+  LightBulbIcon, 
+  UserGroupIcon, 
+  StarIcon, 
+  BadgeCheckIcon 
+} from './Icons'
+
+// Props
+export interface Props {
+  title: string
+  description: string
+  icon: string
+  iconBg: string
+  isDark: boolean
+  align: 'center' | 'left'
+  class: string
+}
+
+const {
+  title,
+  description,
+  icon,
+  iconBg,
+  isDark = false,
+  align = 'center',
+  class: className = '',
+} = Astro.props
+
+// Component icon options
+const icons = {
+  heart: HeartIcon,
+  lightbulb: LightBulbIcon,
+  users: UserGroupIcon,
+  star: StarIcon,
+  check: BadgeCheckIcon,
+}
+
+const SelectedIcon = icons[icon as keyof typeof icons] || HeartIcon
+---
+
+<div
+  class:list={[
+    isDark
+      ? 'bg-gradient-to-br from-brown to-brown-light text-white'
+      : 'bg-white border border-pink/20',
+    'rounded-2xl',
+    'p-8',
+    'shadow-lg hover:shadow-xl',
+    'transition-all',
+    'duration-300',
+    'hover:-translate-y-2',
+    'group',
+    'flex',
+    'flex-col',
+    align === 'center' ? 'items-center' : 'items-start',
+    'justify-center',
+    className,
+  ]}
+>
+  <div
+    class:list={[
+      'icon-wrapper',
+      'w-16',
+      'h-16',
+      'rounded-full',
+      'flex',
+      'items-center',
+      'justify-center',
+      'mb-6',
+      align === 'center' ? 'mx-auto' : 'mx-0',
+      iconBg,
+    ]}
+  >
+    <span
+      class:list={[
+        'text-3xl group-hover:text-5xl',
+        isDark ? 'text-brown' : 'text-white',
+        'duration-700',
+        'group-hover:rotate-[360deg]',
+      ]}
+    >
+      <SelectedIcon className="w-8 h-8" />
+    </span>
+  </div>
+  <h3
+    class:list={[
+      'text-2xl',
+      'font-title',
+      isDark ? 'text-white' : 'text-brown',
+      'mb-4',
+      'text-center',
+    ]}
+  >
+    {title}
+  </h3>
+  <p
+    class:list={[
+      isDark ? 'text-white' : 'text-black',
+    ]}
+  >
+    {description}
+  </p>
+</div>

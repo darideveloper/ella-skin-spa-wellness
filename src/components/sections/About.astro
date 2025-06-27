@@ -1,0 +1,112 @@
+---
+// About.astro - Card-based Layout Design
+import AboutCard from '../ui/AboutCard.astro';
+
+// Data
+const title = "ELLA SKIN & SPA WELLNESS";
+
+// Card data
+type CardData = {
+  title: string;
+  description: string;
+  icon: string;
+  iconBg: string;
+  isDark: boolean;
+  align: string;
+  class: string;
+}
+
+const cardsData: CardData[] = [
+  {
+    title: "Nuestra Misión",
+    description: "En ELLA SKIN & SPA WELLNESS, misión es guiarte hacia el bienestar integral y la belleza.",
+    icon: "check",
+    iconBg: "bg-gradient-to-br from-brown to-brown-light",
+    isDark: false,
+    align: 'center',
+    class: '',
+  },
+  {
+    title: "Tecnología Avanzada",
+    description: "He creado un espacio donde la tecnología de vanguardia y la calidez humana se fusionan para ofrecerte una experiencia de spa única y personalizada.",
+    icon: "lightbulb",
+    iconBg: "bg-gradient-to-br from-pink to-pink-light",
+    isDark: false,
+    align: 'center',
+    class: '',
+  },
+  {
+    title: "Equipo Especializado",
+    description: "Cuento con un equipo de especialistas apasionados que se dedican a salud y belleza, utilizando productos de alta calidad y técnicas avanzadas.",
+    icon: "users",
+    iconBg: "bg-gradient-to-br from-brown-light to-brown",
+    isDark: false,
+    align: 'center',
+    class: '',
+  },
+  {
+    title: "Tu Bienestar",
+    description: "Descubre un lugar para desconectar y reconectar contigo mismo. En ELLA SKIN & SPA WELLNESS, bienestar es mi prioridad.",
+    icon: "heart",
+    iconBg: "bg-gradient-to-br from-pink-light to-pink",
+    isDark: false,
+    align: 'center',
+    class: "lg:col-span-1",
+  },
+  {
+    title: "Experiencia Única",
+    description: "Cada visita a ELLA SKIN & SPA WELLNESS es una experiencia personalizada diseñada para tu bienestar integral. Nuestro compromiso es brindarte el cuidado que mereces en un ambiente de tranquilidad y excelencia.",
+    icon: "star",
+    iconBg: "bg-white/80",
+    isDark: true,
+    align: 'left',
+    class: "col-span-1 md:col-span-2",
+  }
+];
+---
+
+<section
+  class:list={['py-20', 'bg-gradient-to-b from-white to-pink-light']}
+>
+  <div class:list={['container', 'mx-auto', 'px-6']}>
+    <!-- Header Section -->
+    <div class:list={['text-center', 'mb-16']}>
+      <h2
+        class:list={[
+          'text-5xl md:text-6xl',
+          'font-title',
+          'text-brown',
+          'mb-6',
+        ]}
+      >
+        {title}
+      </h2>
+      <div class:list={['w-24', 'h-1', 'bg-brown', 'mx-auto']}></div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div
+      class:list={[
+        'grid',
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+        'gap-8',
+        'max-w-7xl',
+        'mx-auto',
+      ]}
+    >
+      <!-- Dynamic Cards -->
+      {cardsData.map((cardData: CardData) => (
+        <AboutCard
+          title={cardData.title}
+          description={cardData.description}
+          icon={cardData.icon}
+          iconBg={cardData.iconBg}
+          isDark={cardData.isDark}
+          align={cardData.align as 'center' | 'left'}
+          class={cardData.class}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
