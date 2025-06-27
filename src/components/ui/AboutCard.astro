@@ -1,6 +1,12 @@
 ---
 // Icons
-import { HiHeart, HiLightBulb, HiUsers, HiStar, HiBadgeCheck  } from 'react-icons/hi'
+import { 
+  HeartIcon, 
+  LightBulbIcon, 
+  UserGroupIcon, 
+  StarIcon, 
+  BadgeCheckIcon 
+} from './Icons'
 
 // Props
 export interface Props {
@@ -25,14 +31,14 @@ const {
 
 // Component icon options
 const icons = {
-  heart: HiHeart,
-  lightbulb: HiLightBulb,
-  users: HiUsers,
-  star: HiStar,
-  check: HiBadgeCheck,
+  heart: HeartIcon,
+  lightbulb: LightBulbIcon,
+  users: UserGroupIcon,
+  star: StarIcon,
+  check: BadgeCheckIcon,
 }
 
-const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart
+const SelectedIcon = icons[icon as keyof typeof icons] || HeartIcon
 ---
 
 <div
@@ -76,7 +82,7 @@ const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart
         'group-hover:rotate-[360deg]',
       ]}
     >
-      <SelectedIcon />
+      <SelectedIcon className="w-8 h-8" />
     </span>
   </div>
   <h3

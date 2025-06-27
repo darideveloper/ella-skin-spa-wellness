@@ -5,6 +5,11 @@ import '@fontsource-variable/dm-sans'
 
 // import tailwind css
 import "../styles/global.css";
+
+// Footer components
+import FooterA from '../components/sections/FooterA.astro';
+import FooterB from '../components/sections/FooterB.astro';
+import FooterC from '../components/sections/FooterC.astro';
 ---
 
 <!doctype html>
@@ -20,5 +25,17 @@ import "../styles/global.css";
 		<main>
 			<slot />
 		</main>
+		
+		<!-- Footer Section -->
+		<div class="space-y-0">
+			<!-- Footer A - Modern Grid Layout -->
+			<FooterA />
+			
+			<!-- Footer B - Centered Newsletter Design -->
+			<FooterB />
+			
+			<!-- Footer C - Minimal Elegant Design -->
+			<FooterC />
+		</div>
 	</body>
 </html>
