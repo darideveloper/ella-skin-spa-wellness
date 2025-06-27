@@ -34,7 +34,7 @@ const htmlText = marked.parse(text);
       "items-center",
       "w-full",
       "h-max",
-      "sm:flex-row sm:justify-center sm:items-center sm:w-[700px] sm:h-[300px] sm:p-12",
+      "sm:flex-row max-w-md sm:justify-center sm:items-center sm:w-full sm:h-80 sm:p-12 sm:max-w-3xl",
       "rounded-3xl",
       className,
     ]}
@@ -83,7 +83,7 @@ const htmlText = marked.parse(text);
             "text-sm",
             "tracking-[2px]",
             "rotate-180",
-            "sm:text-xl",
+            "sm:text-lg",
             "text-end",
           ]}
         >
@@ -93,7 +93,7 @@ const htmlText = marked.parse(text);
     </div>
 
     <div
-      class:list={["text-[11px]", "px-6", "sm:ml-16", "sm:px-0"]}
+      class:list={["text-xs", "px-11", "sm:ml-16", "sm:px-2", "sm:min-w-[330px]", "pb-8", "mt-4"]}
       set:html={htmlText}
     />
   </a>
