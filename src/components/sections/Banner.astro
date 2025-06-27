@@ -12,52 +12,64 @@ export interface Props {
     src: string;
     href: string;
   }>;
+  backgroundImage?: string;
+
   class?: string;
 }
 
-const { images, class:className = "" } = Astro.props;
+const { images, backgroundImage, class: className = "" } = Astro.props;
 ---
 
-<section
-  class:list={[
-    "container",
-    "mx-auto",
-    "px-4",
-    "banner-slider",
-    className,
-  ]}
->
-  <div class:list={["swiper", "relative"]}>
-    <div class:list={["swiper-wrapper"]}>
-      {
-        images.map((img) => (
-          <div
-            class:list={[
-              "swiper-slide",
-              "flex",
-              "items-center",
-              "justify-center",
-            ]}
-          >
-            <ImageLink {...img} class="mx-auto max-h-96 object-cover w-full" />
-          </div>
-        ))
-      }
+<div class:list={["debug"]}>
+  {
+    backgroundImage && (
+      <div
+        class:list={[
+          "absolute",
+          "inset-0",
+          "z-0",
+          "bg-cover",
+          "bg-center",
+          "bg-no-repeat",
+        ]}
+        style={`background-image: url('${backgroundImage}')`}
+      />
+    )
+  }
+  <section
+    class:list={["container", "mx-auto", "px-4", "banner-slider", className]}
+  >
+    <div class:list={["swiper", "relative"]}>
+      <div class:list={["swiper-wrapper"]}>
+        {
+          images.map((img) => (
+            <div
+              class:list={[
+                "swiper-slide",
+                "flex",
+                "items-center",
+                "justify-center",
+              ]}
+            >
+              <ImageLink {...img} class="mx-auto h-auto object-cover w-full" />
+            </div>
+          ))
+        }
+      </div>
+      <div class:list={["swiper-button-prev"]}></div>
+      <div class:list={["swiper-button-next"]}></div>
+      <div class:list={["swiper-pagination", "mt-6"]}></div>
     </div>
-    <div class:list={["swiper-button-prev"]}></div>
-    <div class:list={["swiper-button-next"]}></div>
-    <div class:list={["swiper-pagination", "mt-6"]}></div>
-  </div>
-</section>
-
+  </section>
+</div>
 <script>
-  import Swiper from 'swiper';
-  import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
+  import Swiper from "swiper";
+  import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 
-    new Swiper('.banner-slider .swiper', {
+  new Swiper(".banner-slider .swiper", {
     modules: [Autoplay, EffectFade, Navigation, Pagination],
     loop: true,
-    effect: 'fade',
+    effect: "fade",
     fadeEffect: {
       crossFade: true,
     },
@@ -66,11 +78,11 @@ const { images, class:className = "" } = Astro.props;
       disableOnInteraction: false,
     },
     navigation: {
-      nextEl: '.banner-slider .swiper-button-next',
-      prevEl: '.banner-slider .swiper-button-prev',
+      nextEl: ".banner-slider .swiper-button-next",
+      prevEl: ".banner-slider .swiper-button-prev",
     },
     pagination: {
-      el: '.banner-slider .swiper-pagination',
+      el: ".banner-slider .swiper-pagination",
       clickable: true,
     },
   });
