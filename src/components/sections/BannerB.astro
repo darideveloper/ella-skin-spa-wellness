@@ -26,10 +26,11 @@ const { images, class:className = ""  } = Astro.props;
     className,
   ]}
 >
+<div class:list= "debug">
   <div class:list={["swiper", "relative"]}>
     <div class:list={["swiper-wrapper"]}>
       {
-        images.map((img, index) => (
+        images.map((img) => (
           <div class:list={["swiper-slide"]}>
             <div
               class:list={["flex", "items-center", "justify-center", "py-6"]}
@@ -47,7 +48,6 @@ const { images, class:className = ""  } = Astro.props;
     <div class:list={["swiper-pagination", "mt-6"]}></div>
   </div>
 </section>
-
 <script>
   import Swiper from "swiper";
   import { Autoplay, Navigation, Pagination } from "swiper/modules";
