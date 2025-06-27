@@ -1,10 +1,14 @@
 ---
+import type { IconType } from "react-icons";
+import { marked } from 'marked'; 
+
 interface Props {
   title: string;
   imgSrc: string;
   imgAlt: string;
   text: string;
   class?: string;
+  icon: IconType;
 }
 
 const {
@@ -12,61 +16,85 @@ const {
   imgSrc,
   imgAlt,
   text,
+  icon: Icon,
   class: className = "",
 } = Astro.props as Props;
+
+const htmlText = marked.parse(text); 
 ---
 
-
-<div
-  class:list={[
-    "bg-white",
-    "w-[700px] h-[300px]",
-    "flex" ,
-    "flex-row",
-    "justify-center",
-    "items-center",
-    "p-12",
-    "rounded-3xl",
-  ]}
->
-  <div class:list={["rotate-90", "gap-5", "text-end", "flex", "flex-col"]}>
+<article>
+  <a
+    href="www.google.com"
+    class:list={[
+      "bg-white",
+      "flex",
+      "flex-col",
+      "justify-center",
+      "items-center",
+      "w-full",
+      "h-max",
+      "sm:flex-row sm:justify-center sm:items-center sm:w-[700px] sm:h-[300px] sm:p-12",
+      "rounded-3xl",
+      className,
+    ]}
+  >
     <div
       class:list={[
-        "w-55 h-55",
-        "rounded-tl-[70%] rounded-bl-[5px] rounded-tr-[10px] rounded-br-[10px]",
-        "overflow-hidden",
-        "rotate-180",
+        "flex",
+        "flex-col",
+        "gap-5",
+        "text-end",
+        "rotate-90",
+        "sm:rotate-90",
       ]}
     >
-      <img
-        src={imgSrc}
-        alt={imgAlt}
+      <span class:list={["absolute", "z-10", "bottom-13", "text-5xl", "right-0", "text-brown-light/50", "sm:bottom-16", "sm:right-2"]}>
+        <Icon />
+      </span>
+      <div
         class:list={[
-            "w-full", 
-            "h-full", 
-            "object-cover", 
-            "rotate-90"]}
-      />
-    </div>
-
-    <div class:list={["w-[130px]"]}>
-      <h3
-        class:list={[
-          "font-title",
-          "text-[16px]",
-          "tracking-[2px]",
-          "text-end",
-          "rotate-180"
+          "relative",
+          "w-50 h-50",
+          "rounded-tl-[70%] rounded-bl-[0px]",
+          "overflow-hidden",
+          "rotate-180",
+          "sm:w-60 sm:h-60",
+          "rounded-tl-[10%] rounded-bl-[10px] rounded-tr-[10px] rounded-br-[10px]",
+          "sm:rotate-180",
         ]}
       >
-        {title}
-      </h3>
+        <img
+          src={imgSrc}
+          alt={imgAlt}
+          class:list={[
+            "w-full",
+            "h-full",
+            "object-cover",
+            "rotate-90",
+            "sm:rotate-90",
+          ]}
+        />
+      </div>
+      <div class:list={["w-[130px]"]}>
+        <h3
+          class:list={[
+            "font-title",
+            "text-sm",
+            "tracking-[2px]",
+            "rotate-180",
+            "sm:text-xl",
+            "text-end",
+          ]}
+        >
+          {title}
+        </h3>
+      </div>
     </div>
-  </div>
 
-  <div class:list={[
-    "text-[11px]", 
-    "ml-16"]}>
-    <p>{text}</p>
-  </div>
-</div>
+    <div
+      class:list={["text-[11px]", "px-6", "sm:ml-16", "sm:px-0"]}
+      set:html={htmlText}
+    />
+  </a>
+</article>
