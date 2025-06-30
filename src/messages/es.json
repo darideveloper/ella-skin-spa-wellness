@@ -1,28 +1,60 @@
 {
-    "general": {
-    },
-    "header": {
-
-    },
-    "nav": {
-        "links": {
-            "home": "Home",
-            "about": "About Us",
-            "testimonials": "Testimonials",
-            "services": "Services",
-            "transportation": "Transportation"
-        }
-    },
-    "footer": {
-    },
-    "meta": {
-        "home": {
-            "page": "Home Page Title",
-            "description": "Home Page Description",
-            "keywords": "Home Page Keywords"
-        }
-    },
-    "hero": {
-        "title": "Título de la página de inicio"
+  "general": {},
+  "header": {},
+  "nav": {
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "testimonials": "Testimonials",
+      "services": "Services",
+      "transportation": "Transportation"
     }
+  },
+  "footer": {
+    "tagline": "Tu bienestar es nuestra prioridad",
+    "description": "Descubre un oasis de tranquilidad donde la tecnología avanzada se encuentra con el cuidado personalizado para ofrecerte la mejor experiencia de spa.",
+    "contact": {
+      "title": "Información de Contacto",
+      "phone": "+1 (555) 123-4567",
+      "email": "info@ellaskinspa.com",
+      "location": "123 Wellness Ave, Spa City, SC 12345",
+      "schudule": "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM"
+    },
+    "social":"Síguenos",
+    "extras": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "bookings": "Reservas",
+      "rights": "Todos los derechos reservados."
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "facial": {
+      "name": "Tratamientos Faciales",
+      "description": "Cuidado especializado para tu piel"
+    },
+    "massage": {
+      "name": "Masajes Relajantes",
+      "description": "Técnicas profesionales de relajación"
+    },
+    "therapy": {
+      "name": "Terapias Corporales",
+      "description": "Bienestar integral del cuerpo"
+    },
+    "consult": {
+      "name": "Consultas Personalizadas",
+      "description": "Atención individualizada"
+    }
+  },
+  "meta": {
+    "home": {
+      "page": "Home Page Title",
+      "description": "Home Page Description",
+      "keywords": "Home Page Keywords"
+    }
+  },
+  "hero": {
+    "title": "Título de la página de inicio"
+  }
 }
