@@ -13,56 +13,56 @@ import {
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 // Libs
-import { useTranslations } from '../../i18n/utils'
-import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
 
 // i18n
-export const getStaticPaths = getStaticPathsLangs
-const { lang } = Astro.params as any
-const t = useTranslations(lang)
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
 
 // Footer data
 const spaInfo = {
-  name: "ELLA SKIN & SPA WELLNESS",
-  tagline: t('footer.tagline'),
-  description: t('footer.description')
+  name: t('general.name'),
+  tagline: t("footer.tagline"),
+  description: t("footer.description"),
 };
 
 const contactInfo = [
-  { icon: HiPhone, text: t('footer.contact.phone'), link: "tel:+15551234567" },
+  { icon: HiPhone, text: t("footer.contact.phone"), link: "tel:+15551234567" },
   {
     icon: HiMail,
-    text: t('footer.contact.email'),
+    text: t("footer.contact.email"),
     link: "mailto:info@ellaskinspa.com",
   },
   {
     icon: HiLocationMarker,
-    text: t('footer.contact.location'),
+    text: t("footer.contact.location"),
     link: "#",
   },
-  { icon: HiClock, text: t('footer.contact.schudule'), link: "#" },
+  { icon: HiClock, text: t("footer.contact.schudule"), link: "#" },
 ];
 
 const services = [
   {
     icon: HiHeart,
-    name: t('services.facial.name'),
-    description: t('services.facial.description'),
+    name: t("services.facial.name"),
+    description: t("services.facial.description"),
   },
   {
     icon: HiStar,
-    name: t('services.massage.name'),
-    description: t('services.massage.description'),
+    name: t("services.massage.name"),
+    description: t("services.massage.description"),
   },
   {
     icon: HiSparkles,
-    name: t('services.therapy.name'),
-    description: t('services.therapy.description'),
+    name: t("services.therapy.name"),
+    description: t("services.therapy.description"),
   },
   {
     icon: HiUserGroup,
-    name: t('services.consult.name'),
-    description: t('services.consult.description'),
+    name: t("services.consult.name"),
+    description: t("services.consult.description"),
   },
 ];
 
@@ -93,9 +93,9 @@ const socialNetworks = [
   },
 ];
 const footerLinks = [
-  { text: t('footer.extras.privacy'), link: "#" },
-  { text: t('footer.extras.terms'), link: "#" },
-  { text: t('footer.extras.bookings'), link: "#" },
+  { text: t("footer.extras.privacy"), link: "#" },
+  { text: t("footer.extras.terms"), link: "#" },
+  { text: t("footer.extras.bookings"), link: "#" },
 ];
 ---
 
@@ -127,7 +127,7 @@ const footerLinks = [
       <!-- Contact Info -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          {t('footer.contact.title')}
+          {t("footer.contact.title")}
         </h4>
         <div class:list={["space-y-4"]}>
           {
@@ -163,7 +163,7 @@ const footerLinks = [
       <!-- Services -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white mb-6"]}>
-          {t('services.title')}
+          {t("services.title")}
         </h4>
         <div class:list={["space-y-4"]}>
           {
@@ -196,9 +196,9 @@ const footerLinks = [
       <!-- Social Networks -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          {t('footer.social')}
+          {t("footer.social")}
         </h4>
-        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-3"]}>
+        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1 gapy-5", "gap-3"]}>
           {
             socialNetworks.map((social) => (
               <a
@@ -237,7 +237,7 @@ const footerLinks = [
         ]}
       >
         <p class:list={["text-white/80", "text-sm"]}>
-          © 2024 {spaInfo.name}. {t('footer.extras.rights')}
+          © 2024 {spaInfo.name}. {t("footer.extras.rights")}
         </p>
         <div class:list={["flex", "space-x-6", "text-sm"]}>
           {
