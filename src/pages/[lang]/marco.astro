@@ -1,0 +1,29 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import About from '../../components/sections/About.astro';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+import Cards from '../../components/sections/Cards.astro';
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+
+const colors = [
+	"bg-white",
+	"bg-brown",
+	"bg-brown-light",
+	"bg-pink",
+	"bg-pink-light",
+]
+---
+
+<Layout>
+    <Cards/>
+</Layout>
+
