@@ -12,49 +12,57 @@ import {
 } from "react-icons/hi";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+
 // Footer data
 const spaInfo = {
   name: "ELLA SKIN & SPA WELLNESS",
-  tagline: "Tu bienestar es nuestra prioridad",
-  description:
-    "Descubre un oasis de tranquilidad donde la tecnología avanzada se encuentra con el cuidado personalizado para ofrecerte la mejor experiencia de spa.",
+  tagline: t('footer.tagline'),
+  description: t('footer.description')
 };
 
 const contactInfo = [
-  { icon: HiPhone, text: "+1 (555) 123-4567", link: "tel:+15551234567" },
+  { icon: HiPhone, text: t('footer.contact.phone'), link: "tel:+15551234567" },
   {
     icon: HiMail,
-    text: "info@ellaskinspa.com",
+    text: t('footer.contact.email'),
     link: "mailto:info@ellaskinspa.com",
   },
   {
     icon: HiLocationMarker,
-    text: "123 Wellness Ave, Spa City, SC 12345",
+    text: t('footer.contact.location'),
     link: "#",
   },
-  { icon: HiClock, text: "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM", link: "#" },
+  { icon: HiClock, text: t('footer.contact.schudule'), link: "#" },
 ];
 
 const services = [
   {
     icon: HiHeart,
-    name: "Tratamientos Faciales",
-    description: "Cuidado especializado para tu piel",
+    name: t('services.facial.name'),
+    description: t('services.facial.description'),
   },
   {
     icon: HiStar,
-    name: "Masajes Relajantes",
-    description: "Técnicas profesionales de relajación",
+    name: t('services.massage.name'),
+    description: t('services.massage.description'),
   },
   {
     icon: HiSparkles,
-    name: "Terapias Corporales",
-    description: "Bienestar integral del cuerpo",
+    name: t('services.therapy.name'),
+    description: t('services.therapy.description'),
   },
   {
     icon: HiUserGroup,
-    name: "Consultas Personalizadas",
-    description: "Atención individualizada",
+    name: t('services.consult.name'),
+    description: t('services.consult.description'),
   },
 ];
 
@@ -85,9 +93,9 @@ const socialNetworks = [
   },
 ];
 const footerLinks = [
-  { text: "Política de Privacidad", link: "#" },
-  { text: "Términos de Servicio", link: "#" },
-  { text: "Reservas", link: "#" },
+  { text: t('footer.extras.privacy'), link: "#" },
+  { text: t('footer.extras.terms'), link: "#" },
+  { text: t('footer.extras.bookings'), link: "#" },
 ];
 ---
 
@@ -119,7 +127,7 @@ const footerLinks = [
       <!-- Contact Info -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          Información de Contacto
+          {t('footer.contact.title')}
         </h4>
         <div class:list={["space-y-4"]}>
           {
@@ -155,7 +163,7 @@ const footerLinks = [
       <!-- Services -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white mb-6"]}>
-          Nuestros Servicios
+          {t('services.title')}
         </h4>
         <div class:list={["space-y-4"]}>
           {
@@ -188,7 +196,7 @@ const footerLinks = [
       <!-- Social Networks -->
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          Síguenos
+          {t('footer.social')}
         </h4>
         <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-3"]}>
           {
@@ -217,7 +225,7 @@ const footerLinks = [
         </div>
       </div>
     </div>
-
+    <!-- Bottom Section -->
     <div class:list={["border-t", "border-white/20", "pt-8"]}>
       <div
         class:list={[
@@ -229,7 +237,7 @@ const footerLinks = [
         ]}
       >
         <p class:list={["text-white/80", "text-sm"]}>
-          © 2024 {spaInfo.name}. Todos los derechos reservados.
+          © 2024 {spaInfo.name}. {t('footer.extras.rights')}
         </p>
         <div class:list={["flex", "space-x-6", "text-sm"]}>
           {
