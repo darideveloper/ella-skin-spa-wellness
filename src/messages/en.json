@@ -24,5 +24,53 @@
     },
     "hero": {
         "title": "Hero Title"
+    },
+    "services": [
+    {
+      "title": "Facial Treatments",
+      "description": "Discover your skin’s radiance with our specialized facial treatments at ELLA SKIN & SPA WELLNESS. We understand that every skin is unique, which is why we offer personalized facial solutions to cleanse, hydrate, nourish, and revitalize your complexion.",
+      "features": [
+        "Deep facial cleansing",
+        "Anti-aging treatments",
+        "Curated skincare products",
+        "Advanced techniques"
+      ]
+    },
+    {
+      "title": "Body Treatments",
+      "description": "Discover the power of our body treatments at ELLA SKIN & SPA WELLNESS. They improve skin texture, reduce cellulite, and enhance firmness. Each session is customized with professional techniques and high-quality products to boost your well-being and shape.",
+      "features": [
+        "Cellulite and stretch mark reduction",
+        "Improved skin texture",
+        "Firming and toning",
+        "High-quality products and professional techniques"
+      ]
+    },
+    {
+      "title": "Relaxing & Therapeutic Massages",
+      "description": "Treat yourself to a moment of relaxation with our therapeutic massages at ELLA SKIN & SPA WELLNESS. They relieve muscle tension, reduce stress, and restore balance to body and mind. We tailor each session with techniques suited to your needs for a deeply renewing experience.",
+      "features": [
+        "Relaxing and therapeutic massages",
+        "Relieves muscle tension and stress",
+        "Various techniques tailored to your needs",
+        "A renewing experience for body and mind"
+      ]
+    },
+    {
+      "title": "Advanced Aesthetic Technology",
+      "description": "At ELLA SKIN & SPA WELLNESS, we use cutting-edge technology to enhance your results. Our aesthetic equipment complements facial and body treatments, operated by trained professionals focused on your well-being and beauty.",
+      "features": [
+        "Cutting-edge aesthetic technology",
+        "Body and facial treatments with equipment",
+        "Modern devices and trained professionals",
+        "Ideal complement to enhance results"
+      ]
     }
+  ],
+  "buttonFalse": {
+    "text": "Learn more"
+  },
+  "buttonTrue": {
+    "text": "Book now"
+  }
 }
