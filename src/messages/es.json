@@ -1,28 +1,74 @@
 {
-    "general": {
-    },
-    "header": {
-
-    },
-    "nav": {
-        "links": {
-            "home": "Home",
-            "about": "About Us",
-            "testimonials": "Testimonials",
-            "services": "Services",
-            "transportation": "Transportation"
-        }
-    },
-    "footer": {
-    },
-    "meta": {
-        "home": {
-            "page": "Home Page Title",
-            "description": "Home Page Description",
-            "keywords": "Home Page Keywords"
-        }
-    },
-    "hero": {
-        "title": "Título de la página de inicio"
+  "general": {},
+  "header": {},
+  "nav": {
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "testimonials": "Testimonials",
+      "services": "Services",
+      "transportation": "Transportation"
     }
+  },
+  "footer": {},
+  "meta": {
+    "home": {
+      "page": "Home Page Title",
+      "description": "Home Page Description",
+      "keywords": "Home Page Keywords"
+    }
+  },
+  "hero": {
+    "title": "Título de la página de inicio"
+  },
+  "services": [
+    {
+      "title": "Tratamientos Faciales",
+      "description": "Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados en ELLA SKIN & SPA WELLNESS. Entendemos que cada piel es única, por eso ofrecemos soluciones faciales personalizadas para limpiar, hidratar, nutrir y revitalizar tu rostro.",
+      "features": [
+        "Limpiezas faciales profundas",
+        "Tratamientos anti-edad",
+        "Productos seleccionados",
+        "Técnicas avanzadas"
+      ]
+    },
+    {
+      "title": "Tratamientos Corporales",
+      "description": "Descubre el poder de nuestros tratamientos corporales en ELLA SKIN & SPA WELLNESS. Mejoran la textura de tu piel, reducen la celulitis y aumentan su firmeza. Cada sesión es personalizada con técnicas profesionales y productos de alta calidad para realzar tu bienestar y tu figura.",
+      "features": [
+        "Reducción de celulitis y estrías",
+        "Mejora de la textura cutánea",
+        "Firmeza y tonificación de la piel",
+        "Productos de alta calidad y técnicas profesionales"
+      ]
+    },
+    {
+      "title": "Masajes Relajantes y Terapéuticos",
+      "description": "Regálate un momento de relajación con nuestros masajes terapéuticos en ELLA SKIN & SPA WELLNESS. Alivian la tensión muscular, reducen el estrés y equilibran cuerpo y mente. Usamos técnicas adaptadas a ti para ofrecerte una experiencia renovadora y profundamente reparadora.",
+
+      "features": [
+        "Masajes relajantes y terapéuticos",
+        "Reducción de tensión muscular y estrés",
+        "Diversas técnicas adaptadas a tus necesidades",
+        "Experiencia renovadora para cuerpo y mente"
+      ]
+    },
+    {
+      "title": "Aparatología Estética Avanzada",
+      "description": "En ELLA SKIN & SPA WELLNESS usamos tecnología de vanguardia para potenciar tus resultados. Nuestra aparatología estética complementa los tratamientos faciales y corporales, con equipos modernos y personal capacitado que cuidan tu bienestar y realzan tu belleza.",
+      "features": [
+        "Tecnología de vanguardia estética",
+        "Tratamientos corporales y faciales con aparatología",
+        "Equipos modernos y personal capacitado",
+        "Complemento ideal para potenciar resultados"
+      ]
+    }
+  ],
+  "buttonFalse":{
+    "text": "Ver mas"
+  },
+  "buttonTrue":{
+    "text": "Reservar ahora"
+  }
+
 }
