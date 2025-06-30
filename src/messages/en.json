@@ -1,5 +1,7 @@
 {
-  "general": {},
+  "general": {
+    "name": "ELLA SKIN & SPA WELLNESS"
+  },
   "header": {},
   "nav": {
     "links": {
@@ -20,7 +22,7 @@
       "location": "123 Wellness Ave, Spa City, SC 12345",
       "schudule": "Mon-Sat: 9AM-8PM | Sun: 10AM-6PM"
     },
-    "social":"Follow Us",
+    "social": "Follow Us",
     "extras": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
