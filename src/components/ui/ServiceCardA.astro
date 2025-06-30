@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  features?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  features = [],
+  class: className = "",
+} = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "relative",
+    "bg-gradient-to-br",
+    "from-pink-light",
+    "to-pink",
+    "p-8",
+    "rounded-2xl",
+    "shadow-lg",
+    "hover:shadow-xl",
+    "transition-all",
+    "duration-300",
+    "transform",
+    "hover:-translate-y-2",
+    "max-w-md",
+    "mx-auto",
+    className,
+  ]}
+>
+  <!-- Decorative element -->
+  <div class="absolute top-4 right-4 w-16 h-16 bg-brown-light rounded-full opacity-20"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10">
+    <!-- Title -->
+    <h3 class="font-title text-2xl text-brown mb-4 leading-tight">
+      {title}
+    </h3>
+    
+    <!-- Description -->
+    <p class="font-sans text-black text-sm leading-relaxed mb-6">
+      {description}
+    </p>
+    
+    <!-- Features list -->
+    {features.length > 0 && (
+      <ul class="space-y-2">
+        {features.map((feature) => (
+          <li class="flex items-center font-sans text-sm text-black">
+            <div class="w-2 h-2 bg-brown rounded-full mr-3 flex-shrink-0"></div>
+            {feature}
+          </li>
+        ))}
+      </ul>
+    )}
+    
+    <!-- CTA Button -->
+    <button class="mt-6 bg-brown text-white font-sans px-6 py-3 rounded-full hover:bg-brown-light transition-colors duration-200 text-sm font-medium">
+      Reservar Ahora
+    </button>
+  </div>
+</div> 
