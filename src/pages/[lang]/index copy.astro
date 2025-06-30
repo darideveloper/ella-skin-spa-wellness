@@ -1,66 +1,68 @@
 ---
-import Welcome from '../../components/Welcome.astro';
-import About from '../../components/sections/About.astro';
-import Layout from '../../layouts/Layout.astro';
-import ServiceCard from '../../components/ui/ServiceCard.astro';
+import Welcome from "../../components/Welcome.astro";
+import About from "../../components/sections/About.astro";
+import Layout from "../../layouts/Layout.astro";
+import ServiceCard from "../../components/ui/ServiceCard.astro";
+import Button from "../../components/ui/Button.astro";
 
 // Libs
-import { useTranslations } from '../../i18n/utils'
-import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
 
 // i18n
-export const getStaticPaths = getStaticPathsLangs
-const { lang } = Astro.params as any
-const t = useTranslations(lang)
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
 
 const colors = [
-	"bg-white",
-	"bg-brown",
-	"bg-brown-light",
-	"bg-pink",
-	"bg-pink-light",
-]
+  "bg-white",
+  "bg-brown",
+  "bg-brown-light",
+  "bg-pink",
+  "bg-pink-light",
+];
 ---
 
 <Layout>
-	<h1 class:list={["text-3xl", "text-orange-500", "font-title"]}>
-		{t("hero.title")}
-	</h1>
+  <h1 class:list={["text-3xl", "text-orange-500", "font-title"]}>
+    {t("hero.title")}
+  </h1>
 
-	<h1 class:list={["text-3xl", "text-orange-500"]}>
-		{t("hero.title")}
-	</h1>
+  <h1 class:list={["text-3xl", "text-orange-500"]}>
+    {t("hero.title")}
+  </h1>
 
-	{
-		colors.map((color) => (
-			<div class:list={["w-12", "h-12", color]}></div>
-		))
+  {colors.map((color) => <div class:list={["w-12", "h-12", color]} />)}
 
-	}
+  <!-- About Sections -->
+  <About />
 
-	<!-- About Sections -->
-	<About />
+  <!-- Services Section -->
+  <section class="container">
+    <div class="text-center mb-16">
+      <h2 class="font-title text-4xl text-brown mb-4">Nuestros Tratamientos</h2>
+      <p class="font-sans text-black text-lg max-w-2xl mx-auto">
+        Descubre la luminosidad de tu piel con nuestros tratamientos faciales
+        especializados
+      </p>
+    </div>
 
-	<!-- Services Section -->
-	<section class="container">
-		<div class="text-center mb-16">
-			<h2 class="font-title text-4xl text-brown mb-4">Nuestros Tratamientos</h2>
-			<p class="font-sans text-black text-lg max-w-2xl mx-auto">
-				Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados
-			</p>
-		</div>
-
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			<ServiceCard
-				title="Tratamientos Faciales"
-				description="Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados en ELLA SKIN & SPA WELLNESS. Entendemos que cada piel es única, por eso ofrecemos soluciones faciales personalizadas para limpiar, hidratar, nutrir y revitalizar tu rostro."
-				features={[
-					"Limpiezas faciales profundas",
-					"Tratamientos anti-edad",
-					"Productos seleccionados",
-					"Técnicas avanzadas"
-				]}
-			/>
-		</div>
-	</section>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ServiceCard
+        title="Tratamientos Faciales"
+        description="Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados en ELLA SKIN & SPA WELLNESS. Entendemos que cada piel es única, por eso ofrecemos soluciones faciales personalizadas para limpiar, hidratar, nutrir y revitalizar tu rostro."
+        features={[
+          "Limpiezas faciales profundas",
+          "Tratamientos anti-edad",
+          "Productos seleccionados",
+          "Técnicas avanzadas",
+        ]}
+      >
+	  <div class:list={["flex", "gap-3"]}>
+		<Button isGhost text="Reservar Cita" href="https://www.google.com" />
+		<Button isGhost={false} text="Más info" href="https://www.google.com" />
+	  </div>
+      </ServiceCard>
+    </div>
+  </section>
 </Layout>
