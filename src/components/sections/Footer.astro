@@ -1,94 +1,169 @@
 ---
 // FooterA.astro - Modern Spa Footer with Social Networks
-import { 
-  PhoneIcon, 
-  MailIcon, 
-  LocationIcon, 
+import {
+  PhoneIcon,
+  MailIcon,
+  LocationIcon,
   ClockIcon,
-  HeartIcon, 
-  StarIcon, 
-  SparklesIcon, 
+  HeartIcon,
+  StarIcon,
+  SparklesIcon,
   UserGroupIcon,
-  FacebookIcon, 
-  InstagramIcon, 
-  TwitterIcon, 
-  YoutubeIcon 
-} from '../ui/Icons';
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from "../ui/Icons";
 
 // Footer data
 const spaInfo = {
   name: "ELLA SKIN & SPA WELLNESS",
   tagline: "Tu bienestar es nuestra prioridad",
-  description: "Descubre un oasis de tranquilidad donde la tecnología avanzada se encuentra con el cuidado personalizado para ofrecerte la mejor experiencia de spa."
-}
+  description:
+    "Descubre un oasis de tranquilidad donde la tecnología avanzada se encuentra con el cuidado personalizado para ofrecerte la mejor experiencia de spa.",
+};
 
 const contactInfo = [
   { icon: PhoneIcon, text: "+1 (555) 123-4567", link: "tel:+15551234567" },
-  { icon: MailIcon, text: "info@ellaskinspa.com", link: "mailto:info@ellaskinspa.com" },
-  { icon: LocationIcon, text: "123 Wellness Ave, Spa City, SC 12345", link: "#" },
-  { icon: ClockIcon, text: "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM", link: "#" }
-]
+  {
+    icon: MailIcon,
+    text: "info@ellaskinspa.com",
+    link: "mailto:info@ellaskinspa.com",
+  },
+  {
+    icon: LocationIcon,
+    text: "123 Wellness Ave, Spa City, SC 12345",
+    link: "#",
+  },
+  { icon: ClockIcon, text: "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM", link: "#" },
+];
 
 const services = [
-  { icon: HeartIcon, name: "Tratamientos Faciales", description: "Cuidado especializado para tu piel" },
-  { icon: StarIcon, name: "Masajes Relajantes", description: "Técnicas profesionales de relajación" },
-  { icon: SparklesIcon, name: "Terapias Corporales", description: "Bienestar integral del cuerpo" },
-  { icon: UserGroupIcon, name: "Consultas Personalizadas", description: "Atención individualizada" }
-]
+  {
+    icon: HeartIcon,
+    name: "Tratamientos Faciales",
+    description: "Cuidado especializado para tu piel",
+  },
+  {
+    icon: StarIcon,
+    name: "Masajes Relajantes",
+    description: "Técnicas profesionales de relajación",
+  },
+  {
+    icon: SparklesIcon,
+    name: "Terapias Corporales",
+    description: "Bienestar integral del cuerpo",
+  },
+  {
+    icon: UserGroupIcon,
+    name: "Consultas Personalizadas",
+    description: "Atención individualizada",
+  },
+];
 
 const socialNetworks = [
-  { icon: FacebookIcon, name: "Facebook", link: "#", bg: "bg-blue-600 hover:bg-blue-700" },
-  { icon: InstagramIcon, name: "Instagram", link: "#", bg: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600" },
-  { icon: TwitterIcon, name: "Twitter", link: "#", bg: "bg-blue-400 hover:bg-blue-500" },
-  { icon: YoutubeIcon, name: "YouTube", link: "#", bg: "bg-red-600 hover:bg-red-700" }
-]
+  {
+    icon: FacebookIcon,
+    name: "Facebook",
+    link: "#",
+    bg: "bg-blue-600 hover:bg-blue-700",
+  },
+  {
+    icon: InstagramIcon,
+    name: "Instagram",
+    link: "#",
+    bg: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
+  },
+  {
+    icon: TwitterIcon,
+    name: "Twitter",
+    link: "#",
+    bg: "bg-blue-400 hover:bg-blue-500",
+  },
+  {
+    icon: YoutubeIcon,
+    name: "YouTube",
+    link: "#",
+    bg: "bg-red-600 hover:bg-red-700",
+  },
+];
 ---
 
 <footer class:list={["bg-gradient-to-b from-brown to-brown-light text-white"]}>
   <!-- Main Footer Content -->
   <div class:list={["container mx-auto px-6 py-16"]}>
     <!-- Top Section -->
-    <div class:list={["grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"]}>
+    <div
+      class:list={[
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12",
+      ]}
+    >
       <!-- Brand Section -->
       <div class:list={["lg:col-span-1"]}>
-        <h3 class:list={["text-3xl font-title text-white mb-4"]}>{spaInfo.name}</h3>
+        <h3 class:list={["text-3xl font-title text-white mb-4"]}>
+          {spaInfo.name}
+        </h3>
         <p class:list={["text-pink-light mb-6 text-lg"]}>{spaInfo.tagline}</p>
-        <p class:list={["text-white/90 leading-relaxed"]}>{spaInfo.description}</p>
+        <p class:list={["text-white/90 leading-relaxed"]}>
+          {spaInfo.description}
+        </p>
       </div>
 
       <!-- Contact Info -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl font-title text-white mb-6"]}>Información de Contacto</h4>
+        <h4 class:list={["text-xl font-title text-white mb-6"]}>
+          Información de Contacto
+        </h4>
         <div class:list={["space-y-4"]}>
-          {contactInfo.map((item) => (
-            <a 
-              href={item.link}
-              class:list={["flex items-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group"]}
-            >
-              <span class:list={["text-brown-light group-hover:text-white transition-colors duration-300"]}>
-                <item.icon />
-              </span>
-              <span class:list={["text-sm"]}>{item.text}</span>
-            </a>
-          ))}
+          {
+            contactInfo.map((item) => (
+              <a
+                href={item.link}
+                class:list={[
+                  "flex items-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group",
+                ]}
+              >
+                <span
+                  class:list={[
+                    "text-brown-light group-hover:text-white transition-colors duration-300",
+                  ]}
+                >
+                  <item.icon />
+                </span>
+                <span class:list={["text-sm"]}>{item.text}</span>
+              </a>
+            ))
+          }
         </div>
       </div>
 
       <!-- Services -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl font-title text-white mb-6"]}>Nuestros Servicios</h4>
+        <h4 class:list={["text-xl font-title text-white mb-6"]}>
+          Nuestros Servicios
+        </h4>
         <div class:list={["space-y-4"]}>
-          {services.map((service) => (
-            <div class:list={["flex items-start space-x-3 group"]}>
-              <span class:list={["text-brown-light group-hover:text-white transition-colors duration-300 mt-1"]}>
-                <service.icon  />
-              </span>
-              <div>
-                <h5 class:list={["text-white font-medium text-sm"]}>{service.name}</h5>
-                <p class:list={["text-white/70 text-xs"]}>{service.description}</p>
+          {
+            services.map((service) => (
+              <div class:list={["flex items-start space-x-3 group"]}>
+                <span
+                  class:list={[
+                    "text-brown-light group-hover:text-white transition-colors duration-300 mt-1",
+                  ]}
+                >
+                  <service.icon />
+                </span>
+                <div>
+                  <h5 class:list={["text-white font-medium text-sm"]}>
+                    {service.name}
+                  </h5>
+                  <p class:list={["text-white/70 text-xs"]}>
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
@@ -96,37 +171,58 @@ const socialNetworks = [
       <div class:list={["lg:col-span-1"]}>
         <h4 class:list={["text-xl font-title text-white mb-6"]}>Síguenos</h4>
         <div class:list={["grid grid-cols-2 gap-3"]}>
-          {socialNetworks.map((social) => (
-            <a 
-              href={social.link}
-              class:list={[
-                social.bg,
-                'flex items-center justify-center',
-                'w-12 h-12 rounded-full',
-                'text-white transition-all duration-300 hover:scale-110 hover:shadow-lg',
-                'group'
-              ]}
-              aria-label={social.name}
-            >
-              <social.icon />
-            </a>
-          ))}
+          {
+            socialNetworks.map((social) => (
+              <a
+                href={social.link}
+                class:list={[
+                  social.bg,
+                  "flex items-center justify-center",
+                  "w-12 h-12 rounded-full",
+                  "text-white transition-all duration-300 hover:scale-110 hover:shadow-lg",
+                  "group",
+                ]}
+                aria-label={social.name}
+              >
+                <social.icon />
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
 
     <!-- Bottom Section -->
     <div class:list={["border-t border-white/20 pt-8"]}>
-      <div class:list={["flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"]}>
+      <div
+        class:list={[
+          "flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0",
+        ]}
+      >
         <p class:list={["text-white/80 text-sm"]}>
           © 2024 {spaInfo.name}. Todos los derechos reservados.
         </p>
         <div class:list={["flex space-x-6 text-sm"]}>
-          <a href="#" class:list={["text-white/80 hover:text-white transition-colors duration-300"]}>Política de Privacidad</a>
-          <a href="#" class:list={["text-white/80 hover:text-white transition-colors duration-300"]}>Términos de Servicio</a>
-          <a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Reservas</a>
+          <a
+            href="#"
+            class:list={[
+              "text-white/80 hover:text-white transition-colors duration-300",
+            ]}>Política de Privacidad</a
+          >
+          <a
+            href="#"
+            class:list={[
+              "text-white/80 hover:text-white transition-colors duration-300",
+            ]}>Términos de Servicio</a
+          >
+          <a
+            href="#"
+            class:list={[
+              "text-white/80 hover:text-white transition-colors duration-300",
+            ]}>Reservas</a
+          >
         </div>
       </div>
     </div>
   </div>
-</footer> 
+</footer>
