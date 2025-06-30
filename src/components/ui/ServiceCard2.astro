@@ -1,6 +1,6 @@
 ---
 import type { IconType } from "react-icons";
-import { marked } from 'marked'; 
+import { marked } from "marked";
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const {
   class: className = "",
 } = Astro.props as Props;
 
-const htmlText = marked.parse(text); 
+const htmlText = marked.parse(text);
 ---
 
 <article>
@@ -36,6 +36,7 @@ const htmlText = marked.parse(text);
       "h-max",
       "sm:flex-row max-w-md sm:justify-center sm:items-center sm:w-full sm:h-80 sm:p-12 sm:max-w-3xl",
       "rounded-3xl",
+      "group",
       className,
     ]}
   >
@@ -49,7 +50,19 @@ const htmlText = marked.parse(text);
         "sm:rotate-90",
       ]}
     >
-      <span class:list={["absolute", "z-10", "bottom-13", "text-5xl", "right-0", "text-brown-light/50", "sm:bottom-16", "sm:right-2"]}>
+      <span
+        class:list={[
+          "absolute",
+          "z-10",
+          "bottom-13",
+          "text-5xl",
+          "right-0",
+          "text-brown-light/100",
+          "sm:bottom-16",
+          "sm:right-2",
+          "group-hover:scale-110",
+        ]}
+      >
         <Icon />
       </span>
       <div
@@ -93,7 +106,15 @@ const htmlText = marked.parse(text);
     </div>
 
     <div
-      class:list={["text-xs", "px-11", "sm:ml-16", "sm:px-2", "sm:min-w-[330px]", "pb-8", "mt-4"]}
+      class:list={[
+        "text-xs",
+        "px-11",
+        "sm:ml-16",
+        "sm:px-2",
+        "sm:min-w-[330px]",
+        "pb-8",
+        "mt-4",
+      ]}
       set:html={htmlText}
     />
   </a>
