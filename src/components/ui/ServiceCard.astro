@@ -1,0 +1,174 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  benefits?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  benefits = [],
+  class: className = "",
+} = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "relative",
+    "bg-white",
+    "p-8",
+    "rounded-3xl",
+    "shadow-xl hover:shadow-2xl",
+    "transition-all",
+    "duration-500",
+    "max-w-md",
+    "mx-auto",
+    "overflow-hidden",
+    "group",
+    className,
+  ]}
+>
+  <!-- Background decorative circle -->
+  <div
+    class:list={[
+      "absolute",
+      "-top-8",
+      "-right-8",
+      "w-32",
+      "h-32",
+      "bg-gradient-to-br",
+      "from-pink",
+      "to-pink-light",
+      "rounded-full",
+      "opacity-10 group-hover:opacity-20",
+      "transition-opacity",
+      "duration-500",
+    ]}
+  >
+  </div>
+
+  <!-- Content -->
+  <div class:list={["relative", "z-10"]}>
+    <!-- Icon placeholder -->
+    <div
+      class:list={[
+        "w-16",
+        "h-16",
+        "bg-gradient-to-br",
+        "from-brown",
+        "to-brown-light",
+        "rounded-2xl",
+        "flex",
+        "items-center",
+        "justify-center",
+        "mb-6",
+        "group-hover:scale-110",
+        "transition-transform",
+        "duration-300",
+      ]}
+    >
+      <svg
+        class:list={["w-8", "h-8", "text-white"]}
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </div>
+
+    <!-- Title -->
+    <h3
+      class:list={[
+        "font-title text-2xl text-brown",
+        "mb-4",
+        "leading-tight",
+        "group-hover:text-brown-light",
+        "transition-colors",
+        "duration-300",
+      ]}
+    >
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class:list={["font-sans text-black text-sm", "leading-relaxed", "mb-6"]}>
+      {description}
+    </p>
+
+    <!-- Benefits -->
+    {
+      benefits.length > 0 && (
+        <div class:list={["mb-6"]}>
+          <h4
+            class:list={["font-sans text-sm font-semibold text-brown", "mb-3"]}
+          >
+            Incluye:
+          </h4>
+          <div class:list={["space-y-2"]}>
+            {benefits.map((benefit) => (
+              <div
+                class:list={[
+                  "flex",
+                  "items-start",
+                  "font-sans text-xs text-black",
+                ]}
+              >
+                <div
+                  class:list={[
+                    "w-1.5",
+                    "h-1.5",
+                    "bg-pink",
+                    "rounded-full",
+                    "mt-1.5",
+                    "mr-3",
+                    "flex-shrink-0",
+                  ]}
+                />
+                <span>{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- CTA Section -->
+    <div class:list={["flex", "flex-col sm:flex-row", "gap-3"]}>
+      <button
+        class:list={[
+          "flex-1",
+          "bg-brown hover:bg-brown-light",
+          "text-white font-sans text-sm font-medium",
+          "px-6",
+          "py-3",
+          "rounded-xl",
+          "transition-colors",
+          "duration-200",
+          "group-hover:shadow-lg",
+        ]}
+      >
+        Reservar Cita
+      </button>
+      <button
+        class:list={[
+          "flex-1",
+          "border border-brown",
+          "text-brown font-sans text-sm font-medium hover:text-white",
+          "px-6",
+          "py-3",
+          "rounded-xl",
+          "hover:bg-brown",
+          "transition-all",
+          "duration-200",
+        ]}
+      >
+        Más Info
+      </button>
+    </div>
+  </div>
+</div>
