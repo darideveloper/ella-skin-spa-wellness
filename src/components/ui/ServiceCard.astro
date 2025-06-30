@@ -1,15 +1,20 @@
 ---
+import type { IconType } from 'react-icons';
+import { FaBars } from "react-icons/fa6";
+
 interface Props {
   title: string;
   description: string;
   benefits?: string[];
   class?: string;
+  icon: IconType;
 }
 
 const {
   title,
   description,
   benefits = [],
+  icon: Icon,
   class: className = "",
 } = Astro.props as Props;
 ---
@@ -69,16 +74,9 @@ const {
         "duration-300",
       ]}
     >
-      <svg
-        class:list={["w-8", "h-8", "text-white"]}
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clip-rule="evenodd"></path>
-      </svg>
+      <span class:list={["text-white", "text-3xl"]}>
+        <Icon />
+      </span>
     </div>
 
     <!-- Title -->
