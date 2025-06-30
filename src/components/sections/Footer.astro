@@ -91,27 +91,31 @@ const socialNetworks = [
 
 <footer class:list={["bg-gradient-to-b from-brown to-brown-light text-white"]}>
   <!-- Main Footer Content -->
-  <div class:list={["container mx-auto px-6 py-16"]}>
+  <div class:list={["container", "mx-auto", "px-6 py-16"]}>
     <!-- Top Section -->
     <div
       class:list={[
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+        "gap-8",
+        "mb-12",
       ]}
     >
       <!-- Brand Section -->
       <div class:list={["lg:col-span-1"]}>
-        <h3 class:list={["text-3xl font-title text-white mb-4"]}>
+        <h3 class:list={["text-3xl", "font-title", "text-white", "mb-4"]}>
           {spaInfo.name}
         </h3>
-        <p class:list={["text-pink-light mb-6 text-lg"]}>{spaInfo.tagline}</p>
-        <p class:list={["text-white/90 leading-relaxed"]}>
+        <p class:list={["text-pink-light", "mb-6", "text-lg"]}>
+          {spaInfo.tagline}
+        </p>
+        <p class:list={["text-white/90", "leading-relaxed"]}>
           {spaInfo.description}
         </p>
       </div>
 
       <!-- Contact Info -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl font-title text-white mb-6"]}>
+        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           Información de Contacto
         </h4>
         <div class:list={["space-y-4"]}>
@@ -120,12 +124,20 @@ const socialNetworks = [
               <a
                 href={item.link}
                 class:list={[
-                  "flex items-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group",
+                  "flex",
+                  "items-center",
+                  "space-x-3",
+                  "text-white/90 hover:text-white",
+                  "transition-colors",
+                  "duration-300",
+                  "group",
                 ]}
               >
                 <span
                   class:list={[
-                    "text-brown-light group-hover:text-white transition-colors duration-300",
+                    "text-brown-light group-hover:text-white",
+                    "transition-colors",
+                    "duration-300",
                   ]}
                 >
                   <item.icon />
@@ -139,25 +151,28 @@ const socialNetworks = [
 
       <!-- Services -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl font-title text-white mb-6"]}>
+        <h4 class:list={["text-xl", "font-title", "text-white mb-6"]}>
           Nuestros Servicios
         </h4>
         <div class:list={["space-y-4"]}>
           {
             services.map((service) => (
-              <div class:list={["flex items-start space-x-3 group"]}>
+              <div class:list={["flex", "items-start", "space-x-3", "group"]}>
                 <span
                   class:list={[
-                    "text-brown-light group-hover:text-white transition-colors duration-300 mt-1",
+                    "text-brown-light group-hover:text-white",
+                    "transition-colors",
+                    "duration-300",
+                    "mt-1",
                   ]}
                 >
                   <service.icon />
                 </span>
                 <div>
-                  <h5 class:list={["text-white font-medium text-sm"]}>
+                  <h5 class:list={["text-white", "font-medium", "text-sm"]}>
                     {service.name}
                   </h5>
-                  <p class:list={["text-white/70 text-xs"]}>
+                  <p class:list={["text-white/70", "text-xs"]}>
                     {service.description}
                   </p>
                 </div>
@@ -169,17 +184,25 @@ const socialNetworks = [
 
       <!-- Social Networks -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl font-title text-white mb-6"]}>Síguenos</h4>
-        <div class:list={["grid grid-cols-2 gap-3"]}>
+        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
+          Síguenos
+        </h4>
+        <div class:list={["grid", "grid-cols-2", "gap-3"]}>
           {
             socialNetworks.map((social) => (
               <a
                 href={social.link}
                 class:list={[
                   social.bg,
-                  "flex items-center justify-center",
-                  "w-12 h-12 rounded-full",
-                  "text-white transition-all duration-300 hover:scale-110 hover:shadow-lg",
+                  "flex",
+                  "items-center",
+                  "justify-center",
+                  "w-12",
+                  "h-12",
+                  "rounded-full",
+                  "text-white hover:scale-110 hover:shadow-lg",
+                  "transition-all",
+                  "duration-300",
                   "group",
                 ]}
                 aria-label={social.name}
@@ -193,32 +216,42 @@ const socialNetworks = [
     </div>
 
     <!-- Bottom Section -->
-    <div class:list={["border-t border-white/20 pt-8"]}>
+    <div class:list={["border-t", "border-white/20", "pt-8"]}>
       <div
         class:list={[
-          "flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0",
+          "flex",
+          "flex-col md:flex-row",
+          "justify-between",
+          "items-center",
+          "space-y-4 md:space-y-0",
         ]}
       >
-        <p class:list={["text-white/80 text-sm"]}>
+        <p class:list={["text-white/80", "text-sm"]}>
           © 2024 {spaInfo.name}. Todos los derechos reservados.
         </p>
-        <div class:list={["flex space-x-6 text-sm"]}>
+        <div class:list={["flex", "space-x-6", "text-sm"]}>
           <a
             href="#"
             class:list={[
-              "text-white/80 hover:text-white transition-colors duration-300",
+              "text-white/80 hover:text-white",
+              "transition-colors",
+              "duration-300",
             ]}>Política de Privacidad</a
           >
           <a
             href="#"
             class:list={[
-              "text-white/80 hover:text-white transition-colors duration-300",
+              "text-white/80 hover:text-white",
+              "transition-colors",
+              "duration-300",
             ]}>Términos de Servicio</a
           >
           <a
             href="#"
             class:list={[
-              "text-white/80 hover:text-white transition-colors duration-300",
+              "text-white/80 hover:text-white",
+              "transition-colors",
+              "duration-300",
             ]}>Reservas</a
           >
         </div>
