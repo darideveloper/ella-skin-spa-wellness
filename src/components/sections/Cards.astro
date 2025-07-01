@@ -3,36 +3,40 @@
 import { FaBars } from "react-icons/fa6";
 
 //import components
-import ServiceCard from '../../components/ui/ServiceCard.astro';
-import Button from '../../components/ui/Button.astro';
+import ServiceCard from "../../components/ui/ServiceCard.astro";
+import Button from "../../components/ui/Button.astro";
 
 // Libs
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations } from "../../i18n/utils";
 
 // i18n
 const { lang } = Astro.params as any;
 const t = useTranslations(lang);
 
 // obtenemos desde es o en
-const services = t('services'); 
-const buttonTrue = t('buttonTrue.text');
-const buttonFalse = t('buttonFalse.text');
+const services = t("services");
+const buttonTrue = t("buttonTrue.text");
+const buttonFalse = t("buttonFalse.text");
 ---
 
 <section class:list={["container", "flex", "justify-center", "items-center"]}>
-  <div class:list="grid sm:gap-y-10 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12">
-    {services.map((service) => (
-      <ServiceCard
-        title={service.title}
-        description={service.description}
-        benefits={service.features}
-        icon={FaBars}
-      >
-        <div class:list={["flex", "gap-3"]}>
+  <div
+    class:list="grid sm:gap-y-10 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12"
+  >
+    {
+      services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          benefits={service.features}
+          icon={FaBars}
+        >
+          <div class:list={["flex", "gap-3"]}>
             <Button text={buttonTrue} href="/www.google.com" isGhost />
             <Button text={buttonFalse} href="/www.google.com" isGhost={false} />
-        </div>
-      </ServiceCard>
-    ))}
+          </div>
+        </ServiceCard>
+      ))
+    }
   </div>
 </section>
