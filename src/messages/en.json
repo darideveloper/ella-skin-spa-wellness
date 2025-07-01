@@ -1,28 +1,62 @@
 {
-    "general": {
-    },
-    "header": {
-
-    },
-    "nav": {
-        "links": {
-            "home": "Home",
-            "about": "About Us",
-            "testimonials": "Testimonials",
-            "services": "Services",
-            "transportation": "Transportation"
-        }
-    },
-    "footer": {
-    },
-    "meta": {
-        "home": {
-            "page": "Home Page Title",
-            "description": "Home Page Description",
-            "keywords": "Home Page Keywords"
-        }
-    },
-    "hero": {
-        "title": "Hero Title"
+  "general": {
+    "name": "ELLA SKIN & SPA WELLNESS"
+  },
+  "header": {},
+  "nav": {
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "testimonials": "Testimonials",
+      "services": "Services",
+      "transportation": "Transportation"
     }
+  },
+  "footer": {
+    "tagline": "Your well-being is our priority",
+    "description": "Discover an oasis of tranquility where advanced technology meets personalized care to offer you the ultimate spa experience.",
+    "contact": {
+      "title": "Contact Info",
+      "phone": "+1 (555) 123-4567",
+      "email": "info@ellaskinspa.com",
+      "location": "123 Wellness Ave, Spa City, SC 12345",
+      "schudule": "Mon-Sat: 9AM-8PM | Sun: 10AM-6PM"
+    },
+    "social": "Follow Us",
+    "extras": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "bookings": "Bookings",
+      "rights": "All rights reserved."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "facial": {
+      "name": "Facial Treatments",
+      "shortDescription": "Specialized care for your skin"
+    },
+    "massage": {
+      "name": "Relaxing Massages",
+      "shortDescription": "Professional relaxation techniques"
+    },
+    "therapy": {
+      "name": "Body Therapies",
+      "shortDescription": "Comprehensive body wellness"
+    },
+    "consult": {
+      "name": "Personalized Consultations",
+      "shortDescription": "Individualized attention"
+    }
+  },
+  "meta": {
+    "home": {
+      "page": "Home Page Title",
+      "description": "Home Page Description",
+      "keywords": "Home Page Keywords"
+    }
+  },
+  "hero": {
+    "title": "Hero Title"
+  }
 }

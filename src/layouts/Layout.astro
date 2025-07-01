@@ -7,9 +7,7 @@ import '@fontsource-variable/dm-sans'
 import "../styles/global.css";
 
 // Footer components
-import FooterA from '../components/sections/FooterA.astro';
-import FooterB from '../components/sections/FooterB.astro';
-import FooterC from '../components/sections/FooterC.astro';
+import Footer from '../components/sections/Footer.astro'
 ---
 
 <!doctype html>
@@ -25,17 +23,6 @@ import FooterC from '../components/sections/FooterC.astro';
 		<main>
 			<slot />
 		</main>
-		
-		<!-- Footer Section -->
-		<div class="space-y-0">
-			<!-- Footer A - Modern Grid Layout -->
-			<FooterA />
-			
-			<!-- Footer B - Centered Newsletter Design -->
-			<FooterB />
-			
-			<!-- Footer C - Minimal Elegant Design -->
-			<FooterC />
-		</div>
+		<Footer />
 	</body>
 </html>
