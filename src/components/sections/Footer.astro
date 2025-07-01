@@ -99,9 +99,16 @@ const footerLinks = [
 ];
 ---
 
-<footer class:list={["bg-gradient-to-b from-brown to-brown-light text-white"]}>
+<footer
+  class:list={[
+    "bg-gradient-to-b",
+    "from-brown",
+    "to-brown-light",
+    "text-white",
+  ]}
+>
   <!-- Main Footer Content -->
-  <div class:list={["container", "mx-auto", "px-6 py-16"]}>
+  <div class:list={["container", "mx-auto", "px-6", "py-16"]}>
     <!-- Top Section -->
     <div
       class:list={[
@@ -139,7 +146,6 @@ const footerLinks = [
                   "items-center",
                   "space-x-3",
                   "text-white/90 hover:text-white",
-                  "transition-colors",
                   "duration-300",
                   "group",
                 ]}
@@ -147,7 +153,6 @@ const footerLinks = [
                 <span
                   class:list={[
                     "text-brown-light group-hover:text-white",
-                    "transition-colors",
                     "duration-300",
                   ]}
                 >
@@ -162,7 +167,7 @@ const footerLinks = [
 
       <!-- Services -->
       <div class:list={["lg:col-span-1"]}>
-        <h4 class:list={["text-xl", "font-title", "text-white mb-6"]}>
+        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           {t("services.title")}
         </h4>
         <div class:list={["space-y-4"]}>
@@ -172,7 +177,6 @@ const footerLinks = [
                 <span
                   class:list={[
                     "text-brown-light group-hover:text-white",
-                    "transition-colors",
                     "duration-300",
                     "mt-1",
                   ]}
@@ -198,9 +202,7 @@ const footerLinks = [
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           {t("footer.social")}
         </h4>
-        <div
-          class:list={["grid", "grid-cols-4 lg:grid-cols-1 gapy-5", "gap-3"]}
-        >
+        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-3"]}>
           {
             socialNetworks.map((social) => (
               <a
@@ -213,8 +215,9 @@ const footerLinks = [
                   "w-12",
                   "h-12",
                   "rounded-full",
-                  "text-white hover:scale-110 hover:shadow-lg",
-                  "transition-all",
+                  "text-white",
+                  "hover:scale-110",
+                  "hover:shadow-lg",
                   "duration-300",
                   "group",
                 ]}
@@ -246,11 +249,7 @@ const footerLinks = [
             footerLinks.map((link) => (
               <a
                 href={link.link}
-                class:list={[
-                  "text-white/80 hover:text-white",
-                  "transition-colors",
-                  "duration-300",
-                ]}
+                class:list={["text-white/80 hover:text-white", "duration-300"]}
               >
                 {link.text}
               </a>
