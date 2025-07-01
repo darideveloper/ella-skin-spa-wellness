@@ -9,157 +9,157 @@ import {
   HiStar,
   HiSparkles,
   HiUserGroup,
-} from "react-icons/hi";
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+} from 'react-icons/hi'
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
 // Libs
-import { useTranslations } from "../../i18n/utils";
-import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
 
 // i18n
-export const getStaticPaths = getStaticPathsLangs;
-const { lang } = Astro.params as any;
-const t = useTranslations(lang);
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
 
 // Footer data
 const spaInfo = {
-  name: t("general.name"),
-  tagline: t("footer.tagline"),
-  description: t("footer.description"),
-};
+  name: t('general.name'),
+  tagline: t('footer.tagline'),
+  description: t('footer.description'),
+}
 
 const contactInfo = [
-  { icon: HiPhone, text: t("footer.contact.phone"), link: "tel:+15551234567" },
+  { icon: HiPhone, text: t('footer.contact.phone'), link: 'tel:+15551234567' },
   {
     icon: HiMail,
-    text: t("footer.contact.email"),
-    link: "mailto:info@ellaskinspa.com",
+    text: t('footer.contact.email'),
+    link: 'mailto:info@ellaskinspa.com',
   },
   {
     icon: HiLocationMarker,
-    text: t("footer.contact.location"),
-    link: "#",
+    text: t('footer.contact.location'),
+    link: '#',
   },
-  { icon: HiClock, text: t("footer.contact.schudule"), link: "#" },
-];
+  { icon: HiClock, text: t('footer.contact.schudule'), link: '#' },
+]
 
 const services = [
   {
     icon: HiHeart,
-    name: t("services.facial.name"),
-    shortDescription: t("services.facial.description"),
+    name: t('services.facial.name'),
+    shortDescription: t('services.facial.description'),
   },
   {
     icon: HiStar,
-    name: t("services.massage.name"),
-    shortDescription: t("services.massage.description"),
+    name: t('services.massage.name'),
+    shortDescription: t('services.massage.description'),
   },
   {
     icon: HiSparkles,
-    name: t("services.therapy.name"),
-    shortDescription: t("services.therapy.description"),
+    name: t('services.therapy.name'),
+    shortDescription: t('services.therapy.description'),
   },
   {
     icon: HiUserGroup,
-    name: t("services.consult.name"),
-    shortDescription: t("services.consult.description"),
+    name: t('services.consult.name'),
+    shortDescription: t('services.consult.description'),
   },
-];
+]
 
 const socialNetworks = [
   {
     icon: FaFacebook,
-    name: "Facebook",
-    link: "#",
-    bg: "bg-blue-600 hover:bg-blue-700",
+    name: 'Facebook',
+    link: '#',
+    bg: 'bg-blue-600',
   },
   {
     icon: FaInstagram,
-    name: "Instagram",
-    link: "#",
-    bg: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
+    name: 'Instagram',
+    link: '#',
+    bg: 'bg-gradient-to-r from-purple-500 to-pink-500',
   },
   {
     icon: FaTwitter,
-    name: "Twitter",
-    link: "#",
-    bg: "bg-blue-400 hover:bg-blue-500",
+    name: 'Twitter',
+    link: '#',
+    bg: 'bg-blue-400',
   },
   {
     icon: FaYoutube,
-    name: "YouTube",
-    link: "#",
-    bg: "bg-red-600 hover:bg-red-700",
+    name: 'YouTube',
+    link: '#',
+    bg: 'bg-red-600',
   },
-];
+]
 const footerLinks = [
-  { text: t("footer.extras.privacy"), link: "#" },
-  { text: t("footer.extras.terms"), link: "#" },
-  { text: t("footer.extras.bookings"), link: "#" },
-];
+  { text: t('footer.extras.privacy'), link: '#' },
+  { text: t('footer.extras.terms'), link: '#' },
+  { text: t('footer.extras.bookings'), link: '#' },
+]
 ---
 
-<footer id="Footer"
+<footer
+  id='Footer'
   class:list={[
-    "bg-gradient-to-b",
-    "from-brown",
-    "to-brown-light",
-    "text-white",
+    'bg-gradient-to-b',
+    'from-brown',
+    'to-brown-light',
+    'text-white',
   ]}
 >
   <!-- Main Footer Content -->
-  <div class:list={["container", "mx-auto", "px-6", "py-16"]}>
+  <div class:list={['container', 'mx-auto', 'px-6', 'py-16']}>
     <!-- Top Section -->
     <div
       class:list={[
-        "grid",
-        "grid-cols-1 md:grid-cols-2 lg:grid-cols-11",
-        "gap-6 lg:gap-15",
-        "mb-12",
+        'grid',
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-7',
+        'gap-6 lg:gap-15',
+        'mb-12',
       ]}
     >
-    
       <!-- Brand Section -->
-      <div class:list={["lg:col-span-3"]}>
-        <h3 class:list={["text-3xl", "font-title", "text-white", "mb-4"]}>
+      <div class:list={['lg:col-span-2']}>
+        <h3 class:list={['text-3xl', 'font-title', 'text-white', 'mb-4']}>
           {spaInfo.name}
         </h3>
-        <p class:list={["text-pink-light", "mb-6", "text-lg"]}>
+        <p class:list={['text-pink-light', 'mb-6', 'text-lg']}>
           {spaInfo.tagline}
         </p>
-        <p class:list={["text-white/90", "leading-relaxed"]}>
+        <p class:list={['text-white/90', 'leading-relaxed']}>
           {spaInfo.description}
         </p>
       </div>
 
       <!-- Contact Info -->
-      <div class:list={["lg:col-span-3"]}>
-        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          {t("footer.contact.title")}
+      <div class:list={['lg:col-span-2']}>
+        <h4 class:list={['text-xl', 'font-title', 'text-white', 'mb-6']}>
+          {t('footer.contact.title')}
         </h4>
-        <div class:list={["space-y-4"]}>
+        <div class:list={['space-y-4']}>
           {
             contactInfo.map((item) => (
               <a
                 href={item.link}
                 class:list={[
-                  "flex",
-                  "items-center",
-                  "space-x-3",
-                  "text-white/90 hover:text-white",
-                  "duration-300",
-                  "group",
+                  'flex',
+                  'items-center',
+                  'space-x-3',
+                  'text-white/90 hover:text-white',
+                  'duration-300',
+                  'group',
                 ]}
               >
                 <span
                   class:list={[
-                    "text-brown-light group-hover:text-white",
-                    "duration-300",
+                    'text-brown-light group-hover:text-white',
+                    'duration-300',
                   ]}
                 >
                   <item.icon />
                 </span>
-                <span class:list={["text-sm"]}>{item.text}</span>
+                <span class:list={['text-sm']}>{item.text}</span>
               </a>
             ))
           }
@@ -167,28 +167,28 @@ const footerLinks = [
       </div>
 
       <!-- Services -->
-      <div class:list={["lg:col-span-3"]}>
-        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          {t("services.title")}
+      <div class:list={['lg:col-span-2']}>
+        <h4 class:list={['text-xl', 'font-title', 'text-white', 'mb-6']}>
+          {t('services.title')}
         </h4>
-        <div class:list={["space-y-4"]}>
+        <div class:list={['space-y-4']}>
           {
             services.map((service) => (
-              <div class:list={["flex", "items-start", "space-x-3", "group"]}>
+              <div class:list={['flex', 'items-start', 'space-x-3', 'group']}>
                 <span
                   class:list={[
-                    "text-brown-light group-hover:text-white",
-                    "duration-300",
-                    "mt-1",
+                    'text-brown-light group-hover:text-white',
+                    'duration-300',
+                    'mt-1',
                   ]}
                 >
                   <service.icon />
                 </span>
                 <div>
-                  <h5 class:list={["text-white", "font-medium", "text-sm"]}>
+                  <h5 class:list={['text-white', 'font-medium', 'text-sm']}>
                     {service.name}
                   </h5>
-                  <p class:list={["text-white/70", "text-xs"]}>
+                  <p class:list={['text-white/70', 'text-xs']}>
                     {service.shortDescription}
                   </p>
                 </div>
@@ -199,60 +199,69 @@ const footerLinks = [
       </div>
 
       <!-- Social Networks -->
-      <div class:list={["lg:col-span-2"]}>
-        <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
-          {t("footer.social")}
+      <div class:list={['lg:col-span-1']}>
+        <h4 class:list={['text-xl', 'font-title', 'text-white', 'mb-6']}>
+          {t('footer.social')}
         </h4>
-        <div class:list={["place-items-center md:place-items-start"]}>
-        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-8", "max-w-auto", "place-items-center lg:place-items-start",]}>
-          {
-            socialNetworks.map((social) => (
-              <a
-                href={social.link}
-                class:list={[
-                  social.bg,
-                  "flex",
-                  "items-center",
-                  "justify-center",
-                  "w-12",
-                  "h-12",
-                  "rounded-full",
-                  "text-white",
-                  "hover:scale-110",
-                  "hover:shadow-lg",
-                  "duration-300",
-                  "group",
-                ]}
-                aria-label={social.name}
-              >
-                <social.icon />
-              </a>
-            ))
-          }
-        </div>
+        <div class:list={['place-items-start md:place-items-start']}>
+          <div
+            class:list={[
+              'grid',
+              'grid-cols-4 lg:grid-cols-1',
+              'gap-8',
+              'max-w-auto',
+              'place-items-center lg:place-items-start',
+              'lg:mx-auto',
+            ]}
+          >
+            {
+              socialNetworks.map((social) => (
+                <a
+                  href={social.link}
+                  class:list={[
+                    social.bg,
+                    'flex',
+                    'items-center',
+                    'justify-center',
+                    'w-12',
+                    'h-12',
+                    'rounded-full',
+                    'text-white',
+                    'hover:scale-110',
+                    'hover:shadow-lg',
+                    'duration-300',
+                    'group',
+                  ]}
+                  aria-label={social.name}
+                >
+                  <social.icon />
+                </a>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
     <!-- Bottom Section -->
-    <div class:list={["border-t", "border-white/20", "pt-8"]}>
+    <div class:list={['border-t', 'border-white/20', 'pt-8']}>
       <div
         class:list={[
-          "flex",
-          "flex-col md:flex-row",
-          "justify-between",
-          "items-center",
-          "space-y-4 md:space-y-0",
+          'flex',
+          'flex-col md:flex-row',
+          'justify-between',
+          'items-center',
+          'space-y-4 md:space-y-0',
         ]}
       >
-        <p class:list={["text-white/80", "text-sm"]}>
-          © 2024 {spaInfo.name}. {t("footer.extras.rights")}
+        <p class:list={['text-white/80', 'text-sm']}>
+          © 2024 {spaInfo.name}. {t('footer.extras.rights')}
         </p>
-        <div class:list={["flex", "space-x-6", "text-sm"]}>
+        <div class:list={['flex', 'space-x-6', 'text-sm']}>
           {
             footerLinks.map((link) => (
               <a
                 href={link.link}
-                class:list={["text-white/80 hover:text-white", "duration-300"]}
+                class:list={['text-white/80 hover:text-white', 'duration-300']}
               >
                 {link.text}
               </a>
