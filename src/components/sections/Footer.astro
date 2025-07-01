@@ -47,22 +47,22 @@ const services = [
   {
     icon: HiHeart,
     name: t("services.facial.name"),
-    description: t("services.facial.description"),
+    shortDescription: t("services.facial.description"),
   },
   {
     icon: HiStar,
     name: t("services.massage.name"),
-    description: t("services.massage.description"),
+    shortDescription: t("services.massage.description"),
   },
   {
     icon: HiSparkles,
     name: t("services.therapy.name"),
-    description: t("services.therapy.description"),
+    shortDescription: t("services.therapy.description"),
   },
   {
     icon: HiUserGroup,
     name: t("services.consult.name"),
-    description: t("services.consult.description"),
+    shortDescription: t("services.consult.description"),
   },
 ];
 
@@ -184,7 +184,7 @@ const footerLinks = [
                     {service.name}
                   </h5>
                   <p class:list={["text-white/70", "text-xs"]}>
-                    {service.description}
+                    {service.shortDescription}
                   </p>
                 </div>
               </div>
