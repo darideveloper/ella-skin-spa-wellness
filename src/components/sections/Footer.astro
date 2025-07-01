@@ -113,13 +113,14 @@ const footerLinks = [
     <div
       class:list={[
         "grid",
-        "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
-        "gap-6 lg:gap-28",
+        "grid-cols-1 md:grid-cols-2 lg:grid-cols-11",
+        "gap-6 lg:gap-15",
         "mb-12",
       ]}
     >
+    
       <!-- Brand Section -->
-      <div class:list={["lg:col-span-1"]}>
+      <div class:list={["lg:col-span-3"]}>
         <h3 class:list={["text-3xl", "font-title", "text-white", "mb-4"]}>
           {spaInfo.name}
         </h3>
@@ -132,7 +133,7 @@ const footerLinks = [
       </div>
 
       <!-- Contact Info -->
-      <div class:list={["lg:col-span-1"]}>
+      <div class:list={["lg:col-span-3"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           {t("footer.contact.title")}
         </h4>
@@ -166,7 +167,7 @@ const footerLinks = [
       </div>
 
       <!-- Services -->
-      <div class:list={["lg:col-span-1"]}>
+      <div class:list={["lg:col-span-3"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           {t("services.title")}
         </h4>
@@ -198,11 +199,12 @@ const footerLinks = [
       </div>
 
       <!-- Social Networks -->
-      <div class:list={["lg:col-span-1"]}>
+      <div class:list={["lg:col-span-2"]}>
         <h4 class:list={["text-xl", "font-title", "text-white", "mb-6"]}>
           {t("footer.social")}
         </h4>
-        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-3"]}>
+        <div class:list={["place-items-center md:place-items-start"]}>
+        <div class:list={["grid", "grid-cols-4 lg:grid-cols-1", "gap-8", "max-w-auto", "place-items-center lg:place-items-start",]}>
           {
             socialNetworks.map((social) => (
               <a
@@ -227,6 +229,7 @@ const footerLinks = [
               </a>
             ))
           }
+        </div>
         </div>
       </div>
     </div>
