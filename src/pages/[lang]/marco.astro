@@ -3,7 +3,6 @@ import Welcome from '../../components/Welcome.astro';
 import About from '../../components/sections/About.astro';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
-import { FaBars } from "react-icons/fa6";
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
@@ -29,12 +28,8 @@ const colors = [
     <ServiceCard
   title="Entrenamiento Personalizado"
   description="Plan hecho a tu medida para alcanzar tus metas."
-  benefits={[
-    "Rutina semanal",
-    "Seguimiento mensual",
-    "Acceso a la app"
-  ]}
-  icon={FaBars}
-  />
+  benefits={["Rutina semanal", "Seguimiento mensual", "Acceso a la app"]}
+  iconName="advancedAesthetics"
+/>
 </Layout>
 
