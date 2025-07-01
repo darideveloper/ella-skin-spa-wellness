@@ -1,0 +1,310 @@
+---
+// BannerD.astro - Multi-Slide Carousel Design (Images Only)
+import Title from '../ui/Title.astro'
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+
+// Get all images from gallery folder
+const allImages = import.meta.glob('../../assets/gallery/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  as: 'url',
+})
+
+// Convert to array and sort by filename
+const galleryImages = Object.entries(allImages)
+  .map(([key, url]) => ({
+    key,
+    url,
+    filename: key.split('/').pop()?.split('.')[0] || 'image'
+  }))
+  .sort((a, b) => {
+    // Sort by img1, img2, img3, etc.
+    const aNum = parseInt(a.filename.replace('img', '')) || 0
+    const bNum = parseInt(b.filename.replace('img', '')) || 0
+    return aNum - bNum
+  })
+
+// Create slides from images only
+const slides = galleryImages.map((image) => ({
+  image: image.url,
+}))
+---
+
+<section
+  class:list={[
+    'relative',
+    'py-20',
+    'bg-gradient-to-b',
+    'from-white',
+    'to-pink-light',
+    'overflow-hidden',
+  ]}
+>
+  <!-- Header Section -->
+  <div class:list={['container', 'mx-auto', 'px-6', 'mb-12']}>
+    <div class:list={['text-center']}>
+      <Title text="Gallery" />
+      <p
+        class:list={[
+          'text-lg',
+          'text-brown',
+          'max-w-2xl',
+          'mx-auto',
+          'mt-4',
+        ]}
+      >
+        Discover our spa experience through our gallery
+      </p>
+    </div>
+  </div>
+
+  <!-- Swiper Container -->
+  <div
+    class:list={[
+      'swiper',
+      'banner-multi-swiper',
+      'w-full',
+      'max-w-7xl',
+      'mx-auto',
+      'px-6',
+    ]}
+  >
+    <div class:list={['swiper-wrapper']}>
+      {
+        slides.map((slide: any) => (
+          <div class:list={['swiper-slide']}>
+            <!-- Slide Card -->
+            <div
+              class:list={[
+                'relative',
+                'group',
+                'bg-white',
+                'rounded-2xl',
+                'overflow-hidden',
+                'shadow-xl',
+                'hover:shadow-2xl',
+                'transition-all',
+                'duration-500',
+                'transform',
+                'hover:-translate-y-2',
+                'h-[500px]',
+                'md:h-[600px]',
+              ]}
+            >
+              <!-- Background Image -->
+              <div
+                class:list={[
+                  'absolute',
+                  'inset-0',
+                  'bg-cover',
+                  'bg-center',
+                  'bg-no-repeat',
+                  'group-hover:scale-110',
+                  'transition-transform',
+                  'duration-700',
+                ]}
+                style={`background-image: url('${slide.image}')`}
+              >
+                <!-- Subtle Gradient Overlay for Hover Effect -->
+                <div
+                  class:list={[
+                    'absolute',
+                    'inset-0',
+                    'bg-gradient-to-t',
+                    'from-black/10',
+                    'to-transparent',
+                    'opacity-0',
+                    'group-hover:opacity-100',
+                    'transition-opacity',
+                    'duration-300',
+                  ]}
+                ></div>
+              </div>
+
+              <!-- Hover Effect Overlay -->
+              <div
+                class:list={[
+                  'absolute',
+                  'inset-0',
+                  'bg-gradient-to-t',
+                  'from-brown/10',
+                  'to-transparent',
+                  'opacity-0',
+                  'group-hover:opacity-100',
+                  'transition-opacity',
+                  'duration-300',
+                ]}
+              ></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div
+      class:list={[
+        'swiper-button-next',
+        '!text-brown',
+        '!bg-white/90',
+        'hover:!bg-white',
+        '!w-12',
+        '!h-12',
+        '!rounded-full',
+        '!shadow-lg',
+      ]}
+    ></div>
+    <div
+      class:list={[
+        'swiper-button-prev',
+        '!text-brown',
+        '!bg-white/90',
+        'hover:!bg-white',
+        '!w-12',
+        '!h-12',
+        '!rounded-full',
+        '!shadow-lg',
+      ]}
+    ></div>
+
+    <!-- Pagination -->
+    <div
+      class:list={[
+        'swiper-pagination',
+        '!bottom-4',
+      ]}
+    ></div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div
+    class:list={[
+      'absolute',
+      'top-20',
+      'right-10',
+      'w-32',
+      'h-32',
+      'bg-brown-light/20',
+      'rounded-full',
+      'blur-2xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+  <div
+    class:list={[
+      'absolute',
+      'bottom-20',
+      'left-10',
+      'w-40',
+      'h-40',
+      'bg-pink-light/20',
+      'rounded-full',
+      'blur-2xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+</section>
+
+<style>
+  /* Custom Swiper Styles for Multi-Slide Banner */
+  .banner-multi-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .banner-multi-swiper .swiper-button-next,
+  .banner-multi-swiper .swiper-button-prev {
+    background-color: var(--color-white) !important;
+    color: var(--color-brown) !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .banner-multi-swiper .swiper-button-next:hover,
+  .banner-multi-swiper .swiper-button-prev:hover {
+    background-color: var(--color-white) !important;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .banner-multi-swiper .swiper-button-next::after,
+  .banner-multi-swiper .swiper-button-prev::after {
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+
+  .banner-multi-swiper .swiper-pagination-bullet {
+    background-color: var(--color-brown) !important;
+    opacity: 0.4;
+    width: 10px !important;
+    height: 10px !important;
+    transition: all 0.3s ease;
+  }
+
+  .banner-multi-swiper .swiper-pagination-bullet-active {
+    background-color: var(--color-brown) !important;
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .banner-multi-swiper .swiper-button-next,
+    .banner-multi-swiper .swiper-button-prev {
+      display: none !important;
+    }
+    
+    .banner-multi-swiper .swiper-pagination {
+      bottom: 10px !important;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper'
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+  import 'swiper/css'
+  import 'swiper/css/navigation'
+  import 'swiper/css/pagination'
+
+  // Initialize Multi-Slide Banner Swiper
+  const bannerMultiSwiper = new Swiper('.banner-multi-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
+  })
+</script> 

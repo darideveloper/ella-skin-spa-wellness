@@ -1,0 +1,463 @@
+---
+// BannerC.astro - Multi-Slide Carousel Design
+import Title from '../ui/Title.astro'
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+
+// Get all images from gallery folder
+const allImages = import.meta.glob('../../assets/gallery/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  as: 'url',
+})
+
+// Convert to array and sort by filename
+const galleryImages = Object.entries(allImages)
+  .map(([key, url]) => ({
+    key,
+    url,
+    filename: key.split('/').pop()?.split('.')[0] || 'image'
+  }))
+  .sort((a, b) => {
+    // Sort by img1, img2, img3, etc.
+    const aNum = parseInt(a.filename.replace('img', '')) || 0
+    const bNum = parseInt(b.filename.replace('img', '')) || 0
+    return aNum - bNum
+  })
+
+// Create banner slides from images
+const slides = galleryImages.map((image, index) => {
+  const slideTemplates = [
+    {
+      title: t('banner.slides.welcome.title'),
+      subtitle: t('banner.slides.welcome.subtitle'),
+      description: t('banner.slides.welcome.description'),
+      cta: t('banner.slides.welcome.cta'),
+    },
+    {
+      title: t('banner.slides.facial.title'),
+      subtitle: t('banner.slides.facial.subtitle'),
+      description: t('banner.slides.facial.description'),
+      cta: t('banner.slides.facial.cta'),
+    },
+    {
+      title: t('banner.slides.massage.title'),
+      subtitle: t('banner.slides.massage.subtitle'),
+      description: t('banner.slides.massage.description'),
+      cta: t('banner.slides.massage.cta'),
+    },
+    {
+      title: t('banner.slides.wellness.title'),
+      subtitle: t('banner.slides.wellness.subtitle'),
+      description: t('banner.slides.wellness.description'),
+      cta: t('banner.slides.wellness.cta'),
+    },
+    {
+      title: t('banner.slides.experience.title'),
+      subtitle: t('banner.slides.experience.subtitle'),
+      description: t('banner.slides.experience.description'),
+      cta: t('banner.slides.experience.cta'),
+    },
+  ]
+
+  const template = slideTemplates[index % slideTemplates.length]
+  
+  return {
+    ...template,
+    image: image.url,
+  }
+})
+---
+
+<section
+  class:list={[
+    'relative',
+    'py-20',
+    'bg-gradient-to-b',
+    'from-white',
+    'to-pink-light',
+    'overflow-hidden',
+  ]}
+>
+  <!-- Header Section -->
+  <div class:list={['container', 'mx-auto', 'px-6', 'mb-12']}>
+    <div class:list={['text-center']}>
+      <Title text={t('banner.slides.welcome.title')} />
+      <p
+        class:list={[
+          'text-lg',
+          'text-brown',
+          'max-w-2xl',
+          'mx-auto',
+          'mt-4',
+        ]}
+      >
+        {t('banner.slides.welcome.description')}
+      </p>
+    </div>
+  </div>
+
+  <!-- Swiper Container -->
+  <div
+    class:list={[
+      'swiper',
+      'banner-multi-swiper',
+      'w-full',
+      'max-w-7xl',
+      'mx-auto',
+      'px-6',
+    ]}
+  >
+    <div class:list={['swiper-wrapper']}>
+      {
+        slides.map((slide: any) => (
+          <div class:list={['swiper-slide']}>
+            <!-- Slide Card -->
+            <div
+              class:list={[
+                'relative',
+                'group',
+                'bg-white',
+                'rounded-2xl',
+                'overflow-hidden',
+                'shadow-xl',
+                'hover:shadow-2xl',
+                'transition-all',
+                'duration-500',
+                'transform',
+                'hover:-translate-y-2',
+                'h-[500px]',
+                'md:h-[600px]',
+              ]}
+            >
+              <!-- Background Image -->
+              <div
+                class:list={[
+                  'absolute',
+                  'inset-0',
+                  'bg-cover',
+                  'bg-center',
+                  'bg-no-repeat',
+                  'group-hover:scale-110',
+                  'transition-transform',
+                  'duration-700',
+                ]}
+                style={`background-image: url('${slide.image}')`}
+              >
+                <!-- Gradient Overlay -->
+                <div
+                  class:list={[
+                    'absolute',
+                    'inset-0',
+                    'bg-gradient-to-t',
+                    'from-brown/90',
+                    'via-brown/50',
+                    'to-transparent',
+                  ]}
+                ></div>
+              </div>
+
+              <!-- Content Overlay -->
+              <div
+                class:list={[
+                  'absolute',
+                  'bottom-0',
+                  'left-0',
+                  'right-0',
+                  'p-6',
+                  'text-white',
+                ]}
+              >
+                <!-- Subtitle -->
+                <p
+                  class:list={[
+                    'text-sm',
+                    'font-sans',
+                    'text-pink-light',
+                    'font-medium',
+                    'tracking-wide',
+                    'uppercase',
+                    'mb-2',
+                  ]}
+                >
+                  {slide.subtitle}
+                </p>
+
+                <!-- Title -->
+                <h3
+                  class:list={[
+                    'text-xl',
+                    'md:text-2xl',
+                    'font-title',
+                    'text-white',
+                    'font-bold',
+                    'mb-3',
+                    'line-clamp-2',
+                  ]}
+                >
+                  {slide.title}
+                </h3>
+
+                <!-- Description -->
+                <p
+                  class:list={[
+                    'text-sm',
+                    'md:text-base',
+                    'text-white/90',
+                    'leading-relaxed',
+                    'mb-4',
+                    'line-clamp-3',
+                  ]}
+                >
+                  {slide.description}
+                </p>
+
+                <!-- CTA Button -->
+                <a
+                  href="#"
+                  class:list={[
+                    'inline-flex',
+                    'items-center',
+                    'px-6',
+                    'py-3',
+                    'bg-white',
+                    'text-brown',
+                    'font-sans',
+                    'font-semibold',
+                    'text-sm',
+                    'rounded-full',
+                    'hover:bg-pink-light',
+                    'hover:text-brown',
+                    'transition-all',
+                    'duration-300',
+                    'transform',
+                    'hover:scale-105',
+                    'shadow-lg',
+                    'hover:shadow-xl',
+                    'group-hover:translate-x-1',
+                  ]}
+                >
+                  {slide.cta}
+                  <svg
+                    class:list={[
+                      'ml-2',
+                      'w-4',
+                      'h-4',
+                      'transition-transform',
+                      'duration-300',
+                    ]}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Hover Effect Overlay -->
+              <div
+                class:list={[
+                  'absolute',
+                  'inset-0',
+                  'bg-gradient-to-t',
+                  'from-brown/20',
+                  'to-transparent',
+                  'opacity-0',
+                  'group-hover:opacity-100',
+                  'transition-opacity',
+                  'duration-300',
+                ]}
+              ></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div
+      class:list={[
+        'swiper-button-next',
+        '!text-brown',
+        '!bg-white/90',
+        'hover:!bg-white',
+        '!w-12',
+        '!h-12',
+        '!rounded-full',
+        '!shadow-lg',
+      ]}
+    ></div>
+    <div
+      class:list={[
+        'swiper-button-prev',
+        '!text-brown',
+        '!bg-white/90',
+        'hover:!bg-white',
+        '!w-12',
+        '!h-12',
+        '!rounded-full',
+        '!shadow-lg',
+      ]}
+    ></div>
+
+    <!-- Pagination -->
+    <div
+      class:list={[
+        'swiper-pagination',
+        '!bottom-4',
+      ]}
+    ></div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div
+    class:list={[
+      'absolute',
+      'top-20',
+      'right-10',
+      'w-32',
+      'h-32',
+      'bg-brown-light/20',
+      'rounded-full',
+      'blur-2xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+  <div
+    class:list={[
+      'absolute',
+      'bottom-20',
+      'left-10',
+      'w-40',
+      'h-40',
+      'bg-pink-light/20',
+      'rounded-full',
+      'blur-2xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+</section>
+
+<style>
+  /* Custom Swiper Styles for Multi-Slide Banner */
+  .banner-multi-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .banner-multi-swiper .swiper-button-next,
+  .banner-multi-swiper .swiper-button-prev {
+    background-color: var(--color-white) !important;
+    color: var(--color-brown) !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .banner-multi-swiper .swiper-button-next:hover,
+  .banner-multi-swiper .swiper-button-prev:hover {
+    background-color: var(--color-white) !important;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .banner-multi-swiper .swiper-button-next::after,
+  .banner-multi-swiper .swiper-button-prev::after {
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+
+  .banner-multi-swiper .swiper-pagination-bullet {
+    background-color: var(--color-brown) !important;
+    opacity: 0.4;
+    width: 10px !important;
+    height: 10px !important;
+    transition: all 0.3s ease;
+  }
+
+  .banner-multi-swiper .swiper-pagination-bullet-active {
+    background-color: var(--color-brown) !important;
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .banner-multi-swiper .swiper-button-next,
+    .banner-multi-swiper .swiper-button-prev {
+      display: none !important;
+    }
+    
+    .banner-multi-swiper .swiper-pagination {
+      bottom: 10px !important;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper'
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+  import 'swiper/css'
+  import 'swiper/css/navigation'
+  import 'swiper/css/pagination'
+
+  // Initialize Multi-Slide Banner Swiper
+  const bannerMultiSwiper = new Swiper('.banner-multi-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
+  })
+</script> 
