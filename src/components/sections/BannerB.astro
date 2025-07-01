@@ -4,10 +4,8 @@ import Title from '../ui/Title.astro'
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
-import { getStaticPathsLangs } from '../../libs/getStaticPaths'
 
 // i18n
-export const getStaticPaths = getStaticPathsLangs
 const { lang } = Astro.params as any
 const t = useTranslations(lang)
 
