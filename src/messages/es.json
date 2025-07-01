@@ -24,55 +24,54 @@
   "services": [
     {
       "title": "Tratamientos Faciales",
-      "description": "Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados en ELLA SKIN & SPA WELLNESS. Entendemos que cada piel es única, por eso ofrecemos soluciones faciales personalizadas para limpiar, hidratar, nutrir y revitalizar tu rostro.",
+      "description": "Descubre la luminosidad de tu *piel* con nuestros *tratamientos faciales* en **ELLA SKIN & SPA WELLNESS**. Cada *piel* es única, por eso ofrecemos *soluciones personalizadas* para *limpiar*, *hidratar*, *nutrir* y *revitalizar* tu rostro.",
       "features": [
-        "Limpiezas faciales profundas",
-        "Tratamientos anti-edad",
-        "Productos seleccionados",
-        "Técnicas avanzadas"
+        "**Limpiezas faciales profundas**",
+        "*Tratamientos anti-edad*",
+        "**Productos seleccionados**",
+        "*Técnicas avanzadas*"
       ],
-      "icon": "tratamientosFaciales"
+      "iconName": "tratamientosFaciales"
     },
-      {
-  "title": "Tratamientos Corporales",
-  "description": "Descubre el poder de nuestros *tratamientos corporales* en **ELLA SKIN & SPA WELLNESS**. Mejoran la textura de tu piel, reducen la celulitis y aumentan su firmeza. Cada sesión es personalizada con técnicas profesionales y productos de alta calidad para realzar tu bienestar y tu figura.",
-  "features": [
-    "*Reducción de celulitis y estrías*",
-    "*Mejora de la textura cutánea*",
-    "**Firmeza y tonificación de la piel**",
-    "*Productos de alta calidad y técnicas profesionales*"
-  ],
-      "icon": "tratamientosCorporales"
+    {
+      "title": "*Tratamientos Corporales*",
+      "description": "En **ELLA SKIN & SPA WELLNESS** te ofrecemos *tratamientos corporales* para embellecer y revitalizar tu *piel*. Mejoran la *textura cutánea*, reducen la **celulitis** y las *estrías*, y aumentan la **firmeza**. Cada tratamiento es personalizado para tu *bienestar integral*.",
+      "features": [
+        "*Mejora de la textura cutánea*",
+        "**Reducción de celulitis y estrías**",
+        "**Firmeza y tonificación de la piel**",
+        "*Productos de alta calidad y técnicas profesionales*"
+      ],
+          "iconName": "tratamientosCorporales"
     },
     {
       "title": "Masajes Relajantes y Terapéuticos",
-      "description": "Regálate un momento de relajación con nuestros masajes terapéuticos en ELLA SKIN & SPA WELLNESS. Alivian la tensión muscular, reducen el estrés y equilibran cuerpo y mente. Usamos técnicas adaptadas a ti para ofrecerte una experiencia renovadora y profundamente reparadora.",
-
+      "description": "Disfruta de *masajes terapéuticos* y *relajantes* en **ELLA SKIN & SPA WELLNESS** para aliviar la *tensión muscular*, reducir el *estrés* y equilibrar *cuerpo* y *mente*. Técnicas adaptadas para una **experiencia renovadora** y profunda sensación de *bienestar*.",
       "features": [
-        "Masajes relajantes y terapéuticos",
-        "Reducción de tensión muscular y estrés",
-        "Diversas técnicas adaptadas a tus necesidades",
-        "Experiencia renovadora para cuerpo y mente"
+        "*Masajes relajantes y terapéuticos*",
+        "*Reducción de tensión muscular y estrés*",
+        "*Diversas técnicas adaptadas a tus necesidades*",
+        "**Experiencia renovadora para cuerpo y mente**"
       ],
       "icon": "masajesRelajantes"
     },
+
     {
-      "title": "Aparatología Estética Avanzada",
-      "description": "En ELLA SKIN & SPA WELLNESS usamos tecnología de vanguardia para potenciar tus resultados. Nuestra aparatología estética complementa los tratamientos faciales y corporales, con equipos modernos y personal capacitado que cuidan tu bienestar y realzan tu belleza.",
+      "title": "*Aparatología Estética* Avanzada",
+      "description": "En **ELLA SKIN & SPA WELLNESS** usamos *tecnología de vanguardia* para potenciar tus resultados. Nuestra *aparatología estética* complementa los tratamientos faciales y corporales, con *equipos modernos* y *personal capacitado* que cuidan tu bienestar y realzan tu belleza.",
       "features": [
-        "Tecnología de vanguardia estética",
-        "Tratamientos corporales y faciales con aparatología",
-        "Equipos modernos y personal capacitado",
+        "*Tecnología de vanguardia* estética",
+        "Tratamientos corporales y faciales con *aparatología*",
+        "*Equipos modernos* y *personal capacitado*",
         "Complemento ideal para potenciar resultados"
       ],
-      "icon": "EsteticaAvanzada"
+      "iconName": "EsteticaAvanzada"
     }
   ],
-  "buttonFalse":{
+  "buttonFalse": {
     "text": "Ver mas"
   },
-  "buttonTrue":{
+  "buttonTrue": {
     "text": "Reservar ahora"
   }
-
 }
