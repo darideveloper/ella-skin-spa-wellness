@@ -1,5 +1,4 @@
 ---
-import type { IconType } from 'react-icons';
 import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from "react-icons/fa6";
 import Button from './Button.astro';
 import { marked } from 'marked';
@@ -16,7 +15,7 @@ const buttonFalse = t('buttonFalse.text');
 
 // Iconos
 const icons = {
-  serviceIcons: FaBars,
+  tratamientosFaciales: FaBars,
   tratamientosCorporales: FaBowlingBall,
   masajesRelajantes: FaBity,
   EsteticaAvanzada: FaBorderAll,
@@ -40,8 +39,11 @@ const {
   class: className = "",
 } = Astro.props as Props;
 
-const Icon: IconType = icons[iconName] || FaBars;
+const IconName = icons[iconName as keyof typeof icons] || FaBars;
 const htmlText = marked.parse(text || "");
+const htmlDescription = marked.parse(description || "");
+const htmlTitle = marked.parse(title || "");
+const htmlBenefits = benefits.map((b) => marked.parseInline(b));
 ---
 
 <article
@@ -95,7 +97,7 @@ const htmlText = marked.parse(text || "");
       ]}
     >
       <span class:list={["text-white", "text-3xl"]}>
-        <Icon />
+        <IconName />
       </span>
     </div>
 
@@ -109,30 +111,24 @@ const htmlText = marked.parse(text || "");
         "leading-tight",
         "duration-300",
       ]}
-    >
-      {title}
-    </h3>
+      set:html={htmlTitle}
+    />
 
     <!-- Descripción -->
-    <p class:list={["text-black", "text-sm", "leading-relaxed", "mb-6"]}>
-      {description}
-    </p>
-
-    <!-- Texto con Markdown -->
     <div
-      class:list={["text-xs", "text-black", "leading-relaxed", "mb-6", "prose"]}
-      set:html={htmlText}
+      class:list={["text-black", "text-sm", "leading-relaxed", "mb-6", "prose"]}
+      set:html={htmlDescription}
     />
 
     <!-- Beneficios -->
     {
-      benefits.length > 0 && (
+      htmlBenefits.length > 0 && (
         <div class:list={["mb-6"]}>
           <h4 class:list={["text-sm", "font-semibold", "text-brown", "mb-3"]}>
             Incluye:
           </h4>
           <div class:list={["space-y-2"]}>
-            {benefits.map((benefit) => (
+            {htmlBenefits.map((htmlBenefit) => (
               <div
                 class:list={[
                   "flex",
@@ -152,7 +148,7 @@ const htmlText = marked.parse(text || "");
                     "flex-shrink-0",
                   ]}
                 />
-                <span>{benefit}</span>
+                <span set:html={htmlBenefit} />
               </div>
             ))}
           </div>
