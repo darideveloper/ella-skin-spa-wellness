@@ -1,6 +1,18 @@
 ---
 import type { IconType } from 'react-icons';
 import { FaBars } from "react-icons/fa6";
+import Button from './Button.astro';
+
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
+
+const buttonTrue = t('buttonTrue.text');
+const buttonFalse = t('buttonFalse.text');
 
 interface Props {
   title: string;
@@ -26,7 +38,6 @@ const {
     "p-8",
     "rounded-3xl",
     "shadow-xl hover:shadow-2xl",
-    "transition-all",
     "duration-500",
     "max-w-md",
     "mx-auto",
@@ -48,7 +59,6 @@ const {
       "to-pink-light",
       "rounded-full",
       "opacity-10 group-hover:opacity-20",
-      "transition-opacity",
       "duration-500",
     ]}
   >
@@ -70,7 +80,6 @@ const {
         "justify-center",
         "mb-6",
         "group-hover:scale-110",
-        "transition-transform",
         "duration-300",
       ]}
     >
@@ -87,7 +96,6 @@ const {
         "text-brown group-hover:text-brown-light",
         "mb-4",
         "leading-tight",
-        "transition-colors",
         "duration-300",
       ]}
     >
@@ -104,7 +112,7 @@ const {
       benefits.length > 0 && (
         <div class:list={["mb-6"]}>
           <h4
-            class:list={["font-sans", "text-sm", "font-semibold", "text-brown", "mb-3"]}
+            class:list={["text-sm", "font-semibold", "text-brown", "mb-3"]}
           >
             Incluye:
           </h4>
@@ -114,7 +122,6 @@ const {
                 class:list={[
                   "flex",
                   "items-start",
-                  "font-sans",
                   "text-xs", 
                   "text-black",
                 ]}
@@ -135,10 +142,12 @@ const {
             ))}
           </div>
         </div>
+        <div class:list={["flex", "gap-3"]}>
+            <Button text={buttonTrue} href="/www.google.com" isGhost />
+            <Button text={buttonFalse} href="/www.google.com" isGhost={false} />
+        </div>
       )
     }
-
     <!-- Section Buttons-->
-    <slot></slot>
   </div>
 </article>
