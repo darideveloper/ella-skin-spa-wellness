@@ -34,19 +34,19 @@
     "title": "Nuestros Servicios",
     "facial": {
       "name": "Tratamientos Faciales",
-      "description": "Cuidado especializado para tu piel"
+      "shortDescription": "Cuidado especializado para tu piel"
     },
     "massage": {
       "name": "Masajes Relajantes",
-      "description": "Técnicas profesionales de relajación"
+      "shortDescription": "Técnicas profesionales de relajación"
     },
     "therapy": {
       "name": "Terapias Corporales",
-      "description": "Bienestar integral del cuerpo"
+      "shortDescription": "Bienestar integral del cuerpo"
     },
     "consult": {
       "name": "Consultas Personalizadas",
-      "description": "Atención individualizada"
+      "shortDescription": "Atención individualizada"
     }
   },
   "meta": {

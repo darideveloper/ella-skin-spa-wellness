@@ -34,19 +34,19 @@
     "title": "Our Services",
     "facial": {
       "name": "Facial Treatments",
-      "description": "Specialized care for your skin"
+      "shortDescription": "Specialized care for your skin"
     },
     "massage": {
       "name": "Relaxing Massages",
-      "description": "Professional relaxation techniques"
+      "shortDescription": "Professional relaxation techniques"
     },
     "therapy": {
       "name": "Body Therapies",
-      "description": "Comprehensive body wellness"
+      "shortDescription": "Comprehensive body wellness"
     },
     "consult": {
       "name": "Personalized Consultations",
-      "description": "Individualized attention"
+      "shortDescription": "Individualized attention"
     }
   },
   "meta": {
