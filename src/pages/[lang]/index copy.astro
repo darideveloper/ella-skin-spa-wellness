@@ -2,7 +2,7 @@
 import About from "../../components/sections/About.astro";
 import Layout from "../../layouts/Layout.astro";
 import Cards from "../../components/sections/Cards.astro";
-
+import { marked } from "marked";
 // Libs
 import { useTranslations } from "../../i18n/utils";
 import { getStaticPathsLangs } from "../../libs/getStaticPaths";
@@ -19,6 +19,7 @@ const colors = [
   "bg-pink",
   "bg-pink-light",
 ];
+
 ---
 
 <Layout>

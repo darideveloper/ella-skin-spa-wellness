@@ -29,8 +29,8 @@ const buttonFalse = t("buttonFalse.text");
           title={service.title}
           description={service.description}
           benefits={service.features}
-          icon={FaBars}
-        >
+          iconName={service.icon}
+      
           <div class:list={["flex", "gap-3"]}>
             <Button text={buttonTrue} href="/www.google.com" isGhost />
             <Button text={buttonFalse} href="/www.google.com" isGhost={false} />

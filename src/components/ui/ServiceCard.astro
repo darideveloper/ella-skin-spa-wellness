@@ -1,8 +1,8 @@
 ---
 import type { IconType } from 'react-icons';
-import { FaBars } from "react-icons/fa6";
+import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from "react-icons/fa6";
 import Button from './Button.astro';
-
+import { marked } from 'marked';
 import { useTranslations } from "../../i18n/utils";
 import { getStaticPathsLangs } from "../../libs/getStaticPaths";
 
@@ -14,21 +14,34 @@ const t = useTranslations(lang);
 const buttonTrue = t('buttonTrue.text');
 const buttonFalse = t('buttonFalse.text');
 
+// Iconos
+const icons = {
+  serviceIcons: FaBars,
+  tratamientosCorporales: FaBowlingBall,
+  masajesRelajantes: FaBity,
+  EsteticaAvanzada: FaBorderAll,
+};
+
 interface Props {
   title: string;
+  text: string;
   description: string;
   benefits?: string[];
   class?: string;
-  icon: IconType;
+  iconName: string;
 }
 
 const {
   title,
+  text,
   description,
   benefits = [],
-  icon: Icon,
+  iconName,
   class: className = "",
 } = Astro.props as Props;
+
+const Icon: IconType = icons[iconName] || FaBars;
+const htmlText = marked.parse(text || "");
 ---
 
 <article
@@ -46,7 +59,7 @@ const {
     className,
   ]}
 >
-  <!-- Background decorative circle -->
+  <!-- Círculo decorativo -->
   <div
     class:list={[
       "absolute",
@@ -61,12 +74,10 @@ const {
       "opacity-10 group-hover:opacity-20",
       "duration-500",
     ]}
-  >
-  </div>
+  />
 
-  <!-- Content -->
   <div class:list={["relative", "z-10"]}>
-    <!-- Icon placeholder -->
+    <!-- Icono -->
     <div
       class:list={[
         "w-16",
@@ -88,7 +99,7 @@ const {
       </span>
     </div>
 
-    <!-- Title -->
+    <!-- Título -->
     <h3
       class:list={[
         "font-title",
@@ -102,18 +113,22 @@ const {
       {title}
     </h3>
 
-    <!-- Description -->
-    <p class:list={["text-black text-sm", "leading-relaxed", "mb-6"]}>
+    <!-- Descripción -->
+    <p class:list={["text-black", "text-sm", "leading-relaxed", "mb-6"]}>
       {description}
     </p>
 
-    <!-- Benefits -->
+    <!-- Texto con Markdown -->
+    <div
+      class:list={["text-xs", "text-black", "leading-relaxed", "mb-6", "prose"]}
+      set:html={htmlText}
+    />
+
+    <!-- Beneficios -->
     {
       benefits.length > 0 && (
         <div class:list={["mb-6"]}>
-          <h4
-            class:list={["text-sm", "font-semibold", "text-brown", "mb-3"]}
-          >
+          <h4 class:list={["text-sm", "font-semibold", "text-brown", "mb-3"]}>
             Incluye:
           </h4>
           <div class:list={["space-y-2"]}>
@@ -122,7 +137,7 @@ const {
                 class:list={[
                   "flex",
                   "items-start",
-                  "text-xs", 
+                  "text-xs",
                   "text-black",
                 ]}
               >
@@ -142,12 +157,13 @@ const {
             ))}
           </div>
         </div>
-        <div class:list={["flex", "gap-3"]}>
-            <Button text={buttonTrue} href="/www.google.com" isGhost />
-            <Button text={buttonFalse} href="/www.google.com" isGhost={false} />
-        </div>
       )
     }
-    <!-- Section Buttons-->
+
+    <!-- Botones -->
+    <div class:list={["flex", "gap-3"]}>
+      <Button text={buttonTrue} href="/www.google.com" isGhost />
+      <Button text={buttonFalse} href="/www.google.com" isGhost={false} />
+    </div>
   </div>
 </article>
