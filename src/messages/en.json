@@ -59,6 +59,40 @@
   "hero": {
     "title": "Hero Title"
   },
+  "banner": {
+    "slides": {
+      "welcome": {
+        "title": "Welcome to ELLA SKIN & SPA WELLNESS",
+        "subtitle": "Your journey to wellness begins here",
+        "description": "Discover an oasis of tranquility where advanced technology meets personalized care to offer you the ultimate spa experience.",
+        "cta": "Book Your Session"
+      },
+      "facial": {
+        "title": "Advanced Facial Treatments",
+        "subtitle": "Revitalize your natural beauty",
+        "description": "Experience our cutting-edge facial treatments designed to restore, rejuvenate, and enhance your skin's natural radiance.",
+        "cta": "Explore Treatments"
+      },
+      "massage": {
+        "title": "Relaxing Massage Therapy",
+        "subtitle": "Unwind and rejuvenate",
+        "description": "Let our expert therapists guide you through a journey of deep relaxation and therapeutic healing.",
+        "cta": "Book Massage"
+      },
+      "wellness": {
+        "title": "Holistic Wellness Experience",
+        "subtitle": "Mind, body, and soul harmony",
+        "description": "Embrace a comprehensive approach to wellness that nurtures every aspect of your being.",
+        "cta": "Start Your Journey"
+      },
+      "experience": {
+        "title": "Unique Spa Experience",
+        "subtitle": "Where luxury meets wellness",
+        "description": "Immerse yourself in an environment designed for ultimate relaxation and rejuvenation.",
+        "cta": "Discover More"
+      }
+    }
+  },
   "about": {
     "title": "ELLA SKIN & SPA WELLNESS",
     "cards": {

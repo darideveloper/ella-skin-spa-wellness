@@ -59,6 +59,40 @@
   "hero": {
     "title": "Título de la página de inicio"
   },
+  "banner": {
+    "slides": {
+      "welcome": {
+        "title": "Bienvenido a ELLA SKIN & SPA WELLNESS",
+        "subtitle": "Tu viaje hacia el bienestar comienza aquí",
+        "description": "Descubre un oasis de tranquilidad donde la tecnología avanzada se encuentra con el cuidado personalizado para ofrecerte la mejor experiencia de spa.",
+        "cta": "Reserva Tu Sesión"
+      },
+      "facial": {
+        "title": "Tratamientos Faciales Avanzados",
+        "subtitle": "Revitaliza tu belleza natural",
+        "description": "Experimenta nuestros tratamientos faciales de vanguardia diseñados para restaurar, rejuvenecer y realzar el resplandor natural de tu piel.",
+        "cta": "Explorar Tratamientos"
+      },
+      "massage": {
+        "title": "Terapia de Masaje Relajante",
+        "subtitle": "Relájate y rejuvenece",
+        "description": "Deja que nuestros terapeutas expertos te guíen en un viaje de profunda relajación y sanación terapéutica.",
+        "cta": "Reservar Masaje"
+      },
+      "wellness": {
+        "title": "Experiencia de Bienestar Holístico",
+        "subtitle": "Armonía de mente, cuerpo y alma",
+        "description": "Abraza un enfoque integral del bienestar que nutre cada aspecto de tu ser.",
+        "cta": "Inicia Tu Viaje"
+      },
+      "experience": {
+        "title": "Experiencia de Spa Única",
+        "subtitle": "Donde el lujo se encuentra con el bienestar",
+        "description": "Sumérgete en un ambiente diseñado para la máxima relajación y rejuvenecimiento.",
+        "cta": "Descubre Más"
+      }
+    }
+  },
   "about": {
     "title": "ELLA SKIN & SPA WELLNESS",
     "cards": {
