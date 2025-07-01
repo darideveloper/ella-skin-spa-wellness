@@ -22,15 +22,21 @@ const buttonFalse = t("buttonFalse.text");
 <section class:list={["container", "flex", "justify-center", "items-center"]}>
   <div class:list={["grid", "sm:gap-y-10", "sm:grid-cols-1", "md:grid-cols-1", "lg:grid-cols-2", "lg:gap-x-12"]}>
     {
-      services.map((service) => (
-        <ServiceCard
-          text={service.text}
-          title={service.title}
-          description={service.description}
-          benefits={service.features}
-          iconName={service.iconName}
-        />
-      ))
+      services.map((service: {
+  title: string;
+  text: string;
+  description: string;
+  features: string[];
+  iconName: string;
+}) => (
+  <ServiceCard
+    text={service.text}
+    title={service.title}
+    description={service.description}
+    benefits={service.features}
+    iconName={service.iconName}
+  />
+))
     }
   </div>
 </section>
