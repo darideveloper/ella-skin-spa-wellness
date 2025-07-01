@@ -1,6 +1,7 @@
 ---
 // About.astro - Card-based Layout Design
 import AboutCard from '../ui/AboutCard.astro'
+import Title from '../ui/Title.astro'
 
 // Data
 const title = 'ELLA SKIN & SPA WELLNESS'
@@ -76,16 +77,8 @@ const cardsData: CardData[] = [
   <div class:list={['container', 'mx-auto', 'px-6']}>
     <!-- Header Section -->
     <div class:list={['text-center', 'mb-16']}>
-      <h2
-        class:list={[
-          'text-5xl md:text-6xl',
-          'font-title',
-          'text-brown',
-          'mb-6',
-        ]}
-      >
-        {title}
-      </h2>
+      <Title text={title} />
+      <!-- Separator -->
       <div class:list={['w-24', 'h-1', 'bg-brown', 'mx-auto']}></div>
     </div>
 
