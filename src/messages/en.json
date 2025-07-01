@@ -58,5 +58,30 @@
   },
   "hero": {
     "title": "Hero Title"
+  },
+  "about": {
+    "title": "ELLA SKIN & SPA WELLNESS",
+    "cards": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "At ELLA SKIN & SPA WELLNESS, our mission is to guide you towards integral wellness and beauty."
+      },
+      "technology": {
+        "title": "Advanced Technology",
+        "description": "We have created a space where cutting-edge technology and human warmth come together to offer you a unique and personalized spa experience."
+      },
+      "team": {
+        "title": "Specialized Team",
+        "description": "We have a team of passionate specialists dedicated to health and beauty, using high-quality products and advanced techniques."
+      },
+      "wellness": {
+        "title": "Your Wellness",
+        "description": "Discover a place to disconnect and reconnect with yourself. At ELLA SKIN & SPA WELLNESS, your wellness is our priority."
+      },
+      "experience": {
+        "title": "Unique Experience",
+        "description": "Each visit to ELLA SKIN & SPA WELLNESS is a personalized experience designed for your integral wellness. Our commitment is to provide you with the care you deserve in an environment of tranquility and excellence."
+      }
+    }
   }
 }

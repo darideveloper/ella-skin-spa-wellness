@@ -3,8 +3,14 @@
 import AboutCard from '../ui/AboutCard.astro'
 import Title from '../ui/Title.astro'
 
-// Data
-const title = 'ELLA SKIN & SPA WELLNESS'
+// Libs
+import { useTranslations } from '../../i18n/utils'
+import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
 
 // Card data
 type CardData = {
@@ -19,9 +25,8 @@ type CardData = {
 
 const cardsData: CardData[] = [
   {
-    title: 'Nuestra Misión',
-    description:
-      'En ELLA SKIN & SPA WELLNESS, misión es guiarte hacia el bienestar integral y la belleza.',
+    title: t('about.cards.mission.title'),
+    description: t('about.cards.mission.description'),
     icon: 'check',
     iconBg: 'bg-gradient-to-br from-brown to-brown-light',
     isDark: false,
@@ -29,9 +34,8 @@ const cardsData: CardData[] = [
     class: '',
   },
   {
-    title: 'Tecnología Avanzada',
-    description:
-      'He creado un espacio donde la tecnología de vanguardia y la calidez humana se fusionan para ofrecerte una experiencia de spa única y personalizada.',
+    title: t('about.cards.technology.title'),
+    description: t('about.cards.technology.description'),
     icon: 'lightbulb',
     iconBg: 'bg-gradient-to-br from-pink to-pink-light',
     isDark: false,
@@ -39,9 +43,8 @@ const cardsData: CardData[] = [
     class: '',
   },
   {
-    title: 'Equipo Especializado',
-    description:
-      'Cuento con un equipo de especialistas apasionados que se dedican a salud y belleza, utilizando productos de alta calidad y técnicas avanzadas.',
+    title: t('about.cards.team.title'),
+    description: t('about.cards.team.description'),
     icon: 'users',
     iconBg: 'bg-gradient-to-br from-brown-light to-brown',
     isDark: false,
@@ -49,9 +52,8 @@ const cardsData: CardData[] = [
     class: '',
   },
   {
-    title: 'Tu Bienestar',
-    description:
-      'Descubre un lugar para desconectar y reconectar contigo mismo. En ELLA SKIN & SPA WELLNESS, bienestar es mi prioridad.',
+    title: t('about.cards.wellness.title'),
+    description: t('about.cards.wellness.description'),
     icon: 'heart',
     iconBg: 'bg-gradient-to-br from-pink-light to-pink',
     isDark: false,
@@ -59,9 +61,8 @@ const cardsData: CardData[] = [
     class: 'lg:col-span-1',
   },
   {
-    title: 'Experiencia Única',
-    description:
-      'Cada visita a ELLA SKIN & SPA WELLNESS es una experiencia personalizada diseñada para tu bienestar integral. Nuestro compromiso es brindarte el cuidado que mereces en un ambiente de tranquilidad y excelencia.',
+    title: t('about.cards.experience.title'),
+    description: t('about.cards.experience.description'),
     icon: 'star',
     iconBg: 'bg-white/80',
     isDark: true,
@@ -77,7 +78,7 @@ const cardsData: CardData[] = [
   <div class:list={['container', 'mx-auto', 'px-6']}>
     <!-- Header Section -->
     <div class:list={['text-center', 'mb-16']}>
-      <Title text={title} />
+      <Title text={t('about.title')} />
       <!-- Separator -->
       <div class:list={['w-24', 'h-1', 'bg-brown', 'mx-auto']}></div>
     </div>
