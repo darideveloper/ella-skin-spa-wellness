@@ -30,17 +30,19 @@
         "Tratamientos anti-edad",
         "Productos seleccionados",
         "Técnicas avanzadas"
-      ]
+      ],
+      "icon": "tratamientosFaciales"
     },
-    {
-      "title": "Tratamientos Corporales",
-      "description": "Descubre el poder de nuestros tratamientos corporales en ELLA SKIN & SPA WELLNESS. Mejoran la textura de tu piel, reducen la celulitis y aumentan su firmeza. Cada sesión es personalizada con técnicas profesionales y productos de alta calidad para realzar tu bienestar y tu figura.",
-      "features": [
-        "Reducción de celulitis y estrías",
-        "Mejora de la textura cutánea",
-        "Firmeza y tonificación de la piel",
-        "Productos de alta calidad y técnicas profesionales"
-      ]
+      {
+  "title": "Tratamientos Corporales",
+  "description": "Descubre el poder de nuestros *tratamientos corporales* en **ELLA SKIN & SPA WELLNESS**. Mejoran la textura de tu piel, reducen la celulitis y aumentan su firmeza. Cada sesión es personalizada con técnicas profesionales y productos de alta calidad para realzar tu bienestar y tu figura.",
+  "features": [
+    "*Reducción de celulitis y estrías*",
+    "*Mejora de la textura cutánea*",
+    "**Firmeza y tonificación de la piel**",
+    "*Productos de alta calidad y técnicas profesionales*"
+  ],
+      "icon": "tratamientosCorporales"
     },
     {
       "title": "Masajes Relajantes y Terapéuticos",
@@ -51,7 +53,8 @@
         "Reducción de tensión muscular y estrés",
         "Diversas técnicas adaptadas a tus necesidades",
         "Experiencia renovadora para cuerpo y mente"
-      ]
+      ],
+      "icon": "masajesRelajantes"
     },
     {
       "title": "Aparatología Estética Avanzada",
@@ -61,7 +64,8 @@
         "Tratamientos corporales y faciales con aparatología",
         "Equipos modernos y personal capacitado",
         "Complemento ideal para potenciar resultados"
-      ]
+      ],
+      "icon": "EsteticaAvanzada"
     }
   ],
   "buttonFalse":{

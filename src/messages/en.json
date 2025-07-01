@@ -34,7 +34,8 @@
         "Anti-aging treatments",
         "Curated skincare products",
         "Advanced techniques"
-      ]
+      ],
+      "icon": "tratamientosFaciales"
     },
     {
       "title": "Body Treatments",
@@ -44,7 +45,8 @@
         "Improved skin texture",
         "Firming and toning",
         "High-quality products and professional techniques"
-      ]
+      ],
+      "icon": "bodyTreatments"
     },
     {
       "title": "Relaxing and Therapeutic Massages",
@@ -54,7 +56,8 @@
         "Relieves muscle tension and stress",
         "Various techniques tailored to your needs",
         "A renewing experience for body and mind"
-      ]
+      ],
+      "icon": "relaxingMassages"
     },
     {
       "title": "Advanced Aesthetic Technology",
@@ -64,7 +67,8 @@
         "Body and facial treatments with equipment",
         "Modern devices and trained professionals",
         "Ideal complement to enhance results"
-      ]
+      ],
+      "icon": "advancedAesthetics"
     }
   ],
   "buttonFalse": {
