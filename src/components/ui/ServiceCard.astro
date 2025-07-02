@@ -1,19 +1,12 @@
 ---
-import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from "react-icons/fa6";
-import Button from './Button.astro';
-import { marked } from 'marked';
-import { useTranslations } from "../../i18n/utils";
-import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+// Components
+import Button from "./Button.astro";
 
-// i18n
-export const getStaticPaths = getStaticPathsLangs;
-const { lang } = Astro.params as any;
-const t = useTranslations(lang);
-
-const buttonTrue = t('buttonTrue.text');
-const buttonFalse = t('buttonFalse.text');
+//Libs
+import { marked } from "marked";
 
 // Iconos
+import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from "react-icons/fa6";
 const icons = {
   tratamientosFaciales: FaBars,
   tratamientosCorporales: FaBowlingBall,
@@ -23,21 +16,25 @@ const icons = {
 
 interface Props {
   title: string;
-  text: string;
-  src: string;
+  textButtonPrimary: string;
+  textButtonSecond: string;
+  srcButtonPrimary: string;
+  srcButtonSecond: string;
   description: string;
+  iconName: string;
   benefits?: string[];
   class?: string;
-  iconName: string;
 }
 
 const {
   title,
-  text,
+  textButtonPrimary,
+  textButtonSecond,
+  srcButtonPrimary,
+  srcButtonSecond,
   description,
-  benefits = [],
   iconName,
-  src,
+  benefits = [],
   class: className = "",
 } = Astro.props as Props;
 
@@ -77,7 +74,8 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b));
       "opacity-10 group-hover:opacity-20",
       "duration-500",
     ]}
-  />
+  >
+  </div>
 
   <div class:list={["relative", "z-10"]}>
     <!-- Icono -->
@@ -124,19 +122,10 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b));
     <!-- Beneficios -->
     {
       htmlBenefits.length > 0 && (
-        <div class:list={["mb-6"]}>
-          <h4 class:list={["text-sm", "font-semibold", "text-brown", "mb-3"]}>
-            Incluye:
-          </h4>
-          <div class:list={["space-y-2"]}>
+          <div class:list={["space-y-2", "mb-5"]}>
             {htmlBenefits.map((htmlBenefit) => (
               <div
-                class:list={[
-                  "flex",
-                  "items-start",
-                  "text-xs",
-                  "text-black",
-                ]}
+                class:list={["flex", "items-start", "text-xs", "text-black"]}
               >
                 <div
                   class:list={[
@@ -153,14 +142,13 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b));
               </div>
             ))}
           </div>
-        </div>
       )
     }
 
     <!-- Botones -->
     <div class:list={["flex", "gap-3"]}>
-      <Button text={buttonTrue} href={src} isGhost />
-      <Button text={buttonFalse} href={src} isGhost={false} />
+      <Button text={textButtonPrimary} href={srcButtonPrimary} isGhost />
+      <Button text={textButtonSecond} href={srcButtonSecond} isGhost={false} />
     </div>
   </div>
 </article>
