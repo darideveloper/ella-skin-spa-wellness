@@ -1,0 +1,122 @@
+---
+// Props
+export interface Props {
+  postName: string
+  postDescription: string
+  postAuthor: string
+  date: string
+  bannerImage: string
+  class?: string
+}
+
+const {
+  postName,
+  postDescription,
+  postAuthor,
+  date,
+  bannerImage,
+  class: className = '',
+} = Astro.props
+---
+
+<article
+  class:list={[
+    'bg-gradient-to-br from-white to-pink-light',
+    'border border-pink/30',
+    'rounded-2xl',
+    'overflow-hidden',
+    'shadow-lg hover:shadow-2xl',
+    'transition-all',
+    'duration-300',
+    'hover:-translate-y-2',
+    'group',
+    'cursor-pointer',
+    className,
+  ]}
+>
+  <!-- Banner Image -->
+  <div class="relative h-48 overflow-hidden">
+    <img
+      src={bannerImage}
+      alt={postName}
+      class:list={[
+        'w-full',
+        'h-full',
+        'object-cover',
+        'group-hover:scale-110',
+        'transition-transform',
+        'duration-500',
+      ]}
+    />
+    <div
+      class:list={[
+        'absolute',
+        'inset-0',
+        'bg-gradient-to-t',
+        'from-black/20',
+        'to-transparent',
+      ]}
+    ></div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-6">
+  <!-- Header -->
+  <div class="mb-4">
+    <h3
+      class:list={[
+        'text-xl',
+        'font-title',
+        'text-brown',
+        'mb-2',
+        'group-hover:text-brown-light',
+        'transition-colors',
+        'duration-300',
+      ]}
+    >
+      {postName}
+    </h3>
+    <div class="flex items-center gap-2 text-sm text-brown-light">
+      <span class="font-medium">{postAuthor}</span>
+      <span>•</span>
+      <time datetime={date}>{date}</time>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <p
+    class:list={[
+      'text-black',
+      'leading-relaxed',
+      'line-clamp-3',
+      'group-hover:line-clamp-none',
+      'transition-all',
+      'duration-300',
+    ]}
+  >
+    {postDescription}
+  </p>
+
+  <!-- Footer -->
+  <div class="mt-4 pt-4 border-t border-pink/20">
+    <button
+      class:list={[
+        'text-brown',
+        'font-medium',
+        'text-sm',
+        'hover:text-brown-light',
+        'transition-colors',
+        'duration-200',
+        'flex',
+        'items-center',
+        'gap-1',
+      ]}
+    >
+      Leer más
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+  </div>
+</article> 

@@ -9,6 +9,9 @@ import BannerA from '../../components/sections/BannerA.astro';
 import BannerB from '../../components/sections/BannerB.astro';
 import BannerC from '../../components/sections/BannerC.astro';
 import BannerD from '../../components/sections/BannerD.astro';
+import PostA from '../../components/ui/PostA.astro';
+import PostB from '../../components/ui/PostB.astro';
+import PostC from '../../components/ui/PostC.astro';
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
@@ -93,6 +96,42 @@ const colors = [
 					"Ambiente relajante",
 					"Resultados duraderos"
 				]}
+			/>
+		</div>
+	</section>
+
+	<!-- Posts Section -->
+	<section class="container">
+		<div class="text-center mb-16">
+			<h2 class="font-title text-4xl text-brown mb-4">Últimas Publicaciones</h2>
+			<p class="font-sans text-black text-lg max-w-2xl mx-auto">
+				Descubre consejos, tratamientos y novedades sobre belleza y bienestar
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<PostA
+				postName="Secretos para una Piel Radiante"
+				postDescription="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
+				postAuthor="Dra. María González"
+				date="15 de Enero, 2024"
+				bannerImage="/imgs/gallery/img1.jpg"
+			/>
+
+			<PostB
+				postName="Tratamientos Anti-Edad Avanzados"
+				postDescription="Explora las últimas técnicas y tecnologías en tratamientos anti-edad. Desde radiofrecuencia hasta microdermoabrasión, conoce qué opciones son mejores para tu tipo de piel y edad."
+				postAuthor="Lic. Ana Martínez"
+				date="12 de Enero, 2024"
+				bannerImage="/imgs/gallery/img2.jpg"
+			/>
+
+			<PostC
+				postName="Bienestar Integral: Mente y Cuerpo"
+				postDescription="El verdadero bienestar va más allá de la belleza exterior. Descubre cómo combinar tratamientos estéticos con técnicas de relajación y mindfulness para un bienestar integral."
+				postAuthor="Psic. Laura Sánchez"
+				date="10 de Enero, 2024"
+				bannerImage="/imgs/gallery/img3.jpg"
 			/>
 		</div>
 	</section>
