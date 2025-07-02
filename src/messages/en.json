@@ -1,5 +1,7 @@
 {
-  "general": {},
+  "general": {
+    "name": "ELLA SKIN & SPA WELLNESS"
+  },
   "header": {},
   "nav": {
     "links": {
@@ -10,7 +12,43 @@
       "transportation": "Transportation"
     }
   },
-  "footer": {},
+  "footer": {
+    "tagline": "Your well-being is our priority",
+    "description": "Discover an oasis of tranquility where advanced technology meets personalized care to offer you the ultimate spa experience.",
+    "contact": {
+      "title": "Contact Info",
+      "phone": "+1 (555) 123-4567",
+      "email": "info@ellaskinspa.com",
+      "location": "123 Wellness Ave, Spa City, SC 12345",
+      "schudule": "Mon-Sat: 9AM-8PM | Sun: 10AM-6PM"
+    },
+    "social": "Follow Us",
+    "extras": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "bookings": "Bookings",
+      "rights": "All rights reserved."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "facial": {
+      "name": "Facial Treatments",
+      "shortDescription": "Specialized care for your skin"
+    },
+    "massage": {
+      "name": "Relaxing Massages",
+      "shortDescription": "Professional relaxation techniques"
+    },
+    "therapy": {
+      "name": "Body Therapies",
+      "shortDescription": "Comprehensive body wellness"
+    },
+    "consult": {
+      "name": "Personalized Consultations",
+      "shortDescription": "Individualized attention"
+    }
+  },
   "meta": {
     "home": {
       "page": "Home Page Title",
@@ -21,56 +59,63 @@
   "hero": {
     "title": "Hero Title"
   },
-  "services": [
-    {
-      "title": "Facial *Treatments*",
-      "description": "Discover the radiance of your *skin* with our *facial treatments* at **ELLA SKIN & SPA WELLNESS**. Every *skin* type is unique, so we offer *personalized solutions* to *cleanse*, *hydrate*, *nourish*, and *revitalize* your face.",
-      "features": [
-        "**Deep facial cleanses**",
-        "*Anti-aging treatments*",
-        "**Selected products**",
-        "*Advanced techniques*"
-      ],
-      "iconName": "tratamientosFaciales"
-    },
-    {
-      "title": "*Body Treatments*",
-      "description": "At **ELLA SKIN & SPA WELLNESS**, we offer *body treatments* designed to beautify and revitalize your *skin*. They improve *skin texture*, reduce **cellulite** and *stretch marks*, and increase **firmness**. Each treatment is personalized for your *overall wellness*.",
-      "features": [
-        "*Improvement of skin texture*",
-        "**Reduction of cellulite and stretch marks**",
-        "**Firmness and skin toning**",
-        "*High-quality products and professional techniques*"
-      ],
-      "iconName": "tratamientosCorporales"
-    },
-    {
-      "title": "Relaxing and Therapeutic *Massages*",
-      "description": "Enjoy *therapeutic* and *relaxing massages* at **ELLA SKIN & SPA WELLNESS** to relieve *muscle tension*, reduce *stress*, and balance *body* and *mind*. Techniques adapted for a **renewing experience** and deep sense of *well-being*.",
-      "features": [
-        "*Relaxing and therapeutic massages*",
-        "*Reduction of muscle tension and stress*",
-        "*Various techniques adapted to your needs*",
-        "**Renewing experience for body and mind**"
-      ],
-      "iconName": "masajesRelajantes"
-    },
-    {
-      "title": "*Advanced Aesthetic Apparatus*",
-      "description": "At **ELLA SKIN & SPA WELLNESS**, we use *cutting-edge technology* to enhance your results. Our *aesthetic apparatus* complements facial and body treatments, with *modern equipment* and *trained staff* that care for your wellness and enhance your beauty.",
-      "features": [
-        "*Cutting-edge aesthetic technology*",
-        "Facial and body treatments with *apparatus*",
-        "*Modern equipment* and *trained staff*",
-        "Ideal complement to enhance results"
-      ],
-      "iconName": "EsteticaAvanzada"
+  "banner": {
+    "slides": {
+      "welcome": {
+        "title": "Welcome to ELLA SKIN & SPA WELLNESS",
+        "subtitle": "Your journey to wellness begins here",
+        "description": "Discover an oasis of tranquility where advanced technology meets personalized care to offer you the ultimate spa experience.",
+        "cta": "Book Your Session"
+      },
+      "facial": {
+        "title": "Advanced Facial Treatments",
+        "subtitle": "Revitalize your natural beauty",
+        "description": "Experience our cutting-edge facial treatments designed to restore, rejuvenate, and enhance your skin's natural radiance.",
+        "cta": "Explore Treatments"
+      },
+      "massage": {
+        "title": "Relaxing Massage Therapy",
+        "subtitle": "Unwind and rejuvenate",
+        "description": "Let our expert therapists guide you through a journey of deep relaxation and therapeutic healing.",
+        "cta": "Book Massage"
+      },
+      "wellness": {
+        "title": "Holistic Wellness Experience",
+        "subtitle": "Mind, body, and soul harmony",
+        "description": "Embrace a comprehensive approach to wellness that nurtures every aspect of your being.",
+        "cta": "Start Your Journey"
+      },
+      "experience": {
+        "title": "Unique Spa Experience",
+        "subtitle": "Where luxury meets wellness",
+        "description": "Immerse yourself in an environment designed for ultimate relaxation and rejuvenation.",
+        "cta": "Discover More"
+      }
     }
-  ],
-  "buttonFalse": {
-    "text": "Learn more"
   },
-  "buttonTrue": {
-    "text": "Book now"
+  "about": {
+    "title": "ELLA SKIN & SPA WELLNESS",
+    "cards": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "At ELLA SKIN & SPA WELLNESS, our mission is to guide you towards integral wellness and beauty."
+      },
+      "technology": {
+        "title": "Advanced Technology",
+        "description": "We have created a space where cutting-edge technology and human warmth come together to offer you a unique and personalized spa experience."
+      },
+      "team": {
+        "title": "Specialized Team",
+        "description": "We have a team of passionate specialists dedicated to health and beauty, using high-quality products and advanced techniques."
+      },
+      "wellness": {
+        "title": "Your Wellness",
+        "description": "Discover a place to disconnect and reconnect with yourself. At ELLA SKIN & SPA WELLNESS, your wellness is our priority."
+      },
+      "experience": {
+        "title": "Unique Experience",
+        "description": "Each visit to ELLA SKIN & SPA WELLNESS is a personalized experience designed for your integral wellness. Our commitment is to provide you with the care you deserve in an environment of tranquility and excellence."
+      }
+    }
   }
 }

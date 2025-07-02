@@ -24,6 +24,7 @@ const icons = {
 interface Props {
   title: string;
   text: string;
+  src: string;
   description: string;
   benefits?: string[];
   class?: string;
@@ -36,11 +37,11 @@ const {
   description,
   benefits = [],
   iconName,
+  src,
   class: className = "",
 } = Astro.props as Props;
 
 const IconName = icons[iconName as keyof typeof icons] || FaBars;
-const htmlText = marked.parse(text || "");
 const htmlDescription = marked.parse(description || "");
 const htmlTitle = marked.parse(title || "");
 const htmlBenefits = benefits.map((b) => marked.parseInline(b));
@@ -158,8 +159,8 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b));
 
     <!-- Botones -->
     <div class:list={["flex", "gap-3"]}>
-      <Button text={buttonTrue} href="/www.google.com" isGhost />
-      <Button text={buttonFalse} href="/www.google.com" isGhost={false} />
+      <Button text={buttonTrue} href={src} isGhost />
+      <Button text={buttonFalse} href={src} isGhost={false} />
     </div>
   </div>
 </article>

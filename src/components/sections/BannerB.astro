@@ -1,0 +1,275 @@
+---
+// BannerB.astro - Modern Slider Design with Text Overlay
+import Title from '../ui/Title.astro'
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+
+// i18n
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+
+// Get all images from gallery folder
+const allImages = import.meta.glob('../../assets/gallery/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  as: 'url',
+})
+
+// Convert to array and sort by filename
+const galleryImages = Object.entries(allImages)
+  .map(([key, url]) => ({
+    key,
+    url,
+    filename: key.split('/').pop()?.split('.')[0] || 'image'
+  }))
+  .sort((a, b) => {
+    // Sort by img1, img2, img3, etc.
+    const aNum = parseInt(a.filename.replace('img', '')) || 0
+    const bNum = parseInt(b.filename.replace('img', '')) || 0
+    return aNum - bNum
+  })
+
+// Create banner slides from images
+const slides = galleryImages.map((image, index) => {
+  const slideTemplates = [
+    {
+      title: t('banner.slides.welcome.title'),
+      subtitle: t('banner.slides.welcome.subtitle'),
+      description: t('banner.slides.welcome.description'),
+      cta: t('banner.slides.welcome.cta'),
+    },
+    {
+      title: t('banner.slides.facial.title'),
+      subtitle: t('banner.slides.facial.subtitle'),
+      description: t('banner.slides.facial.description'),
+      cta: t('banner.slides.facial.cta'),
+    },
+    {
+      title: t('banner.slides.massage.title'),
+      subtitle: t('banner.slides.massage.subtitle'),
+      description: t('banner.slides.massage.description'),
+      cta: t('banner.slides.massage.cta'),
+    },
+    {
+      title: t('banner.slides.wellness.title'),
+      subtitle: t('banner.slides.wellness.subtitle'),
+      description: t('banner.slides.wellness.description'),
+      cta: t('banner.slides.wellness.cta'),
+    },
+    {
+      title: t('banner.slides.experience.title'),
+      subtitle: t('banner.slides.experience.subtitle'),
+      description: t('banner.slides.experience.description'),
+      cta: t('banner.slides.experience.cta'),
+    },
+  ]
+
+  const template = slideTemplates[index % slideTemplates.length]
+  
+  return {
+    ...template,
+    image: image.url,
+  }
+})
+---
+
+<section
+  class:list={[
+    'relative',
+    'h-screen',
+    'min-h-[600px]',
+    'overflow-hidden',
+    'bg-gradient-to-br',
+    'from-brown-light',
+    'via-pink-light',
+    'to-white',
+  ]}
+>
+  <!-- Swiper Container -->
+  <div
+    class:list={[
+      'swiper',
+      'banner-swiper',
+      'h-full',
+      'w-full',
+    ]}
+  >
+    <div class:list={['swiper-wrapper']}>
+      {
+        slides.map((slide: any) => (
+          <div class:list={['swiper-slide', 'relative', 'h-full']}>
+            <!-- Background Image with Overlay -->
+            <div
+              class:list={[
+                'absolute',
+                'inset-0',
+                'bg-cover',
+                'bg-center',
+                'bg-no-repeat',
+              ]}
+              style={`background-image: url('${slide.image}')`}
+            >
+
+            </div>
+
+
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div
+      class:list={[
+        'swiper-button-next',
+        '!text-white',
+        '!bg-brown/80',
+        'hover:!bg-brown',
+      ]}
+    ></div>
+    <div
+      class:list={[
+        'swiper-button-prev',
+        '!text-white',
+        '!bg-brown/80',
+        'hover:!bg-brown',
+      ]}
+    ></div>
+
+    <!-- Pagination -->
+    <div
+      class:list={[
+        'swiper-pagination',
+        '!bottom-8',
+      ]}
+    ></div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div
+    class:list={[
+      'absolute',
+      'top-0',
+      'right-0',
+      'w-64',
+      'h-64',
+      'bg-pink-light/20',
+      'rounded-full',
+      'blur-3xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+  <div
+    class:list={[
+      'absolute',
+      'bottom-0',
+      'left-0',
+      'w-96',
+      'h-96',
+      'bg-brown-light/20',
+      'rounded-full',
+      'blur-3xl',
+      'pointer-events-none',
+    ]}
+  ></div>
+</section>
+
+<style>
+  /* Custom Swiper Styles for Banner */
+  .banner-swiper .swiper-slide {
+    background: linear-gradient(135deg, var(--color-brown-light), var(--color-pink-light), var(--color-white));
+  }
+
+  .banner-swiper .swiper-button-next,
+  .banner-swiper .swiper-button-prev {
+    background-color: var(--color-brown) !important;
+    color: var(--color-white) !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease !important;
+  }
+
+  .banner-swiper .swiper-button-next:hover,
+  .banner-swiper .swiper-button-prev:hover {
+    background-color: var(--color-brown-light) !important;
+    transform: scale(1.1);
+  }
+
+  .banner-swiper .swiper-button-next::after,
+  .banner-swiper .swiper-button-prev::after {
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+
+  .banner-swiper .swiper-pagination-bullet {
+    background-color: var(--color-white) !important;
+    opacity: 0.6;
+    width: 12px !important;
+    height: 12px !important;
+    transition: all 0.3s ease;
+  }
+
+  .banner-swiper .swiper-pagination-bullet-active {
+    background-color: var(--color-brown) !important;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .banner-swiper .swiper-button-next,
+    .banner-swiper .swiper-button-prev {
+      display: none !important;
+    }
+    
+    .banner-swiper .swiper-pagination {
+      bottom: 20px !important;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper'
+  import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+  import 'swiper/css'
+  import 'swiper/css/navigation'
+  import 'swiper/css/pagination'
+  import 'swiper/css/effect-fade'
+
+  // Initialize Banner Swiper
+  const bannerSwiper = new Swiper('.banner-swiper', {
+    modules: [Navigation, Pagination, Autoplay, EffectFade],
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    speed: 1000,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      320: {
+        autoplay: {
+          delay: 4000,
+        },
+      },
+      768: {
+        autoplay: {
+          delay: 5000,
+        },
+      },
+    },
+  })
+</script> 
