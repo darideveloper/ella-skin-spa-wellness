@@ -1,0 +1,154 @@
+---
+// Components
+import Button from "./Button.astro";
+
+//Libs
+import { marked } from "marked";
+
+// Iconos
+import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from "react-icons/fa6";
+const icons = {
+  tratamientosFaciales: FaBars,
+  tratamientosCorporales: FaBowlingBall,
+  masajesRelajantes: FaBity,
+  EsteticaAvanzada: FaBorderAll,
+};
+
+interface Props {
+  title: string;
+  textButtonPrimary: string;
+  textButtonSecond: string;
+  srcButtonPrimary: string;
+  srcButtonSecond: string;
+  description: string;
+  iconName: string;
+  benefits?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  textButtonPrimary,
+  textButtonSecond,
+  srcButtonPrimary,
+  srcButtonSecond,
+  description,
+  iconName,
+  benefits = [],
+  class: className = "",
+} = Astro.props as Props;
+
+const IconName = icons[iconName as keyof typeof icons] || FaBars;
+const htmlDescription = marked.parse(description || "");
+const htmlTitle = marked.parse(title || "");
+const htmlBenefits = benefits.map((b) => marked.parseInline(b));
+---
+
+<article
+  class:list={[
+    "relative",
+    "bg-white",
+    "p-8",
+    "rounded-3xl",
+    "shadow-xl hover:shadow-2xl",
+    "duration-500",
+    "max-w-md",
+    "mx-auto",
+    "overflow-hidden",
+    "group",
+    className,
+  ]}
+>
+  <!-- Círculo decorativo -->
+  <div
+    class:list={[
+      "absolute",
+      "-top-8",
+      "-right-8",
+      "w-32",
+      "h-32",
+      "bg-gradient-to-br",
+      "from-pink",
+      "to-pink-light",
+      "rounded-full",
+      "opacity-10 group-hover:opacity-20",
+      "duration-500",
+    ]}
+  >
+  </div>
+
+  <div class:list={["relative", "z-10"]}>
+    <!-- Icono -->
+    <div
+      class:list={[
+        "w-16",
+        "h-16",
+        "bg-gradient-to-br",
+        "from-brown",
+        "to-brown-light",
+        "rounded-2xl",
+        "flex",
+        "items-center",
+        "justify-center",
+        "mb-6",
+        "group-hover:scale-110",
+        "duration-300",
+      ]}
+    >
+      <span class:list={["text-white", "text-3xl"]}>
+        <IconName />
+      </span>
+    </div>
+
+    <!-- Título -->
+    <h3
+      class:list={[
+        "font-title",
+        "text-2xl",
+        "text-brown group-hover:text-brown-light",
+        "mb-4",
+        "leading-tight",
+        "duration-300",
+      ]}
+      set:html={htmlTitle}
+    />
+
+    <!-- Descripción -->
+    <div
+      class:list={["text-black", "text-sm", "leading-relaxed", "mb-6", "prose"]}
+      set:html={htmlDescription}
+    />
+
+    <!-- Beneficios -->
+    {
+      htmlBenefits.length > 0 && (
+          <div class:list={["space-y-2", "mb-5"]}>
+            {htmlBenefits.map((htmlBenefit) => (
+              <div
+                class:list={["flex", "items-start", "text-xs", "text-black"]}
+              >
+                <div
+                  class:list={[
+                    "w-1.5",
+                    "h-1.5",
+                    "bg-pink",
+                    "rounded-full",
+                    "mt-1.5",
+                    "mr-3",
+                    "flex-shrink-0",
+                  ]}
+                />
+                <span set:html={htmlBenefit} />
+              </div>
+            ))}
+          </div>
+      )
+    }
+
+    <!-- Botones -->
+    <div class:list={["flex", "gap-3"]}>
+      <Button text={textButtonPrimary} href={srcButtonPrimary} isGhost />
+      <Button text={textButtonSecond} href={srcButtonSecond} isGhost={false} />
+    </div>
+  </div>
+</article>

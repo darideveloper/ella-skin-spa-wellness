@@ -1,0 +1,55 @@
+---
+import About from "../../components/sections/About.astro";
+import Layout from "../../layouts/Layout.astro";
+import Cards from "../../components/sections/Cards.astro";
+import { marked } from "marked";
+// Libs
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
+
+const colors = [
+  "bg-white",
+  "bg-brown",
+  "bg-brown-light",
+  "bg-pink",
+  "bg-pink-light",
+];
+
+---
+
+<Layout>
+  <h1 class:list={["text-3xl", "text-orange-500", "font-title"]}>
+    {t("hero.title")}
+  </h1>
+
+  <h1 class:list={["text-3xl", "text-orange-500"]}>
+    {t("hero.title")}
+  </h1>
+
+  {colors.map((color) => <div class:list={["w-12", "h-12", color]} />)}
+
+  <!-- About Sections -->
+  <About />
+
+  <!-- Services Section -->
+  <section class="container">
+    <div class="text-center mb-16">
+      <h2 class="font-title text-4xl text-brown mb-2">Nuestros Tratamientos</h2>
+      <p class="font-sans text-black text-lg max-w-2xl mx-auto">
+        Descubre la luminosidad de tu piel con nuestros tratamientos faciales
+        especializados
+      </p>
+    </div>
+
+	<div class:list={["-mt-12"]}>
+		<Cards/>
+	</div>
+	
+
+  </section>
+</Layout>
