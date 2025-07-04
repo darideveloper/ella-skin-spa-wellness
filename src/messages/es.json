@@ -31,22 +31,52 @@
     }
   },
   "services": {
-    "title": "Nuestros Servicios",
-    "facial": {
-      "name": "Tratamientos Faciales",
-      "shortDescription": "Cuidado especializado para tu piel"
-    },
-    "massage": {
-      "name": "Masajes Relajantes",
-      "shortDescription": "Técnicas profesionales de relajación"
-    },
-    "therapy": {
-      "name": "Terapias Corporales",
-      "shortDescription": "Bienestar integral del cuerpo"
-    },
-    "consult": {
-      "name": "Consultas Personalizadas",
-      "shortDescription": "Atención individualizada"
+    "title": "Our Services",
+    "cards": {
+      "facial": {
+        "name": "Facial *Treatments*",
+        "description": "Discover the radiance of your *skin* with our *facial treatments* at **ELLA SKIN & SPA WELLNESS**. Every *skin* type is unique, so we offer *personalized solutions* to *cleanse*, *hydrate*, *nourish*, and *revitalize* your face.",
+        "shortDescription": "Specialized care for your skin",
+        "features": [
+          "**Deep facial cleanses**",
+          "*Anti-aging treatments*",
+          "**Selected products**",
+          "*Advanced techniques*"
+        ]
+      },
+      "therapy": {
+        "name": "*Body Treatments*",
+        "description": "Reveal the beauty of your skin with our body treatments at ELLA SKIN & SPA WELLNESS. Each session is tailored to revitalize, tone, smooth, and firm your skin, improving texture and reducing cellulite and stretch marks.",
+        "shortDescription": "Comprehensive body wellness",
+        "features": [
+          "*Improvement of skin texture*",
+          "**Reduction of cellulite and stretch marks**",
+          "**Firmness and skin toning**",
+          "*High-quality products and professional techniques*"
+        ]
+      },
+      "massage": {
+        "name": "Relaxing and Therapeutic *Massages*",
+        "description": "Enjoy *therapeutic* and *relaxing massages* at **ELLA SKIN & SPA WELLNESS** to relieve *muscle tension*, reduce *stress*, and balance *body* and *mind*. Techniques adapted for a **renewing experience** and deep sense of *well-being*.",
+        "shortDescription": "Professional relaxation techniques",
+        "features": [
+          "*Relaxing and therapeutic massages*",
+          "*Reduction of muscle tension and stress*",
+          "*Various techniques adapted to your needs*",
+          "**Renewing experience for body and mind**"
+        ]
+      },
+      "advanced": {
+        "name": "*Advanced Aesthetic Apparatus*",
+        "description": "At **ELLA SKIN & SPA WELLNESS**, we use *cutting-edge technology* to enhance your results. Our *aesthetic apparatus* complements facial and body treatments, with *modern equipment* and *trained staff* that care for your wellness and enhance your beauty.",
+        "shortDescription": "Advanced aesthetic technology",
+        "features": [
+          "*Cutting-edge aesthetic technology*",
+          "Facial and body treatments with *apparatus*",
+          "*Modern equipment* and *trained staff*",
+          "Ideal complement to enhance results"
+        ]
+      }
     }
   },
   "meta": {

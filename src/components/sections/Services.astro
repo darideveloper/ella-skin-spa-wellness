@@ -1,0 +1,36 @@
+---
+// Layout
+import Layout from "../../layouts/Layout.astro";
+
+// Libs
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+import ServiceCard from "../../components/ui/ServiceCard.astro";
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
+
+// Obtenemos el array de servicios desde el archivo de traducción (es.json / en.json)
+const services = t("serviceCard") as any[];
+---
+
+<Layout>
+  <section class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+    {
+      services.map((service, index) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          iconName={service.iconName}
+          benefits={service.features}
+          textButtonPrimary="TEXTO OPCIONAL"
+          srcButtonPrimary="/servicios"
+          textButtonSecond="TEXTO OPCIONAL"
+          srcButtonSecond="/cita"
+        />
+      ))
+    }
+  </section>
+</Layout>

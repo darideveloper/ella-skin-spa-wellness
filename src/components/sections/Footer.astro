@@ -13,6 +13,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
+import { marked } from 'marked'
 
 // i18n
 const { lang } = Astro.params as any
@@ -25,44 +26,53 @@ const spaInfo = {
   description: t('footer.description'),
 }
 
-// Data
-const contactInfo = [
-  { icon: HiPhone, text: t('footer.contact.phone'), link: 'tel:+15551234567' },
-  {
-    icon: HiMail,
-    text: t('footer.contact.email'),
-    link: 'mailto:info@ellaskinspa.com',
+// Base fixed data
+const servicesData = {
+  "facial": {
+    "icon": HiHeart,
   },
-  {
-    icon: HiLocationMarker,
-    text: t('footer.contact.location'),
-    link: '#',
+  "therapy": {
+    "icon": HiStar,
   },
-  { icon: HiClock, text: t('footer.contact.schudule'), link: '#' },
-]
+  "massage": {
+    "icon": HiSparkles,
+  },
+  "advanced": {
+    "icon": HiUserGroup,
+  }
+}
 
-const services = [
-  {
-    icon: HiHeart,
-    name: t('services.facial.name'),
-    shortDescription: t('services.facial.description'),
+const contactData = {
+  "phone": {
+    "icon": HiPhone,
+    "link": "tel:+573178282828",
   },
-  {
-    icon: HiStar,
-    name: t('services.massage.name'),
-    shortDescription: t('services.massage.description'),
+  "email": {
+    "icon": HiMail,
+    "link": "mailto:info@ellaskinspa.com",
   },
-  {
-    icon: HiSparkles,
-    name: t('services.therapy.name'),
-    shortDescription: t('services.therapy.description'),
+  "location": {
+    "icon": HiLocationMarker,
+    "link": "#",
   },
-  {
-    icon: HiUserGroup,
-    name: t('services.consult.name'),
-    shortDescription: t('services.consult.description'),
-  },
-]
+  "schedule": {
+    "icon": HiClock,
+    "link": "#",
+  }
+}
+
+// Fill data with translations
+const services = Object.keys(servicesData).map((key) => ({
+  icon: servicesData[key as keyof typeof servicesData].icon,
+  name: marked.parse(t(`services.cards.${key}.name`)),
+  shortDescription: marked.parse(t(`services.cards.${key}.shortDescription`)),
+}))
+
+const contactInfo = Object.keys(contactData).map((key) => ({
+  icon: contactData[key as keyof typeof contactData].icon,
+  text: t(`footer.contact.${key}`),
+  link: contactData[key as keyof typeof contactData].link,
+}))
 
 const socialNetworks = [
   {
@@ -148,6 +158,7 @@ const footerLinks = [
                   'duration-300',
                   'group',
                 ]}
+                target="_blank"
               >
                 <span
                   class:list={[
@@ -172,7 +183,7 @@ const footerLinks = [
         <div class:list={['space-y-4']}>
           {
             services.map((service) => (
-              <div class:list={['flex', 'items-start', 'space-x-3', 'group']}>
+              <a href={`#service-${service.name}`} class:list={['flex', 'items-start', 'space-x-3', 'group']}>
                 <span
                   class:list={[
                     'text-brown-light group-hover:text-white',
@@ -184,13 +195,13 @@ const footerLinks = [
                 </span>
                 <div>
                   <h5 class:list={['text-white', 'font-medium', 'text-sm']}>
-                    {service.name}
+                    <span set:html={service.name} />
                   </h5>
                   <p class:list={['text-white/70', 'text-xs']}>
-                    {service.shortDescription}
+                    <span set:html={service.shortDescription} />
                   </p>
                 </div>
-              </div>
+              </a>
             ))
           }
         </div>
@@ -261,7 +272,7 @@ const footerLinks = [
                 href={link.link}
                 class:list={['text-white/80 hover:text-white', 'duration-300']}
               >
-                {link.text}
+                link.text
               </a>
             ))
           }
