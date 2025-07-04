@@ -31,51 +31,67 @@
     }
   },
   "services": {
-    "title": "Our Services",
+    "title": "Nuestros Servicios",
     "cards": {
       "facial": {
-        "name": "Facial *Treatments*",
-        "description": "Discover the radiance of your *skin* with our *facial treatments* at **ELLA SKIN & SPA WELLNESS**. Every *skin* type is unique, so we offer *personalized solutions* to *cleanse*, *hydrate*, *nourish*, and *revitalize* your face.",
-        "shortDescription": "Specialized care for your skin",
+        "name": "Tratamientos *Faciales*",
+        "description": "Descubre la *luminosidad* de tu piel con nuestros *tratamientos faciales* en **ELLA SKIN & SPA WELLNESS**. Cada tipo de piel es único, por lo que ofrecemos *soluciones personalizadas* para *limpiar*, *hidratar*, *nutrir* y *revitalizar* tu rostro.",
+        "shortDescription": "Cuidado especializado para tu piel",
         "features": [
-          "**Deep facial cleanses**",
-          "*Anti-aging treatments*",
-          "**Selected products**",
-          "*Advanced techniques*"
-        ]
+          "**Limpiezas faciales profundas**",
+          "*Tratamientos antiedad*",
+          "**Productos seleccionados**",
+          "*Técnicas avanzadas*"
+        ],
+        "textButtonPrimary": "Reservar Ahora",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Saber Más",
+        "srcButtonSecond": "/contact"
       },
       "therapy": {
-        "name": "*Body Treatments*",
-        "description": "Reveal the beauty of your skin with our body treatments at ELLA SKIN & SPA WELLNESS. Each session is tailored to revitalize, tone, smooth, and firm your skin, improving texture and reducing cellulite and stretch marks.",
-        "shortDescription": "Comprehensive body wellness",
+        "name": "*Tratamientos Corporales*",
+        "description": "Revela la belleza de tu piel con nuestros tratamientos corporales en ELLA SKIN & SPA WELLNESS. Cada sesión está diseñada para revitalizar, tonificar, suavizar y firmar tu piel, mejorando la textura y reduciendo la celulitis y las estrías.",
+        "shortDescription": "Bienestar corporal integral",
         "features": [
-          "*Improvement of skin texture*",
-          "**Reduction of cellulite and stretch marks**",
-          "**Firmness and skin toning**",
-          "*High-quality products and professional techniques*"
-        ]
+          "*Mejora de la textura de la piel*",
+          "**Reducción de celulitis y estrías**",
+          "**Firmeza y tonificación de la piel**",
+          "*Productos de alta calidad y técnicas profesionales*"
+        ],
+        "textButtonPrimary": "Reservar Ahora",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Saber Más",
+        "srcButtonSecond": "/contact"
       },
       "massage": {
-        "name": "Relaxing and Therapeutic *Massages*",
-        "description": "Enjoy *therapeutic* and *relaxing massages* at **ELLA SKIN & SPA WELLNESS** to relieve *muscle tension*, reduce *stress*, and balance *body* and *mind*. Techniques adapted for a **renewing experience** and deep sense of *well-being*.",
-        "shortDescription": "Professional relaxation techniques",
+        "name": "Masajes *Relajantes y Terapéuticos*",
+        "description": "Disfruta de *masajes terapéuticos* y *relajantes* en **ELLA SKIN & SPA WELLNESS** para aliviar la *tensión muscular*, reducir el *estrés* y equilibrar el *cuerpo* y la *mente*. Técnicas adaptadas para una **experiencia renovadora** y una profunda sensación de *bienestar*.",
+        "shortDescription": "Técnicas profesionales de relajación",
         "features": [
-          "*Relaxing and therapeutic massages*",
-          "*Reduction of muscle tension and stress*",
-          "*Various techniques adapted to your needs*",
-          "**Renewing experience for body and mind**"
-        ]
+          "*Masajes relajantes y terapéuticos*",
+          "*Reducción de la tensión muscular y el estrés*",
+          "*Diversas técnicas adaptadas a tus necesidades*",
+          "**Experiencia renovadora para cuerpo y mente**"
+        ],
+        "textButtonPrimary": "Reservar Ahora",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Saber Más",
+        "srcButtonSecond": "/contact"
       },
       "advanced": {
-        "name": "*Advanced Aesthetic Apparatus*",
-        "description": "At **ELLA SKIN & SPA WELLNESS**, we use *cutting-edge technology* to enhance your results. Our *aesthetic apparatus* complements facial and body treatments, with *modern equipment* and *trained staff* that care for your wellness and enhance your beauty.",
-        "shortDescription": "Advanced aesthetic technology",
+        "name": "*Aparatología Estética Avanzada*",
+        "description": "En **ELLA SKIN & SPA WELLNESS**, utilizamos *tecnología de vanguardia* para potenciar tus resultados. Nuestra *aparatología estética* complementa los tratamientos faciales y corporales, con *equipos modernos* y *personal capacitado* que cuidan de tu bienestar y realzan tu belleza.",
+        "shortDescription": "Tecnología estética avanzada",
         "features": [
-          "*Cutting-edge aesthetic technology*",
-          "Facial and body treatments with *apparatus*",
-          "*Modern equipment* and *trained staff*",
-          "Ideal complement to enhance results"
-        ]
+          "*Tecnología estética de vanguardia*",
+          "Tratamientos faciales y corporales con *aparatología*",
+          "*Equipos modernos* y *personal capacitado*",
+          "Complemento ideal para potenciar resultados"
+        ],
+        "textButtonPrimary": "Reservar Ahora",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Saber Más",
+        "srcButtonSecond": "/contact"
       }
     }
   },
