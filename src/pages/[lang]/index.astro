@@ -18,39 +18,11 @@ import { getStaticPathsLangs } from '../../libs/getStaticPaths'
 export const getStaticPaths = getStaticPathsLangs
 const { lang } = Astro.params as any
 const t = useTranslations(lang)
-
-const colors = [
-	"bg-white",
-	"bg-brown",
-	"bg-brown-light",
-	"bg-pink",
-	"bg-pink-light",
-]
 ---
 
 <Layout>
-	<h1 class:list={["text-3xl", "text-orange-500", "font-title"]}>
-		{t("hero.title")}
-	</h1>
-
-	<h1 class:list={["text-3xl", "text-orange-500"]}>
-		{t("hero.title")}
-	</h1>
-
-	{
-		colors.map((color) => (
-			<div class:list={["w-12", "h-12", color]}></div>
-		))
-
-	}
-
-	<!-- About Sections -->
-	<About />
-
 	<BannerA />
-	<BannerB />
-	<BannerC />
-	<BannerD />
+	<About />
 
 	<!-- Services Section -->
 	<section class="container">
