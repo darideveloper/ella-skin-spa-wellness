@@ -42,7 +42,11 @@
           "*Anti-aging treatments*",
           "**Selected products**",
           "*Advanced techniques*"
-        ]
+        ],
+        "textButtonPrimary": "Book Now",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Learn More",
+        "srcButtonSecond": "/contact"
       },
       "therapy": {
         "name": "*Body Treatments*",
@@ -53,7 +57,11 @@
           "**Reduction of cellulite and stretch marks**",
           "**Firmness and skin toning**",
           "*High-quality products and professional techniques*"
-        ]
+        ],
+        "textButtonPrimary": "Book Now",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Learn More",
+        "srcButtonSecond": "/contact"
       },
       "massage": {
         "name": "Relaxing and Therapeutic *Massages*",
@@ -64,7 +72,11 @@
           "*Reduction of muscle tension and stress*",
           "*Various techniques adapted to your needs*",
           "**Renewing experience for body and mind**"
-        ]
+        ],
+        "textButtonPrimary": "Book Now",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Learn More",
+        "srcButtonSecond": "/contact"
       },
       "advanced": {
         "name": "*Advanced Aesthetic Apparatus*",
@@ -75,7 +87,11 @@
           "Facial and body treatments with *apparatus*",
           "*Modern equipment* and *trained staff*",
           "Ideal complement to enhance results"
-        ]
+        ],
+        "textButtonPrimary": "Book Now",
+        "srcButtonPrimary": "/contact",
+        "textButtonSecond": "Learn More",
+        "srcButtonSecond": "/contact"
       }
     }
   },

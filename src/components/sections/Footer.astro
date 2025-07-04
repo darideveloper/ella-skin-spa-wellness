@@ -4,10 +4,6 @@ import {
   HiMail,
   HiLocationMarker,
   HiClock,
-  HiHeart,
-  HiStar,
-  HiSparkles,
-  HiUserGroup,
 } from 'react-icons/hi'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
@@ -19,6 +15,9 @@ import { marked } from 'marked'
 const { lang } = Astro.params as any
 const t = useTranslations(lang)
 
+// Data imports
+import { servicesData } from '../../data/servcies'
+
 // Footer data
 const spaInfo = {
   name: t('general.name'),
@@ -27,21 +26,6 @@ const spaInfo = {
 }
 
 // Base fixed data
-const servicesData = {
-  "facial": {
-    "icon": HiHeart,
-  },
-  "therapy": {
-    "icon": HiStar,
-  },
-  "massage": {
-    "icon": HiSparkles,
-  },
-  "advanced": {
-    "icon": HiUserGroup,
-  }
-}
-
 const contactData = {
   "phone": {
     "icon": HiPhone,

@@ -6,13 +6,7 @@ import Button from './Button.astro'
 import { marked } from 'marked'
 
 // Iconos
-import { FaBars, FaBowlingBall, FaBity, FaBorderAll } from 'react-icons/fa6'
-const icons = {
-  tratamientosFaciales: FaBars,
-  tratamientosCorporales: FaBowlingBall,
-  masajesRelajantes: FaBity,
-  EsteticaAvanzada: FaBorderAll,
-}
+import { type IconType } from 'react-icons'
 
 interface Props {
   title: string
@@ -21,7 +15,7 @@ interface Props {
   srcButtonPrimary: string
   srcButtonSecond: string
   description: string
-  iconName: string
+  icon: IconType
   benefits?: string[]
   class?: string
 }
@@ -33,12 +27,11 @@ const {
   srcButtonPrimary,
   srcButtonSecond,
   description,
-  iconName,
+  icon: Icon,
   benefits = [],
   class: className = '',
 } = Astro.props as Props
 
-const IconName = icons[iconName as keyof typeof icons] || FaBars
 const htmlDescription = marked.parse(description || '')
 const htmlTitle = marked.parse(title || '')
 const htmlBenefits = benefits.map((b) => marked.parseInline(b))
@@ -56,10 +49,11 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
     'mx-auto',
     'overflow-hidden',
     'group',
+    'w-full',
     className,
   ]}
 >
-  <!-- Círculo decorativo -->
+  <!-- Decorative circle -->
   <div
     class:list={[
       'absolute',
@@ -78,7 +72,7 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
   </div>
 
   <div class:list={['relative', 'z-10']}>
-    <!-- Icono -->
+    <!-- Icon -->
     <div
       class:list={[
         'w-16',
@@ -96,11 +90,11 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
       ]}
     >
       <span class:list={['text-white', 'text-3xl']}>
-        <IconName />
+        <Icon />
       </span>
     </div>
 
-    <!-- Título -->
+    <!-- Title -->
     <h3
       class:list={[
         'font-title',
@@ -113,13 +107,13 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
       set:html={htmlTitle}
     />
 
-    <!-- Descripción -->
+    <!-- Description -->
     <div
       class:list={['text-black', 'text-sm', 'leading-relaxed', 'mb-6', 'prose']}
       set:html={htmlDescription}
     />
 
-    <!-- Beneficios -->
+    <!-- Benefits -->
     {
       htmlBenefits.length > 0 && (
         <div class:list={['space-y-2', 'mb-5']}>
@@ -143,7 +137,7 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
       )
     }
 
-    <!-- Botones -->
+    <!-- Buttons -->
     <div class:list={['flex', 'gap-3']}>
       <Button
         text={textButtonPrimary}

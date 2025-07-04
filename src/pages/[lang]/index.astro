@@ -1,5 +1,5 @@
 ---
-import Welcome from '../../components/Welcome.astro';
+// Sections
 import About from '../../components/sections/About.astro';
 import Layout from '../../layouts/Layout.astro';
 import BannerA from '../../components/sections/BannerA.astro';
@@ -9,6 +9,7 @@ import BannerD from '../../components/sections/BannerD.astro';
 import PostA from '../../components/ui/PostA.astro';
 import PostB from '../../components/ui/PostB.astro';
 import PostC from '../../components/ui/PostC.astro';
+import Services from '../../components/sections/Services.astro';
 
 // Libs
 import { useTranslations } from '../../i18n/utils'
@@ -35,6 +36,8 @@ const t = useTranslations(lang)
 
 		
 	</section>
+
+	<Services />
 
 	<!-- Posts Section -->
 	<section class="container">
