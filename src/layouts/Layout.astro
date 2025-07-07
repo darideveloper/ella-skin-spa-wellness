@@ -7,9 +7,7 @@ import '@fontsource-variable/dm-sans'
 import "../styles/global.css";
 
 // Header components
-import HeaderA from '../components/sections/HeaderA.tsx'
-import HeaderB from '../components/sections/HeaderB.tsx'
-import HeaderC from '../components/sections/HeaderC.tsx'
+import Header from '../components/sections/Header.tsx'
 
 // Footer components
 import Footer from '../components/sections/Footer.astro'
@@ -25,9 +23,7 @@ import Footer from '../components/sections/Footer.astro'
 		<title>ELLA SKIN & SPA WELLNESS</title>
 	</head>
 	<body>
-		<!-- <HeaderA client:load /> -->
-		<HeaderB client:load />
-		<!-- <HeaderC client:load /> -->
+		<Header client:load />
 		
 		<main>
 			<slot />
