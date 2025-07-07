@@ -2,10 +2,7 @@
 // Sections
 import About from '../../components/sections/About.astro';
 import Layout from '../../layouts/Layout.astro';
-import BannerA from '../../components/sections/BannerA.astro';
-import BannerB from '../../components/sections/BannerB.astro';
-import BannerC from '../../components/sections/BannerC.astro';
-import BannerD from '../../components/sections/BannerD.astro';
+import Banner from '../../components/sections/Banner.astro';
 import PostA from '../../components/ui/PostA.astro';
 import PostB from '../../components/ui/PostB.astro';
 import PostC from '../../components/ui/PostC.astro';
@@ -22,7 +19,7 @@ const t = useTranslations(lang)
 ---
 
 <Layout>
-	<BannerB />
+	<Banner />
 	<About />
 
 	<!-- Services Section -->
@@ -38,11 +35,6 @@ const t = useTranslations(lang)
 	</section>
 
 	<Services />
-
-	<!-- <BannerA /> -->
-	<!-- <BannerB /> -->
-	<!-- <BannerC /> -->
-	<!-- <BannerD /> -->
 
 	<!-- Posts Section -->
 	<section class="container">
