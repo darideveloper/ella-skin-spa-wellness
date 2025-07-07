@@ -6,6 +6,11 @@ import '@fontsource-variable/dm-sans'
 // import tailwind css
 import "../styles/global.css";
 
+// Header components
+import HeaderA from '../components/sections/HeaderA.tsx'
+import HeaderB from '../components/sections/HeaderB.tsx'
+import HeaderC from '../components/sections/HeaderC.tsx'
+
 // Footer components
 import Footer from '../components/sections/Footer.astro'
 ---
@@ -17,9 +22,13 @@ import Footer from '../components/sections/Footer.astro'
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>ELLA SKIN & SPA WELLNESS</title>
 	</head>
 	<body>
+		<!-- <HeaderA client:load /> -->
+		<!-- <HeaderB client:load /> -->
+		<HeaderC client:load />
+		
 		<main>
 			<slot />
 		</main>
