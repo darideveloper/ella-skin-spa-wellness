@@ -28,6 +28,7 @@ const galleryImages = Object.entries(allImages)
     const bNum = parseInt(b.filename.replace('img', '')) || 0
     return aNum - bNum
   })
+
 ---
 
 <section
@@ -42,65 +43,61 @@ const galleryImages = Object.entries(allImages)
     'to-white',
   ]}
 >
-  <!-- Swiper Container -->
+<!-- Swiper Container -->
+<div
+  class:list={[
+    'swiper',
+    'banner-swiper',
+    'h-full',
+    'w-full',
+  ]}
+>
+  <div class:list={['swiper-wrapper']}>
+    {
+      galleryImages.map((image) => (
+        <div class:list={['swiper-slide', 'relative', 'h-full']} key={image.key}>
+          <!-- Background Image -->
+          <div
+            class:list={[
+              'absolute',
+              'inset-0',
+              'bg-cover',
+              'bg-center',
+              'bg-no-repeat',
+            ]}
+            style={`background-image: url('${image.url}')`}
+          ></div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Navigation Arrows -->
   <div
     class:list={[
-      'swiper',
-      'banner-swiper',
-      'h-full',
-      'w-full',
+      'swiper-button-next',
+      '!text-white',
+      '!bg-brown/80',
+      'hover:!bg-brown',
     ]}
-  >
-    <div class:list={['swiper-wrapper']}>
-      {
-        slides.map((slide: any) => (
-          <div class:list={['swiper-slide', 'relative', 'h-full']}>
-            <!-- Background Image with Overlay -->
-            <div
-              class:list={[
-                'absolute',
-                'inset-0',
-                'bg-cover',
-                'bg-center',
-                'bg-no-repeat',
-              ]}
-              style={`background-image: url('${slide.image}')`}
-            >
+  ></div>
+  <div
+    class:list={[
+      'swiper-button-prev',
+      '!text-white',
+      '!bg-brown/80',
+      'hover:!bg-brown',
+    ]}
+  ></div>
 
-            </div>
-
-
-          </div>
-        ))
-      }
-    </div>
-
-    <!-- Navigation Arrows -->
-    <div
-      class:list={[
-        'swiper-button-next',
-        '!text-white',
-        '!bg-brown/80',
-        'hover:!bg-brown',
-      ]}
-    ></div>
-    <div
-      class:list={[
-        'swiper-button-prev',
-        '!text-white',
-        '!bg-brown/80',
-        'hover:!bg-brown',
-      ]}
-    ></div>
-
-    <!-- Pagination -->
-    <div
-      class:list={[
-        'swiper-pagination',
-        '!bottom-8',
-      ]}
-    ></div>
-  </div>
+  <!-- Pagination -->
+  <div
+    class:list={[
+      'swiper-pagination',
+      '!bottom-8',
+    ]}
+  ></div>
+</div>
 
   <!-- Decorative Elements -->
   <div
