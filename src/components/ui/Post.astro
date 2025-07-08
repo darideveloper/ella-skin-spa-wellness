@@ -26,8 +26,12 @@ const {
 
 <article
   class:list={[
-    "bg-gradient-to-br from-white to-pink-light",
-    "border border-pink/30",
+    "max-w-[25%]",
+    "bg-gradient-to-br",
+    "from-white",
+    "to-pink-light",
+    "border",
+    "border-pink/30",
     "rounded-2xl",
     "overflow-hidden",
     "shadow-lg hover:shadow-2xl",
@@ -40,7 +44,7 @@ const {
   ]}
 >
   <!-- Banner Image -->
-  <div class="relative h-48 overflow-hidden">
+  <div class:list={["relative", "h-48", "overflow-hidden"]}>
     <img
       src={bannerImage}
       alt={Title}
@@ -66,9 +70,9 @@ const {
   </div>
 
   <!-- Content -->
-  <div class="p-6">
+  <div class:list={["p-6"]}>
     <!-- Header -->
-    <div class="mb-4">
+    <div class:list={["mb-4"]}>
       <h3
         class:list={[
           "text-xl",
@@ -82,8 +86,16 @@ const {
       >
         {Title}
       </h3>
-      <div class="flex items-center gap-2 text-sm text-brown-light">
-        <span class="font-medium">{Author}</span>
+      <div
+        class:list={[
+          "flex",
+          "items-center",
+          "gap-2",
+          "text-sm",
+          "text-brown-light",
+        ]}
+      >
+        <span class:list={["font-medium"]}>{Author}</span>
         <span>•</span>
         <time datetime={date}>{date}</time>
       </div>
@@ -104,7 +116,7 @@ const {
     </p>
 
     <!-- Footer -->
-    <div class="mt-4 pt-4 border-t border-pink/20">
+    <div class:list={["mt-4", "pt-4", "border-t", "border-pink/20"]}>
       <button
         class:list={[
           "text-brown",
@@ -133,4 +145,3 @@ const {
     </div>
   </div>
 </article>
-
