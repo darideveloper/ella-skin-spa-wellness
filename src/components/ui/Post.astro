@@ -4,20 +4,22 @@ import { FaAngleRight } from "react-icons/fa6";
 
 // Props
 export interface Props {
-  postName: string;
-  postDescription: string;
-  postAuthor: string;
+  Title: string;
+  Description: string;
+  Author: string;
   date: string;
   bannerImage: string;
+  href: string;
   class?: string;
 }
 
 const {
-  postName,
-  postDescription,
-  postAuthor,
+  Title,
+  Description,
+  Author,
   date,
   bannerImage,
+  href,
   class: className = "",
 } = Astro.props;
 ---
@@ -41,7 +43,7 @@ const {
   <div class="relative h-48 overflow-hidden">
     <img
       src={bannerImage}
-      alt={postName}
+      alt={Title}
       class:list={[
         "w-full",
         "h-full",
@@ -78,10 +80,10 @@ const {
           "duration-300",
         ]}
       >
-        {postName}
+        {Title}
       </h3>
       <div class="flex items-center gap-2 text-sm text-brown-light">
-        <span class="font-medium">{postAuthor}</span>
+        <span class="font-medium">{Author}</span>
         <span>•</span>
         <time datetime={date}>{date}</time>
       </div>
@@ -98,7 +100,7 @@ const {
         "duration-300",
       ]}
     >
-      {postDescription}
+      {Description}
     </p>
 
     <!-- Footer -->
