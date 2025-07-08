@@ -1,14 +1,4 @@
 ---
-// BannerB.astro - Modern Slider Design with Text Overlay
-import Title from '../ui/Title.astro'
-
-// Libs
-import { useTranslations } from '../../i18n/utils'
-
-// i18n
-const { lang } = Astro.params as any
-const t = useTranslations(lang)
-
 // Get all images from gallery folder
 const allImages = import.meta.glob('../../assets/gallery/**/*.{jpg,jpeg,png,webp}', {
   eager: true,
