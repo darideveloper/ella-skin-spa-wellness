@@ -28,49 +28,6 @@ const galleryImages = Object.entries(allImages)
     const bNum = parseInt(b.filename.replace('img', '')) || 0
     return aNum - bNum
   })
-
-// Create banner slides from images
-const slides = galleryImages.map((image, index) => {
-  const slideTemplates = [
-    {
-      title: t('banner.slides.welcome.title'),
-      subtitle: t('banner.slides.welcome.subtitle'),
-      description: t('banner.slides.welcome.description'),
-      cta: t('banner.slides.welcome.cta'),
-    },
-    {
-      title: t('banner.slides.facial.title'),
-      subtitle: t('banner.slides.facial.subtitle'),
-      description: t('banner.slides.facial.description'),
-      cta: t('banner.slides.facial.cta'),
-    },
-    {
-      title: t('banner.slides.massage.title'),
-      subtitle: t('banner.slides.massage.subtitle'),
-      description: t('banner.slides.massage.description'),
-      cta: t('banner.slides.massage.cta'),
-    },
-    {
-      title: t('banner.slides.wellness.title'),
-      subtitle: t('banner.slides.wellness.subtitle'),
-      description: t('banner.slides.wellness.description'),
-      cta: t('banner.slides.wellness.cta'),
-    },
-    {
-      title: t('banner.slides.experience.title'),
-      subtitle: t('banner.slides.experience.subtitle'),
-      description: t('banner.slides.experience.description'),
-      cta: t('banner.slides.experience.cta'),
-    },
-  ]
-
-  const template = slideTemplates[index % slideTemplates.length]
-  
-  return {
-    ...template,
-    image: image.url,
-  }
-})
 ---
 
 <section
