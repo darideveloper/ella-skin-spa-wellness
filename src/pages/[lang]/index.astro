@@ -1,45 +1,44 @@
 ---
 // Sections
-import About from '../../components/sections/About.astro';
-import Layout from '../../layouts/Layout.astro';
-import Banner from '../../components/sections/Banner.astro';
-import Post from '../../components/ui/Post.astro';
-import Services from '../../components/sections/Services.astro';
+import About from "../../components/sections/About.astro";
+import Layout from "../../layouts/Layout.astro";
+import Banner from "../../components/sections/Banner.astro";
+import Post from "../../components/ui/Post.astro";
+import Services from "../../components/sections/Services.astro";
 
 // Libs
-import { useTranslations } from '../../i18n/utils'
-import { getStaticPathsLangs } from '../../libs/getStaticPaths'
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
 
 // i18n
-export const getStaticPaths = getStaticPathsLangs
-const { lang } = Astro.params as any
-const t = useTranslations(lang)
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
 ---
 
 <Layout>
-	<Banner />
-	<About />
+  <Banner />
+  <About />
 
-	<!-- Services Section -->
-	<section class="container">
-		<div class="text-center mb-16">
-			<h2 class="font-title text-4xl text-brown mb-4">Nuestros Tratamientos</h2>
-			<p class="font-sans text-black text-lg max-w-2xl mx-auto">
-				Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados
-			</p>
-		</div>
+  <!-- Services Section -->
+  <section class="container">
+    <div class="text-center mb-16">
+      <h2 class="font-title text-4xl text-brown mb-4">Nuestros Tratamientos</h2>
+      <p class="font-sans text-black text-lg max-w-2xl mx-auto">
+        Descubre la luminosidad de tu piel con nuestros tratamientos faciales
+        especializados
+      </p>
+    </div>
+  </section>
 
-		
-	</section>
+  <Services />
 
-	<Services />
-	
-	<Post
-		Title="Secretos para una Piel Radiante"
-		Description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-		Author="Dra. María González"
-		date="15 de Enero, 2024"
-		bannerImage="/imgs/gallery/img1.jpg"
-		href='#'
-	/>
+  <Post
+    Title="Secretos para una Piel Radiante"
+    Description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
+    Author="Dra. María González"
+    date="15 de Enero, 2024"
+    bannerImage="/imgs/gallery/img1.jpg"
+    href="#"
+  />
 </Layout>
