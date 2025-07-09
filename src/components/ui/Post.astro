@@ -4,9 +4,9 @@ import { FaAngleRight } from "react-icons/fa6";
 
 // Props
 export interface Props {
-  Title: string;
-  Description: string;
-  Author: string;
+  title: string;
+  description: string;
+  author: string;
   date: string;
   bannerImage: string;
   href: string;
@@ -14,9 +14,9 @@ export interface Props {
 }
 
 const {
-  Title,
-  Description,
-  Author,
+  title,
+  description,
+  author,
   date,
   bannerImage,
   href,
@@ -26,7 +26,7 @@ const {
 
 <article
   class:list={[
-    "max-w-[25%]",
+    "max-w-xl",
     "bg-gradient-to-br",
     "from-white",
     "to-pink-light",
@@ -47,7 +47,7 @@ const {
   <div class:list={["relative", "h-48", "overflow-hidden"]}>
     <img
       src={bannerImage}
-      alt={Title}
+      alt={title}
       class:list={[
         "w-full",
         "h-full",
@@ -77,14 +77,13 @@ const {
         class:list={[
           "text-xl",
           "font-title",
-          "text-brown",
+          "text-brown group-hover:text-brown-light",
           "mb-2",
-          "group-hover:text-brown-light",
           "transition-colors",
           "duration-300",
         ]}
       >
-        {Title}
+        {title}
       </h3>
       <div
         class:list={[
@@ -95,7 +94,7 @@ const {
           "text-brown-light",
         ]}
       >
-        <span class:list={["font-medium"]}>{Author}</span>
+        <span class:list={["font-medium"]}>{author}</span>
         <span>•</span>
         <time datetime={date}>{date}</time>
       </div>
@@ -106,23 +105,21 @@ const {
       class:list={[
         "text-black",
         "leading-relaxed",
-        "line-clamp-3",
-        "group-hover:line-clamp-none",
+        "line-clamp-3 group-hover:line-clamp-none",
         "transition-all",
         "duration-300",
       ]}
     >
-      {Description}
+      {description}
     </p>
 
     <!-- Footer -->
     <div class:list={["mt-4", "pt-4", "border-t", "border-pink/20"]}>
       <button
         class:list={[
-          "text-brown",
+          "text-brown hover:text-brown-light",
           "font-medium",
           "text-sm",
-          "hover:text-brown-light",
           "transition-colors",
           "duration-200",
           "flex",
