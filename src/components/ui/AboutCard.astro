@@ -1,12 +1,11 @@
 ---
-// Icons
-import { 
-  HeartIcon, 
-  LightBulbIcon, 
-  UserGroupIcon, 
-  StarIcon, 
-  BadgeCheckIcon 
-} from './Icons'
+import {
+  HiHeart,
+  HiLightBulb,
+  HiUserGroup,
+  HiStar,
+  HiBadgeCheck,
+} from 'react-icons/hi'
 
 // Props
 export interface Props {
@@ -31,14 +30,14 @@ const {
 
 // Component icon options
 const icons = {
-  heart: HeartIcon,
-  lightbulb: LightBulbIcon,
-  users: UserGroupIcon,
-  star: StarIcon,
-  check: BadgeCheckIcon,
+  heart: HiHeart,
+  lightbulb: HiLightBulb,
+  users: HiUserGroup,
+  star: HiStar,
+  check: HiBadgeCheck,
 }
 
-const SelectedIcon = icons[icon as keyof typeof icons] || HeartIcon
+const SelectedIcon = icons[icon as keyof typeof icons] || HiHeart
 ---
 
 <div
