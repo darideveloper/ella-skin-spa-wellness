@@ -3,6 +3,7 @@
 import Layout from "../../layouts/Layout.astro";
 
 // Components 
+import Banner from "../../components/sections/Banner.astro";
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
@@ -15,4 +16,5 @@ const t = useTranslations(lang);
 ---
 
 <Layout>
+    <Banner/>
 </Layout>
