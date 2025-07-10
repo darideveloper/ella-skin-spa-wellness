@@ -3,12 +3,13 @@
 import About from "../../components/sections/About.astro";
 import Layout from "../../layouts/Layout.astro";
 import Banner from "../../components/sections/Banner.astro";
-import Post from "../../components/ui/Post.astro";
+import Post from "../../components/sections/Posts.astro";
 import Services from "../../components/sections/Services.astro";
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
 import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+import Posts from "../../components/sections/Posts.astro";
 
 // i18n
 export const getStaticPaths = getStaticPathsLangs;
@@ -32,46 +33,5 @@ const t = useTranslations(lang);
   </section>
 
   <Services />
-  <div
-    class:list={[
-      "grid",
-      "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
-      "gap-2",
-      "justify-center",
-      "p-2",
-    ]}
-  >
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-  </div>
+<Posts></Posts>
 </Layout>
