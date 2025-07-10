@@ -1,134 +1,116 @@
 ---
-// Get all images from gallery folder
-const allImages = import.meta.glob('../../assets/gallery/**/*.{jpg,jpeg,png,webp}', {
-  eager: true,
-  as: 'url',
-})
+const allImages = import.meta.glob(
+  "/src/assets/gallery/**/*.{jpg,jpeg,png,webp}",
+  {
+    eager: true,
+    as: "url",
+  }
+);
 
-// Convert to array and sort by filename
-const galleryImages = Object.entries(allImages)
-  .map(([key, url]) => ({
-    key,
-    url,
-    filename: key.split('/').pop()?.split('.')[0] || 'image'
-  }))
-  .sort((a, b) => {
-    // Sort by img1, img2, img3, etc.
-    const aNum = parseInt(a.filename.replace('img', '')) || 0
-    const bNum = parseInt(b.filename.replace('img', '')) || 0
-    return aNum - bNum
-  })
+const shuffle: <T>(arr: T[]) => T[] = (arr) =>
+  [...arr].sort(() => Math.random() - 0.5);
+
+// Mezcla de imagenes
+const galleryImages = shuffle(
+  Object.entries(allImages).map(([_, url]) => ({ url }))
+);
 ---
 
 <section
+id="banners"
   class:list={[
-    'relative',
-    'h-screen',
-    'min-h-[600px]',
-    'overflow-hidden',
-    'bg-gradient-to-br',
-    'from-brown-light',
-    'via-pink-light',
-    'to-white',
+    "relative",
+    "h-screen",
+    "min-h-[600px]",
+    "overflow-hidden",
+    "bg-gradient-to-br",
+    "from-brown-light",
+    "via-pink-light",
+    "to-white",
   ]}
 >
-<!-- Swiper Container -->
-<div
-  class:list={[
-    'swiper',
-    'banner-swiper',
-    'global-swiper',
-    'h-full',
-    'w-full',
-  ]}
->
-  <div class:list={['swiper-wrapper']}>
-    {
-      galleryImages.map((image) => (
-        <div class:list={['swiper-slide', 'relative', 'h-full']} key={image.key}>
-          <!-- Background Image -->
-          <div
-            class:list={[
-              'absolute',
-              'inset-0',
-              'bg-cover',
-              'bg-center',
-              'bg-no-repeat',
-            ]}
-            style={{ backgroundImage: `url('${image.url}')` }}
+  <!-- Swiper Container -->
+  <div
+    class:list={[
+      "swiper",
+      "banner-swiper",
+      "global-swiper",
+      "h-full",
+      "w-full",
+    ]}
+  >
+    <div class:list={["swiper-wrapper"]}>
+      {
+        galleryImages.map((image) => (
+          <div class:list={["swiper-slide", "relative", "h-full"]}>
+            <div
+              class:list={[
+                "absolute",
+                "inset-0",
+                "bg-cover",
+                "bg-center",
+                "bg-no-repeat",
+              ]}
+              style={`background-image: url('${image.url}')`}
+            />
+          </div>
+        ))
+      }
+    </div>
 
-          ></div>
-        </div>
-      ))
-    }
+    <!-- Navigation Arrows -->
+    <div class:list={["swiper-button-next", "bg-brown/80", "hover:bg-brown"]}>
+    </div>
+    <div class:list={["swiper-button-prev", "bg-brown/80", "hover:bg-brown"]}>
+    </div>
+    <div class:list={["swiper-pagination", "bottom-8"]}></div>
   </div>
-
-  <!-- Navigation Arrows -->
-  <div
-    class:list={[
-      'swiper-button-next',
-      'bg-brown/80 hover:bg-brown',
-    ]}
-  ></div>
-  <div
-    class:list={[
-      'swiper-button-prev',
-      'bg-brown/80 hover:bg-brown',
-    ]}
-  ></div>
-
-  <!-- Pagination -->
-  <div
-    class:list={[
-      'swiper-pagination',
-      'bottom-8',
-    ]}
-  ></div>
-</div>
 
   <!-- Decorative Elements -->
   <div
     class:list={[
-      'absolute',
-      'top-0',
-      'right-0',
-      'w-64',
-      'h-64',
-      'bg-pink-light/20',
-      'rounded-full',
-      'blur-3xl',
-      'pointer-events-none',
+      "absolute",
+      "top-0",
+      "right-0",
+      "w-64",
+      "h-64",
+      "bg-pink-light/20",
+      "rounded-full",
+      "blur-3xl",
+      "pointer-events-none",
     ]}
-  ></div>
+  >
+  </div>
   <div
     class:list={[
-      'absolute',
-      'bottom-0',
-      'left-0',
-      'w-96',
-      'h-96',
-      'bg-brown-light/20',
-      'rounded-full',
-      'blur-3xl',
-      'pointer-events-none',
+      "absolute",
+      "bottom-0",
+      "left-0",
+      "w-96",
+      "h-96",
+      "bg-brown-light/20",
+      "rounded-full",
+      "blur-3xl",
+      "pointer-events-none",
     ]}
-  ></div>
+  >
+  </div>
 </section>
 
 <script>
-  import Swiper from 'swiper'
-  import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
-  import 'swiper/css'
-  import 'swiper/css/navigation'
-  import 'swiper/css/pagination'
-  import 'swiper/css/effect-fade'
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/effect-fade";
 
   // Initialize Banner Swiper
-  new Swiper('.banner-swiper', {
+  new Swiper(".banner-swiper", {
     modules: [Navigation, Pagination, Autoplay, EffectFade],
-    effect: 'fade',
+    effect: "fade",
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     loop: true,
     autoplay: {
@@ -137,16 +119,16 @@ const galleryImages = Object.entries(allImages)
     },
     speed: 1000,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
       dynamicBullets: true,
     },
     breakpoints: {
-      320: {  
+      320: {
         autoplay: {
           delay: 4000,
         },
@@ -157,5 +139,5 @@ const galleryImages = Object.entries(allImages)
         },
       },
     },
-  })
-</script>  
+  });
+</script>
