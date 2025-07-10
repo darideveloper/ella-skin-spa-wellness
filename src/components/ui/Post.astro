@@ -24,121 +24,115 @@ const {
 } = Astro.props;
 ---
 
-<article
-  class:list={[
-    "max-w-xl",
-    "bg-gradient-to-br",
-    "from-white",
-    "to-pink-light",
-    "border",
-    "border-pink/30",
-    "rounded-2xl",
-    "overflow-hidden",
-    "shadow-lg hover:shadow-2xl",
-    "transition-all",
-    "duration-300",
-    "hover:-translate-y-2",
-    "group",
-    "cursor-pointer",
-    className,
-  ]}
->
-  <!-- Banner Image -->
-  <div class:list={["relative", "h-48", "overflow-hidden"]}>
-    <img
-      src={bannerImage}
-      alt={title}
-      class:list={[
-        "w-full",
-        "h-full",
-        "object-cover",
-        "group-hover:scale-110",
-        "transition-transform",
-        "duration-500",
-      ]}
-    />
-    <div
-      class:list={[
-        "absolute",
-        "inset-0",
-        "bg-gradient-to-t",
-        "from-black/20",
-        "to-transparent",
-      ]}
-    >
-    </div>
-  </div>
-
-  <!-- Content -->
-  <div class:list={["p-6"]}>
-    <!-- Header -->
-    <div class:list={["mb-4"]}>
-      <h3
+<a href={href}>
+  <article
+    class:list={[
+      "max-w-xl",
+      "bg-gradient-to-br",
+      "from-white",
+      "to-pink-light",
+      "border",
+      "border-pink/30",
+      "rounded-2xl",
+      "overflow-hidden",
+      "shadow-lg hover:shadow-2xl",
+      "transition-all",
+      "duration-300",
+      "hover:-translate-y-2",
+      "group",
+      "cursor-pointer",
+      className,
+    ]}
+  >
+    <!-- Banner Image -->
+    <div class:list={["relative", "h-48", "overflow-hidden"]}>
+      <img
+        src={bannerImage}
+        alt={title}
         class:list={[
-          "text-xl",
-          "font-title",
-          "text-brown group-hover:text-brown-light",
-          "mb-2",
-          "transition-colors",
-          "duration-300",
+          "w-full",
+          "h-full",
+          "object-cover",
+          "group-hover:scale-110",
+          "transition-transform",
+          "duration-500",
         ]}
-      >
-        {title}
-      </h3>
+      />
       <div
         class:list={[
-          "flex",
-          "items-center",
-          "gap-2",
-          "text-sm",
-          "text-brown-light",
+          "absolute",
+          "inset-0",
+          "bg-gradient-to-t",
+          "from-black/20",
+          "to-transparent",
         ]}
       >
-        <span class:list={["font-medium"]}>{author}</span>
-        <span>•</span>
-        <time datetime={date}>{date}</time>
       </div>
     </div>
 
     <!-- Content -->
-    <p
-      class:list={[
-        "text-black",
-        "leading-relaxed",
-        "line-clamp-3 group-hover:line-clamp-none",
-        "transition-all",
-        "duration-300",
-      ]}
-    >
-      {description}
-    </p>
-
-    <!-- Footer -->
-    <div class:list={["mt-4", "pt-4", "border-t", "border-pink/20"]}>
-      <button
-        class:list={[
-          "text-brown hover:text-brown-light",
-          "font-medium",
-          "text-sm",
-          "transition-colors",
-          "duration-200",
-          "flex",
-          "items-center",
-          "gap-1",
-        ]}
-      >
-        Leer más
-        <span
+    <div class:list={["p-6"]}>
+      <!-- Header -->
+      <div class:list={["mb-4"]}>
+        <h3
           class:list={[
-            "w-4",
-            "h-4",
-            "group-hover:translate-x-1",
-            "transition-transform",
-            "duration-200",
+            "text-xl",
+            "font-title",
+            "text-brown group-hover:text-brown-light",
+            "mb-2",
+            "transition-colors",
+            "duration-300",
           ]}
-          ><FaAngleRight />
-        </span>
-      </button>
+        >
+          {title}
+        </h3>
+        <div
+          class:list={[
+            "flex",
+            "items-center",
+            "gap-2",
+            "text-sm",
+            "text-brown-light",
+          ]}
+        >
+          <span class:list={["font-medium"]}>{author}</span>
+          <span>•</span>
+          <time datetime={date}>{date}</time>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <p class:list={["text-black", "leading-relaxed", "line-clamp-3 "]}>
+        {description}
+      </p>
+
+      <!-- Footer -->
+      <div class:list={["mt-4", "pt-4", "border-t", "border-pink/20"]}>
+        <button
+          class:list={[
+            "text-brown hover:text-brown-light",
+            "font-medium",
+            "text-sm",
+            "transition-colors",
+            "duration-200",
+            "flex",
+            "items-center",
+            "gap-1",
+          ]}
+        >
+          Leer más
+          <span
+            class:list={[
+              "w-4",
+              "h-4",
+              "group-hover:translate-x-1",
+              "transition-transform",
+              "duration-200",
+            ]}
+            ><FaAngleRight />
+          </span>
+        </button>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+</a>
