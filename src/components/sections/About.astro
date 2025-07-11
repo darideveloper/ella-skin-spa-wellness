@@ -21,58 +21,59 @@ type CardData = {
   class: string
 }
 
-const cardsData: CardData[] = [
-  {
-    title: t('about.cards.mission.title'),
-    description: t('about.cards.mission.description'),
+// Cards data
+const cardsData = {
+  mission: {
     icon: 'check',
     iconBg: 'bg-gradient-to-br from-brown to-brown-light',
     isDark: false,
     align: 'center',
     class: '',
   },
-  {
-    title: t('about.cards.technology.title'),
-    description: t('about.cards.technology.description'),
+  technology: {
     icon: 'lightbulb',
     iconBg: 'bg-gradient-to-br from-pink to-pink-light',
     isDark: false,
     align: 'center',
     class: '',
   },
-  {
-    title: t('about.cards.team.title'),
-    description: t('about.cards.team.description'),
+  team: {
     icon: 'users',
     iconBg: 'bg-gradient-to-br from-brown-light to-brown',
     isDark: false,
     align: 'center',
     class: '',
   },
-  {
-    title: t('about.cards.wellness.title'),
-    description: t('about.cards.wellness.description'),
+  wellness: {
     icon: 'heart',
     iconBg: 'bg-gradient-to-br from-pink-light to-pink',
     isDark: false,
     align: 'center',
     class: 'lg:col-span-1',
   },
-  {
-    title: t('about.cards.experience.title'),
-    description: t('about.cards.experience.description'),
+  experience: {
     icon: 'star',
     iconBg: 'bg-white/80',
     isDark: true,
     align: 'left',
     class: 'col-span-1 md:col-span-2',
   },
-]
+}
+
+const cards = Object.keys(cardsData).map((key) => ({
+  title: t(`about.cards.${key}.title`),
+  description: t(`about.cards.${key}.description`),
+  icon: cardsData[key as keyof typeof cardsData].icon,
+  iconBg: cardsData[key as keyof typeof cardsData].iconBg,
+  isDark: cardsData[key as keyof typeof cardsData].isDark,
+  align: cardsData[key as keyof typeof cardsData].align,
+  class: cardsData[key as keyof typeof cardsData].class,
+}))
 ---
 
 <section
   class:list={['py-20', 'bg-gradient-to-b', 'from-white', 'to-pink-light']}
-  id="about"
+  id='about'
 >
   <div class:list={['container', 'mx-auto', 'px-6']}>
     <!-- Header Section -->
@@ -94,7 +95,7 @@ const cardsData: CardData[] = [
     >
       <!-- Dynamic Cards -->
       {
-        cardsData.map((cardData: CardData) => (
+        cards.map((cardData: CardData) => (
           <AboutCard
             title={cardData.title}
             description={cardData.description}
