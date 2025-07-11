@@ -4,33 +4,46 @@ import '@fontsource-variable/playfair-display'
 import '@fontsource-variable/dm-sans'
 
 // import tailwind css
-import "../styles/global.css";
+import '../styles/global.css'
 
-// Header components
+// Components
 import Header from '../components/sections/Header.tsx'
-
-// Footer components
 import Footer from '../components/sections/Footer.astro'
+import WhatsappButton from '../components/ui/WhatsappButton.astro'
 
 // i18n
 const { lang } = Astro.params as any
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>ELLA SKIN & SPA WELLNESS</title>
-	</head>
-	<body>
-		<Header client:load lang={lang} />
-		
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='viewport'
+      content='width=device-width'
+    />
+    <link
+      rel='icon'
+      type='image/x-icon'
+      href='/favicon.ico'
+    />
+    <meta
+      name='generator'
+      content={Astro.generator}
+    />
+    <title>ELLA SKIN & SPA WELLNESS</title>
+  </head>
+  <body>
+    <Header
+      client:load
+      lang={lang}
+    />
+
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <WhatsappButton />
+  </body>
 </html>

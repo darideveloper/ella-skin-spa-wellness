@@ -1,0 +1,58 @@
+---
+// Icons
+import { FaWhatsapp } from "react-icons/fa6"
+
+// Libs
+import { useTranslations } from "../../i18n/utils"
+
+// Props
+export interface Props {
+  lang?: 'en' | 'es'
+}
+
+const { lang = 'en' } = Astro.props
+
+// Fixed data
+const phone = '5219993019999'
+
+// Get translations
+const t = useTranslations(lang)
+const whatsappMessage = lang === 'es' 
+  ? "¡Hola! Me gustaría obtener más información sobre sus servicios."
+  : "Hello! I would like to get more information about your services."
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(whatsappMessage)}`
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="
+    whatsapp-button
+    fixed
+    bottom-4
+    right-4
+    z-50
+    bg-green-500
+    text-white
+    p-3
+    rounded-full
+    shadow-sm
+    shadow-white/50
+    duration-300
+    hover:scale-110
+    transition-transform
+  "
+>
+  <FaWhatsapp className="text-3xl lg:text-4xl" />
+</a>
+
+<style>
+  .whatsapp-button {
+    background-color: #25D366;
+  }
+  
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+  }
+</style> 
