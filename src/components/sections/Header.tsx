@@ -1,14 +1,23 @@
 import { useState, useEffect } from 'react'
 import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
 import clsx from 'clsx'
+import { useTranslations } from '../../i18n/utils'
 
-interface HeaderBProps {
+interface HeaderProps {
   lang?: string
 }
 
-export default function HeaderB({ lang = 'en' }: HeaderBProps) {
+export default function Header({ lang = 'en' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [navigationLinks, setNavigationLinks] = useState([
+    { text: 'Tratamientos', href: '/#services' },
+    { text: 'Blog', href: '/blog' },
+    { text: 'Contact', href: '#footer' },
+  ])
+
+  // Translations
+  const t = useTranslations(lang as 'en' | 'es')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +27,15 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navigationLinks = [
-    { text: 'Tratamientos', href: '/#services' },
-    { text: 'Blog', href: '/blog' },
-    { text: 'Contact', href: '#footer' },
-  ]
+  // Update navigation links when mounts
+  useEffect(() => {
+    const translatedLinks = [
+      { text: t('header.nav.treatments'), href: '/#services' },
+      { text: t('header.nav.blog'), href: '/blog' },
+      { text: t('header.nav.contact'), href: '#footer' },
+    ]
+    setNavigationLinks(translatedLinks)
+  }, [])
 
   return (
     <>
@@ -190,7 +203,7 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
             >
               <span className={clsx('relative', 'z-10', 'flex', 'items-center', 'space-x-2')}>
                 <HiPhone size={16} />
-                <span>Agenda una cita</span>
+                <span>{t('header.cta')}</span>
               </span>
               <div className={clsx(
                 'absolute',
@@ -390,15 +403,15 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
               onClick={() => setIsMenuOpen(false)}
             >
               <HiPhone size={18} />
-              <span>Agenda una cita</span>
+              <span>{t('header.cta')}</span>
             </a>
           </div>
 
           {/* Contact info */}
           <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
-            <p>Mon-Sat: 9AM-8PM</p>
-            <p>Sun: 10AM-6PM</p>
-            <p className={clsx('mt-2', 'font-medium')}>+1 (555) 123-4567</p>
+            <p>{t('header.mobile.hours.weekdays')}</p>
+            <p>{t('header.mobile.hours.sunday')}</p>
+            <p className={clsx('mt-2', 'font-medium')}>{t('header.mobile.phone')}</p>
           </div>
         </div>
       </div>

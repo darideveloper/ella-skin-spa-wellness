@@ -2,14 +2,19 @@
   "general": {
     "name": "ELLA SKIN & SPA WELLNESS"
   },
-  "header": {},
-  "nav": {
-    "links": {
-      "home": "Home",
-      "about": "About Us",
-      "testimonials": "Testimonials",
-      "services": "Services",
-      "transportation": "Transportation"
+  "header": {
+    "nav": {
+      "treatments": "Treatments",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "cta": "Book an appointment",
+    "mobile": {
+      "hours": {
+        "weekdays": "Mon-Sat: 9AM-8PM",
+        "sunday": "Sun: 10AM-6PM"
+      },
+      "phone": "+1 (555) 123-4567"
     }
   },
   "footer": {
