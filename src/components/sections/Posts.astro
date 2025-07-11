@@ -109,57 +109,52 @@ const postsDataEn = [
 // Posts data
 const postsData = lang === "es" ? postsDataEs : postsDataEn;
 ---
-<div class:list={["bg-gradient-to-b","from-white","to-pink-50", "w-full"]}>
-<section
-  id="Posts"
-  class:list={[
-    "container",
-    "py-16",
-  ]}
->
-  <!-- Top Section -->
-  <div class:list={["text-center", "mb-12"]}>
-    <div class:list={["text-4xl", "font-title", "text-brown", "mb-4"]}>
-           <Title text={t("post.title")}/>
+
+<div class:list={["bg-gradient-to-b", "from-white", "to-pink-50", "w-full"]}>
+  <section id="Posts" class:list={["container", "py-16"]}>
+    <!-- Top Section -->
+    <div class:list={["text-center", "mb-12"]}>
+      <div class:list={["text-4xl", "font-title", "text-brown", "mb-4"]}>
+        <Title text={t("post.title")} />
+      </div>
+      <p
+        class:list={[
+          "text-brown-light",
+          "mb-6",
+          "text-lg",
+          "max-w-2xl",
+          "mx-auto",
+        ]}
+      >
+        {t("post.text")}
+      </p>
     </div>
-    <p
+
+    <!-- Posts Grid -->
+    <div
       class:list={[
-        "text-brown-light",
-        "mb-6",
-        "text-lg",
-        "max-w-2xl",
-        "mx-auto",
+        "grid",
+        "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+        "gap-8",
+        "justify-center",
       ]}
     >
-      {t("post.text")}
-    </p>
-  </div>
-
-  <!-- Posts Grid -->
-  <div
-    class:list={[
-      "grid",
-      "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-      "gap-8",
-      "justify-center",
-    ]}
-  >
-    {
-      postsData.map((post) => (
-        <Post
-          title={post.title}
-          description={post.description}
-          author={post.author}
-          date={new Date(post.created_at).toLocaleDateString("es-ES", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-          bannerImage={post.banner_image_url}
-          href={`/blog/${post.id}`}
-        />
-      ))
-    }
-  </div>
-</section>
+      {
+        postsData.map((post) => (
+          <Post
+            title={post.title}
+            description={post.description}
+            author={post.author}
+            date={new Date(post.created_at).toLocaleDateString("es-ES", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+            bannerImage={post.banner_image_url}
+            href={`/blog/${post.id}`}
+          />
+        ))
+      }
+    </div>
+  </section>
 </div>
