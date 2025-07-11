@@ -7,17 +7,19 @@ const allImages = import.meta.glob(
   }
 );
 
+// Define a generic function that shuffles an array of any type
 const shuffle: <T>(arr: T[]) => T[] = (arr) =>
   [...arr].sort(() => Math.random() - 0.5);
 
-// Mezcla de imagenes
+// Shuffle images
 const galleryImages = shuffle(
-  Object.entries(allImages).map(([_, url]) => ({ url }))
+  Object.entries(allImages) // Convert the images object into an array of [key, url] pairs
+    .map(([_, url]) => ({ url })) // Extract only the URL and return it inside an object
 );
 ---
 
 <section
-id="banners"
+  id="banners"
   class:list={[
     "relative",
     "h-screen",
