@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
+import clsx from 'clsx'
 
 interface HeaderBProps {
   lang?: string
@@ -26,7 +27,7 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
   return (
     <>
       <header
-        className={[
+        className={clsx(
           'fixed',
           'top-0',
           'left-0',
@@ -36,13 +37,20 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           'duration-500',
           'ease-in-out',
           isScrolled
-            ? 'bg-white/90 backdrop-blur-lg shadow-xl'
-            : 'bg-gradient-to-r from-brown/80 to-brown-light/80 backdrop-blur-sm',
-        ].join(' ')}
+            ? 'bg-white/90'
+            : 'bg-gradient-to-r',
+          isScrolled
+            ? 'backdrop-blur-lg'
+            : 'from-brown/80',
+          isScrolled
+            ? 'shadow-xl'
+            : 'to-brown-light/80',
+          !isScrolled && 'backdrop-blur-sm'
+        )}
       >
         {/* Main navigation */}
         <div
-          className={[
+          className={clsx(
             'container',
             '!my-0',
             'mx-auto',
@@ -50,13 +58,13 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
             'py-6',
             'flex',
             'items-center',
-            'justify-between',
-          ].join(' ')}
+            'justify-between'
+          )}
         >
           {/* Logo */}
-          <div className={['flex-shrink-0', 'z-10'].join(' ')}>
-            <a href="/" className={['flex', 'items-center', 'space-x-3'].join(' ')}>
-              <div className={[
+          <div className={clsx('flex-shrink-0', 'z-10')}>
+            <a href="/" className={clsx('flex', 'items-center', 'space-x-3')}>
+              <div className={clsx(
                 'relative',
                 'flex',
                 'items-center',
@@ -68,43 +76,43 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                 'backdrop-blur-sm',
                 'border',
                 'border-white/30',
-                'shadow-lg',
-              ].join(' ')}>
+                'shadow-lg'
+              )}>
                 <img
                   src="/imgs/logo.webp"
                   alt="ELLA SKIN & SPA WELLNESS"
-                  className={['h-10', 'w-auto'].join(' ')}
+                  className={clsx('h-10', 'w-auto')}
                 />
                 <HiSparkles 
-                  className={[
+                  className={clsx(
                     'absolute',
                     '-top-1',
                     '-right-1',
                     'text-pink',
                     'text-lg',
                     'animate-pulse'
-                  ].join(' ')}
+                  )}
                 />
               </div>
-              <div className={['hidden md:block'].join(' ')}>
+              <div className={clsx('hidden', 'md:block')}>
                 <h1
-                  className={[
+                  className={clsx(
                     'text-xl',
                     'font-title',
                     'font-bold',
                     'text-white',
-                    'drop-shadow-lg',
-                  ].join(' ')}
+                    'drop-shadow-lg'
+                  )}
                 >
                   ELLA SKIN & SPA
                 </h1>
                 <p
-                  className={[
+                  className={clsx(
                     'text-xs',
                     'font-sans',
                     'text-white/90',
-                    'tracking-wider',
-                  ].join(' ')}
+                    'tracking-wider'
+                  )}
                 >
                   WELLNESS
                 </p>
@@ -113,12 +121,12 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className={['hidden lg:flex', 'items-center', 'space-x-1'].join(' ')}>
+          <nav className={clsx('hidden', 'lg:flex', 'items-center', 'space-x-1')}>
             {navigationLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={[
+                className={clsx(
                   'relative',
                   'font-sans',
                   'font-medium',
@@ -132,12 +140,12 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                   'hover:bg-white/20',
                   'hover:scale-105',
                   'backdrop-blur-sm',
-                  'group',
-                ].join(' ')}
+                  'group'
+                )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <span className={['relative', 'z-10'].join(' ')}>{link.text}</span>
-                <div className={[
+                <span className={clsx('relative', 'z-10')}>{link.text}</span>
+                <div className={clsx(
                   'absolute',
                   'inset-0',
                   'bg-gradient-to-r',
@@ -147,19 +155,19 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                   'opacity-0',
                   'group-hover:opacity-100',
                   'transition-opacity',
-                  'duration-300',
-                ].join(' ')} />
+                  'duration-300'
+                )} />
               </a>
             ))}
           </nav>
 
           {/* CTA Button */}
-          <div className={['hidden lg:flex', 'items-center'].join(' ')}>
+          <div className={clsx('hidden', 'lg:flex', 'items-center')}>
             <a
               href="https://api.whatsapp.com/send?phone=5214493402622"
               target="_blank"
               rel="noopener noreferrer"
-              className={[
+              className={clsx(
                 'relative',
                 'bg-gradient-to-r',
                 'from-pink',
@@ -177,14 +185,14 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                 'hover:shadow-2xl',
                 'shadow-lg',
                 'group',
-                'overflow-hidden',
-              ].join(' ')}
+                'overflow-hidden'
+              )}
             >
-              <span className={['relative', 'z-10', 'flex', 'items-center', 'space-x-2'].join(' ')}>
+              <span className={clsx('relative', 'z-10', 'flex', 'items-center', 'space-x-2')}>
                 <HiPhone size={16} />
                 <span>Agenda una cita</span>
               </span>
-              <div className={[
+              <div className={clsx(
                 'absolute',
                 'inset-0',
                 'bg-gradient-to-r',
@@ -193,15 +201,15 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                 'opacity-0',
                 'group-hover:opacity-100',
                 'transition-opacity',
-                'duration-300',
-              ].join(' ')} />
+                'duration-300'
+              )} />
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={[
+            className={clsx(
               'lg:hidden',
               'relative',
               'p-3',
@@ -215,8 +223,8 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
               'duration-300',
               'hover:bg-white/30',
               'hover:scale-110',
-              'z-10',
-            ].join(' ')}
+              'z-10'
+            )}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -226,7 +234,7 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
 
       {/* Mobile Navigation Overlay */}
       <div
-        className={[
+        className={clsx(
           'lg:hidden',
           'fixed',
           'inset-0',
@@ -234,21 +242,22 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           'transition-all',
           'duration-500',
           'ease-in-out',
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible',
-        ].join(' ')}
+          isMenuOpen ? 'opacity-100' : 'opacity-0',
+          isMenuOpen ? 'visible' : 'invisible'
+        )}
         onClick={() => setIsMenuOpen(false)}
       >
-        <div className={[
+        <div className={clsx(
           'absolute',
           'inset-0',
           'bg-black/50',
-          'backdrop-blur-sm',
-        ].join(' ')} />
+          'backdrop-blur-sm'
+        )} />
       </div>
 
       {/* Mobile Navigation Sidebar */}
       <div
-        className={[
+        className={clsx(
           'lg:hidden',
           'fixed',
           'top-0',
@@ -265,31 +274,31 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           'duration-500',
           'ease-in-out',
           'transform',
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full',
-        ].join(' ')}
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        )}
       >
-        <div className={['flex', 'flex-col', 'h-full', 'p-8'].join(' ')}>
+        <div className={clsx('flex', 'flex-col', 'h-full', 'p-8')}>
           {/* Close button */}
-          <div className={['flex', 'justify-end', 'mb-8'].join(' ')}>
+          <div className={clsx('flex', 'justify-end', 'mb-8')}>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className={[
+              className={clsx(
                 'p-2',
                 'rounded-full',
                 'bg-white/20',
                 'text-white',
                 'hover:bg-white/30',
                 'transition-colors',
-                'duration-300',
-              ].join(' ')}
+                'duration-300'
+              )}
             >
               <HiX size={24} />
             </button>
           </div>
 
           {/* Logo in sidebar */}
-          <div className={['mb-12', 'text-center'].join(' ')}>
-            <div className={[
+          <div className={clsx('mb-12', 'text-center')}>
+            <div className={clsx(
               'inline-flex',
               'items-center',
               'justify-center',
@@ -301,30 +310,30 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
               'border',
               'border-white/30',
               'shadow-lg',
-              'mb-4',
-            ].join(' ')}>
+              'mb-4'
+            )}>
               <img
                 src="/imgs/logo.webp"
                 alt="ELLA SKIN & SPA WELLNESS"
-                className={['h-12', 'w-auto'].join(' ')}
+                className={clsx('h-12', 'w-auto')}
               />
             </div>
-            <h2 className={['text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2'].join(' ')}>
+            <h2 className={clsx('text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2')}>
               ELLA SKIN & SPA
             </h2>
-            <p className={['text-sm', 'font-sans', 'text-white/80'].join(' ')}>
+            <p className={clsx('text-sm', 'font-sans', 'text-white/80')}>
               WELLNESS
             </p>
           </div>
 
           {/* Navigation links */}
-          <nav className={['flex-1'].join(' ')}>
-            <div className={['space-y-4'].join(' ')}>
+          <nav className={clsx('flex-1')}>
+            <div className={clsx('space-y-4')}>
               {navigationLinks.map((link, index) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={[
+                  className={clsx(
                     'block',
                     'font-sans',
                     'font-medium',
@@ -338,8 +347,8 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                     'hover:scale-105',
                     'backdrop-blur-sm',
                     'border',
-                    'border-white/10',
-                  ].join(' ')}
+                    'border-white/10'
+                  )}
                   style={{ animationDelay: `${index * 150}ms` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -350,12 +359,12 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          <div className={['mt-8'].join(' ')}>
+          <div className={clsx('mt-8')}>
             <a
               href="https://api.whatsapp.com/send?phone=5214493402622"
               target="_blank"
               rel="noopener noreferrer"
-              className={[
+              className={clsx(
                 'block',
                 'w-full',
                 'bg-gradient-to-r',
@@ -376,8 +385,8 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
                 'flex',
                 'items-center',
                 'justify-center',
-                'space-x-2',
-              ].join(' ')}
+                'space-x-2'
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               <HiPhone size={18} />
@@ -386,10 +395,10 @@ export default function HeaderB({ lang = 'en' }: HeaderBProps) {
           </div>
 
           {/* Contact info */}
-          <div className={['mt-8', 'text-center', 'text-white/80', 'text-sm'].join(' ')}>
+          <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
             <p>Mon-Sat: 9AM-8PM</p>
             <p>Sun: 10AM-6PM</p>
-            <p className={['mt-2', 'font-medium'].join(' ')}>+1 (555) 123-4567</p>
+            <p className={clsx('mt-2', 'font-medium')}>+1 (555) 123-4567</p>
           </div>
         </div>
       </div>
