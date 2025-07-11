@@ -12,50 +12,244 @@ const t = useTranslations(lang);
 // Components
 import Post from "../ui/Post.astro";
 
+const postsDataEs = [
+  {
+    id: 8,
 
+    title: "Prepara tu piel para ese gran día",
 
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/candle-335965_1280.jpg",
+
+    description:
+      "Prepárate para tu gran día con tratamientos de SPA diseñados para que tu piel luzca radiante y tú te sientas relajada y segura.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:34:01.496421-06:00",
+
+    updated_at: "2025-07-09T12:34:01.496435-06:00",
+  },
+
+  {
+    id: 7,
+
+    title: "Detox para cuerpo y mente",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/skincare-2357980_1280.jpg",
+
+    description:
+      "Renueva tu energía y elimina toxinas con nuestros tratamientos detox para cuerpo y mente, pensados para tu bienestar integral.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:33:22.372636-06:00",
+
+    updated_at: "2025-07-09T12:33:22.372650-06:00",
+  },
+
+  {
+    id: 6,
+
+    title: "Vive la experiencia SPA en pareja",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/head-650878_1280.jpg",
+
+    description:
+      "Comparte un momento inolvidable de relajación y conexión con nuestra experiencia SPA para parejas, diseñada para celebrar el amor.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:32:56.403039-06:00",
+
+    updated_at: "2025-07-09T12:32:56.403053-06:00",
+  },
+
+  {
+    id: 5,
+
+    title: "Un respiro para tu piel y tu mente",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/wellness-5132408_1280.jpg",
+
+    description:
+      "Cuida tu piel y relájate con nuestros tratamientos faciales profesionales diseñados para devolverte frescura y bienestar.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:32:24.290335-06:00",
+
+    updated_at: "2025-07-09T12:32:24.290349-06:00",
+  },
+
+  {
+    id: 4,
+
+    title: "Renueva tu energía con nuestros rituales de bienestar",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/nail-art-5653459_1280.jpg",
+
+    description:
+      "Descubre cómo nuestros rituales de bienestar renuevan tu energía y calman tu mente en un ambiente único y relajante.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:31:57.671425-06:00",
+
+    updated_at: "2025-07-09T12:31:57.671438-06:00",
+  },
+
+  {
+    id: 3,
+
+    title: "Descubre el bienestar que mereces en nuestro SPA",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/beauty-8388840_1280.jpg",
+
+    description:
+      "Un momento de relajación y bienestar te espera en nuestro SPA con masajes, tratamientos y un ambiente pensado solo para ti.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:31:29.918917-06:00",
+
+    updated_at: "2025-07-09T12:31:29.918930-06:00",
+  },
+
+  {
+    id: 2,
+
+    title: "¿QUE ES UN SPA?",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/QUE_ES_UN_SPA.jpg",
+
+    description:
+      "Un spa es un centro de bienestar para tu salud y relajación. Ofrece tratamientos como masajes e hidroterapia para aliviar el estrés, desintoxicar tu cuerpo y renovar tu energía.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-06-19T22:51:19.593645-06:00",
+
+    updated_at: "2025-06-19T22:51:42.249846-06:00",
+  },
+
+  {
+    id: 1,
+
+    title: "Post 1",
+
+    lang: "es",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/logo.webp",
+
+    description: "Este es un post de prueba",
+
+    author: "Itimna Team",
+
+    created_at: "2025-06-18T09:20:47.952206-06:00",
+
+    updated_at: "2025-06-18T09:26:08.651616-06:00",
+  },
+];
+
+const postsDataEn = [
+  {
+    id: 9,
+
+    title: "Take a Break, You Deserve It",
+
+    lang: "en",
+
+    banner_image_url:
+      "https://ella-skin-spa.s3.amazonaws.com/media/blog/images/QUE_ES_UN_SPA.jpg",
+
+    description:
+      "Recharge and relax with our spa treatments designed to calm your mind, renew your body, and bring back your natural glow.",
+
+    author: "Ella Skin & Spa Wellness Team",
+
+    created_at: "2025-07-09T12:34:39.168905-06:00",
+
+    updated_at: "2025-07-09T12:34:39.168923-06:00",
+  },
+];
+// Posts data
+const postsData = lang === "es" ? postsDataEs : postsDataEn;
 ---
 
-<section id="Posts"
+<section
+  id="Posts"
   class:list={[
-    "grid",
-    "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-    "p-4",
-    "gap-8",
-    "justify-center",
+    "container",
+    "bg-gradient-to-b",
+    "from-white",
+    "to-pink-50",
+    "py-16",
   ]}
 >
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
-    <Post
-      title="Secretos para una Piel Radiante"
-      description="Descubre los mejores consejos y tratamientos para mantener tu piel saludable y radiante durante todo el año. Aprende sobre la importancia de la hidratación, protección solar y rutinas personalizadas."
-      author="Dra. María González"
-      date="15 de Enero, 2024"
-      bannerImage="/imgs/gallery/img1.jpg"
-      href="#"
-    />
+  <!-- Top Section -->
+  <div class:list={["text-center", "mb-12"]}>
+    <h2 class:list={["text-4xl", "font-title", "text-brown", "mb-4"]}>
+      {t("post.title")}
+    </h2>
+    <p
+      class:list={[
+        "text-brown-light",
+        "mb-6",
+        "text-lg",
+        "max-w-2xl",
+        "mx-auto",
+      ]}
+    >
+      {t("post.text")}
+    </p>
+  </div>
+
+  <!-- Posts Grid -->
+  <div
+    class:list={[
+      "grid",
+      "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+      "gap-8",
+      "justify-center",
+    ]}
+  >
+    {
+      postsData.map((post) => (
+        <Post
+          title={post.title}
+          description={post.description}
+          author={post.author}
+          date={new Date(post.created_at).toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+          bannerImage={post.banner_image_url}
+          href={`/blog/${post.id}`}
+        />
+      ))
+    }
   </div>
 </section>
