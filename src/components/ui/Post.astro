@@ -3,12 +3,11 @@
 import { FaAngleRight } from "react-icons/fa6";
 
 // Libs
-import { useTranslations } from '../../i18n/utils'
-
+import { useTranslations } from "../../i18n/utils";
 
 // i18n
-const { lang } = Astro.params as any
-const t = useTranslations(lang)
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
 // Props
 export interface Props {
   title: string;
@@ -128,7 +127,7 @@ const {
             "gap-1",
           ]}
         >
-            {t('post.more')}
+          {t("post.more")}
           <span
             class:list={[
               "w-4",
