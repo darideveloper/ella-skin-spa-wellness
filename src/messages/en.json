@@ -168,5 +168,30 @@
     "more": "Read More",
     "title": "Blog & Tips",
     "text": "Discover the secrets of beauty and wellness with our specialized articles"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "description": "Ready to begin your wellness journey? Contact us to schedule your personalized spa experience.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Message (Optional)",
+      "submit": "Send Message",
+      "submitAlt": "Begin Your Transformation",
+      "placeholder": {
+        "name": "Enter your full name",
+        "email": "Enter your email",
+        "phone": "Enter your phone number",
+        "message": "Tell us about your wellness goals or any special requests..."
+      }
+    },
+    "info": {
+      "title": "Let's Connect",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Hours"
+    }
   }
 }

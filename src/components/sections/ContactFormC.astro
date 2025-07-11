@@ -1,0 +1,296 @@
+---
+import { HiUser, HiMail, HiPhone, HiChat, HiSparkles } from 'react-icons/hi'
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+
+// i18n
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
+---
+
+<section
+  id="ContactFormC"
+  class:list={[
+    'py-20',
+    'bg-gradient-to-b',
+    'from-white',
+    'to-pink-light/30',
+    'relative'
+  ]}
+>
+  <!-- Floating decorative elements -->
+  <div class:list={['absolute', 'inset-0', 'overflow-hidden']}>
+    <div class:list={['absolute', 'top-10', 'left-1/4', 'w-24', 'h-24', 'bg-brown/10', 'rounded-full', 'animate-pulse']}></div>
+    <div class:list={['absolute', 'top-1/3', 'right-1/4', 'w-16', 'h-16', 'bg-pink/10', 'rounded-full', 'animate-pulse', 'animation-delay-1000']}></div>
+    <div class:list={['absolute', 'bottom-1/4', 'left-1/3', 'w-20', 'h-20', 'bg-brown-light/10', 'rounded-full', 'animate-pulse', 'animation-delay-2000']}></div>
+  </div>
+
+  <div class:list={['container', 'relative', 'z-10']}>
+    <div class:list={['text-center', 'mb-16']}>
+      <div class:list={['inline-flex', 'items-center', 'space-x-2', 'bg-brown/10', 'px-6', 'py-2', 'rounded-full', 'mb-6']}>
+        <HiSparkles class:list={['w-5', 'h-5', 'text-brown']} />
+        <span class:list={['font-sans', 'text-brown', 'font-medium']}>{t('contact.subtitle')}</span>
+      </div>
+      <h2 class:list={['font-title', 'text-5xl', 'text-brown', 'mb-6']}>
+        {t('contact.title')}
+      </h2>
+      <p class:list={['font-sans', 'text-black', 'text-xl', 'max-w-2xl', 'mx-auto', 'leading-relaxed']}>
+        {t('contact.description')}
+      </p>
+    </div>
+
+    <div class:list={['max-w-2xl', 'mx-auto']}>
+      <div class:list={[
+        'bg-white',
+        'rounded-2xl',
+        'shadow-2xl',
+        'p-12',
+        'relative',
+        'overflow-hidden'
+      ]}>
+        <!-- Background accent -->
+        <div class:list={['absolute', 'top-0', 'left-0', 'w-full', 'h-1', 'bg-gradient-to-r', 'from-brown', 'to-brown-light']}></div>
+        
+        <form class:list={['space-y-8']}>
+          <!-- Name Field -->
+          <div class:list={['relative', 'group']}>
+            <label for="name-c" class:list={[
+              'absolute',
+              'left-4',
+              'top-4',
+              'text-brown-light',
+              'font-sans',
+              'transition-all',
+              'duration-300',
+              'pointer-events-none',
+              'group-focus-within:text-brown',
+              'group-focus-within:top-2',
+              'group-focus-within:text-sm',
+              'group-focus-within:font-medium'
+            ]}>
+                             {t('contact.form.name')} *
+            </label>
+            <input
+              type="text"
+              id="name-c"
+              name="name"
+              required
+              class:list={[
+                'w-full',
+                'px-4',
+                'pt-8',
+                'pb-4',
+                'border-b-2',
+                'border-brown-light/30',
+                'bg-transparent',
+                'text-black',
+                'font-sans',
+                'focus:outline-none',
+                'focus:border-brown',
+                'transition-all',
+                'duration-300',
+                'placeholder-transparent'
+              ]}
+                             placeholder={t('contact.form.placeholder.name')}
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div class:list={['relative', 'group']}>
+            <label for="email-c" class:list={[
+              'absolute',
+              'left-4',
+              'top-4',
+              'text-brown-light',
+              'font-sans',
+              'transition-all',
+              'duration-300',
+              'pointer-events-none',
+              'group-focus-within:text-brown',
+              'group-focus-within:top-2',
+              'group-focus-within:text-sm',
+              'group-focus-within:font-medium'
+            ]}>
+                             {t('contact.form.email')} *
+            </label>
+            <input
+              type="email"
+              id="email-c"
+              name="email"
+              required
+              class:list={[
+                'w-full',
+                'px-4',
+                'pt-8',
+                'pb-4',
+                'border-b-2',
+                'border-brown-light/30',
+                'bg-transparent',
+                'text-black',
+                'font-sans',
+                'focus:outline-none',
+                'focus:border-brown',
+                'transition-all',
+                'duration-300',
+                'placeholder-transparent'
+              ]}
+                             placeholder={t('contact.form.placeholder.email')}
+            />
+          </div>
+
+          <!-- Phone Field -->
+          <div class:list={['relative', 'group']}>
+            <label for="phone-c" class:list={[
+              'absolute',
+              'left-4',
+              'top-4',
+              'text-brown-light',
+              'font-sans',
+              'transition-all',
+              'duration-300',
+              'pointer-events-none',
+              'group-focus-within:text-brown',
+              'group-focus-within:top-2',
+              'group-focus-within:text-sm',
+              'group-focus-within:font-medium'
+            ]}>
+                             {t('contact.form.phone')} *
+            </label>
+            <input
+              type="tel"
+              id="phone-c"
+              name="phone"
+              required
+              class:list={[
+                'w-full',
+                'px-4',
+                'pt-8',
+                'pb-4',
+                'border-b-2',
+                'border-brown-light/30',
+                'bg-transparent',
+                'text-black',
+                'font-sans',
+                'focus:outline-none',
+                'focus:border-brown',
+                'transition-all',
+                'duration-300',
+                'placeholder-transparent'
+              ]}
+                             placeholder={t('contact.form.placeholder.phone')}
+            />
+          </div>
+
+          <!-- Message Field -->
+          <div class:list={['relative', 'group']}>
+            <label for="message-c" class:list={[
+              'absolute',
+              'left-4',
+              'top-4',
+              'text-brown-light',
+              'font-sans',
+              'transition-all',
+              'duration-300',
+              'pointer-events-none',
+              'group-focus-within:text-brown',
+              'group-focus-within:top-2',
+              'group-focus-within:text-sm',
+              'group-focus-within:font-medium'
+            ]}>
+                             {t('contact.form.message')}
+            </label>
+            <textarea
+              id="message-c"
+              name="message"
+              rows="4"
+              class:list={[
+                'w-full',
+                'px-4',
+                'pt-8',
+                'pb-4',
+                'border-b-2',
+                'border-brown-light/30',
+                'bg-transparent',
+                'text-black',
+                'font-sans',
+                'focus:outline-none',
+                'focus:border-brown',
+                'transition-all',
+                'duration-300',
+                'placeholder-transparent',
+                'resize-none'
+              ]}
+                             placeholder={t('contact.form.placeholder.message')}
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class:list={['pt-6']}>
+            <button
+              type="submit"
+              class:list={[
+                'w-full',
+                'bg-gradient-to-r',
+                'from-brown',
+                'to-brown-light',
+                'text-white',
+                'py-4',
+                'rounded-xl',
+                'font-sans',
+                'font-semibold',
+                'text-lg',
+                'shadow-lg',
+                'hover:shadow-xl',
+                'transform',
+                'hover:scale-[1.02]',
+                'transition-all',
+                'duration-300',
+                'focus:outline-none',
+                'focus:ring-4',
+                'focus:ring-brown/20',
+                'relative',
+                'overflow-hidden'
+              ]}
+            >
+                             <span class:list={['relative', 'z-10']}>{t('contact.form.submitAlt')}</span>
+              <div class:list={[
+                'absolute',
+                'inset-0',
+                'bg-gradient-to-r',
+                'from-brown-light',
+                'to-brown',
+                'opacity-0',
+                'hover:opacity-100',
+                'transition-opacity',
+                'duration-300'
+              ]}></div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Bottom accent -->
+        <div class:list={['absolute', 'bottom-0', 'left-0', 'w-full', 'h-1', 'bg-gradient-to-r', 'from-brown-light', 'to-brown']}></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .animate-pulse {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+</style> 

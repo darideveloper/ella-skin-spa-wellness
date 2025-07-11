@@ -169,6 +169,31 @@
     "title": "Blog y Consejos",
     "text": "Descubre los secretos de la belleza y el bienestar con nuestros artículos especializados"
   },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Ponte en Contacto",
+    "description": "¿Listo para comenzar tu viaje de bienestar? Contáctanos para programar tu experiencia de spa personalizada.",
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "message": "Mensaje (Opcional)",
+      "submit": "Enviar Mensaje",
+      "submitAlt": "Comienza Tu Transformación",
+      "placeholder": {
+        "name": "Ingresa tu nombre completo",
+        "email": "Ingresa tu correo electrónico",
+        "phone": "Ingresa tu número de teléfono",
+        "message": "Cuéntanos sobre tus objetivos de bienestar o solicitudes especiales..."
+      }
+    },
+    "info": {
+      "title": "Conectemos",
+      "phone": "Teléfono",
+      "email": "Correo",
+      "hours": "Horarios"
+    }
+  },
   "serviceCard": [
     {
       "title": "Tratamientos *Faciales*",
