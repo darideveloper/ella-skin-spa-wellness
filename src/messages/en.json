@@ -198,5 +198,8 @@
       "email": "Email",
       "hours": "Hours"
     }
+  },
+  "whatsapp": {
+    "message": "Hello! I would like to get more information about your services."
   }
 }

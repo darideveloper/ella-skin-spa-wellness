@@ -17,9 +17,7 @@ const phone = '5219993019999'
 
 // Get translations
 const t = useTranslations(lang)
-const whatsappMessage = lang === 'es' 
-  ? "¡Hola! Me gustaría obtener más información sobre sus servicios."
-  : "Hello! I would like to get more information about your services."
+const whatsappMessage = t('whatsapp.message')
 const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(whatsappMessage)}`
 ---
 
