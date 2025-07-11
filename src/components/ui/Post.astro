@@ -2,6 +2,13 @@
 //Icons
 import { FaAngleRight } from "react-icons/fa6";
 
+// Libs
+import { useTranslations } from '../../i18n/utils'
+
+
+// i18n
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
 // Props
 export interface Props {
   title: string;
@@ -24,27 +31,27 @@ const {
 } = Astro.props;
 ---
 
-<a href={href}>
-  <article
-    class:list={[
-      "max-w-xl",
-      "bg-gradient-to-br",
-      "from-white",
-      "to-pink-light",
-      "border",
-      "border-pink/30",
-      "rounded-2xl",
-      "overflow-hidden",
-      "shadow-lg hover:shadow-2xl",
-      "transition-all",
-      "duration-300",
-      "hover:-translate-y-2",
-      "group",
-      "cursor-pointer",
-      className,
-    ]}
-  >
-    <!-- Banner Image -->
+<article
+  class:list={[
+    "max-w-xl",
+    "bg-gradient-to-br",
+    "from-white",
+    "to-pink-light",
+    "border",
+    "border-pink/30",
+    "rounded-2xl",
+    "overflow-hidden",
+    "shadow-lg hover:shadow-2xl",
+    "transition-all",
+    "duration-300",
+    "hover:-translate-y-2",
+    "group",
+    "cursor-pointer",
+    className,
+  ]}
+>
+  <!-- Banner Image -->
+  <a href={href}>
     <div class:list={["relative", "h-48", "overflow-hidden"]}>
       <img
         src={bannerImage}
@@ -111,6 +118,7 @@ const {
         <button
           class:list={[
             "text-brown hover:text-brown-light",
+            "cursor-pointer",
             "font-medium",
             "text-sm",
             "transition-colors",
@@ -120,7 +128,7 @@ const {
             "gap-1",
           ]}
         >
-          Leer más
+            {t('post.more')}
           <span
             class:list={[
               "w-4",
@@ -134,5 +142,5 @@ const {
         </button>
       </div>
     </div>
-  </article>
-</a>
+  </a>
+</article>
