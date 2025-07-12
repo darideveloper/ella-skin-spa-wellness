@@ -100,13 +100,6 @@
       }
     }
   },
-  "meta": {
-    "home": {
-      "page": "Home Page Title",
-      "description": "Home Page Description",
-      "keywords": "Home Page Keywords"
-    }
-  },
   "hero": {
     "title": "Hero Title"
   },
@@ -201,5 +194,12 @@
   },
   "whatsapp": {
     "message": "Hello! I would like to get more information about your services."
+  },
+  "meta": {
+    "home": {
+      "page": "Ella Skin & Spa Wellness | Spa in Merida, Yucatan",
+      "description": "Ella Skin & Spa Wellness is a spa in Merida, Yucatan, that offers beauty and wellness treatments. We have a team of passionate specialists dedicated to health and beauty, using high-quality products and advanced techniques.",
+      "keywords": "Ella Skin & Spa Wellness, spa in Merida, Yucatan, beauty and wellness treatments, high-quality products, advanced techniques"
+    }
   }
 }

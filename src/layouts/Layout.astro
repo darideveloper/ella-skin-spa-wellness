@@ -10,12 +10,22 @@ import '../styles/global.css'
 import Header from '../components/sections/Header.tsx'
 import Footer from '../components/sections/Footer.astro'
 import WhatsappButton from '../components/ui/WhatsappButton.astro'
+import SEO from '../components/utils/SEO.astro'
 
 // i18n
 const { lang } = Astro.params as any
 
 // Animations / Transitions
 import { ClientRouter } from 'astro:transitions'
+
+// Get current page
+const segments = Astro.url.pathname.split('/').filter(Boolean)
+const last = segments.at(-1)
+
+let currentPage = last
+if (!currentPage || currentPage === 'en' || currentPage === 'es') {
+  currentPage = 'home'
+}
 ---
 
 <!doctype html>
@@ -41,8 +51,11 @@ import { ClientRouter } from 'astro:transitions'
     <!-- Pages transition -->
     <ClientRouter />
 
-    <!-- TODO: SEO component -->
-    <title>ELLA SKIN & SPA WELLNESS</title>
+    <!-- Dynamic SEO -->
+    <SEO
+      currentPage="home"
+      lang={lang}
+    />
   </head>
   <body>
     <Header

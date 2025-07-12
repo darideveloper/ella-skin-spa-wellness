@@ -1,0 +1,1 @@
+export const domain = 'https://ella-skin-spa-wellness.com'

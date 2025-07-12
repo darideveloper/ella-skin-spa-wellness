@@ -12,6 +12,7 @@ const t = useTranslations(lang)
 
 // Data imports
 import { servicesData } from '../../data/servcies'
+import { socialNetworks } from '../../data/contact'
 
 // Footer data
 const spaInfo = {
@@ -54,32 +55,6 @@ const contactInfo = Object.keys(contactData).map((key) => ({
   link: contactData[key as keyof typeof contactData].link,
 }))
 
-const socialNetworks = [
-  {
-    icon: FaFacebook,
-    name: 'Facebook',
-    link: '#',
-    bg: 'bg-blue-600',
-  },
-  {
-    icon: FaInstagram,
-    name: 'Instagram',
-    link: '#',
-    bg: 'bg-gradient-to-r from-purple-500 to-pink-500',
-  },
-  {
-    icon: FaTwitter,
-    name: 'Twitter',
-    link: '#',
-    bg: 'bg-blue-400',
-  },
-  {
-    icon: FaYoutube,
-    name: 'YouTube',
-    link: '#',
-    bg: 'bg-red-600',
-  },
-]
 const footerLinks = [
   { text: t('footer.extras.privacy'), link: '#' },
   { text: t('footer.extras.terms'), link: '#' },
