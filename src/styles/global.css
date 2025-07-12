@@ -11,6 +11,18 @@
   --color-black: #381e04;
 }
 
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 .container {
   margin: 8rem auto;
   max-width: 1350px;
@@ -58,6 +70,8 @@ p {
   margin-left: 1.5rem;
 }
 
+/* Swiper */
+
 /* Swiper styles */
 .swiper-button-next,
 .swiper-button-prev {
@@ -69,7 +83,7 @@ p {
   transition-duration: 0.2s !important;
 }
 
-/* Ocultar botones en móvil */
+/* Hide buttons on mobile */
 @media (max-width: 639px) {
   .swiper-button-next,
   .swiper-button-prev {
