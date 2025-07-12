@@ -85,7 +85,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'w-16',
                 'h-16',
                 'rounded-full',
-                'bg-white/20',
+                isScrolled ? 'bg-brown/70' : 'bg-white/20',
                 'backdrop-blur-sm',
                 'border',
                 'border-white/30',
@@ -96,7 +96,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   alt="ELLA SKIN & SPA WELLNESS"
                   className={clsx('h-10', 'w-auto')}
                 />
-                <HiSparkles 
+                <HiSparkles
                   className={clsx(
                     'absolute',
                     '-top-1',
@@ -110,11 +110,11 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               <div className={clsx('hidden', 'md:block', 'flex')}>
                 <h1
                   className={clsx(
+                    isScrolled ? 'text-brown' : 'text-white',
                     'pt-3',
                     'text-xl',
                     'font-title',
                     'font-bold',
-                    'text-white',
                     'drop-shadow-lg',
                   )}
                 >
@@ -123,8 +123,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 <p
                   className={clsx(
                     'text-xs',
-                    'text-white/90',
                     'tracking-wider',
+                    isScrolled ? 'text-brown/90' : 'text-white/90',
                   )}
                 >
                   WELLNESS
@@ -152,7 +152,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   'hover:bg-white/20',
                   'hover:scale-105',
                   'backdrop-blur-sm',
-                  'group'
+                  'group',
+                  isScrolled ? 'bg-brown/70' : '',
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
