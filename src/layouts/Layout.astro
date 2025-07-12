@@ -13,6 +13,9 @@ import WhatsappButton from '../components/ui/WhatsappButton.astro'
 
 // i18n
 const { lang } = Astro.params as any
+
+// Animations / Transitions
+import { ClientRouter } from 'astro:transitions'
 ---
 
 <!doctype html>
@@ -32,6 +35,13 @@ const { lang } = Astro.params as any
       name='generator'
       content={Astro.generator}
     />
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Pages transition -->
+    <ClientRouter />
+
+    <!-- TODO: SEO component -->
     <title>ELLA SKIN & SPA WELLNESS</title>
   </head>
   <body>
@@ -40,7 +50,7 @@ const { lang } = Astro.params as any
       lang={lang}
     />
 
-    <main>
+    <main class:list={['font-sans']}>
       <slot />
     </main>
     <Footer />
