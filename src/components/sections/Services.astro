@@ -28,6 +28,7 @@ const services = Object.keys(servicesData).map((key) => ({
   srcButtonPrimary: t(`services.cards.${key}.srcButtonPrimary`),
   textButtonSecond: t(`services.cards.${key}.textButtonSecond`),
   srcButtonSecond: t(`services.cards.${key}.srcButtonSecond`),
+  key: key,
 }))
 ---
 
@@ -41,6 +42,7 @@ const services = Object.keys(servicesData).map((key) => ({
   {
     services.map((service) => (
       <ServiceCard
+        key={service.key}
         title={service.title as string}
         description={service.description as string}
         icon={service.icon}

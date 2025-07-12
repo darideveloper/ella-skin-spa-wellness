@@ -9,6 +9,7 @@ import { marked } from 'marked'
 import { type IconType } from 'react-icons'
 
 interface Props {
+  key: string
   title: string
   textButtonPrimary: string
   textButtonSecond: string
@@ -21,6 +22,7 @@ interface Props {
 }
 
 const {
+  key,
   title,
   textButtonPrimary,
   textButtonSecond,
@@ -52,6 +54,7 @@ const htmlBenefits = benefits.map((b) => marked.parseInline(b))
     'w-full',
     className,
   ]}
+  id={`service-${key}`}
 >
   <!-- Decorative circle -->
   <div

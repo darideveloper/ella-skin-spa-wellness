@@ -1,10 +1,5 @@
 ---
-import {
-  HiPhone,
-  HiMail,
-  HiLocationMarker,
-  HiClock,
-} from 'react-icons/hi'
+import { HiPhone, HiMail, HiLocationMarker, HiClock } from 'react-icons/hi'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
 // Libs
@@ -27,22 +22,22 @@ const spaInfo = {
 
 // Base fixed data
 const contactData = {
-  "phone": {
-    "icon": HiPhone,
-    "link": "tel:+573178282828",
+  phone: {
+    icon: HiPhone,
+    link: 'tel:+573178282828',
   },
-  "email": {
-    "icon": HiMail,
-    "link": "mailto:info@ellaskinspa.com",
+  email: {
+    icon: HiMail,
+    link: 'mailto:info@ellaskinspa.com',
   },
-  "location": {
-    "icon": HiLocationMarker,
-    "link": "#",
+  location: {
+    icon: HiLocationMarker,
+    link: '#',
   },
-  "schedule": {
-    "icon": HiClock,
-    "link": "#",
-  }
+  schedule: {
+    icon: HiClock,
+    link: '#',
+  },
 }
 
 // Fill data with translations
@@ -50,6 +45,7 @@ const services = Object.keys(servicesData).map((key) => ({
   icon: servicesData[key as keyof typeof servicesData].icon,
   name: marked.parse(t(`services.cards.${key}.name`)),
   shortDescription: marked.parse(t(`services.cards.${key}.shortDescription`)),
+  key: key,
 }))
 
 const contactInfo = Object.keys(contactData).map((key) => ({
@@ -142,7 +138,7 @@ const footerLinks = [
                   'duration-300',
                   'group',
                 ]}
-                target="_blank"
+                target='_blank'
               >
                 <span
                   class:list={[
@@ -167,7 +163,10 @@ const footerLinks = [
         <div class:list={['space-y-4']}>
           {
             services.map((service) => (
-              <a href={`#service-${service.name}`} class:list={['flex', 'items-start', 'space-x-3', 'group']}>
+              <a
+                href={`/${lang}/#service-${service.key}`}
+                class:list={['flex', 'items-start', 'space-x-3', 'group']}
+              >
                 <span
                   class:list={[
                     'text-brown-light group-hover:text-white',
