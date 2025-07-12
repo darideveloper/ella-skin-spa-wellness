@@ -5,15 +5,15 @@ import { FaWhatsapp } from "react-icons/fa6"
 // Libs
 import { useTranslations } from "../../i18n/utils"
 
+// Data
+import { phone } from "../../data/contact"
+
 // Props
 export interface Props {
   lang?: 'en' | 'es'
 }
 
 const { lang = 'en' } = Astro.props
-
-// Fixed data
-const phone = '5219993019999'
 
 // Get translations
 const t = useTranslations(lang)
