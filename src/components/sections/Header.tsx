@@ -92,7 +92,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'shadow-lg'
               )}>
                 <img
-                  src="/imgs/logo.webp"
+                  src="/imgs/logo-white.webp"
                   alt="ELLA SKIN & SPA WELLNESS"
                   className={clsx('h-10', 'w-auto')}
                 />
@@ -107,14 +107,15 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   )}
                 />
               </div>
-              <div className={clsx('hidden', 'md:block')}>
+              <div className={clsx('hidden', 'md:block', 'flex')}>
                 <h1
                   className={clsx(
+                    'pt-3',
                     'text-xl',
                     'font-title',
                     'font-bold',
                     'text-white',
-                    'drop-shadow-lg'
+                    'drop-shadow-lg',
                   )}
                 >
                   ELLA SKIN & SPA
@@ -123,7 +124,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   className={clsx(
                     'text-xs',
                     'text-white/90',
-                    'tracking-wider'
+                    'tracking-wider',
                   )}
                 >
                   WELLNESS
@@ -318,7 +319,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               'mb-4'
             )}>
               <img
-                src="/imgs/logo.webp"
+                src="/imgs/logo-white.webp"
                 alt="ELLA SKIN & SPA WELLNESS"
                 className={clsx('h-12', 'w-auto')}
               />
