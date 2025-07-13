@@ -85,18 +85,18 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'w-16',
                 'h-16',
                 'rounded-full',
-                'bg-white/20',
+                isScrolled ? 'bg-brown/70' : 'bg-white/20',
                 'backdrop-blur-sm',
                 'border',
                 'border-white/30',
                 'shadow-lg'
               )}>
                 <img
-                  src="/imgs/logo.webp"
+                  src="/imgs/logo-white.webp"
                   alt="ELLA SKIN & SPA WELLNESS"
                   className={clsx('h-10', 'w-auto')}
                 />
-                <HiSparkles 
+                <HiSparkles
                   className={clsx(
                     'absolute',
                     '-top-1',
@@ -107,14 +107,15 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   )}
                 />
               </div>
-              <div className={clsx('hidden', 'md:block')}>
+              <div className={clsx('hidden', 'md:block', 'flex')}>
                 <h1
                   className={clsx(
+                    isScrolled ? 'text-brown' : 'text-white',
+                    'pt-3',
                     'text-xl',
                     'font-title',
                     'font-bold',
-                    'text-white',
-                    'drop-shadow-lg'
+                    'drop-shadow-lg',
                   )}
                 >
                   ELLA SKIN & SPA
@@ -122,9 +123,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 <p
                   className={clsx(
                     'text-xs',
-                    'font-sans',
-                    'text-white/90',
-                    'tracking-wider'
+                    'tracking-wider',
+                    isScrolled ? 'text-brown/90' : 'text-white/90',
                   )}
                 >
                   WELLNESS
@@ -141,7 +141,6 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 href={link.href}
                 className={clsx(
                   'relative',
-                  'font-sans',
                   'font-medium',
                   'text-sm',
                   'px-6',
@@ -153,7 +152,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   'hover:bg-white/20',
                   'hover:scale-105',
                   'backdrop-blur-sm',
-                  'group'
+                  'group',
+                  isScrolled ? 'bg-brown/70' : '',
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -165,8 +165,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   'from-pink/20',
                   'to-pink-light/20',
                   'rounded-full',
-                  'opacity-0',
-                  'group-hover:opacity-100',
+                  'opacity-0 group-hover:opacity-100',
                   'transition-opacity',
                   'duration-300'
                 )} />
@@ -189,14 +188,12 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'px-8',
                 'py-4',
                 'rounded-full',
-                'font-sans',
                 'font-bold',
                 'text-sm',
                 'transition-all',
                 'duration-300',
                 'hover:scale-110',
-                'hover:shadow-2xl',
-                'shadow-lg',
+                'shadow-lg hover:shadow-2xl',
                 'group',
                 'overflow-hidden'
               )}
@@ -211,8 +208,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'bg-gradient-to-r',
                 'from-white/20',
                 'to-transparent',
-                'opacity-0',
-                'group-hover:opacity-100',
+                'opacity-0 group-hover:opacity-100',
                 'transition-opacity',
                 'duration-300'
               )} />
@@ -227,14 +223,13 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               'relative',
               'p-3',
               'rounded-full',
-              'bg-white/20',
+              'bg-white/20 hover:bg-white/30',
               'backdrop-blur-sm',
               'border',
               'border-white/30',
               'text-white',
               'transition-all',
               'duration-300',
-              'hover:bg-white/30',
               'hover:scale-110',
               'z-10'
             )}
@@ -298,9 +293,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               className={clsx(
                 'p-2',
                 'rounded-full',
-                'bg-white/20',
+                'bg-white/20 hover:bg-white/30',
                 'text-white',
-                'hover:bg-white/30',
                 'transition-colors',
                 'duration-300'
               )}
@@ -326,7 +320,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               'mb-4'
             )}>
               <img
-                src="/imgs/logo.webp"
+                src="/imgs/logo-white.webp"
                 alt="ELLA SKIN & SPA WELLNESS"
                 className={clsx('h-12', 'w-auto')}
               />
@@ -334,7 +328,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             <h2 className={clsx('text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2')}>
               ELLA SKIN & SPA
             </h2>
-            <p className={clsx('text-sm', 'font-sans', 'text-white/80')}>
+            <p className={clsx('text-sm', 'text-white/80')}>
               WELLNESS
             </p>
           </div>
@@ -348,7 +342,6 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   href={link.href}
                   className={clsx(
                     'block',
-                    'font-sans',
                     'font-medium',
                     'text-white',
                     'py-4',
@@ -387,14 +380,12 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'px-6',
                 'py-4',
                 'rounded-xl',
-                'font-sans',
                 'font-bold',
                 'text-center',
                 'transition-all',
                 'duration-300',
                 'hover:scale-105',
-                'shadow-lg',
-                'hover:shadow-xl',
+                'shadow-lg hover:shadow-xl',
                 'flex',
                 'items-center',
                 'justify-center',
