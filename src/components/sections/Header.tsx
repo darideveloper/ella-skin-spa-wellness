@@ -3,6 +3,7 @@ import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
 import clsx from 'clsx'
 import { useTranslations } from '../../i18n/utils'
 import LogoLink from '../ui/LogoLink'
+import Cta from '../ui/Cta'
 
 interface HeaderProps {
   lang?: string
@@ -174,46 +175,10 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button */}
-          <div className={clsx('hidden', 'lg:flex', 'items-center')}>
-            <a
-              href="https://api.whatsapp.com/send?phone=5214493402622"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={clsx(
-                'relative',
-                'bg-gradient-to-r',
-                'from-pink',
-                'to-pink-light',
-                'text-brown',
-                'px-8',
-                'py-4',
-                'rounded-full',
-                'font-bold',
-                'text-sm',
-                'transition-all',
-                'duration-300',
-                'hover:scale-110',
-                'shadow-lg hover:shadow-2xl',
-                'group',
-                'overflow-hidden'
-              )}
-            >
-              <span className={clsx('relative', 'z-10', 'flex', 'items-center', 'space-x-2')}>
-                <HiPhone size={16} />
-                <span>{t('header.cta')}</span>
-              </span>
-              <div className={clsx(
-                'absolute',
-                'inset-0',
-                'bg-gradient-to-r',
-                'from-white/20',
-                'to-transparent',
-                'opacity-0 group-hover:opacity-100',
-                'transition-opacity',
-                'duration-300'
-              )} />
-            </a>
-          </div>
+          <Cta
+            href="https://api.whatsapp.com/send?phone=5214493402622"
+            text={t('header.cta')}
+          />
 
           {/* Mobile menu button */}
           <button
@@ -349,38 +314,10 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          <div className={clsx('mt-8')}>
-            <a
-              href="https://api.whatsapp.com/send?phone=5214493402622"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={clsx(
-                'block',
-                'w-full',
-                'bg-gradient-to-r',
-                'from-pink',
-                'to-pink-light',
-                'text-brown',
-                'px-6',
-                'py-4',
-                'rounded-xl',
-                'font-bold',
-                'text-center',
-                'transition-all',
-                'duration-300',
-                'hover:scale-105',
-                'shadow-lg hover:shadow-xl',
-                'flex',
-                'items-center',
-                'justify-center',
-                'space-x-2'
-              )}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <HiPhone size={18} />
-              <span>{t('header.cta')}</span>
-            </a>
-          </div>
+          <Cta
+            href="https://api.whatsapp.com/send?phone=5214493402622"
+            text={t('header.cta')}
+          />
 
           {/* Contact info */}
           <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
