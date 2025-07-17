@@ -1,0 +1,25 @@
+---
+interface Props {
+  src: string;
+  className?: string;
+}
+
+const { src, className = '' } = Astro.props;
+---
+
+<div class={`flex-shrink-0 ${className}`}>
+  <a href="/" class="flex items-center space-x-3">
+    <div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-yellow-800/60 backdrop-blur-sm border border-white/30 shadow-lg">
+      <img
+        src="/imgs/logo-white.webp"
+        alt="ELLA SKIN & SPA WELLNESS"
+        class="h-10 w-auto"
+      />
+    </div>
+  </a>
+</div>
+
+
+ <!--  <img src="/imgs/spa1.webp" alt="">
+
+ -->
