@@ -217,26 +217,25 @@ export default function Header({ lang = 'en' }: HeaderProps) {
 
           {/* Mobile menu button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={clsx(
-              'lg:hidden',
-              'relative',
-              'p-3',
-              'rounded-full',
-              'bg-white/20 hover:bg-white/30',
-              'backdrop-blur-sm',
-              'border',
-              'border-white/30',
-              'text-white',
-              'transition-all',
-              'duration-300',
-              'hover:scale-110',
-              'z-10'
-            )}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-          </button>
+  onClick={() => setIsMenuOpen(!isMenuOpen)}
+  className={clsx(
+    'lg:hidden',
+    'relative',
+    'p-3',
+    'rounded-full',
+    'backdrop-blur-sm',
+    'border',
+    'transition-all',
+    'duration-300',
+    'hover:scale-110',
+    'z-10',
+    isScrolled ? 'bg-brown/60 text-white border-brown/60' : 'bg-white/20 text-white border-white/30 hover:bg-white/30'
+  )}
+  aria-label="Toggle menu"
+>
+  {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+</button>
+
         </div>
       </header>
 
