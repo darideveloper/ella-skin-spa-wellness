@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
 import clsx from 'clsx'
 import { useTranslations } from '../../i18n/utils'
+import LogoLink from '../ui/LogoLink'
 
 interface HeaderProps {
   lang?: string
@@ -77,6 +78,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           {/* Logo */}
           <div className={clsx('flex-shrink-0', 'z-10')}>
             <a href="/" className={clsx('flex', 'items-center', 'space-x-3')}>
+              {/* Logo con Sparkle */}
               <div className={clsx(
                 'relative',
                 'flex',
@@ -91,11 +93,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'border-white/30',
                 'shadow-lg'
               )}>
-                <img
-                  src="/imgs/logo-white.webp"
-                  alt="ELLA SKIN & SPA WELLNESS"
-                  className={clsx('h-10', 'w-auto')}
-                />
+                <LogoLink src="/imgs/logo-white.webp" />
                 <HiSparkles
                   className={clsx(
                     'absolute',
@@ -107,6 +105,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   )}
                 />
               </div>
+
+              {/* Título y subtítulo */}
               <div className={clsx('hidden', 'md:block', 'flex')}>
                 <h1
                   className={clsx(
@@ -217,24 +217,25 @@ export default function Header({ lang = 'en' }: HeaderProps) {
 
           {/* Mobile menu button */}
           <button
-  onClick={() => setIsMenuOpen(!isMenuOpen)}
-  className={clsx(
-    'lg:hidden',
-    'relative',
-    'p-3',
-    'rounded-full',
-    'backdrop-blur-sm',
-    'border',
-    'transition-all',
-    'duration-300',
-    'hover:scale-110',
-    'z-10',
-    isScrolled ? 'bg-brown/60 text-white border-brown/60' : 'bg-white/20 text-white border-white/30 hover:bg-white/30'
-  )}
-  aria-label="Toggle menu"
->
-  {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-</button>
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={clsx(
+              'lg:hidden',
+              'relative',
+              'p-3',
+              'rounded-full',
+              'backdrop-blur-sm',
+              'border',
+              'transition-all',
+              'duration-300',
+              'hover:scale-110',
+              'z-10',
+              'hover:scale-105',
+              isScrolled ? 'bg-brown/60 text-white border-brown/60' : 'bg-white/20 text-white border-white/30 hover:bg-white/30'
+            )}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          </button>
 
         </div>
       </header>
@@ -304,26 +305,10 @@ export default function Header({ lang = 'en' }: HeaderProps) {
 
           {/* Logo in sidebar */}
           <div className={clsx('mb-12', 'text-center')}>
-            <div className={clsx(
-              'inline-flex',
-              'items-center',
-              'justify-center',
-              'w-20',
-              'h-20',
-              'rounded-full',
-              'bg-white/20',
-              'backdrop-blur-sm',
-              'border',
-              'border-white/30',
-              'shadow-lg',
-              'mb-4'
-            )}>
-              <img
-                src="/imgs/logo-white.webp"
-                alt="ELLA SKIN & SPA WELLNESS"
-                className={clsx('h-12', 'w-auto')}
-              />
-            </div>
+            {/* Logo */}
+            <LogoLink src="/imgs/logo-white.webp" className="mb-4 flex justify-center" />
+
+            {/* Nombre del negocio */}
             <h2 className={clsx('text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2')}>
               ELLA SKIN & SPA
             </h2>
