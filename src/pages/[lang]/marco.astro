@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 
 // Components 
 import Banner from "../../components/sections/Banner.astro";
+import LogoLink from "../../components/ui/LogoLink.astro";
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
@@ -16,5 +17,7 @@ const t = useTranslations(lang);
 ---
 
 <Layout>
-    <Banner/>
+<Banner/>
+<LogoLink  src="www.google.com" className="z-10" />
+
 </Layout>
