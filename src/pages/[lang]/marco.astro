@@ -4,7 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 
 // Components
 import Banner from "../../components/sections/Banner.astro";
-import LogoLink from "../../components/ui/LogoLink";
+import LogoLink from "../../components/ui/LogoLink.astro";
+import Cta from "../../components/ui/Cta.astro";
+
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
@@ -18,5 +20,7 @@ const t = useTranslations(lang);
 
 <Layout>
   <Banner />
-  <LogoLink src="www.google.com" className="z-10" />
+  <LogoLink src="/imgs/logo-white.webp" class="z-10" />
+  <Cta href="/booking" text="Book Now" />
+
 </Layout>

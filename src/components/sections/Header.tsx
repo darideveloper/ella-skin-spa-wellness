@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
 import clsx from 'clsx'
 import { useTranslations } from '../../i18n/utils'
-import LogoLink from '../ui/LogoLink'
-import Cta from '../ui/Cta'
 
 interface HeaderProps {
   lang?: string
@@ -141,7 +139,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   'text-white',
                   'transition-all',
                   'duration-300',
-                  'hover:bg-white/20',
+                  'hover:bg-browm/70',
                   'hover:scale-105',
                   'backdrop-blur-sm',
                   'group',

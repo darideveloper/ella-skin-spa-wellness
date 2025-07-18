@@ -1,0 +1,57 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  href: string;
+  text: string;
+  class?: string;
+}
+
+const { href, text, class:className = '' } = Astro.props;
+---
+
+<div class={clsx('hidden', 'lg:flex', 'items-center', className)}>
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={clsx(
+      'relative',
+      'bg-gradient-to-r',
+      'from-pink',
+      'to-pink-light',
+      'text-brown',
+      'px-8',
+      'py-4',
+      'rounded-full',
+      'font-bold',
+      'text-sm',
+      'transition-all',
+      'duration-300',
+      'hover:scale-110',
+      'shadow-lg',
+      'hover:shadow-2xl',
+      'group',
+      'overflow-hidden'
+    )}
+  >
+    <span class={clsx('relative', 'z-10', 'flex', 'items-center', 'space-x-2')}>
+
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4" viewBox="0 0 20 20">
+        <path d="M2.003 5.884C2 5.94 2 6.006 2 6.087c0 5.523 4.477 10 10 10 .083 0 .15 0 .213-.003a1 1 0 00.706-.29l1.415-1.414a1 1 0 00.216-1.09l-.6-1.8a1 1 0 00-.95-.672H12.8a1 1 0 00-.894.553l-.36.723a8.003 8.003 0 01-4.13-4.13l.723-.36a1 1 0 00.553-.894v-1.3a1 1 0 00-.673-.95l-1.8-.6a1 1 0 00-1.09.216L2.293 5.18a1 1 0 00-.29.704z"/>
+      </svg>
+      <span>{text}</span>
+    </span>
+    <div class={clsx(
+      'absolute',
+      'inset-0',
+      'bg-gradient-to-r',
+      'from-white/20',
+      'to-transparent',
+      'opacity-0',
+      'group-hover:opacity-100',
+      'transition-opacity',
+      'duration-300'
+    )} />
+  </a>
+</div>

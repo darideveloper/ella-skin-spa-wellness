@@ -1,0 +1,35 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  src: string;
+  class?: string;
+}
+
+const { src, class: className = '' } = Astro.props as Props;
+---
+
+<div class={clsx('flex-shrink-0', className)}>
+  <a href="/" class={clsx('flex', 'items-center', 'space-x-3')}>
+    <div class={clsx(
+      'relative',
+      'flex',
+      'items-center',
+      'justify-center',
+      'w-16',
+      'h-16',
+      'rounded-full',
+      'bg-yellow-800/60',
+      'backdrop-blur-sm',
+      'border',
+      'border-white/30',
+      'shadow-lg'
+    )}>
+      <img
+        src={src}
+        alt="ELLA SKIN & SPA WELLNESS"
+        class={clsx('h-10', 'w-auto')}
+      />
+    </div>
+  </a>
+</div>
