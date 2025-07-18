@@ -94,17 +94,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'border-white/30',
                 'shadow-lg'
               )}>
-                <LogoLink src="/imgs/logo-white.webp" />
-                <HiSparkles
-                  className={clsx(
-                    'absolute',
-                    '-top-1',
-                    '-right-1',
-                    'text-pink',
-                    'text-lg',
-                    'animate-pulse'
-                  )}
-                />
+                
+                {/* aqui va el otro LogoLink */}
               </div>
 
               {/* Título y subtítulo */}
@@ -175,10 +166,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button */}
-          <Cta
-            href="https://api.whatsapp.com/send?phone=5214493402622"
-            text={t('header.cta')}
-          />
+          {/* Aqui va el CTA */}
 
           {/* Mobile menu button */}
           <button
@@ -195,7 +183,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               'hover:scale-110',
               'z-10',
               'hover:scale-105',
-              isScrolled ? 'bg-brown/60 text-white border-brown/60' : 'bg-white/20 text-white border-white/30 hover:bg-white/30'
+              isScrolled ? 'bg-brown/70 text-white border-brown/60' : 'bg-brown/60 text-white border-white/30 hover:bg-white/30'
             )}
             aria-label="Toggle menu"
           >
@@ -271,7 +259,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           {/* Logo in sidebar */}
           <div className={clsx('mb-12', 'text-center')}>
             {/* Logo */}
-            <LogoLink src="/imgs/logo-white.webp" className="mb-4 flex justify-center" />
+            {/* aqui va el otro LogoLink */}
 
             {/* Nombre del negocio */}
             <h2 className={clsx('text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2')}>
@@ -314,10 +302,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          <Cta
-            href="https://api.whatsapp.com/send?phone=5214493402622"
-            text={t('header.cta')}
-          />
+          {/* aqui va el CTA */}
 
           {/* Contact info */}
           <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
