@@ -1,0 +1,67 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const targetHref = currentPath.startsWith('/es')
+  ? currentPath.replace('/es', '/en')
+  : currentPath.startsWith('/en')
+  ? currentPath.replace('/en', '/es')
+  : '/es' + currentPath;
+
+const buttonLabel = currentPath.startsWith('/es') ? 'EN' : 'ES';
+---
+
+<a
+  href={targetHref}
+  class={clsx(
+    'relative',
+    'bg-gradient-to-r',
+    'from-pink',
+    'to-pink-light',
+    'text-brown',
+    'px-8',
+    'py-4',
+    'rounded-full',
+    'font-bold',
+    'text-sm',
+    'transition-all',
+    'duration-300',
+    'hover:scale-110',
+    'shadow-lg',
+    'hover:shadow-2xl',
+    'group',
+    'overflow-hidden',
+    'inline-block',
+    className
+  )}
+>
+  <span
+    class={clsx(
+      'relative',
+      'z-10'
+    )}
+  >
+    {buttonLabel}
+  </span>
+
+  <div
+    class={clsx(
+      'absolute',
+      'inset-0',
+      'bg-gradient-to-r',
+      'from-white/20',
+      'to-transparent',
+      'opacity-0',
+      'group-hover:opacity-100',
+      'transition-opacity',
+      'duration-300'
+    )}
+  />
+</a>

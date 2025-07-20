@@ -16,11 +16,13 @@ import { getStaticPathsLangs } from "../../libs/getStaticPaths";
 export const getStaticPaths = getStaticPathsLangs;
 const { lang } = Astro.params as any;
 const t = useTranslations(lang);
+
+import ChangeLanguage from "../../components/ui/changeLanguage.astro";
 ---
 
 <Layout>
   <Banner />
   <LogoLink src="/imgs/logo-white.webp" class="z-10" />
   <Cta href="/booking" text="Book Now" />
-
+  <ChangeLanguage/>
 </Layout>
