@@ -92,7 +92,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'border-white/30',
                 'shadow-lg'
               )}>
-                
+
                 {/* aqui va el otro LogoLink */}
               </div>
 
@@ -313,5 +313,4 @@ export default function Header({ lang = 'en' }: HeaderProps) {
     </>
   )
 
-  }
-   
+}
