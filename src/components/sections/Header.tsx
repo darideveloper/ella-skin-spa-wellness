@@ -312,4 +312,6 @@ export default function Header({ lang = 'en' }: HeaderProps) {
       </div>
     </>
   )
-} 
+
+  }
+   
