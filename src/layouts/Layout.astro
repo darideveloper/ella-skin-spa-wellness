@@ -11,8 +11,6 @@ import Header from '../components/sections/Header.tsx'
 import Footer from '../components/sections/Footer.astro'
 import WhatsappButton from '../components/ui/WhatsappButton.astro'
 import SEO from '../components/utils/SEO.astro'
-import LogoLink from '../components/ui/LogoLink.astro'
-import Cta from '../components/ui/Cta.astro'
 
 // i18n
 const { lang } = Astro.params as any
@@ -61,14 +59,7 @@ if (!currentPage || currentPage === 'en' || currentPage === 'es') {
     <Header
       client:load
       lang={lang}
-    >
-      <div slot="logo">
-        <LogoLink src="/imgs/logo-white.webp" />
-      </div>
-      <div slot="cta">
-        <Cta href="/contact" text="Contact" />
-      </div>
-    </Header>
+    />
 
     <main class:list={['font-sans']}>
       <slot />

@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
 import clsx from 'clsx'
 import { useTranslations } from '../../i18n/utils'
+import LogoLink from '../ui/LogoLink'
+import Cta from '../ui/Cta'
 
 interface HeaderProps {
   lang?: string
-  logo?: React.ReactNode
-  cta?: React.ReactNode
 }
 
-export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
+export default function Header({ lang = 'en' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [navigationLinks, setNavigationLinks] = useState([
@@ -18,9 +18,7 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
     { text: 'Contact', href: '#footer' },
   ])
   // Translations
-  const t = useTranslations(lang as 'en' | 'es')
-
-  console.log({logo})  
+  const t = useTranslations(lang as 'en' | 'es')  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +37,10 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
     ]
     setNavigationLinks(translatedLinks)
   }, [])
+
+  // Data
+  const ctaText = t('header.nav.contact')
+  const ctaHref = '#contact'
 
   return (
     <>
@@ -81,23 +83,7 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
           <div className={clsx('flex-shrink-0', 'z-10')}>
             <a href="/" className={clsx('flex', 'items-center', 'space-x-3')}>
               {/* Logo con Sparkle */}
-              <div className={clsx(
-                'relative',
-                'flex',
-                'items-center',
-                'justify-center',
-                'w-16',
-                'h-16',
-                'rounded-full',
-                isScrolled ? 'bg-brown/70' : 'bg-white/20',
-                'backdrop-blur-sm',
-                'border',
-                'border-white/30',
-                'shadow-lg'
-              )}>
-
-                {logo}
-              </div>
+              <LogoLink src="/imgs/logo-white.webp" isScrolled={isScrolled} />
 
               {/* Título y subtítulo */}
               <div className={clsx('hidden', 'md:block', 'flex')}>
@@ -167,7 +153,7 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
           </nav>
 
           {/* CTA Button */}
-          {cta}
+          <Cta href={ctaHref} text={ctaText} className="hidden lg:flex" />
 
           {/* Mobile menu button */}
           <button
@@ -291,7 +277,8 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
                     'hover:scale-105',
                     'backdrop-blur-sm',
                     'border',
-                    'border-white/10'
+                    'border-white/10',
+                    'text-center'
                   )}
                   style={{ animationDelay: `${index * 150}ms` }}
                   onClick={() => setIsMenuOpen(false)}
@@ -303,7 +290,7 @@ export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          {cta}
+          <Cta href={ctaHref} text={ctaText} className={clsx('mt-4')}/>
 
           {/* Contact info */}
           <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
