@@ -1,5 +1,4 @@
 ---
-import { HiPhone, HiMail, HiLocationMarker, HiClock } from 'react-icons/hi'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
 // Libs
@@ -12,33 +11,13 @@ const t = useTranslations(lang)
 
 // Data imports
 import { servicesData } from '../../data/servcies'
-import { socialNetworks } from '../../data/contact'
+import { socialNetworks, contactData } from '../../data/contact'
 
 // Footer data
 const spaInfo = {
   name: t('general.name'),
   tagline: t('footer.tagline'),
   description: t('footer.description'),
-}
-
-// Base fixed data
-const contactData = {
-  phone: {
-    icon: HiPhone,
-    link: 'tel:+573178282828',
-  },
-  email: {
-    icon: HiMail,
-    link: 'mailto:info@ellaskinspa.com',
-  },
-  location: {
-    icon: HiLocationMarker,
-    link: '#',
-  },
-  schedule: {
-    icon: HiClock,
-    link: '#',
-  },
 }
 
 // Fill data with translations
