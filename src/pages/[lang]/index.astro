@@ -3,11 +3,8 @@
 import About from "../../components/sections/About.astro";
 import Layout from "../../layouts/Layout.astro";
 import Banner from "../../components/sections/Banner.astro";
-import Post from "../../components/sections/Posts.astro";
 import Services from "../../components/sections/Services.astro";
-import ContactFormA from "../../components/sections/ContactFormA.astro";
-import ContactFormB from "../../components/sections/ContactFormB.astro";
-import ContactFormC from "../../components/sections/ContactFormC.astro";
+import ContactForm from "../../components/sections/ContactForm.astro";
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
@@ -37,9 +34,5 @@ const t = useTranslations(lang);
 
   <Services />
   <Posts />
-  
-  <!-- Contact Forms -->
-  <ContactFormA />
-  <ContactFormB />
-  <ContactFormC />
+  <ContactForm />
 </Layout>
