@@ -189,7 +189,8 @@
       "title": "Let's Connect",
       "phone": "Phone",
       "email": "Email",
-      "hours": "Hours"
+      "location": "Location",
+      "schedule": "Hours"
     }
   },
   "whatsapp": {

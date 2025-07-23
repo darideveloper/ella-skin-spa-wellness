@@ -25,7 +25,7 @@
       "phone": "+1 (555) 123-4567",
       "email": "info@ellaskinspa.com",
       "location": "123 Wellness Ave, Spa City, SC 12345",
-      "schudule": "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM"
+      "schedule": "Lun-Sáb: 9AM-8PM | Dom: 10AM-6PM"
     },
     "social": "Síguenos",
     "extras": {
@@ -189,7 +189,8 @@
       "title": "Conectemos",
       "phone": "Teléfono",
       "email": "Correo",
-      "hours": "Horarios"
+      "location": "Ubicación",
+      "schedule": "Horarios"
     }
   },
   "whatsapp": {
