@@ -8,7 +8,12 @@ interface CtaProps {
   target?: string
 }
 
-export default function Cta({ href, text, className = '', target = '_self' }: CtaProps) {
+export default function Cta({
+  href,
+  text,
+  className = '',
+  target = '_self',
+}: CtaProps) {
   return (
     <div className={clsx('flex', 'items-center', className)}>
       <a
@@ -59,7 +64,7 @@ export default function Cta({ href, text, className = '', target = '_self' }: Ct
             'opacity-0',
             'group-hover:opacity-100',
             'transition-opacity',
-            'duration-300',
+            'duration-300'
           )}
         />
       </a>

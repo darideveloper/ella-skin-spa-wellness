@@ -18,7 +18,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
     { text: 'Contact', href: '#footer' },
   ])
   // Translations
-  const t = useTranslations(lang as 'en' | 'es')  
+  const t = useTranslations(lang as 'en' | 'es')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,15 +54,9 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           'transition-all',
           'duration-500',
           'ease-in-out',
-          isScrolled
-            ? 'bg-white/90'
-            : 'bg-gradient-to-r',
-          isScrolled
-            ? 'backdrop-blur-lg'
-            : 'from-brown/80',
-          isScrolled
-            ? 'shadow-xl'
-            : 'to-brown-light/80',
+          isScrolled ? 'bg-white/90' : 'bg-gradient-to-r',
+          isScrolled ? 'backdrop-blur-lg' : 'from-brown/80',
+          isScrolled ? 'shadow-xl' : 'to-brown-light/80',
           !isScrolled && 'backdrop-blur-sm'
         )}
       >
@@ -81,9 +75,15 @@ export default function Header({ lang = 'en' }: HeaderProps) {
         >
           {/* Logo */}
           <div className={clsx('flex-shrink-0', 'z-10')}>
-            <a href="/" className={clsx('flex', 'items-center', 'space-x-3')}>
+            <a
+              href='/'
+              className={clsx('flex', 'items-center', 'space-x-3')}
+            >
               {/* Logo con Sparkle */}
-              <LogoLink src="/imgs/logo-white.webp" isScrolled={isScrolled} />
+              <LogoLink
+                src='/imgs/logo-white.webp'
+                isScrolled={isScrolled}
+              />
 
               {/* Título y subtítulo */}
               <div className={clsx('hidden', 'md:block', 'flex')}>
@@ -94,7 +94,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                     'text-xl',
                     'font-title',
                     'font-bold',
-                    'drop-shadow-lg',
+                    'drop-shadow-lg'
                   )}
                 >
                   ELLA SKIN & SPA
@@ -103,7 +103,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   className={clsx(
                     'text-xs',
                     'tracking-wider',
-                    isScrolled ? 'text-brown/90' : 'text-white/90',
+                    isScrolled ? 'text-brown/90' : 'text-white/90'
                   )}
                 >
                   WELLNESS
@@ -113,7 +113,9 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className={clsx('hidden', 'lg:flex', 'items-center', 'space-x-1')}>
+          <nav
+            className={clsx('hidden', 'lg:flex', 'items-center', 'space-x-1')}
+          >
             {navigationLinks.map((link, index) => (
               <a
                 key={link.href}
@@ -132,28 +134,34 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   'hover:scale-105',
                   'backdrop-blur-sm',
                   'group',
-                  isScrolled ? 'bg-brown/70' : '',
+                  isScrolled ? 'bg-brown/70' : ''
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <span className={clsx('relative', 'z-10')}>{link.text}</span>
-                <div className={clsx(
-                  'absolute',
-                  'inset-0',
-                  'bg-gradient-to-r',
-                  'from-pink/20',
-                  'to-pink-light/20',
-                  'rounded-full',
-                  'opacity-0 group-hover:opacity-100',
-                  'transition-opacity',
-                  'duration-300'
-                )} />
+                <div
+                  className={clsx(
+                    'absolute',
+                    'inset-0',
+                    'bg-gradient-to-r',
+                    'from-pink/20',
+                    'to-pink-light/20',
+                    'rounded-full',
+                    'opacity-0 group-hover:opacity-100',
+                    'transition-opacity',
+                    'duration-300'
+                  )}
+                />
               </a>
             ))}
           </nav>
 
           {/* CTA Button */}
-          <Cta href={ctaHref} text={ctaText} className="hidden lg:flex" />
+          <Cta
+            href={ctaHref}
+            text={ctaText}
+            className='hidden lg:flex'
+          />
 
           {/* Mobile menu button */}
           <button
@@ -170,13 +178,14 @@ export default function Header({ lang = 'en' }: HeaderProps) {
               'hover:scale-110',
               'z-10',
               'hover:scale-105',
-              isScrolled ? 'bg-brown/70 text-white border-brown/60' : 'bg-brown/60 text-white border-white/30 hover:bg-white/30'
+              isScrolled
+                ? 'bg-brown/70 text-white border-brown/60'
+                : 'bg-brown/60 text-white border-white/30 hover:bg-white/30'
             )}
-            aria-label="Toggle menu"
+            aria-label='Toggle menu'
           >
             {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
-
         </div>
       </header>
 
@@ -195,12 +204,14 @@ export default function Header({ lang = 'en' }: HeaderProps) {
         )}
         onClick={() => setIsMenuOpen(false)}
       >
-        <div className={clsx(
-          'absolute',
-          'inset-0',
-          'bg-black/50',
-          'backdrop-blur-sm'
-        )} />
+        <div
+          className={clsx(
+            'absolute',
+            'inset-0',
+            'bg-black/50',
+            'backdrop-blur-sm'
+          )}
+        />
       </div>
 
       {/* Mobile Navigation Sidebar */}
@@ -249,12 +260,18 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             {/* aqui va el otro LogoLink */}
 
             {/* Nombre del negocio */}
-            <h2 className={clsx('text-xl', 'font-title', 'font-bold', 'text-white', 'mb-2')}>
+            <h2
+              className={clsx(
+                'text-xl',
+                'font-title',
+                'font-bold',
+                'text-white',
+                'mb-2'
+              )}
+            >
               ELLA SKIN & SPA
             </h2>
-            <p className={clsx('text-sm', 'text-white/80')}>
-              WELLNESS
-            </p>
+            <p className={clsx('text-sm', 'text-white/80')}>WELLNESS</p>
           </div>
 
           {/* Navigation links */}
@@ -290,17 +307,24 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          <Cta href={ctaHref} text={ctaText} className={clsx('mt-4')}/>
+          <Cta
+            href={ctaHref}
+            text={ctaText}
+            className={clsx('mt-4', 'w-full', 'flex', 'justify-center')}
+          />
 
           {/* Contact info */}
-          <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
+          <div
+            className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}
+          >
             <p>{t('header.mobile.hours.weekdays')}</p>
             <p>{t('header.mobile.hours.sunday')}</p>
-            <p className={clsx('mt-2', 'font-medium')}>{t('header.mobile.phone')}</p>
+            <p className={clsx('mt-2', 'font-medium')}>
+              {t('header.mobile.phone')}
+            </p>
           </div>
         </div>
       </div>
     </>
   )
-
 }
