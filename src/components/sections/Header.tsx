@@ -5,9 +5,11 @@ import { useTranslations } from '../../i18n/utils'
 
 interface HeaderProps {
   lang?: string
+  logo?: React.ReactNode
+  cta?: React.ReactNode
 }
 
-export default function Header({ lang = 'en' }: HeaderProps) {
+export default function Header({ lang = 'en', logo, cta }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [navigationLinks, setNavigationLinks] = useState([
@@ -15,9 +17,10 @@ export default function Header({ lang = 'en' }: HeaderProps) {
     { text: 'Blog', href: '/blog' },
     { text: 'Contact', href: '#footer' },
   ])
-
   // Translations
   const t = useTranslations(lang as 'en' | 'es')
+
+  console.log({logo})  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +96,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                 'shadow-lg'
               )}>
 
-                {/* aqui va el otro LogoLink */}
+                {logo}
               </div>
 
               {/* Título y subtítulo */}
@@ -164,7 +167,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button */}
-          {/* Aqui va el CTA */}
+          {cta}
 
           {/* Mobile menu button */}
           <button
@@ -300,7 +303,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           </nav>
 
           {/* CTA Button in sidebar */}
-          {/* aqui va el CTA */}
+          {cta}
 
           {/* Contact info */}
           <div className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}>
