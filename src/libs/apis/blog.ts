@@ -2,7 +2,7 @@ import type { BlogPost } from '../../types/blog'
 
 const postsEndpoint = `${import.meta.env.API_BASE_URL}/posts`
 
-export async function getPosts(lang: string): Promise<BlogPost[]> {
+export async function getPosts(lang: string, limit: number = 1000): Promise<BlogPost[]> {
   // Setup headers
   const myHeaders = new Headers()
   myHeaders.append('Accept-Language', lang)
@@ -14,7 +14,7 @@ export async function getPosts(lang: string): Promise<BlogPost[]> {
   }
 
   const response = await fetch(
-    `${postsEndpoint}/?page-size=1000`,
+    `${postsEndpoint}/?page-size=${limit}`,
     requestOptions
   )
 

@@ -1,47 +1,60 @@
 ---
 // Libs
-import { useTranslations } from "../../i18n/utils";
-import type { BlogPost } from "../../types/blog";
+import { useTranslations } from '../../i18n/utils'
+import type { BlogPost } from '../../types/blog'
 
 // i18n
-const { lang } = Astro.params as any;
-const t = useTranslations(lang);
+const { lang } = Astro.params as any
+const t = useTranslations(lang)
 
 // Components
-import Post from "../ui/Post.astro";
-import Title from "../ui/Title.astro";
-import { getPosts } from "../../libs/apis/blog"
+import Post from '../ui/Post.astro'
+import Title from '../ui/Title.astro'
 
-const postsData: BlogPost[] = await getPosts(lang)
+// Libs
+import { getPosts } from '../../libs/apis/blog'
+
+// Props
+interface Props {
+  limitPosts?: boolean
+}
+
+const { limitPosts = false }: Props = Astro.props
+
+// Get posts from API (already limited if required)
+const postsData: BlogPost[] = await getPosts(lang, limitPosts ? 6 : 1000)
 ---
 
-<div class:list={["bg-gradient-to-b", "from-white", "to-pink-50", "w-full"]}>
-  <section id="Posts" class:list={["container", "py-24", "!mb-0"]}>
+<div class:list={['bg-gradient-to-b', 'from-white', 'to-pink-50', 'w-full']}>
+  <section
+    id='Posts'
+    class:list={['container', 'py-24', '!mb-0']}
+  >
     <!-- Top Section -->
-    <div class:list={["text-center", "mb-12"]}>
-      <div class:list={["text-4xl", "font-title", "text-brown", "mb-4"]}>
-        <Title text={t("post.title")} />
+    <div class:list={['text-center', 'mb-12']}>
+      <div class:list={['text-4xl', 'font-title', 'text-brown', 'mb-4']}>
+        <Title text={t('post.title')} />
       </div>
       <p
         class:list={[
-          "text-brown-light",
-          "mb-6",
-          "text-lg",
-          "max-w-2xl",
-          "mx-auto",
+          'text-brown-light',
+          'mb-6',
+          'text-lg',
+          'max-w-2xl',
+          'mx-auto',
         ]}
       >
-        {t("post.text")}
+        {t('post.text')}
       </p>
     </div>
 
     <!-- Posts Grid -->
     <div
       class:list={[
-        "grid",
-        "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-        "gap-8",
-        "justify-center",
+        'grid',
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+        'gap-8',
+        'justify-center',
       ]}
     >
       {
@@ -50,10 +63,10 @@ const postsData: BlogPost[] = await getPosts(lang)
             title={post.title}
             description={post.description}
             author={post.author}
-            date={new Date(post.created_at).toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
+            date={new Date(post.created_at).toLocaleDateString('es-ES', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
             })}
             bannerImage={post.banner_image_url}
             href={`/blog/${post.id}`}
