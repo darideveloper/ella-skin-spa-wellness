@@ -13,11 +13,10 @@ import Title from "../ui/Title.astro";
 import { getPosts } from "../../libs/apis/blog"
 
 const postsData: BlogPost[] = await getPosts(lang)
-console.log({postsData})
 ---
 
 <div class:list={["bg-gradient-to-b", "from-white", "to-pink-50", "w-full"]}>
-  <section id="Posts" class:list={["container", "py-16"]}>
+  <section id="Posts" class:list={["container", "py-24", "!mb-0"]}>
     <!-- Top Section -->
     <div class:list={["text-center", "mb-12"]}>
       <div class:list={["text-4xl", "font-title", "text-brown", "mb-4"]}>
