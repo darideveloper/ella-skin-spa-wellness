@@ -1,0 +1,48 @@
+---
+export interface Props {
+  id: string
+  name: string
+  type: 'text' | 'email' | 'tel' | 'password'
+  label: string
+  placeholder: string
+  required?: boolean
+  class?: string
+}
+
+const { id, name, type, label, placeholder, required = false, class: className } = Astro.props
+---
+
+<div class:list={[className]}>
+  <label
+    for={id}
+    class:list={['block', 'text-brown', 'font-medium', 'mb-2']}
+  >
+    {label} {required && '*'}
+  </label>
+  <div class:list={['relative']}>
+    <input
+      type={type}
+      id={id}
+      name={name}
+      required={required}
+      class:list={[
+        'w-full',
+        'px-4',
+        'py-3',
+        'border-2',
+        'border-brown-light/30',
+        'rounded-lg',
+        'text-black',
+        'placeholder-brown-light/50',
+        'focus:outline-none',
+        'focus:border-brown',
+        'focus:ring-4',
+        'focus:ring-brown/10',
+        'transition-all',
+        'duration-300',
+        'font-sans',
+      ]}
+      placeholder={placeholder}
+    />
+  </div>
+</div> 

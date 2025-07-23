@@ -7,6 +7,10 @@ import { useTranslations } from '../../i18n/utils'
 // Data imports
 import { contactData } from '../../data/contact'
 
+// UI Components
+import FormInput from '../ui/FormInput.astro'
+import FormTextarea from '../ui/FormTextarea.astro'
+
 // i18n
 const { lang } = Astro.params as any
 const t = useTranslations(lang)
@@ -156,148 +160,43 @@ const contactInfo = Object.keys(contactData).map((key) => ({
 
         <form class:list={['space-y-6']}>
           <!-- Name Field -->
-          <div>
-            <label
-              for='name-b'
-              class:list={['block', 'text-brown', 'font-medium', 'mb-2']}
-            >
-              {t('contact.form.name')} *
-            </label>
-            <div class:list={['relative']}>
-              <input
-                type='text'
-                id='name-b'
-                name='name'
-                required
-                class:list={[
-                  'w-full',
-                  'px-4',
-                  'py-3',
-                  'border-2',
-                  'border-brown-light/30',
-                  'rounded-lg',
-                  'text-black',
-                  'placeholder-brown-light/50',
-                  'focus:outline-none',
-                  'focus:border-brown',
-                  'focus:ring-4',
-                  'focus:ring-brown/10',
-                  'transition-all',
-                  'duration-300',
-                  'font-sans',
-                ]}
-                placeholder={t('contact.form.placeholder.name')}
-              />
-            </div>
-          </div>
+          <FormInput
+            id="name"
+            name="name"
+            type="text"
+            label={t('contact.form.name')}
+            placeholder={t('contact.form.placeholder.name')}
+            required={true}
+          />
 
           <!-- Email Field -->
-          <div>
-            <label
-              for='email-b'
-              class:list={['block', 'text-brown', 'font-medium', 'mb-2']}
-            >
-              {t('contact.form.email')} *
-            </label>
-            <div class:list={['relative']}>
-              <input
-                type='email'
-                id='email-b'
-                name='email'
-                required
-                class:list={[
-                  'w-full',
-                  'px-4',
-                  'py-3',
-                  'border-2',
-                  'border-brown-light/30',
-                  'rounded-lg',
-                  'text-black',
-                  'placeholder-brown-light/50',
-                  'focus:outline-none',
-                  'focus:border-brown',
-                  'focus:ring-4',
-                  'focus:ring-brown/10',
-                  'transition-all',
-                  'duration-300',
-                  'font-sans',
-                ]}
-                placeholder={t('contact.form.placeholder.email')}
-              />
-            </div>
-          </div>
+          <FormInput
+            id="email"
+            name="email"
+            type="email"
+            label={t('contact.form.email')}
+            placeholder={t('contact.form.placeholder.email')}
+            required={true}
+          />
 
           <!-- Phone Field -->
-          <div>
-            <label
-              for='phone-b'
-              class:list={['block', 'text-brown', 'font-medium', 'mb-2']}
-            >
-              {t('contact.form.phone')} *
-            </label>
-            <div class:list={['relative']}>
-              <input
-                type='tel'
-                id='phone-b'
-                name='phone'
-                required
-                class:list={[
-                  'w-full',
-                  'px-4',
-                  'py-3',
-                  'border-2',
-                  'border-brown-light/30',
-                  'rounded-lg',
-                  'text-black',
-                  'placeholder-brown-light/50',
-                  'focus:outline-none',
-                  'focus:border-brown',
-                  'focus:ring-4',
-                  'focus:ring-brown/10',
-                  'transition-all',
-                  'duration-300',
-                  'font-sans',
-                ]}
-                placeholder={t('contact.form.placeholder.phone')}
-              />
-            </div>
-          </div>
+          <FormInput
+            id="phone"
+            name="phone"
+            type="tel"
+            label={t('contact.form.phone')}
+            placeholder={t('contact.form.placeholder.phone')}
+            required={true}
+          />
 
           <!-- Message Field -->
-          <div>
-            <label
-              for='message-b'
-              class:list={['block', 'text-brown', 'font-medium', 'mb-2']}
-            >
-              {t('contact.form.message')}
-            </label>
-            <div class:list={['relative']}>
-              <textarea
-                id='message-b'
-                name='message'
-                rows='4'
-                class:list={[
-                  'w-full',
-                  'px-4',
-                  'py-3',
-                  'border-2',
-                  'border-brown-light/30',
-                  'rounded-lg',
-                  'text-black',
-                  'placeholder-brown-light/50',
-                  'focus:outline-none',
-                  'focus:border-brown',
-                  'focus:ring-4',
-                  'focus:ring-brown/10',
-                  'transition-all',
-                  'duration-300',
-                  'font-sans',
-                  'resize-none',
-                ]}
-                placeholder={t('contact.form.placeholder.message')}
-              ></textarea>
-            </div>
-          </div>
+          <FormTextarea
+            id="message"
+            name="message"
+            label={t('contact.form.message')}
+            placeholder={t('contact.form.placeholder.message')}
+            rows={4}
+          />
 
           <!-- Submit Button -->
           <button
