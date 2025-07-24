@@ -1,9 +1,6 @@
 ---
 // Sections
-import About from "../../components/sections/About.astro";
 import Layout from "../../layouts/Layout.astro";
-import Banner from "../../components/sections/Banner.astro";
-import Services from "../../components/sections/Services.astro";
 import Posts from "../../components/sections/Posts.astro";
 
 // Libs
@@ -17,8 +14,5 @@ const t = useTranslations(lang);
 ---
 
 <Layout>
-  <Banner />
-  <About />
-  <Services />
   <Posts limitPosts />
 </Layout>
