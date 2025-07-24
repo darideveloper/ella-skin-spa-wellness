@@ -88,6 +88,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             >
               {/* Logo con Sparkle */}
               <LogoLink
+                lang={lang}
                 src='/imgs/logo-white.webp'
                 isScrolled={isScrolled}
               />
