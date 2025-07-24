@@ -6,9 +6,9 @@
     "nav": {
       "treatments": "Treatments",
       "blog": "Blog",
-      "contact": "Schedule an appointment"
+      "contact": "Book now"
     },
-    "cta": "Book an appointment",
+    "cta": "Schedule now",
     "mobile": {
       "hours": {
         "weekdays": "Mon-Sat: 9AM-8PM",

@@ -1,9 +1,16 @@
-import { useState, useEffect } from 'react'
-import { HiMenu, HiX } from 'react-icons/hi'
+// Libs
 import clsx from 'clsx'
+import { useState, useEffect } from 'react'
 import { useTranslations } from '../../i18n/utils'
+
+// Components
 import LogoLink from '../ui/LogoLink'
 import Cta from '../ui/Cta'
+
+// Icons
+import { HiMenu, HiX } from 'react-icons/hi'
+import { FiPhone } from 'react-icons/fi'
+
 
 interface HeaderProps {
   lang?: string
@@ -161,6 +168,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             href={ctaHref}
             text={ctaText}
             className='hidden lg:flex'
+            icon={FiPhone}
           />
 
           {/* Mobile menu button */}
@@ -311,6 +319,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             href={ctaHref}
             text={ctaText}
             className={clsx('mt-4', 'w-full', 'flex', 'justify-center')}
+            icon={FiPhone}
           />
 
           {/* Contact info */}

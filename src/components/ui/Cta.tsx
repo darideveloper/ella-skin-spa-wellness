@@ -1,11 +1,12 @@
 import clsx from 'clsx'
-import { FiPhone } from 'react-icons/fi'
+import type { IconType } from 'react-icons'
 
 interface CtaProps {
   href: string
   text: string
   className?: string
   target?: string
+  icon?: IconType
 }
 
 export default function Cta({
@@ -13,6 +14,7 @@ export default function Cta({
   text,
   className = '',
   target = '_self',
+  icon : Icon,
 }: CtaProps) {
   return (
     <div className={clsx('flex', 'items-center', className)}>
@@ -49,9 +51,11 @@ export default function Cta({
             'text-center lg:text-left'
           )}
         >
-          <FiPhone
-            className={clsx('w-4', 'h-4', 'hidden lg:block', 'text-brown')}
-          />
+          {Icon && (
+            <Icon
+              className={clsx('w-4', 'h-4', 'text-brown')}
+            />
+          )}
           <span>{text}</span>
         </span>
         <div
