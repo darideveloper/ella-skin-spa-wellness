@@ -66,6 +66,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           isScrolled ? 'shadow-xl' : 'to-brown-light/80',
           !isScrolled && 'backdrop-blur-sm'
         )}
+        id='header'
       >
         {/* Main navigation */}
         <div
