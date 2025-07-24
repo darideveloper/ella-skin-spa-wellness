@@ -37,6 +37,7 @@
   },
   "services": {
     "title": "Our Services",
+    "subtitle": "Discover the radiance of your skin with our specialized facial treatments",
     "cards": {
       "facial": {
         "name": "Facial *Treatments*",

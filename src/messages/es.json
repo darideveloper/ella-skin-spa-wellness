@@ -36,7 +36,8 @@
     }
   },
   "services": {
-    "title": "Nuestros Servicios",
+    "title": "Nuestros Tratamientos",
+    "subtitle": "Descubre la luminosidad de tu piel con nuestros tratamientos faciales especializados",
     "cards": {
       "facial": {
         "name": "Tratamientos *Faciales*",
