@@ -10,6 +10,7 @@ const t = useTranslations(lang)
 // Components
 import Post from '../ui/Post.astro'
 import Title from '../ui/Title.astro'
+import Cta from '../ui/Cta.tsx'
 
 // Libs
 import { getPosts } from '../../libs/apis/blog'
@@ -25,10 +26,18 @@ const { limitPosts = false }: Props = Astro.props
 const postsData: BlogPost[] = await getPosts(lang, limitPosts ? 6 : 1000)
 ---
 
-<div class:list={['bg-gradient-to-b', 'from-white', 'to-pink-50', 'w-full']}>
+<div
+  class:list={[
+    'bg-gradient-to-b',
+    'from-white',
+    'to-pink-50',
+    'w-full',
+    'py-24',
+  ]}
+>
   <section
     id='Posts'
-    class:list={['container', 'py-24', '!mb-0', "!mt-24"]}
+    class:list={['container', '!mb-0', '!mt-24']}
   >
     <!-- Top Section -->
     <div class:list={['text-center', 'mb-12']}>
@@ -75,4 +84,12 @@ const postsData: BlogPost[] = await getPosts(lang, limitPosts ? 6 : 1000)
       }
     </div>
   </section>
+
+  <!-- View all button -->
+  <div class:list={['flex', 'justify-center', 'mt-12']}>
+    <Cta
+      text={t('post.viewAll')}
+      href={`/${lang}/blog`}
+    />
+  </div>
 </div>
