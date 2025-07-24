@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { HiMenu, HiX, HiPhone, HiSparkles } from 'react-icons/hi'
+import { HiMenu, HiX } from 'react-icons/hi'
 import clsx from 'clsx'
 import { useTranslations } from '../../i18n/utils'
 import LogoLink from '../ui/LogoLink'
@@ -31,8 +31,8 @@ export default function Header({ lang = 'en' }: HeaderProps) {
   // Update navigation links when mounts
   useEffect(() => {
     const translatedLinks = [
-      { text: t('header.nav.treatments'), href: '/#services' },
-      { text: t('header.nav.blog'), href: '/blog' },
+      { text: t('header.nav.treatments'), href: `/${lang}/#services` },
+      { text: t('header.nav.blog'), href: `/${lang}/blog` },
       { text: t('header.nav.contact'), href: '#footer' },
     ]
     setNavigationLinks(translatedLinks)
