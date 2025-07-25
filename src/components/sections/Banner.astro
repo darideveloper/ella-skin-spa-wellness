@@ -1,4 +1,6 @@
 ---
+import Slider from '../base/Slider'
+
 const allImages = import.meta.glob(
   "/src/assets/gallery/**/*.{jpg,jpeg,png,webp}",
   {
@@ -11,10 +13,10 @@ const allImages = import.meta.glob(
 const shuffle: <T>(arr: T[]) => T[] = (arr) =>
   [...arr].sort(() => Math.random() - 0.5);
 
-// Shuffle images
+// Shuffle images and extract URLs
 const galleryImages = shuffle(
   Object.entries(allImages) // Convert the images object into an array of [key, url] pairs
-    .map(([_, url]) => ({ url })) // Extract only the URL and return it inside an object
+    .map(([_, url]) => url) // Extract only the URL
 );
 ---
 
@@ -25,121 +27,17 @@ const galleryImages = shuffle(
     "h-screen",
     "min-h-[600px]",
     "overflow-hidden",
-    "bg-gradient-to-br",
-    "from-brown-light",
-    "via-pink-light",
-    "to-white",
   ]}
 >
-  <!-- Swiper Container -->
-  <div
-    class:list={[
-      "swiper",
-      "banner-swiper",
-      "global-swiper",
-      "h-full",
-      "w-full",
-    ]}
-  >
-    <div class:list={["swiper-wrapper"]}>
-      {
-        galleryImages.map((image) => (
-          <div class:list={["swiper-slide", "relative", "h-full"]}>
-            <div
-              class:list={[
-                "absolute",
-                "inset-0",
-                "bg-cover",
-                "bg-center",
-                "bg-no-repeat",
-              ]}
-              style={`background-image: url('${image.url}')`}
-            />
-          </div>
-        ))
-      }
-    </div>
-
-    <!-- Navigation Arrows -->
-    <div class:list={["swiper-button-next", "bg-brown/80", "hover:bg-brown"]}>
-    </div>
-    <div class:list={["swiper-button-prev", "bg-brown/80", "hover:bg-brown"]}>
-    </div>
-    <div class:list={["swiper-pagination", "bottom-8"]}></div>
-  </div>
-
-  <!-- Decorative Elements -->
-  <div
-    class:list={[
-      "absolute",
-      "top-0",
-      "right-0",
-      "w-64",
-      "h-64",
-      "bg-pink-light/20",
-      "rounded-full",
-      "blur-3xl",
-      "pointer-events-none",
-    ]}
-  >
-  </div>
-  <div
-    class:list={[
-      "absolute",
-      "bottom-0",
-      "left-0",
-      "w-96",
-      "h-96",
-      "bg-brown-light/20",
-      "rounded-full",
-      "blur-3xl",
-      "pointer-events-none",
-    ]}
-  >
-  </div>
+  <Slider 
+    client:load
+    images={galleryImages}
+    height="h-screen min-h-[600px]"
+    autoplay={true}
+    autoplayDelay={5000}
+    showNavigation={true}
+    showPagination={true}
+    effect="fade"
+    loop={true}
+  />
 </section>
-
-<script>
-  import Swiper from "swiper";
-  import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-  import "swiper/css/effect-fade";
-
-  // Initialize Banner Swiper
-  new Swiper(".banner-swiper", {
-    modules: [Navigation, Pagination, Autoplay, EffectFade],
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    speed: 1000,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    breakpoints: {
-      320: {
-        autoplay: {
-          delay: 4000,
-        },
-      },
-      768: {
-        autoplay: {
-          delay: 5000,
-        },
-      },
-    },
-  });
-</script>
