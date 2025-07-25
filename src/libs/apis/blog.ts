@@ -23,3 +23,21 @@ export async function getPosts(lang: string, limit: number = 1000): Promise<Blog
   const data: BlogPost[] = jsonData.results
   return data
 }
+
+
+export async function getPost(lang: string, id: string): Promise<BlogPost> {
+  // Setup headers
+  const myHeaders = new Headers()
+  myHeaders.append('Accept-Language', lang)
+  myHeaders.append('Authorization', `Token ${import.meta.env.API_SECRET_KEY}`)
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+  }
+
+  const response = await fetch(`${postsEndpoint}/${id}/`, requestOptions)
+  const jsonData = await response.json()
+  const data: BlogPost = jsonData
+  return data
+}

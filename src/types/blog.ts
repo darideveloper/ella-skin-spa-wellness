@@ -1,6 +1,7 @@
 export interface BlogPost {
   id: number;
   title: string;
+  slug: string;
   lang: string;
   banner_image_url: string;
   description: string;

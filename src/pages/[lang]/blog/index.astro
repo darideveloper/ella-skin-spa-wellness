@@ -1,0 +1,18 @@
+---
+// Sections
+import Layout from "../../../layouts/Layout.astro";
+import Posts from "../../../components/sections/Posts.astro";
+
+// Libs
+import { useTranslations } from "../../../i18n/utils";
+import { getStaticPathsLangs } from "../../../libs/getStaticPaths";
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <Posts />
+</Layout>

@@ -26,6 +26,7 @@ const { limitPosts = false }: Props = Astro.props
 // Get posts from API (already limited if required)
 const maxPosts = 6
 const postsData: BlogPost[] = await getPosts(lang, limitPosts ? maxPosts : 1000)
+console.log({ postsData })
 ---
 
 <div
@@ -81,7 +82,7 @@ const postsData: BlogPost[] = await getPosts(lang, limitPosts ? maxPosts : 1000)
               day: 'numeric',
             })}
             bannerImage={post.banner_image_url}
-            href={`/blog/${post.id}`}
+            href={`/${lang}/blog/${post.slug}`}
           />
         ))
       }

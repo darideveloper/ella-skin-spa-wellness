@@ -1,0 +1,30 @@
+---
+// Libs
+import { getPost } from '../../../../libs/apis/blog'
+import { useTranslations } from '../../../../i18n/utils'
+import { getStaticPathsBlogPostsLangs } from '../../../../libs/getStaticPaths'
+
+// Components
+import Layout from '../../../../layouts/Layout.astro'
+import Title from '../../../../components/ui/Title.astro'
+
+// params
+const { lang, slug } = Astro.params as any
+
+// i18n
+const t = useTranslations(lang)
+export const getStaticPaths = getStaticPathsBlogPostsLangs;
+
+// Data
+const postData = await getPost(lang, slug)
+---
+
+<Layout>
+    <div class:list={[
+        'container',
+        'py-24',
+    ]}>
+        <Title text={postData.title} />
+        <p>{postData.description}</p>
+    </div>
+</Layout>
