@@ -83,8 +83,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
         >
           {/* Logo */}
           <div className={clsx('flex-shrink-0', 'z-10')}>
-            <a
-              href='/'
+            <div
               className={clsx('flex', 'items-center', 'space-x-3')}
             >
               {/* Logo con Sparkle */}
@@ -118,7 +117,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
                   WELLNESS
                 </p>
               </div>
-            </a>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
