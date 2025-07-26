@@ -6,11 +6,11 @@ import { useTranslations } from '../../i18n/utils'
 // Components
 import LogoLink from '../ui/LogoLink'
 import Cta from '../ui/Cta'
+import LangBtn from '../ui/LangBtn'
 
 // Icons
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiPhone } from 'react-icons/fi'
-
 
 interface HeaderProps {
   lang?: string
@@ -19,7 +19,9 @@ interface HeaderProps {
 export default function Header({ lang = 'en' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [navigationLinks, setNavigationLinks] = useState<{ text: string; href: string }[]>([])
+  const [navigationLinks, setNavigationLinks] = useState<
+    { text: string; href: string }[]
+  >([])
   // Translations
   const t = useTranslations(lang as 'en' | 'es')
 
@@ -79,9 +81,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
         >
           {/* Logo */}
           <div className={clsx('flex-shrink-0', 'z-10')}>
-            <div
-              className={clsx('flex', 'items-center', 'space-x-3')}
-            >
+            <div className={clsx('flex', 'items-center', 'space-x-3')}>
               {/* Logo con Sparkle */}
               <LogoLink
                 lang={lang}
@@ -160,14 +160,15 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <Cta
-            href={ctaHref}
-            text={ctaText}
-            className='hidden lg:flex'
-            icon={FiPhone}
-          />
-
+          {/* CTA Button and lang button */}
+          <div className={clsx('hidden lg:flex', 'items-center', 'space-x-2')}>
+            <Cta
+              href={ctaHref}
+              text={ctaText}
+              icon={FiPhone}
+            />
+            <LangBtn />
+          </div>
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
