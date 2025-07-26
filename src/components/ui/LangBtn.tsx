@@ -1,20 +1,38 @@
 import clsx from "clsx";
+import { useState, useEffect } from "react";
 
 interface LangBtnProps {
   className?: string;
 }
 
 export default function LangBtn({ className = "" }: LangBtnProps) {
-  // Get current path from window.location
-  const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
+  const [targetHref, setTargetHref] = useState("/es");
+  const [buttonLabel, setButtonLabel] = useState("ES");
 
-  const targetHref = currentPath.startsWith("/es")
-    ? currentPath.replace("/es", "/en")
-    : currentPath.startsWith("/en")
-      ? currentPath.replace("/en", "/es")
-      : "/es" + currentPath;
+  useEffect(() => {
+    // Get current path from window.location on client side
+    const path = window.location.pathname;
+    
+    // Extract the path without the language prefix
+    let pathWithoutLang = path;
+    if (path.startsWith("/es/")) {
+      pathWithoutLang = path.substring(4); // Remove "/es/"
+    } else if (path.startsWith("/en/")) {
+      pathWithoutLang = path.substring(4); // Remove "/en/"
+    } else if (path === "/es") {
+      pathWithoutLang = "/";
+    } else if (path === "/en") {
+      pathWithoutLang = "/";
+    }
 
-  const buttonLabel = currentPath.startsWith("/es") ? "EN" : "ES";
+    // Determine target language and build target URL
+    const isCurrentlySpanish = path.startsWith("/es") || path === "/es";
+    const targetLang = isCurrentlySpanish ? "en" : "es";
+    const href = `/${targetLang}/${pathWithoutLang}`;
+    
+    setTargetHref(href);
+    setButtonLabel(isCurrentlySpanish ? "EN" : "ES");
+  }, []);
 
   return (
     <a
