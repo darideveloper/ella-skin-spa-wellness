@@ -67,6 +67,7 @@ const renderedContent = String(marked(postData.content)).replace(/<h1/g, '<h2').
           <img
             src={postData.banner_image_url}
             alt={postData.title}
+            title={postData.title}
             class:list={[
               'w-full',
               'h-96',

@@ -42,6 +42,7 @@ export default function LogoLink({
           <img
             src={src}
             alt='ELLA SKIN & SPA WELLNESS logo'
+            title='ELLA SKIN & SPA WELLNESS'
             className={clsx('h-10', 'w-auto')}
           />
         </div>
