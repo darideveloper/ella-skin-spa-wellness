@@ -244,7 +244,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
       >
         <div className={clsx('flex', 'flex-col', 'h-full', 'p-8')}>
           {/* Close button */}
-          <div className={clsx('flex', 'justify-end', 'mb-8')}>
+          <div className={clsx('flex', 'justify-end', 'mb-4')}>
             <button
               onClick={() => setIsMenuOpen(false)}
               className={clsx(
@@ -312,13 +312,16 @@ export default function Header({ lang = 'en' }: HeaderProps) {
             </div>
           </nav>
 
-          {/* CTA Button in sidebar */}
-          <Cta
-            href={ctaHref}
-            text={ctaText}
-            className={clsx('mt-4', 'w-full', 'flex', 'justify-center')}
-            icon={FiPhone}
-          />
+          {/* CTA Band lang utton in sidebar */}
+          <div className={clsx('flex', 'flex-col', 'items-center', 'mt-8')}>
+            <LangBtn />
+            <Cta
+              href={ctaHref}
+              text={ctaText}
+              className={clsx('mt-4', 'w-full', 'flex', 'justify-center')}
+              icon={FiPhone}
+            />
+          </div>
 
           {/* Contact info */}
           <div
