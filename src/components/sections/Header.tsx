@@ -39,7 +39,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
       { text: t('header.nav.contact'), href: '#footer' },
     ]
     setNavigationLinks(translatedLinks)
-  }, [t, lang])
+  }, [lang])
 
   // Data
   const ctaText = t('header.nav.book')
