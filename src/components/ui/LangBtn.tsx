@@ -1,5 +1,8 @@
-import clsx from "clsx";
+// Libs
 import { useState, useEffect } from "react";
+
+// Components
+import Cta from './Cta'
 
 interface LangBtnProps {
   className?: string;
@@ -35,48 +38,9 @@ export default function LangBtn({ className = "" }: LangBtnProps) {
   }, []);
 
   return (
-    <a
+    <Cta
       href={targetHref}
-      className={clsx(
-        "relative",
-        "bg-gradient-to-r",
-        "from-pink",
-        "to-pink-light",
-        "text-brown",
-        "px-8",
-        "py-4",
-        "rounded-full",
-        "font-bold",
-        "text-sm",
-        "transition-all",
-        "duration-300",
-        "hover:scale-110",
-        "shadow-lg",
-        "hover:shadow-2xl",
-        "group",
-        "overflow-hidden",
-        "inline-block",
-        className,
-      )}
-    >
-      <span className={clsx("relative", "z-10")}>
-        {buttonLabel}
-      </span>
-
-      <div
-        className={clsx(
-          "absolute",
-          "inset-0",
-          "bg-gradient-to-r",
-          "from-white/20",
-          "to-transparent",
-          "opacity-0",
-          "group-hover:opacity-100",
-          "transition-opacity",
-          "duration-300"
-        )}
-      >
-      </div>
-    </a>
+      text={buttonLabel}
+    />
   );
 }
