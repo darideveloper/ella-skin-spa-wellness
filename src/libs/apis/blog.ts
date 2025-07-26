@@ -36,7 +36,7 @@ export async function getPost(lang: string, id: string): Promise<BlogPost> {
     headers: myHeaders,
   }
 
-  const response = await fetch(`${postsEndpoint}/${id}/`, requestOptions)
+  const response = await fetch(`${postsEndpoint}/${id}/?details=true`, requestOptions)
   const jsonData = await response.json()
   const data: BlogPost = jsonData
   return data
