@@ -29,7 +29,7 @@ marked.setOptions({
 })
 
 // Render markdown content
-const renderedContent = marked(postData.content)
+const renderedContent = String(marked(postData.content)).replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>')
 ---
 
 <Layout>
