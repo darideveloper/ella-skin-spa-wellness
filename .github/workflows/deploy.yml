@@ -2,7 +2,7 @@ name: Daily Auto Push
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # every day at 5AM UTC
+    - cron: '0 0 * * *' # every day at 5AM UTC
   workflow_dispatch:
 
 jobs:
