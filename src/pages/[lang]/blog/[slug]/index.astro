@@ -9,6 +9,9 @@ import { marked } from 'marked'
 import Layout from '../../../../layouts/Layout.astro'
 import Title from '../../../../components/ui/Title.astro'
 
+// Utils
+import UpdateLangBtn from '../../../../components/utils/UpdateLangBtn.tsx'
+
 // Styles
 import '../../../../styles/markdown.css'
 
@@ -30,6 +33,14 @@ marked.setOptions({
 
 // Render markdown content
 const renderedContent = String(marked(postData.content)).replace(/<h1/g, '<h2').replace(/<\/h1>/g, '</h2>')
+const relatedPostSlug = await postData["related_post"]
+
+let relatedPostLink = ''
+if (lang === 'en') {
+  relatedPostLink = `/es/blog/${relatedPostSlug}`
+} else {
+  relatedPostLink = `/en/blog/${relatedPostSlug}`
+}
 ---
 
 <Layout>
@@ -111,6 +122,7 @@ const renderedContent = String(marked(postData.content)).replace(/<h1/g, '<h2').
       </div>
     </div>
   </div>
+
+  <!-- Script to update lang btn -->
+  <UpdateLangBtn client:load link={relatedPostLink} />
 </Layout>
-
-

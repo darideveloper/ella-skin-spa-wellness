@@ -1,5 +1,6 @@
 // Libs
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
 // Components
 import Cta from './Cta'
@@ -41,6 +42,7 @@ export default function LangBtn({ className = "" }: LangBtnProps) {
     <Cta
       href={targetHref}
       text={buttonLabel}
+      className={clsx('lang-btn', className)}
     />
   );
 }
