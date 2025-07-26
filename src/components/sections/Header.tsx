@@ -19,11 +19,7 @@ interface HeaderProps {
 export default function Header({ lang = 'en' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [navigationLinks, setNavigationLinks] = useState([
-    { text: 'Tratamientos', href: '/#services' },
-    { text: 'Blog', href: '/blog' },
-    { text: 'Contact', href: '#footer' },
-  ])
+  const [navigationLinks, setNavigationLinks] = useState<{ text: string; href: string }[]>([])
   // Translations
   const t = useTranslations(lang as 'en' | 'es')
 
@@ -43,10 +39,10 @@ export default function Header({ lang = 'en' }: HeaderProps) {
       { text: t('header.nav.contact'), href: '#footer' },
     ]
     setNavigationLinks(translatedLinks)
-  }, [])
+  }, [t, lang])
 
   // Data
-  const ctaText = t('header.nav.contact')
+  const ctaText = t('header.nav.book')
   const ctaHref = '#contact'
 
   return (

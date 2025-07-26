@@ -6,7 +6,8 @@
     "nav": {
       "treatments": "Treatments",
       "blog": "Blog",
-      "contact": "Book now"
+      "contact": "Contact",
+      "book": "Book now"
     },
     "cta": "Schedule now",
     "mobile": {
