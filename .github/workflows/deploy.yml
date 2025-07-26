@@ -1,0 +1,25 @@
+name: Daily Auto Push
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # every day at 5AM UTC
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Change a timestamp file
+        run: |
+          echo "Auto update: $(date)" > .daily-trigger.txt
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add .daily-trigger.txt
+          git commit -m "Daily trigger commit"
+          git push
