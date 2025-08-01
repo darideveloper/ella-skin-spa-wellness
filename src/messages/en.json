@@ -1,6 +1,11 @@
 {
   "general": {
-    "name": "ELLA SKIN & SPA WELLNESS"
+    "name": "ELLA SKIN & SPA WELLNESS",
+    "hours": {
+      "weekdays": "Monday to Friday from 10 am to 8 pm | (More early with prior appointment)",
+      "saturday": "Saturdays from 11 am to 5 pm | (More early with prior appointment)",
+      "sunday": "Sundays (Prior appointment)"
+    }
   },
   "header": {
     "nav": {
@@ -9,13 +14,7 @@
       "contact": "Contact",
       "book": "Book now"
     },
-    "cta": "Schedule now",
-    "mobile": {
-      "hours": {
-        "weekdays": "Mon-Sat: 9AM-8PM",
-        "sunday": "Sun: 10AM-6PM"
-      }
-    }
+    "cta": "Schedule now"
   },
   "footer": {
     "tagline": "Your well-being is our priority",
