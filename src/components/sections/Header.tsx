@@ -12,6 +12,9 @@ import LangBtn from '../ui/LangBtn'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiPhone } from 'react-icons/fi'
 
+// Data
+import { phoneUnformatted, phone } from '../../data/contact'
+
 interface HeaderProps {
   lang?: string
 }
@@ -329,9 +332,12 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           >
             <p>{t('header.mobile.hours.weekdays')}</p>
             <p>{t('header.mobile.hours.sunday')}</p>
-            <p className={clsx('mt-2', 'font-medium')}>
-              {t('header.mobile.phone')}
-            </p>
+            <a
+              className={clsx('mt-2', 'font-medium')}
+              href={`tel:${phone}`}
+            >
+              {phoneUnformatted}
+            </a>
           </div>
         </div>
       </div>

@@ -14,8 +14,7 @@
       "hours": {
         "weekdays": "Mon-Sat: 9AM-8PM",
         "sunday": "Sun: 10AM-6PM"
-      },
-      "phone": "+1 (555) 123-4567"
+      }
     }
   },
   "footer": {
