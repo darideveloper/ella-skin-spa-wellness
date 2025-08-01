@@ -245,7 +245,7 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className={clsx('flex', 'flex-col', 'h-full', 'p-8')}>
+        <div className={clsx('flex', 'flex-col', 'h-full', 'p-4')}>
           {/* Close button */}
           <div className={clsx('flex', 'justify-end', 'mb-4')}>
             <button
@@ -330,8 +330,6 @@ export default function Header({ lang = 'en' }: HeaderProps) {
           <div
             className={clsx('mt-8', 'text-center', 'text-white/80', 'text-sm')}
           >
-            <p>{t('header.mobile.hours.weekdays')}</p>
-            <p>{t('header.mobile.hours.sunday')}</p>
             <a
               className={clsx('mt-2', 'font-medium')}
               href={`tel:${phone}`}
