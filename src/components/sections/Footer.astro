@@ -9,7 +9,7 @@ const t = useTranslations(lang)
 
 // Data imports
 import { servicesData } from '../../data/servcies'
-import { socialNetworks, contactData } from '../../data/contact'
+import { socialNetworks, contactData, getHours} from '../../data/contact'
 
 // Footer data
 const spaInfo = {
@@ -28,7 +28,7 @@ const services = Object.keys(servicesData).map((key) => ({
 
 const contactInfo = Object.keys(contactData).map((key) => ({
   icon: contactData[key as keyof typeof contactData].icon,
-  text: t(`footer.contact.${key}`),
+  text: contactData[key as keyof typeof contactData].text,
   link: contactData[key as keyof typeof contactData].link,
 }))
 
@@ -39,13 +39,7 @@ const footerLinks = [
 ]
 
 // replace schedule with hours
-const hours = t('general.hours')
-const schedule = Object.keys(hours).map((key) => ({
-  day: key,
-  hours: hours[key as keyof typeof hours],
-}))
-const scheduleText = schedule.map((item) => `${item.hours}`).join('\n')
-contactInfo[3].text = scheduleText
+contactInfo[3].text = getHours(t)
 ---
 
 <footer

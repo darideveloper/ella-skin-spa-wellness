@@ -20,11 +20,7 @@
     "tagline": "Your well-being is our priority",
     "description": "Discover an oasis of tranquility where advanced technology meets personalized care to offer you the ultimate spa experience.",
     "contact": {
-      "title": "Contact Info",
-      "phone": "+1 (555) 123-4567",
-      "email": "info@ellaskinspa.com",
-      "location": "123 Wellness Ave, Spa City, SC 12345",
-      "schedule": "REPLACEME WITH HOURS"
+      "title": "Contact Info"
     },
     "social": "Follow Us",
     "extras": {

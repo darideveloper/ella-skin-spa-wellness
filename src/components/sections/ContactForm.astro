@@ -5,7 +5,7 @@ import { HiPaperAirplane } from 'react-icons/hi'
 import { useTranslations } from '../../i18n/utils'
 
 // Data imports
-import { contactData } from '../../data/contact'
+import { contactData, getHours } from '../../data/contact'
 
 // UI Components
 import FormInput from '../ui/FormInput.astro'
@@ -19,9 +19,12 @@ const t = useTranslations(lang)
 const contactInfo = Object.keys(contactData).map((key) => ({
   key: key,
   icon: contactData[key as keyof typeof contactData].icon,
-  text: t(`footer.contact.${key}`),
+  text: contactData[key as keyof typeof contactData].text,
   link: contactData[key as keyof typeof contactData].link,
 }))
+
+// replace schedule with hours
+contactInfo[3].text = getHours(t)
 ---
 
 <section
@@ -133,7 +136,9 @@ const contactInfo = Object.keys(contactData).map((key) => ({
                       'duration-300',
                     ]}
                   >
-                    {item.text}
+                    {item.text.split('\n').map((line: string) => (
+                      <span class:list={['block', 'mb-2']}>{line}</span>
+                    ))}
                   </p>
                 </div>
               </a>
@@ -161,9 +166,9 @@ const contactInfo = Object.keys(contactData).map((key) => ({
         <form class:list={['space-y-6']}>
           <!-- Name Field -->
           <FormInput
-            id="name"
-            name="name"
-            type="text"
+            id='name'
+            name='name'
+            type='text'
             label={t('contact.form.name')}
             placeholder={t('contact.form.placeholder.name')}
             required={true}
@@ -171,9 +176,9 @@ const contactInfo = Object.keys(contactData).map((key) => ({
 
           <!-- Email Field -->
           <FormInput
-            id="email"
-            name="email"
-            type="email"
+            id='email'
+            name='email'
+            type='email'
             label={t('contact.form.email')}
             placeholder={t('contact.form.placeholder.email')}
             required={true}
@@ -181,9 +186,9 @@ const contactInfo = Object.keys(contactData).map((key) => ({
 
           <!-- Phone Field -->
           <FormInput
-            id="phone"
-            name="phone"
-            type="tel"
+            id='phone'
+            name='phone'
+            type='tel'
             label={t('contact.form.phone')}
             placeholder={t('contact.form.placeholder.phone')}
             required={true}
@@ -191,8 +196,8 @@ const contactInfo = Object.keys(contactData).map((key) => ({
 
           <!-- Message Field -->
           <FormTextarea
-            id="message"
-            name="message"
+            id='message'
+            name='message'
             label={t('contact.form.message')}
             placeholder={t('contact.form.placeholder.message')}
             rows={4}
