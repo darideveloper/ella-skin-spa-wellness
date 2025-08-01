@@ -37,6 +37,15 @@ const footerLinks = [
   { text: t('footer.extras.terms'), link: '#' },
   { text: t('footer.extras.bookings'), link: '#' },
 ]
+
+// replace schedule with hours
+const hours = t('general.hours')
+const schedule = Object.keys(hours).map((key) => ({
+  day: key,
+  hours: hours[key as keyof typeof hours],
+}))
+const scheduleText = schedule.map((item) => `${item.hours}`).join('\n')
+contactInfo[3].text = scheduleText
 ---
 
 <footer
@@ -100,7 +109,13 @@ const footerLinks = [
                 >
                   <item.icon />
                 </span>
-                <span class:list={['text-sm']}>{item.text}</span>
+                <span class:list={['text-sm']}>
+                  {
+                    item.text.split('\n').map((line: string) => (
+                      <span class:list={['block', 'mb-2']}>{line}</span>
+                    ))
+                  }
+                </span>
               </a>
             ))
           }
