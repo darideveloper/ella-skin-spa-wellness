@@ -8,9 +8,11 @@ export const phone = phoneUnformatted.replace(/\s/g, '').replace('+', '')
 export const email = 'info@ellaskinspa.com'
 
 export const addressElems = {
-  addressLocality: 'Merida',
-  addressRegion: 'Yucatan',
-  addressCountry: 'Mexico',
+  streetAddress: "Cto. Colonias 118",
+  addressLocality: "Mérida",
+  addressRegion: "Yucatán",
+  postalCode: "97100",
+  addressCountry: "Mexico"
 }
 export let addressElemsStr = ''
 for (const elem in addressElems) {
@@ -20,6 +22,7 @@ export let addressText = ''
 for (const elem in addressElems) {
   addressText += `${addressElems[elem as keyof typeof addressElems]} `
 }
+export const whatsappLink = 'https://api.whatsapp.com/send?phone=5219999049631'
 
 export const contactData = {
   phone: {
@@ -35,12 +38,12 @@ export const contactData = {
   location: {
     icon: HiLocationMarker,
     text: addressText,
-    link: '#',
+    link: 'https://www.google.com/maps/place/Ella+Skin+%26+Spa+Wellness/@20.9984271,-89.6168081,17.55z/data=!4m6!3m5!1s0x8f5677000543e06f:0x91d22e19a901cd73!8m2!3d20.9984621!4d-89.6152096!16s%2Fg%2F11xdk2rq0_?entry=tts&g_ep=EgoyMDI1MDczMC4wIPu8ASoASAFQAw%3D%3D&skid=e4a63d17-b165-4671-a05c-3fe93363c6c5',
   },
   schedule: {
     icon: HiClock,
     text: 'REPLACE ME WITH HOURS',
-    link: '#',
+    link: whatsappLink,
   },
 }
 
@@ -60,7 +63,7 @@ export const socialNetworks = [
   {
     icon: FaWhatsapp,
     name: 'Whatsapp',
-    link: 'https://api.whatsapp.com/send?phone=5219999049631',
+    link: whatsappLink,
     bg: 'bg-green-600',
   },
 ]
