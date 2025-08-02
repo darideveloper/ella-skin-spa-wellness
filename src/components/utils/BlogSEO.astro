@@ -4,14 +4,15 @@ import BaseSEO from './base/BaseSEO.astro'
 
 // Reas props
 interface Props {
-  currentPage?: string // Current page
-  lang?: string // Language parameter
+  currentPage: string // Current page
+  lang: string // Language parameter
 }
 const { currentPage, lang } = Astro.props as Props
 
 // Data
 import { domain } from '../../data/setup'
 
+// Extra JSON
 const extraJson = {
   publisher: {
     '@type': 'Organization',

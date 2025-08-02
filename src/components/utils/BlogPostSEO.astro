@@ -1,0 +1,52 @@
+---
+// Components
+import BaseSEO from './base/BaseSEO.astro'
+
+// Reas props
+interface Props {
+  lang: string // Language parameter
+  author?: string // Author of the page (optional, to ignore i18n)
+  postTitle?: string // Post title
+  postExcerpt?: string // Post excerpt
+  postAuthor?: string // Post author
+  postDate?: string // Post date
+  postImageUrl?: string // Post image URL
+  postSlug?: string // Post URL
+}
+const {
+  lang,
+  author,
+  postTitle,
+  postExcerpt,
+  postAuthor,
+  postDate,
+  postImageUrl,
+  postSlug,
+} = Astro.props as Props
+
+// Data
+import { domain } from '../../data/setup'
+
+// Extra JSON
+const extraJson = {
+  headline: postTitle,
+  description: postExcerpt,
+  author: {
+    '@type': 'Person',
+    name: postAuthor,
+  },
+  datePublished: postDate,
+  image: postImageUrl,
+  url: `${domain}/${lang}/blog/${postSlug}`,
+}
+---
+
+<BaseSEO
+  currentPage={postTitle || ''}
+  lang={lang}
+  author={author}
+  baseDescription={postExcerpt}
+  jsonType='BlogPosting'
+  extraJson={extraJson}
+  useTagLine={false}
+/>

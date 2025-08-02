@@ -1,11 +1,22 @@
 ---
 interface Props {
-  currentPage?: string // Current page
-  lang?: string // Language parameter
-  jsonType?: string // Type of the page
+  currentPage: string // Current page
+  lang: string // Language parameter
+  jsonType: string // Type of the page
   extraJson?: Record<string, any> // Extra JSON data
+  baseDescription?: string // Description of the page (optional, to ignore i18n)
+  author?: string // Author of the page (optional, to ignore i18n)
+  useTagLine?: boolean // Use tag line from i18n
 }
-const { currentPage, lang, jsonType, extraJson } = Astro.props as Props
+const {
+  currentPage,
+  lang,
+  jsonType,
+  extraJson = {},
+  baseDescription = '',
+  author = "Dari Dev's Team",
+  useTagLine = true,
+} = Astro.props as Props
 
 // Libs
 import { useTranslations } from '../../../i18n/utils'
@@ -15,20 +26,16 @@ const t = useTranslations((lang as 'en' | 'es') || 'en')
 
 // Data
 import { domain } from '../../../data/setup'
-import {
-  email,
-  socialNetworks,
-} from '../../../data/contact'
+import { email, socialNetworks } from '../../../data/contact'
 import { googleMapsLink } from '../../../data/contact'
 
 // Get page metadata from i18n
 const title = 'Ella Skin & Spa Wellness'
-const pageName = t(`meta.${currentPage}.page`)
-const description = t(`meta.${currentPage}.description`)
+const pageName = t(`meta.${currentPage}.page`) || currentPage
+const description = t(`meta.${currentPage}.description`) || baseDescription
 const image = '/imgs/logo.webp'
-const type = 'website'
 const twitterHandle = '@DeveloperDari'
-let keywords = t(`meta.${currentPage}.keywords`)
+let keywords = t(`meta.${currentPage}.keywords`) || ''
 if (typeof keywords === 'string') {
   keywords = keywords.split(',').map((keyword) => keyword.trim())
 }
@@ -40,8 +47,10 @@ const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords
 let pageTitle
 if (currentPage == 'home') {
   pageTitle = pageName
-} else {
+} else if (useTagLine) {
   pageTitle = `${pageName} | ${title}`
+} else {
+  pageTitle = pageName
 }
 
 // Page slug — we assume `currentPage` is the slug, e.g., 'gallery'
@@ -102,7 +111,7 @@ const ogType = ogTypeMap[jsonType as keyof typeof ogTypeMap] || 'website'
 }
 <meta
   name='author'
-  content="Dari Dev's Team"
+  content={author}
 />
 
 <!-- Open Graph tags -->

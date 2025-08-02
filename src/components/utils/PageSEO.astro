@@ -1,8 +1,8 @@
 ---
 // Reas props
 interface Props {
-  currentPage?: string // Current page
-  lang?: string // Language parameter
+  currentPage: string // Current page
+  lang: string // Language parameter
 }
 const { currentPage, lang } = Astro.props as Props
 
@@ -20,7 +20,7 @@ import { servicesData } from '../../data/servcies'
 // i18n
 const t = useTranslations((lang as 'en' | 'es') || 'en')
 
-
+// Extra JSON
 const extraJson = {
   // Price
   priceRange: '$',
