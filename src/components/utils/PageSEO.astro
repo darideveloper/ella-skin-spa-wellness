@@ -1,0 +1,93 @@
+---
+// Reas props
+interface Props {
+  currentPage?: string // Current page
+  lang?: string // Language parameter
+}
+const { currentPage, lang } = Astro.props as Props
+
+// Components
+import BaseSEO from './base/BaseSEO.astro'
+
+// Libs
+import { useTranslations } from '../../i18n/utils'
+
+// Data
+import { domain } from '../../data/setup'
+import { phoneUnformatted, addressElems } from '../../data/contact'
+import { servicesData } from '../../data/servcies'
+
+// i18n
+const t = useTranslations((lang as 'en' | 'es') || 'en')
+
+
+const extraJson = {
+  // Price
+  priceRange: '$',
+
+  // Contact
+  telephone: phoneUnformatted,
+
+  // Hours
+  openingHours: ['Mo-Fr 10:00-20:00', 'Sa 11:00-17:00'],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '10:00',
+      closes: '20:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '11:00',
+      closes: '17:00',
+    },
+  ],
+
+  // Services
+  makesOffer: [
+    ...Object.keys(servicesData).map((serviceKey) => ({
+      '@type': 'Offer',
+      name: t(`services.cards.${serviceKey}.name`)?.replaceAll('*', ''),
+      description: t(`services.cards.${serviceKey}.description`)?.replaceAll(
+        '*',
+        ''
+      ),
+      url: `${domain}/${lang}#service-${serviceKey.toLowerCase()}`,
+    })),
+  ],
+
+  // Founder
+  foundingDate: '2022',
+  founder: {
+    '@type': 'Person',
+    name: 'Ella Skin & Spa Wellness Team',
+  },
+
+  // rating
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '27',
+  },
+
+  // Location
+  address: {
+    '@type': 'PostalAddress',
+    ...addressElems,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 20.9984621,
+    longitude: -89.6152096,
+  },
+}
+---
+
+<BaseSEO
+  currentPage={currentPage}
+  lang={lang}
+  jsonType='LocalBusiness'
+  extraJson={extraJson}
+/>

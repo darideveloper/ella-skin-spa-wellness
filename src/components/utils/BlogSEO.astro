@@ -1,0 +1,17 @@
+---
+// Components
+import BaseSEO from './base/BaseSEO.astro'
+
+// Reas props
+interface Props {
+  currentPage?: string // Current page
+  lang?: string // Language parameter
+}
+const { currentPage, lang } = Astro.props as Props
+---
+
+<BaseSEO
+  currentPage={currentPage}
+  lang={lang}
+  jsonType='BlogPosting'
+/>

@@ -2,25 +2,24 @@
 interface Props {
   currentPage?: string // Current page
   lang?: string // Language parameter
+  jsonType?: string // Type of the page
+  extraJson?: Record<string, any> // Extra JSON data
 }
-const { currentPage, lang } = Astro.props as Props
+const { currentPage, lang, jsonType, extraJson } = Astro.props as Props
 
 // Libs
-import { useTranslations } from '../../i18n/utils'
+import { useTranslations } from '../../../i18n/utils'
 
 // i18n
 const t = useTranslations((lang as 'en' | 'es') || 'en')
 
 // Data
-import { domain } from '../../data/setup'
+import { domain } from '../../../data/setup'
 import {
-  phoneUnformatted,
   email,
-  addressElems,
   socialNetworks,
-} from '../../data/contact'
-import { servicesData } from '../../data/servcies'
-import { googleMapsLink } from '../../data/contact'
+} from '../../../data/contact'
+import { googleMapsLink } from '../../../data/contact'
 
 // Get page metadata from i18n
 const title = 'Ella Skin & Spa Wellness'
@@ -60,70 +59,31 @@ const alternateUrls = {
 // Generate data
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': jsonType || 'LocalBusiness',
   '@id': `${domain}#localbusiness`,
   name: pageTitle,
   description: description,
   url: canonicalUrl,
   logo: `${domain}/imgs/logo.webp`,
   image: `${domain}/imgs/logo.webp`,
-  telephone: phoneUnformatted,
   email: email,
-  priceRange: '$',
   serviceArea: ['Yucatan', 'Mexico'],
-  address: {
-    '@type': 'PostalAddress',
-    ...addressElems,
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 20.9984621,
-    longitude: -89.6152096,
-  },
   hasMap: googleMapsLink,
   sameAs: [...socialNetworks.map((social) => social.link)],
-  openingHours: ['Mo-Fr 10:00-20:00', 'Sa 11:00-17:00'],
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '10:00',
-      closes: '20:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '11:00',
-      closes: '17:00',
-    },
-  ],
-  makesOffer: [
-    ...Object.keys(servicesData).map((serviceKey) => ({
-      '@type': 'Offer',
-      name: t(`services.cards.${serviceKey}.name`)?.replaceAll('*', ''),
-      description: t(`services.cards.${serviceKey}.description`)?.replaceAll(
-        '*',
-        ''
-      ),
-      url: `${domain}/${lang}#service-${serviceKey.toLowerCase()}`,
-    })),
-  ],
-  foundingDate: '2022',
-  founder: {
-    '@type': 'Person',
-    name: 'Ella Skin & Spa Wellness Team',
-  },
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Yucatan' },
     { '@type': 'Country', name: 'Mexico' },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '27',
-  },
   inLanguage: lang || 'en',
+  ...extraJson,
 }
+
+const ogTypeMap = {
+  LocalBusiness: 'website',
+  Blog: 'blog',
+  BlogPosting: 'article',
+}
+const ogType = ogTypeMap[jsonType as keyof typeof ogTypeMap] || 'website'
 ---
 
 <!-- Html tags -->
@@ -148,7 +108,7 @@ const jsonLd = {
 <!-- Open Graph tags -->
 <meta
   property='og:type'
-  content={type}
+  content={ogType}
 />
 <meta
   property='og:title'

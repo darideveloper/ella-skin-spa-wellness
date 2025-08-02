@@ -11,7 +11,6 @@ import Header from '../components/sections/Header.tsx'
 import Footer from '../components/sections/Footer.astro'
 import WhatsappButton from '../components/ui/WhatsappButton.astro'
 import ContactForm from '../components/sections/ContactForm.astro'
-import SEO from '../components/utils/SEO.astro'
 
 // i18n
 const { lang } = Astro.params as any
@@ -50,11 +49,8 @@ if (!currentPage || currentPage === 'en' || currentPage === 'es') {
     <!-- Pages transition -->
     <ClientRouter />
 
-    <!-- Dynamic SEO -->
-    <SEO
-      currentPage="home"
-      lang={lang}
-    />
+    <!-- SEO Slot -->
+    <slot name="seo" />
   </head>
   <body>
     <Header

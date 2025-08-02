@@ -2,6 +2,7 @@
 // Sections
 import Layout from "../../../layouts/Layout.astro";
 import Posts from "../../../components/sections/Posts.astro";
+import BlogSEO from "../../../components/utils/BlogSEO.astro";
 
 // Libs
 import { useTranslations } from "../../../i18n/utils";
@@ -14,5 +15,9 @@ const t = useTranslations(lang);
 ---
 
 <Layout>
+  <!-- SEO -->
+  <BlogSEO currentPage="blog" lang={lang} slot="seo" />
+
+  <!-- Content -->
   <Posts />
 </Layout>

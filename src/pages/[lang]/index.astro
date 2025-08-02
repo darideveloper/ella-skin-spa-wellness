@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import Banner from "../../components/sections/Banner.astro";
 import Services from "../../components/sections/Services.astro";
 import Posts from "../../components/sections/Posts.astro";
+import PageSEO from "../../components/utils/PageSEO.astro";
 
 // Libs
 import { useTranslations } from "../../i18n/utils";
@@ -17,6 +18,10 @@ const t = useTranslations(lang);
 ---
 
 <Layout>
+  <!-- SEO -->
+  <PageSEO currentPage="home" lang={lang} slot="seo" />
+
+  <!-- Content -->
   <Banner />
   <About />
   <Services />
