@@ -8,10 +8,25 @@ interface Props {
   lang?: string // Language parameter
 }
 const { currentPage, lang } = Astro.props as Props
+
+// Data
+import { domain } from '../../data/setup'
+
+const extraJson = {
+  publisher: {
+    '@type': 'Organization',
+    name: 'Ella Skin & Spa Wellness',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${domain}/imgs/logo.webp`,
+    },
+  },
+}
 ---
 
 <BaseSEO
   currentPage={currentPage}
   lang={lang}
-  jsonType='BlogPosting'
+  jsonType='Blog'
+  extraJson={extraJson}
 />
