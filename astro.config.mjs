@@ -9,9 +9,11 @@ import showTailwindcssBreakpoint from 'astro-show-tailwindcss-breakpoint'
 
 import sitemap from '@astrojs/sitemap'
 
+import { domain } from './src/data/setup'
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ella-skin-spa-wellness.com',
+  site: domain,
   integrations: [react(), showTailwindcssBreakpoint(), sitemap({
     i18n: {
       defaultLocale: 'es',
