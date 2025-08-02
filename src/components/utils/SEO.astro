@@ -20,13 +20,13 @@ import {
   socialNetworks,
 } from '../../data/contact'
 import { servicesData } from '../../data/servcies'
+import { googleMapsLink } from '../../data/contact'
 
 // Get page metadata from i18n
 const title = 'Ella Skin & Spa Wellness'
 const pageName = t(`meta.${currentPage}.page`)
 const description = t(`meta.${currentPage}.description`)
-const url = domain // Make sure this is dynamic if needed
-const image = '/imgs/logo.webp' // Make sure this is the full URL if needed
+const image = '/imgs/logo.webp'
 const type = 'website'
 const twitterHandle = '@DeveloperDari'
 let keywords = t(`meta.${currentPage}.keywords`)
@@ -37,6 +37,7 @@ if (typeof keywords === 'string') {
 // Split keywords into an array if it's a string
 const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
+// Calculate page title
 let pageTitle
 if (currentPage == 'home') {
   pageTitle = pageName
@@ -44,13 +45,26 @@ if (currentPage == 'home') {
   pageTitle = `${pageName} | ${title}`
 }
 
+// Page slug — we assume `currentPage` is the slug, e.g., 'gallery'
+const pageSlug = currentPage === 'home' ? '' : `/${currentPage}`
+
+// Canonical URL for this language
+const canonicalUrl = `${domain}/${lang}${pageSlug}`
+
+// Alternate URLs
+const alternateUrls = {
+  en: `${domain}/en${pageSlug}`,
+  es: `${domain}/es${pageSlug}`,
+}
+
 // Generate data
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': `${domain}#localbusiness`,
   name: pageTitle,
   description: description,
-  url: domain,
+  url: canonicalUrl,
   logo: `${domain}/imgs/logo.webp`,
   image: `${domain}/imgs/logo.webp`,
   telephone: phoneUnformatted,
@@ -61,10 +75,14 @@ const jsonLd = {
     '@type': 'PostalAddress',
     ...addressElems,
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 20.9984621,
+    longitude: -89.6152096,
+  },
+  hasMap: googleMapsLink,
   sameAs: [...socialNetworks.map((social) => social.link)],
-  // "weekdays": "Monday to Friday from 10 am to 8 pm | (More early with prior appointment)",
-  //     "saturday": "Saturdays from 11 am to 5 pm | (More early with prior appointment)",
-  //     "sunday": "Sundays (Prior appointment)"
+  openingHours: ['Mo-Fr 10:00-20:00', 'Sa 11:00-17:00'],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -90,18 +108,21 @@ const jsonLd = {
       url: `${domain}/${lang}#service-${serviceKey.toLowerCase()}`,
     })),
   ],
-}
-
-// Page slug — we assume `currentPage` is the slug, e.g., 'gallery'
-const pageSlug = currentPage === 'home' ? '' : `/${currentPage}`
-
-// Canonical URL for this language
-const canonicalUrl = `${domain}/${lang}${pageSlug}`
-
-// Alternate URLs
-const alternateUrls = {
-  en: `${domain}/en${pageSlug}`,
-  es: `${domain}/es${pageSlug}`,
+  foundingDate: '2022',
+  founder: {
+    '@type': 'Person',
+    name: 'Ella Skin & Spa Wellness Team',
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Yucatan' },
+    { '@type': 'Country', name: 'Mexico' },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '27',
+  },
+  inLanguage: lang || 'en',
 }
 ---
 
@@ -119,10 +140,6 @@ const alternateUrls = {
     />
   )
 }
-<link
-  rel='canonical'
-  href={url}
-/>
 <meta
   name='author'
   content="Dari Dev's Team"
@@ -135,7 +152,7 @@ const alternateUrls = {
 />
 <meta
   property='og:title'
-  content={`${pageName} | ${title}`}
+  content={pageTitle}
 />
 <meta
   property='og:description'
@@ -143,7 +160,7 @@ const alternateUrls = {
 />
 <meta
   property='og:url'
-  content={url}
+  content={canonicalUrl}
 />
 <meta
   property='og:image'
@@ -161,7 +178,7 @@ const alternateUrls = {
 />
 <meta
   name='twitter:title'
-  content={`${pageName} | ${title}`}
+  content={pageTitle}
 />
 <meta
   name='twitter:description'
@@ -170,6 +187,10 @@ const alternateUrls = {
 <meta
   name='twitter:image'
   content={image}
+/>
+<meta
+  name='twitter:creator'
+  content='@DeveloperDari'
 />
 
 <!-- Json Ld -->
