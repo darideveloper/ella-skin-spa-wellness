@@ -5,6 +5,9 @@ import { useTranslations } from '../../i18n/utils'
 import { submitLead } from '../../libs/apis/leads'
 import Swal from 'sweetalert2'
 
+// Styles
+import 'sweetalert2/dist/sweetalert2.min.css'
+
 // Icons
 import { HiPaperAirplane } from 'react-icons/hi'
 
