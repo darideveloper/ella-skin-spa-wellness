@@ -29,7 +29,7 @@ export async function getPost(lang: string, id: string): Promise<BlogPost> {
   // Setup headers
   const myHeaders = new Headers()
   myHeaders.append('Accept-Language', lang)
-  myHeaders.append('Authorization', `Token ${import.meta.env.API_SECRET_KEY}`)
+  myHeaders.append('Authorization', `Token ${import.meta.env.PUBLIC_API_SECRET_KEY}`)
 
   const requestOptions = {
     method: 'GET',
