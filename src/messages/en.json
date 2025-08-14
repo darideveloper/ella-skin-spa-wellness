@@ -214,6 +214,11 @@
       "page": "Blog",
       "description": "Discover the secrets of beauty and wellness with our specialized articles",
       "keywords": "Ella Skin & Spa Wellness, blog, beauty and wellness treatments, high-quality products, advanced techniques"
+    },
+    "contact": {
+      "page": "Contact",
+      "description": "Ready to begin your wellness journey? Contact us to schedule your personalized spa experience.",
+      "keywords": "Ella Skin & Spa Wellness, contact, personalized spa experience"
     }
   }
 }

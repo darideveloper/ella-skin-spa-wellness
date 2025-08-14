@@ -214,6 +214,11 @@
       "page": "Blog",
       "description": "Descubre los secretos de la belleza y el bienestar con nuestros artículos especializados",
       "keywords": "Ella Skin & Spa Wellness, blog, belleza, bienestar, artículos especializados"
+    },
+    "contact": {
+      "page": "Contacto",
+      "description": "¿Listo para comenzar tu viaje de bienestar? Contáctanos para programar tu experiencia de spa personalizada.",
+      "keywords": "Ella Skin & Spa Wellness, contacto, experiencia de spa personalizada"
     }
   }
 }
