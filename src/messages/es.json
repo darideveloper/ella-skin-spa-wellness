@@ -45,9 +45,9 @@
           "*Técnicas avanzadas*"
         ],
         "textButtonPrimary": "Reservar Ahora",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Saber Más",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "therapy": {
         "name": "*Tratamientos Corporales*",
@@ -60,9 +60,9 @@
           "*Productos de alta calidad y técnicas profesionales*"
         ],
         "textButtonPrimary": "Reservar Ahora",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Saber Más",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "massage": {
         "name": "Masajes *Relajantes y Terapéuticos*",
@@ -75,9 +75,9 @@
           "**Experiencia renovadora para cuerpo y mente**"
         ],
         "textButtonPrimary": "Reservar Ahora",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Saber Más",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "advanced": {
         "name": "*Aparatología Estética Avanzada*",
@@ -90,9 +90,9 @@
           "Complemento ideal para potenciar resultados"
         ],
         "textButtonPrimary": "Reservar Ahora",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Saber Más",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       }
     }
   },

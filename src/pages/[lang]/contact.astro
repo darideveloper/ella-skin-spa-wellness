@@ -1,0 +1,20 @@
+---
+// Sections
+import Layout from "../../layouts/Layout.astro";
+import PageSEO from "../../components/utils/PageSEO.astro";
+import Title from "../../components/ui/Title.astro";
+
+// Libs
+import { useTranslations } from "../../i18n/utils";
+import { getStaticPathsLangs } from "../../libs/getStaticPaths";
+
+// i18n
+export const getStaticPaths = getStaticPathsLangs;
+const { lang } = Astro.params as any;
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <!-- SEO -->
+  <PageSEO currentPage="contact" lang={lang} slot="seo" />
+</Layout>

@@ -45,9 +45,9 @@
           "*Advanced techniques*"
         ],
         "textButtonPrimary": "Book Now",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Learn More",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "therapy": {
         "name": "*Body Treatments*",
@@ -60,9 +60,9 @@
           "*High-quality products and professional techniques*"
         ],
         "textButtonPrimary": "Book Now",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Learn More",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "massage": {
         "name": "Relaxing and Therapeutic *Massages*",
@@ -75,9 +75,9 @@
           "**Renewing experience for body and mind**"
         ],
         "textButtonPrimary": "Book Now",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Learn More",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       },
       "advanced": {
         "name": "*Advanced Aesthetic Apparatus*",
@@ -90,9 +90,9 @@
           "Ideal complement to enhance results"
         ],
         "textButtonPrimary": "Book Now",
-        "srcButtonPrimary": "/contact",
+        "srcButtonPrimary": "/lang/contact",
         "textButtonSecond": "Learn More",
-        "srcButtonSecond": "/contact"
+        "srcButtonSecond": "/lang/contact"
       }
     }
   },

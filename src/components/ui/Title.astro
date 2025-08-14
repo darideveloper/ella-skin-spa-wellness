@@ -1,12 +1,14 @@
 ---
 export interface Props {
   text: string;
+  isH1?: boolean;
 }
 
-const { text } = Astro.props;
+const { text, isH1 = false } = Astro.props;
+const Tag = isH1 ? 'h1' : 'h2';
 ---
 
-<h2
+<Tag
   class:list={[
     'text-5xl md:text-6xl',
     'font-title',
@@ -15,4 +17,4 @@ const { text } = Astro.props;
   ]}
 >
   {text}
-</h2> 
+</Tag> 

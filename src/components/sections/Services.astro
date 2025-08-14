@@ -25,14 +25,23 @@ const services = Object.keys(servicesData).map((key) => ({
     marked.parseInline(feature)
   ),
   textButtonPrimary: t(`services.cards.${key}.textButtonPrimary`),
-  srcButtonPrimary: t(`services.cards.${key}.srcButtonPrimary`),
+  srcButtonPrimary: t(`services.cards.${key}.srcButtonPrimary`).replace(
+    '/lang',
+    `/${lang}`
+  ),
   textButtonSecond: t(`services.cards.${key}.textButtonSecond`),
-  srcButtonSecond: t(`services.cards.${key}.srcButtonSecond`),
+  srcButtonSecond: t(`services.cards.${key}.srcButtonSecond`).replace(
+    '/lang',
+    `/${lang}`
+  ),
   key: key,
 }))
 ---
 
-<section id='services' class='container'>
+<section
+  id='services'
+  class='container'
+>
   <div class='text-center mb-16'>
     <h2
       class='font-title text-4xl text-brown mb-4'
