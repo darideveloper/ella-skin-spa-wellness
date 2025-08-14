@@ -1,12 +1,12 @@
 import type { BlogPost } from '../../types/blog'
 
-const postsEndpoint = `${import.meta.env.API_BASE_URL}/posts`
+const postsEndpoint = `${import.meta.env.PUBLIC_API_BASE_URL}/posts`
 
 export async function getPosts(lang: string, limit: number = 1000): Promise<BlogPost[]> {
   // Setup headers
   const myHeaders = new Headers()
   myHeaders.append('Accept-Language', lang)
-  myHeaders.append('Authorization', `Token ${import.meta.env.API_SECRET_KEY}`)
+  myHeaders.append('Authorization', `Token ${import.meta.env.PUBLIC_API_SECRET_KEY}`)
 
   const requestOptions = {
     method: 'GET',

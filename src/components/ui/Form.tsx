@@ -2,6 +2,7 @@
 import clsx from 'clsx'
 import { useState } from 'react'
 import { useTranslations } from '../../i18n/utils'
+import { submitLead } from '../../libs/apis/leads'
 
 // Icons
 import { HiPaperAirplane } from 'react-icons/hi'
@@ -11,41 +12,39 @@ import FormInput from './FormInput.tsx'
 import FormTextarea from './FormTextarea.tsx'
 
 // Types
+import type { LeadData } from '../../types/lead.ts'
+
 interface FormProps {
   lang: string
-}
-
-interface FormData {
-  name: string
-  email: string
-  phone: string
-  message: string
 }
 
 export default function Form({ lang }: FormProps) {
   const t = useTranslations(lang as 'en' | 'es')
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<LeadData>({
     name: '',
     email: '',
     phone: '',
     message: '',
   })
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof LeadData, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission logic here
     console.log('Form submitted with data:', formData)
 
-    // Here you can send formData to your API
-    // Example: await submitToAPI(formData)
+    try {
+      await submitLead(lang, formData)
+    } catch (error) {
+      console.error('Error submitting lead:', error)
+    }
   }
 
   return (
