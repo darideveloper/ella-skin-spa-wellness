@@ -6,6 +6,8 @@ interface FormInputProps {
   placeholder: string
   required?: boolean
   className?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
 export default function FormInput({ 
@@ -15,7 +17,9 @@ export default function FormInput({
   label, 
   placeholder, 
   required = false, 
-  className = '' 
+  className = '',
+  value = '',
+  onChange
 }: FormInputProps) {
   return (
     <div className={className}>
@@ -31,6 +35,8 @@ export default function FormInput({
           id={id}
           name={name}
           required={required}
+          value={value}
+          onChange={(e) => onChange?.(e.target.value)}
           className="w-full px-4 py-3 border-2 border-brown-light/30 rounded-lg text-black placeholder-brown-light/50 focus:outline-none focus:border-brown focus:ring-4 focus:ring-brown/10 transition-all duration-300 font-sans"
           placeholder={placeholder}
         />

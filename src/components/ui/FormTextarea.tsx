@@ -6,6 +6,8 @@ interface FormTextareaProps {
   rows?: number
   required?: boolean
   className?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
 export default function FormTextarea({ 
@@ -15,7 +17,9 @@ export default function FormTextarea({
   placeholder, 
   rows = 4, 
   required = false, 
-  className = '' 
+  className = '',
+  value = '',
+  onChange
 }: FormTextareaProps) {
   return (
     <div className={className}>
@@ -31,6 +35,8 @@ export default function FormTextarea({
           name={name}
           rows={rows}
           required={required}
+          value={value}
+          onChange={(e) => onChange?.(e.target.value)}
           className="w-full px-4 py-3 border-2 border-brown-light/30 rounded-lg text-black placeholder-brown-light/50 focus:outline-none focus:border-brown focus:ring-4 focus:ring-brown/10 transition-all duration-300 font-sans resize-none"
           placeholder={placeholder}
         />

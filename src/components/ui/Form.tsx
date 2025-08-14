@@ -1,4 +1,5 @@
 import { HiPaperAirplane } from 'react-icons/hi'
+import { useState } from 'react'
 import { useTranslations } from '../../i18n/utils'
 import FormInput from './FormInput.tsx'
 import FormTextarea from './FormTextarea.tsx'
@@ -7,13 +8,37 @@ interface FormProps {
   lang: string
 }
 
+interface FormData {
+  name: string
+  email: string
+  phone: string
+  message: string
+}
+
 export default function Form({ lang }: FormProps) {
   const t = useTranslations(lang as 'en' | 'es')
+  
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
+
+  const handleInputChange = (field: keyof FormData, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission logic here
-    console.log('Form submitted')
+    console.log('Form submitted with data:', formData)
+    
+    // Here you can send formData to your API
+    // Example: await submitToAPI(formData)
   }
 
   return (
@@ -26,6 +51,8 @@ export default function Form({ lang }: FormProps) {
         label={t('contact.form.name')}
         placeholder={t('contact.form.placeholder.name')}
         required={true}
+        value={formData.name}
+        onChange={(value) => handleInputChange('name', value)}
       />
 
       {/* Email Field */}
@@ -36,6 +63,8 @@ export default function Form({ lang }: FormProps) {
         label={t('contact.form.email')}
         placeholder={t('contact.form.placeholder.email')}
         required={true}
+        value={formData.email}
+        onChange={(value) => handleInputChange('email', value)}
       />
 
       {/* Phone Field */}
@@ -46,6 +75,8 @@ export default function Form({ lang }: FormProps) {
         label={t('contact.form.phone')}
         placeholder={t('contact.form.placeholder.phone')}
         required={true}
+        value={formData.phone}
+        onChange={(value) => handleInputChange('phone', value)}
       />
 
       {/* Message Field */}
@@ -55,6 +86,8 @@ export default function Form({ lang }: FormProps) {
         label={t('contact.form.message')}
         placeholder={t('contact.form.placeholder.message')}
         rows={4}
+        value={formData.message}
+        onChange={(value) => handleInputChange('message', value)}
       />
 
       {/* Submit Button */}
