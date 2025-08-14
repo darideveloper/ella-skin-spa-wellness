@@ -175,6 +175,17 @@
       "message": "Message (Optional)",
       "submit": "Send Message",
       "submitAlt": "Begin Your Transformation",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent Successfully!",
+        "message": "Thank you for contacting us. We will get back to you soon!",
+        "button": "OK"
+      },
+      "error": {
+        "title": "Submission Failed",
+        "message": "Sorry, there was an error sending your message. Please try again.",
+        "button": "Try Again"
+      },
       "placeholder": {
         "name": "Enter your full name",
         "email": "Enter your email",

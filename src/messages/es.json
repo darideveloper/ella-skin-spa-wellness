@@ -175,6 +175,17 @@
       "message": "Mensaje (Opcional)",
       "submit": "Enviar Mensaje",
       "submitAlt": "Comienza Tu Transformación",
+      "submitting": "Enviando...",
+      "success": {
+        "title": "¡Mensaje Enviado Exitosamente!",
+        "message": "¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.",
+        "button": "OK"
+      },
+      "error": {
+        "title": "Error al Enviar",
+        "message": "Lo sentimos, hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        "button": "Intentar de Nuevo"
+      },
       "placeholder": {
         "name": "Ingresa tu nombre completo",
         "email": "Ingresa tu correo electrónico",

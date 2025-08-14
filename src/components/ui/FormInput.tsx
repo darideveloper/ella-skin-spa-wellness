@@ -12,6 +12,7 @@ interface FormInputProps {
   className?: string
   value?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export default function FormInput({ 
@@ -23,7 +24,8 @@ export default function FormInput({
   required = false, 
   className = '',
   value = '',
-  onChange
+  onChange,
+  disabled = false
 }: FormInputProps) {
   return (
     <div className={className}>
@@ -46,6 +48,7 @@ export default function FormInput({
           required={required}
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
+          disabled={disabled}
           className={clsx(
             'w-full',
             'px-4',
@@ -60,7 +63,10 @@ export default function FormInput({
             'focus:ring-brown/10',
             'transition-all',
             'duration-300',
-            'font-sans'
+            'font-sans',
+            'disabled:opacity-50',
+            'disabled:cursor-not-allowed',
+            'disabled:bg-gray-100'
           )}
           placeholder={placeholder}
         />
