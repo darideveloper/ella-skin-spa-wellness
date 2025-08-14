@@ -58,7 +58,7 @@ export default function FormInput({
             'rounded-lg',
             'text-black',
             'placeholder-brown-light/50',
-            'focusoutline-none',
+            'focus:outline-none',
             'focus:ring-4',
             'focus:ring-brown/10',
             'transition-all',
