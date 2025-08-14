@@ -5,7 +5,7 @@ import type { useTranslations } from '../i18n/utils'
 export const phoneUnformatted = '+52 999 904 96 31'
 export const phone = phoneUnformatted.replace(/\s/g, '').replace('+', '')
 
-export const email = 'info@ellaskinspa.com'
+export const email = 'contact@ellaskinspawellness.com'
 
 export const addressElems = {
   streetAddress: "Cto. Colonias 118",
