@@ -34,7 +34,7 @@ marked.setOptions({
 })
 
 // Render markdown content
-const renderedContent = String(marked(postData.content))
+const renderedContent = String(marked(postData.content || ''))
   .replace(/<h1/g, '<h2')
   .replace(/<\/h1>/g, '</h2>')
 const relatedPostSlug = await postData['related_post']
@@ -125,7 +125,8 @@ if (lang === 'en') {
       <div class:list={['flex', 'flex-wrap', 'gap-2']}>
         {
           postData.keywords
-            .split(',')
+            ?.split(',')
+            .filter((keyword: string) => keyword.trim() !== '')
             .map((keyword: string) => (
               <span
                 class:list={[
