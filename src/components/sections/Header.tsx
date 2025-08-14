@@ -17,9 +17,10 @@ import { phoneUnformatted, phone } from '../../data/contact'
 
 interface HeaderProps {
   lang?: string
+  page?: string
 }
 
-export default function Header({ lang = 'en' }: HeaderProps) {
+export default function Header({ lang = 'en', page }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [navigationLinks, setNavigationLinks] = useState<
@@ -49,6 +50,17 @@ export default function Header({ lang = 'en' }: HeaderProps) {
   // Data
   const ctaText = t('header.nav.book')
   const ctaHref = '#contact'
+
+  // Same styles to h1 tags
+  const h1Styles = clsx(
+    isScrolled ? 'text-brown' : 'text-white',
+    'pt-3',
+    'text-xl',
+    'font-title',
+    'font-bold',
+    'drop-shadow-lg',
+    '!mb-0',
+  )
 
   return (
     <>
@@ -94,18 +106,11 @@ export default function Header({ lang = 'en' }: HeaderProps) {
 
               {/* Título y subtítulo */}
               <div className={clsx('hidden', 'md:block', 'flex')}>
-                <h1
-                  className={clsx(
-                    isScrolled ? 'text-brown' : 'text-white',
-                    'pt-3',
-                    'text-xl',
-                    'font-title',
-                    'font-bold',
-                    'drop-shadow-lg'
-                  )}
-                >
-                  ELLA SKIN & SPA
-                </h1>
+                {page === 'home' ? (
+                  <h1 className={h1Styles}>ELLA SKIN & SPA</h1>
+                ) : (
+                  <p className={h1Styles}>ELLA SKIN & SPA</p>
+                )}
                 <p
                   className={clsx(
                     'text-xs',

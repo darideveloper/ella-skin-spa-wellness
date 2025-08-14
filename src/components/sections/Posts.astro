@@ -18,10 +18,11 @@ import { FaBook } from 'react-icons/fa6'
 
 // Props
 interface Props {
-  limitPosts?: boolean
+  limitPosts?: boolean,
+  useH1?: boolean
 }
 
-const { limitPosts = false }: Props = Astro.props
+const { limitPosts = false, useH1 = false }: Props = Astro.props
 
 // Get posts from API (already limited if required)
 const maxPosts = 6
@@ -45,7 +46,7 @@ const postsData: BlogPost[] = await getPosts(lang, limitPosts ? maxPosts : 1000)
     <!-- Top Section -->
     <div class:list={['text-center', 'mb-12']}>
       <div class:list={['text-4xl', 'font-title', 'text-brown', 'mb-4']}>
-        <Title text={t('post.title')} />
+        <Title isH1={useH1} text={t('post.title')} />
       </div>
       <p
         class:list={[

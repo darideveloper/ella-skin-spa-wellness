@@ -1,7 +1,4 @@
 ---
-// Layout
-import Layout from '../../layouts/Layout.astro'
-
 // Libs
 import { useTranslations } from '../../i18n/utils'
 import { marked } from 'marked'
@@ -12,6 +9,7 @@ const t = useTranslations(lang)
 
 // Components
 import ServiceCard from '../../components/ui/ServiceCard.astro'
+import Title from '../../components/ui/Title.astro'
 
 // data imports
 import { servicesData } from '../../data/servcies'
@@ -43,10 +41,7 @@ const services = Object.keys(servicesData).map((key) => ({
   class='container'
 >
   <div class='text-center mb-16'>
-    <h2
-      class='font-title text-4xl text-brown mb-4'
-      set:html={t('services.title')}
-    />
+    <Title text={t('services.title')} />
     <p class='font-sans text-black text-lg max-w-2xl mx-auto'>
       {t('services.subtitle')}
     </p>

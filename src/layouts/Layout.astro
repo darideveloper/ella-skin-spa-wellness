@@ -56,12 +56,13 @@ if (!currentPage || currentPage === 'en' || currentPage === 'es') {
     <Header
       client:load
       lang={lang}
+      page={currentPage}
     />
 
     <main class:list={['font-sans']}>
       <slot />
     </main>
-    <Contact />
+    <Contact useH1={currentPage === 'contact'} />
     <Footer />
     <WhatsappButton />
   </body>
