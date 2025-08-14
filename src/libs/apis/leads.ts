@@ -1,6 +1,6 @@
 import type { LeadData } from '../../types/lead'
 
-const leadsEndpoint = `${import.meta.env.PUBLIC_API_BASE_URL}/leads`
+const leadsEndpoint = `${import.meta.env.PUBLIC_API_BASE_URL}/leads/`
 
 export async function submitLead(lang: string, leadData: LeadData): Promise<any> {
   // Setup headers
