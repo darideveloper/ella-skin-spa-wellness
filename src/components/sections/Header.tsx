@@ -88,7 +88,7 @@ export default function Header({ lang = 'en', page }: HeaderProps) {
             '!my-0',
             'mx-auto',
             'px-4',
-            'py-6',
+            'py-2 md:py-6',
             'flex',
             'items-center',
             'justify-between'

@@ -24,15 +24,16 @@ const galleryImages = shuffle(
   id="banners"
   class:list={[
     "relative",
-    "h-screen",
-    "min-h-[600px]",
+    "h-[500px] md:h-screen",
+    "min-h-[500px]",
     "overflow-hidden",
+    "mt-20 md:mt-0"
   ]}
 >
   <Slider 
     client:load
     images={galleryImages}
-    height="h-screen min-h-[600px]"
+    height="h-full"
     autoplay={true}
     autoplayDelay={5000}
     showNavigation={true}
