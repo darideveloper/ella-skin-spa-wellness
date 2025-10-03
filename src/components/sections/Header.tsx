@@ -274,7 +274,7 @@ export default function Header({ lang = 'en', page }: HeaderProps) {
             {/* aqui va el otro LogoLink */}
 
             {/* Nombre del negocio */}
-            <h2
+            <p
               className={clsx(
                 'text-xl',
                 'font-title',
@@ -284,7 +284,7 @@ export default function Header({ lang = 'en', page }: HeaderProps) {
               )}
             >
               ELLA SKIN & SPA
-            </h2>
+            </p>
             <p className={clsx('text-sm', 'text-white/80')}>WELLNESS</p>
           </div>
 
