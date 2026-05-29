@@ -45,12 +45,12 @@ if (!currentPage || currentPage === 'en' || currentPage === 'es') {
       name='generator'
       content={Astro.generator}
     />
-    
+
     <!-- Pages transition -->
     <ClientRouter />
 
     <!-- SEO Slot -->
-    <slot name="seo" />
+    <slot name='seo' />
   </head>
   <body>
     <Header
